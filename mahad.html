@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grade 4 Mathematics — Term 2 Exam Preparation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap');
+
+    :root {
+      --bg: #0d0e12;
+      --fg: #edeef2;
+      --muted: #9a9caa;
+      --card: #13141a;
+      --card2: #16181f;
+      --line: #242630;
+      --accent: #5b7fff;
+      --accent2: #a78bfa;
+      --good: #4ade80;
+      --bad: #f87171;
+      --section-a: #5b7fff;
+      --section-b: #a78bfa;
+      --section-c: #34d399;
+      --section-d: #fb923c;
+      --section-e: #f472b6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.5;
+    }
+
+    /* ===== HERO HEADER ===== */
+    .hero {
+      background: linear-gradient(135deg, #0d0e12 0%, #131620 50%, #0d0e12 100%);
+      border-bottom: 1px solid var(--line);
+      padding: 36px 24px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(91,127,255,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: 30%;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(167,139,250,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      margin: 0 0 4px;
+      letter-spacing: -0.3px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(91,127,255,0.15);
+      border: 1px solid rgba(91,127,255,0.3);
+      color: #8fa8ff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .hero-sub { color: var(--muted); font-size: 13px; }
+
+    .student-fields {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .field-group label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+    }
+    .field-group input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--fg);
+      padding: 6px 10px;
+      font-size: 13px;
+      width: 140px;
+    }
+    .field-group input:focus { outline: none; border-color: var(--accent); }
+
+    /* ===== TOOLBAR ===== */
+    .toolbar {
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 24px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .toolbar-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 1px solid var(--line);
+      background: #0f1015;
+      color: var(--fg);
+      padding: 8px 16px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn:hover { background: #1a1c24; }
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #4a6de8; }
+    .toolbar-spacer { flex: 1; }
+    .score-pill {
+      background: rgba(91,127,255,0.12);
+      border: 1px solid rgba(91,127,255,0.25);
+      color: #8fa8ff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      display: none;
+    }
+    .score-pill.visible { display: block; }
+
+    /* ===== SECTION TABS ===== */
+    .section-nav {
+      max-width: 960px;
+      margin: 20px auto 0;
+      padding: 0 24px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .sec-tab {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+    .sec-tab:hover { background: var(--card); color: var(--fg); }
+    .sec-tab.a { --c: var(--section-a); }
+    .sec-tab.b { --c: var(--section-b); }
+    .sec-tab.c { --c: var(--section-c); }
+    .sec-tab.d { --c: var(--section-d); }
+    .sec-tab.e { --c: var(--section-e); }
+    .sec-tab:hover { border-color: var(--c); color: var(--c); }
+
+    /* ===== MAIN WRAP ===== */
+    .wrap { max-width: 960px; margin: 0 auto; padding: 20px 24px 60px; }
+
+    /* ===== SECTION HEADER ===== */
+    .section-block { margin-bottom: 10px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      margin: 24px 0 12px;
+      border: 1px solid transparent;
+    }
+    .section-header.a { background: rgba(91,127,255,0.08); border-color: rgba(91,127,255,0.2); }
+    .section-header.b { background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); }
+    .section-header.c { background: rgba(52,211,153,0.08); border-color: rgba(52,211,153,0.2); }
+    .section-header.d { background: rgba(251,146,60,0.08); border-color: rgba(251,146,60,0.2); }
+    .section-header.e { background: rgba(244,114,182,0.08); border-color: rgba(244,114,182,0.2); }
+    .sec-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .a .sec-dot { background: var(--section-a); }
+    .b .sec-dot { background: var(--section-b); }
+    .c .sec-dot { background: var(--section-c); }
+    .d .sec-dot { background: var(--section-d); }
+    .e .sec-dot { background: var(--section-e); }
+    .section-header h2 {
+      margin: 0;
+      font-size: 15px;
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+    }
+    .section-header .sec-count {
+      margin-left: auto;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ===== QUESTION CARD ===== */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin: 10px 0;
+      transition: border-color 0.2s, outline 0.2s;
+    }
+    .card:hover { border-color: #2e3040; }
+    .qhead {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .qnum {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .qnum span {
+      font-family: 'DM Serif Display', serif;
+      font-size: 17px;
+      color: var(--fg);
+    }
+    .qmeta { color: var(--muted); font-size: 11px; }
+    .prompt {
+      margin: 0 0 12px;
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+    .hint {
+      display: inline-block;
+      background: rgba(167,139,250,0.1);
+      border: 1px solid rgba(167,139,250,0.2);
+      color: #c4b5fd;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-top: 4px;
+    }
+
+    /* MCQ / TF options */
+    .opts { display: flex; flex-direction: column; gap: 6px; }
+    .opt {
+      display: flex;
+      align-items: center;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.12s, border-color 0.12s;
+      gap: 10px;
+    }
+    .opt:hover { background: rgba(255,255,255,0.03); border-color: #333645; }
+    .opt input[type="radio"] { accent-color: var(--accent); margin: 0; flex-shrink: 0; }
+
+    /* Short answer */
+    input[type="text"].short-ans {
+      width: 100%;
+      padding: 10px 13px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #0f1015;
+      color: var(--fg);
+      font-family: inherit;
+      font-size: 14px;
+      transition: border-color 0.15s;
+    }
+    input[type="text"].short-ans:focus { outline: none; border-color: var(--accent); }
+
+    /* Open-ended (no auto-grade) */
+    textarea.open-ans {
+      width: 100%;
+      padding: 10px 13px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #0f1015;
+      color: var(--fg);
+      font-family: inherit;
+      font-size: 14px;
+      resize: vertical;
+      min-height: 72px;
+      transition: border-color 0.15s;
+    }
+    textarea.open-ans:focus { outline: none; border-color: var(--accent); }
+
+    /* Feedback */
+    .feedback {
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 8px;
+      display: none;
+    }
+    .feedback.good { color: var(--good); background: rgba(74,222,128,0.08); display: block; }
+    .feedback.bad { color: var(--bad); background: rgba(248,113,113,0.08); display: block; }
+    .feedback.open { color: var(--muted); background: rgba(255,255,255,0.04); display: block; }
+
+    /* ===== RESULTS ===== */
+    .results {
+      margin: 24px 0;
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card2);
+      display: none;
+    }
+    .results.visible { display: block; }
+    .results h3 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+    .res-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .res-item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .res-item .label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+    .res-item .val { font-size: 22px; font-weight: 700; }
+    .res-item .val.good { color: var(--good); }
+    .res-item .val.ok { color: #fbbf24; }
+    .res-item .val.bad { color: var(--bad); }
+    .tiny { font-size: 11px; color: var(--muted); margin-top: 16px; }
+
+    /* ===== CORRECT OPT HIGHLIGHT ===== */
+    .opt.correct-opt { border-color: rgba(74,222,128,0.4); background: rgba(74,222,128,0.05); }
+    .opt.wrong-opt { border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.04); }
+    .card.correct-card { outline: 2px solid rgba(74,222,128,0.2); }
+    .card.wrong-card { outline: 2px solid rgba(248,113,113,0.2); }
+
+    @media(max-width:600px) {
+      .hero h1 { font-size: 20px; }
+      .student-fields { width: 100%; }
+      .field-group input { width: 100%; }
+    }
+
+    @media print {
+      .toolbar, .section-nav, .btn, .score-pill { display: none !important; }
+      body { background: white; color: black; }
+      .card { background: white; border-color: #ccc; }
+      .hero { background: white; border-color: #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">📐 Term 2 Exam Prep</div>
+      <h1>Grade 4 Mathematics</h1>
+      <div class="hero-sub">100 Questions · Multiplication · Shapes · Fractions · Rounding & Division</div>
+    </div>
+    <div class="student-fields">
+      <div class="field-group">
+        <label>Name</label>
+        <input type="text" placeholder="Your name" />
+      </div>
+      <div class="field-group">
+        <label>Date</label>
+        <input type="text" placeholder="Today's date" />
+      </div>
+      <div class="field-group">
+        <label>Class</label>
+        <input type="text" placeholder="Class" style="width:90px" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <button class="btn btn-primary" id="btnSubmit">Submit Answers</button>
+    <button class="btn" id="btnReset">Reset</button>
+    <button class="btn" onclick="window.print()">Print</button>
+    <div class="toolbar-spacer"></div>
+    <div class="score-pill" id="scorePill">–</div>
+  </div>
+</div>
+
+<!-- SECTION JUMP LINKS -->
+<div class="section-nav">
+  <a class="sec-tab a" href="#secA">A · Multiplication & Factors</a>
+  <a class="sec-tab b" href="#secB">B · 2D Shapes</a>
+  <a class="sec-tab c" href="#secC">C · Symmetry</a>
+  <a class="sec-tab d" href="#secD">D · Fractions</a>
+  <a class="sec-tab e" href="#secE">E · Rounding & Division</a>
+</div>
+
+<div class="wrap">
+  <div id="results" class="results"></div>
+  <div id="exam"></div>
+  <p class="tiny">Open-ended questions are not auto-graded — check against the answer key.</p>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// QUESTION DATA
+// type: "mcq" | "tf" | "short" | "open"
+// open = written working / explain — not auto-graded
+// ─────────────────────────────────────────────
+const SECTIONS = [
+  {
+    id: "secA",
+    cls: "a",
+    title: "Section A — Multiplication, Multiples and Factors",
+    questions: [
+      { id:"a1",  type:"mcq",   prompt:"What is the product of 7 and 8?", options:["54","56","48","63"], answer:1 },
+      { id:"a2",  type:"mcq",   prompt:"Which of the following is NOT a multiple of 7?", options:["21","42","35","38"], answer:3 },
+      { id:"a3",  type:"short", prompt:"List the first four multiples of 5 (separated by commas).", answer:"5, 10, 15, 20" },
+      { id:"a4",  type:"short", prompt:"Find all the factors of 24 (list them in order, separated by commas).", answer:"1, 2, 3, 4, 6, 8, 12, 24" },
+      { id:"a5",  type:"open",  prompt:"Using the associative law, calculate 18 × 5 using factors of 18. Show your method." },
+      { id:"a6",  type:"short", prompt:"Calculate 27 × 4 using the grid method. What is the answer?", answer:"108" },
+      { id:"a7",  type:"short", prompt:"List all the factors of 32 (in order, separated by commas).", answer:"1, 2, 4, 8, 16, 32" },
+      { id:"a8",  type:"tf",    prompt:"True or False: All multiples of 5 end in the digit 5.", answer:false, hint:"Think about 10, 20, 30…" },
+      { id:"a9",  type:"short", prompt:"Calculate 47 × 5. (First estimate, then give the exact answer.)", answer:"235" },
+      { id:"a10", type:"short", prompt:"Fill in the missing number: 3 × ___ = 9 × 3", answer:"9" },
+      { id:"a11", type:"short", prompt:"Use the digits 3, 2 and 5 once each to make the multiplication with the greatest product (two-digit × one-digit). Write the multiplication sentence.", answer:"52 × 3 = 156" },
+      { id:"a12", type:"open",  prompt:"Sam picks 50 apples and packs them into boxes with the same number in each. Give TWO different ways Sam could pack the apples (two factor pairs of 50)." },
+      { id:"a13", type:"short", prompt:"Calculate 93 × 4 using the compact (column) method.", answer:"372" },
+      { id:"a14", type:"short", prompt:"From this grid — 21 22 23 24 / 31 32 33 34 / 41 42 43 44 / 51 52 53 54 — which numbers are multiples of 7? (List them, comma-separated)", answer:"21, 42" },
+      { id:"a15", type:"short", prompt:"Calculate 39 × 3 + 39 × 7. Hint: use the distributive property — do NOT multiply each separately first.", answer:"390" },
+      // Paper 2 extras
+      { id:"a16", type:"short", prompt:"[P2] Write ALL the factors of 20 (separated by commas).", answer:"1, 2, 4, 5, 10, 20" },
+      { id:"a17", type:"open",  prompt:"[P2] Write ALL the factor pairs of 18 (there are 3 pairs)." },
+      { id:"a18", type:"short", prompt:"[P2] What is 6 × 8?", answer:"48" },
+      { id:"a19", type:"short", prompt:"[P2] What is 9 × 9?", answer:"81" },
+      { id:"a20", type:"short", prompt:"[P2] Calculate 24 ÷ 6.", answer:"4" },
+      { id:"a21", type:"short", prompt:"[P2] Calculate 63 ÷ 7.", answer:"9" },
+      { id:"a22", type:"open",  prompt:"[P2] Is 3 a factor of 20? Explain your reasoning." },
+      { id:"a23", type:"short", prompt:"[P2] What is double 78?", answer:"156" },
+      { id:"a24", type:"short", prompt:"[P2] Find the product of 58 and 9.", answer:"522" },
+      { id:"a25", type:"short", prompt:"[P2] Use the grid method to calculate 345 × 9.", answer:"3105" },
+      { id:"a26", type:"short", prompt:"[P2] Use the grid method to calculate 69 × 6.", answer:"414" },
+      { id:"a27", type:"short", prompt:"[P2] Use the grid method to calculate 76 × 9.", answer:"684" },
+      { id:"a28", type:"open",  prompt:"[P2] Circle all the products equal to 2400: 900×3, 300×8, 600×4, 300×7, 400×6, 800×3. Which ones equal 2400?" },
+      { id:"a29", type:"open",  prompt:"[P2] Saira thinks of two different numbers. They are both factors of 12, and the difference between them is 4. What are Saira's numbers?" },
+    ]
+  },
+  {
+    id: "secB",
+    cls: "b",
+    title: "Section B — 2D Shapes and Tessellation",
+    questions: [
+      { id:"b1",  type:"mcq",  prompt:"Name the 2D shape that has exactly 6 sides.", options:["Pentagon","Hexagon","Octagon","Heptagon"], answer:1 },
+      { id:"b2",  type:"mcq",  prompt:"A regular polygon has all sides equal and all angles equal. How many lines of symmetry does a regular pentagon have?", options:["3","4","5","6"], answer:2 },
+      { id:"b3",  type:"short",prompt:"Name a 2D shape that has at least one right angle.", answer:"rectangle" },
+      { id:"b4",  type:"short",prompt:"Name a 2D shape that is NOT a polygon (has at least one curved side).", answer:"circle" },
+      { id:"b5",  type:"short",prompt:"Four triangles are placed together. What larger shape can they make?", answer:"square" },
+      { id:"b6",  type:"short",prompt:"Two pentagons are placed together. What shape can they make?", answer:"hexagon" },
+      { id:"b7",  type:"tf",   prompt:"True or False: A regular pentagon can tessellate on its own (with no gaps or overlaps).", answer:false },
+      { id:"b8",  type:"open", prompt:"Which shapes tessellate on their own? Choose all that apply from: Square, Regular triangle, Regular hexagon, Regular pentagon. Explain why the others don't." },
+      { id:"b9",  type:"open", prompt:"Marcus says, 'If I cut a rectangle into two pieces with one straight cut, I will always make two rectangles.' Is Marcus correct? Give an example to prove or disprove this." },
+      { id:"b10", type:"mcq",  prompt:"A square is always a rectangle. This statement is:", options:["Always true","Sometimes true","Never true"], answer:0 },
+      { id:"b11", type:"open", prompt:"A triangle has three lines of symmetry. Is this statement always, sometimes, or never true? Explain your answer." },
+      // Paper 2
+      { id:"b12", type:"open", prompt:"[P2] What is a polygon? Give THREE properties that all polygons must have." },
+      { id:"b13", type:"short",prompt:"[P2] Name the shape that has 6 sides and tessellates on its own without any gaps.", answer:"hexagon" },
+      { id:"b14", type:"open", prompt:"[P2] A tessellating pattern uses two shapes: a regular octagon and a square. Explain in your own words what 'tessellation' means." },
+      { id:"b15", type:"open", prompt:"[P2] Name and describe the properties of a trapezium. Include: number of sides, number of vertices, parallel sides, right angles." },
+      { id:"b16", type:"open", prompt:"[P2] What is the difference between a regular polygon and an irregular polygon?" },
+      { id:"b17", type:"short",prompt:"[P2] A shape has 4 sides, 4 vertices, 4 right angles, and 2 pairs of parallel sides. What shape is this?", answer:"rectangle" },
+    ]
+  },
+  {
+    id: "secC",
+    cls: "c",
+    title: "Section C — Symmetry",
+    questions: [
+      { id:"c1", type:"mcq",  prompt:"How many lines of symmetry does a square have?", options:["2","3","4","6"], answer:2 },
+      { id:"c2", type:"short",prompt:"A regular hexagon has ___ lines of symmetry.", answer:"6" },
+      { id:"c3", type:"open", prompt:"Describe the two types of lines of symmetry that a rectangle has (vertical and horizontal). Does a rectangle have diagonal lines of symmetry? Explain." },
+      { id:"c4", type:"open", prompt:"Explain what a line of symmetry is in your own words." },
+      { id:"c5", type:"short",prompt:"Name a quadrilateral that has no lines of symmetry.", answer:"parallelogram" },
+      { id:"c6", type:"open", prompt:"For a regular polygon, what is the relationship between the number of sides and the number of lines of symmetry?" },
+      { id:"c7", type:"open", prompt:"Complete this table for regular polygons (give numbers of sides, vertices, and lines of symmetry for: Triangle, Square, Pentagon, Hexagon, Heptagon, Octagon)." },
+      { id:"c8", type:"short",prompt:"How many lines of symmetry does a regular octagon have?", answer:"8" },
+      { id:"c9", type:"open", prompt:"Which parallelograms have diagonal lines of symmetry? What is their special property?" },
+      // Paper 2
+      { id:"c10",type:"short",prompt:"[P2] How many lines of symmetry does a square have?", answer:"4" },
+      { id:"c11",type:"short",prompt:"[P2] A regular pentagon has how many lines of symmetry?", answer:"5" },
+      { id:"c12",type:"short",prompt:"[P2] A regular decagon (10-sided shape) has how many lines of symmetry?", answer:"10" },
+      { id:"c13",type:"open", prompt:"[P2] Describe the difference between a horizontal line of symmetry and a vertical line of symmetry. Give an example shape for each." },
+      { id:"c14",type:"open", prompt:"[P2] True or False: A shape that has a horizontal line of symmetry and a vertical line of symmetry will ALWAYS also have a diagonal line of symmetry. Explain your answer." },
+      { id:"c15",type:"short",prompt:"[P2] A mosaic pattern has only a horizontal and a vertical line of symmetry (no diagonal lines). How many lines of symmetry does it have in total?", answer:"2" },
+    ]
+  },
+  {
+    id: "secD",
+    cls: "d",
+    title: "Section D — Fractions",
+    questions: [
+      { id:"d1",  type:"open", prompt:"Which fraction is larger: 1/3 or 1/6? Explain your reasoning." },
+      { id:"d2",  type:"short",prompt:"Write the following fractions in order from smallest to largest: 3/8, 3/4, 3/6, 3/12 (use the exact fractions).", answer:"3/12, 3/8, 3/6, 3/4" },
+      { id:"d3",  type:"short",prompt:"What is 1/3 of $12?", answer:"$4" },
+      { id:"d4",  type:"short",prompt:"Eight people share one cake equally. What fraction of the cake does each person receive?", answer:"1/8" },
+      { id:"d5",  type:"short",prompt:"Find 1/4 of 40.", answer:"10" },
+      { id:"d6",  type:"open", prompt:"Jodi says: 'I would rather have 1/2 of $30 than 1/3 of $60 because 1/2 is bigger than 1/3.' Is Jodi correct? Show your working." },
+      { id:"d7",  type:"short",prompt:"To find 1/5 of a number, you divide by ___ . To find 1/8 of a number, you divide by ___. (Answer: two numbers, separated by a comma)", answer:"5, 8" },
+      { id:"d8",  type:"short",prompt:"A floor has 6 equal rectangles. Two rectangles are covered with matting. What fraction of the floor is covered? Simplify if possible.", answer:"1/3" },
+      { id:"d9",  type:"short",prompt:"For unit fractions (numerator = 1), the larger the denominator, the _________ the fraction. (one word)", answer:"smaller" },
+      // Paper 2
+      { id:"d10", type:"short",prompt:"[P2] Write the fractions 2/3, 2/4, and 2/6 in order from smallest to largest.", answer:"2/6, 2/4, 2/3" },
+      { id:"d11", type:"short",prompt:"[P2] Is 2/4 greater than or less than 2/6? Use > or <.", answer:"2/4 > 2/6" },
+      { id:"d12", type:"short",prompt:"[P2] A jug is filled to the 3/4 mark. How much more water is needed to fill it to 1 litre? (as a fraction)", answer:"1/4" },
+      { id:"d13", type:"short",prompt:"[P2] 1/5 of 40 = ?", answer:"8" },
+      { id:"d14", type:"short",prompt:"[P2] What is one sixth of 24?", answer:"4" },
+      { id:"d15", type:"short",prompt:"[P2] 1/7 of 56 = ?", answer:"8" },
+      { id:"d16", type:"open", prompt:"[P2] Jamil has 16 cards. He gives a quarter of his cards to his friend. How many cards does Jamil have left? Show your working." },
+      { id:"d17", type:"open", prompt:"[P2] Parveen has 20 balloons. 1/4 of them are red. How many balloons are NOT red? Show your working." },
+      { id:"d18", type:"open", prompt:"[P2] Is the statement 'If you divide a shape into 4 parts, you have split it into quarters' always, sometimes, or never true? Explain." },
+      { id:"d19", type:"open", prompt:"[P2] What do you notice about equivalent fractions 2/3, 4/6, and 8/12?" },
+      { id:"d20", type:"open", prompt:"[P2] Hassan says: 'I would rather have 1/3 of $36 than 1/4 of $60 because 1/3 is bigger than 1/4.' Do you agree? Calculate both amounts and explain." },
+    ]
+  },
+  {
+    id: "secE",
+    cls: "e",
+    title: "Section E — Rounding, Ordering, Comparing & Division",
+    questions: [
+      { id:"e1",  type:"mcq",  prompt:"Round 45 678 to the nearest 10 000.", options:["40 000","45 000","50 000","46 000"], answer:2 },
+      { id:"e2",  type:"open", prompt:"The heights of five mountains are: Kilimanjaro 5895 m, Everest 8848 m, Kosciuszko 2228 m, McKinley 6194 m, Aconcagua 6962 m. Write them in order shortest to tallest, then round each to the nearest 100 m." },
+      { id:"e3",  type:"open", prompt:"A number rounded to the nearest 10 is 340. List ALL possible values that number could be." },
+      { id:"e4",  type:"short",prompt:"Work out 75 ÷ 4. Write the answer with remainder (e.g. '18 r 3').", answer:"18 r 3" },
+      { id:"e5",  type:"short",prompt:"60 people need to cross a lake. Each boat holds 9 people. What is the LEAST number of boats needed?", answer:"7" },
+      { id:"e6",  type:"open", prompt:"Here are five divisions: 72÷9, 24÷3, 40÷5, 42÷6, 64÷8. Find the odd one out and explain why." },
+      // Paper 2
+      { id:"e7",  type:"short",prompt:"[P2] Round 6543 to the nearest 1000.", answer:"7000" },
+      { id:"e8",  type:"short",prompt:"[P2] Round 3509 to the nearest 10.", answer:"3510" },
+      { id:"e9",  type:"short",prompt:"[P2] Round 3499 to the nearest 1000.", answer:"3000" },
+      { id:"e10", type:"short",prompt:"[P2] Round 4655 to the nearest 100.", answer:"4700" },
+      { id:"e11", type:"short",prompt:"[P2] Round 469 543 to the nearest 100 000.", answer:"500 000" },
+      { id:"e12", type:"short",prompt:"[P2] Place these numbers in order from smallest to largest: 6505, 6550, 5650, 6555, 5656. Write them comma-separated.", answer:"5650, 5656, 6505, 6550, 6555" },
+      { id:"e13", type:"open", prompt:"[P2] Ali buys 48 tennis balls packed in groups of 3. How many packs does Ali buy? Show your working." },
+      { id:"e14", type:"open", prompt:"[P2] Roz bakes 62 cakes and packs them in boxes of 8. How many boxes does she need to pack ALL the cakes? (Think about rounding.) Show your working." },
+      { id:"e15", type:"open", prompt:"[P2] Paul has 52 photos and puts them in an album where each full page holds 6 photos. He fills as many whole pages as possible. How many photos are left over?" },
+      { id:"e16", type:"open", prompt:"[P2] Pierre wants to buy a bike costing $97. He saves $10 every Saturday. How many Saturdays will it take him to save enough? Show your working and explain whether you need to round up or down." },
+    ]
+  }
+];
+
+// ─────────────────────────────────────────────
+// RENDERING
+// ─────────────────────────────────────────────
+const examEl = document.getElementById("exam");
+const resultsEl = document.getElementById("results");
+const scorePill = document.getElementById("scorePill");
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+}
+function norm(s) {
+  return String(s ?? "").trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+let qIndex = 0;
+
+function render() {
+  examEl.innerHTML = "";
+  SECTIONS.forEach(sec => {
+    const secDiv = document.createElement("div");
+    secDiv.className = "section-block";
+    secDiv.id = sec.id;
+
+    const hdr = document.createElement("div");
+    hdr.className = `section-header ${sec.cls}`;
+    hdr.innerHTML = `<div class="sec-dot"></div><h2>${esc(sec.title)}</h2><div class="sec-count">${sec.questions.length} questions</div>`;
+    secDiv.appendChild(hdr);
+
+    sec.questions.forEach((q, i) => {
+      qIndex++;
+      const card = document.createElement("div");
+      card.className = "card";
+      card.dataset.qid = q.id;
+
+      const typeLabel = q.type === "mcq" ? "Multiple Choice" : q.type === "tf" ? "True / False" : q.type === "open" ? "Open Answer" : "Short Answer";
+      const autoGrade = q.type !== "open";
+
+      card.innerHTML = `
+        <div class="qhead">
+          <div class="qnum"><span>Q${qIndex}</span></div>
+          <div class="qmeta">${esc(typeLabel)}${autoGrade ? "" : " • not auto-graded"}</div>
+        </div>
+        <div class="prompt">${esc(q.prompt)}${q.hint ? `<br><span class="hint">💡 ${esc(q.hint)}</span>` : ""}</div>
+        <div class="body"></div>
+        <div class="feedback"></div>
+      `;
+
+      const body = card.querySelector(".body");
+
+      if (q.type === "mcq") {
+        body.innerHTML = `<div class="opts">${q.options.map((opt, oi) => `
+          <label class="opt">
+            <input type="radio" name="q_${q.id}" value="${oi}" />
+            ${esc(opt)}
+          </label>`).join("")}</div>`;
+      } else if (q.type === "tf") {
+        body.innerHTML = `<div class="opts">
+          <label class="opt"><input type="radio" name="q_${q.id}" value="true" /> True</label>
+          <label class="opt"><input type="radio" name="q_${q.id}" value="false" /> False</label>
+        </div>`;
+      } else if (q.type === "short") {
+        body.innerHTML = `<input type="text" class="short-ans" name="q_${q.id}" placeholder="Type your answer…" />`;
+      } else {
+        body.innerHTML = `<textarea class="open-ans" name="q_${q.id}" placeholder="Write your answer here…"></textarea>`;
+      }
+
+      secDiv.appendChild(card);
+    });
+
+    examEl.appendChild(secDiv);
+  });
+}
+
+function getAllQuestions() {
+  return SECTIONS.flatMap(s => s.questions);
+}
+
+function getUserAnswer(q) {
+  if (q.type === "short") {
+    return norm(document.querySelector(`input[name="q_${q.id}"]`)?.value ?? "");
+  }
+  if (q.type === "open") {
+    return document.querySelector(`textarea[name="q_${q.id}"]`)?.value ?? "";
+  }
+  const picked = document.querySelector(`input[name="q_${q.id}"]:checked`);
+  if (!picked) return null;
+  if (q.type === "mcq") return Number(picked.value);
+  return picked.value === "true";
+}
+
+function isCorrect(q, ans) {
+  if (q.type === "open") return null; // can't auto-grade
+  if (ans === null || ans === "") return false;
+  if (q.type === "short") {
+    // allow partial match for some flexibility
+    const correct = norm(q.answer);
+    const user = norm(ans);
+    return correct === user || user.includes(correct) || correct.includes(user);
+  }
+  if (q.type === "tf") return q.answer === ans;
+  if (q.type === "mcq") return q.answer === ans;
+  return false;
+}
+
+function grade() {
+  const all = getAllQuestions();
+  let correct = 0, total = 0, open = 0;
+
+  all.forEach(q => {
+    const card = document.querySelector(`.card[data-qid="${q.id}"]`);
+    const fb = card.querySelector(".feedback");
+    const opts = card.querySelectorAll(".opt");
+    card.classList.remove("correct-card","wrong-card");
+    opts.forEach(o => o.classList.remove("correct-opt","wrong-opt"));
+    fb.className = "feedback";
+    fb.textContent = "";
+
+    const ans = getUserAnswer(q);
+
+    if (q.type === "open") {
+      open++;
+      fb.className = "feedback open";
+      fb.textContent = "📝 Open answer — check against answer key.";
+      return;
+    }
+
+    total++;
+    const ok = isCorrect(q, ans);
+    if (ok) {
+      correct++;
+      fb.className = "feedback good";
+      fb.textContent = "✓ Correct!";
+      card.classList.add("correct-card");
+    } else {
+      fb.className = "feedback bad";
+      let hint = "";
+      if (q.type === "mcq") hint = `Correct answer: ${q.options[q.answer]}`;
+      else if (q.type === "tf") hint = `Correct answer: ${q.answer ? "True" : "False"}`;
+      else hint = `Expected: ${q.answer}`;
+      fb.textContent = `✗ ${hint}`;
+      card.classList.add("wrong-card");
+      // highlight correct option
+      if (q.type === "mcq" || q.type === "tf") {
+        opts.forEach((o, oi) => {
+          const radio = o.querySelector("input[type=radio]");
+          const val = q.type === "mcq" ? oi : (radio.value === "true");
+          const correctVal = q.type === "mcq" ? q.answer : q.answer;
+          if (q.type === "mcq" && oi === q.answer) o.classList.add("correct-opt");
+          if (q.type === "tf" && radio.value === String(q.answer)) o.classList.add("correct-opt");
+          if (radio.checked && !ok) o.classList.add("wrong-opt");
+        });
+      }
+    }
+  });
+
+  const pct = total ? Math.round((correct/total)*100) : 0;
+  const grade = pct >= 80 ? "good" : pct >= 60 ? "ok" : "bad";
+
+  resultsEl.className = "results visible";
+  resultsEl.innerHTML = `
+    <h3>Results</h3>
+    <div class="res-grid">
+      <div class="res-item"><div class="label">Auto-graded Score</div><div class="val ${grade}">${correct}/${total}</div></div>
+      <div class="res-item"><div class="label">Percentage</div><div class="val ${grade}">${pct}%</div></div>
+      <div class="res-item"><div class="label">Open Questions</div><div class="val" style="color:var(--muted)">${open}</div></div>
+    </div>
+    <p style="margin:12px 0 0;font-size:13px;color:var(--muted)">Open-ended questions are not included in the score. Review those separately using the answer key.</p>
+  `;
+  resultsEl.scrollIntoView({ behavior:"smooth", block:"start" });
+
+  scorePill.textContent = `${correct}/${total} (${pct}%)`;
+  scorePill.classList.add("visible");
+}
+
+function resetAll() {
+  document.querySelectorAll('input[type="radio"]').forEach(i => i.checked = false);
+  document.querySelectorAll('input[type="text"]').forEach(i => i.value = "");
+  document.querySelectorAll('textarea').forEach(i => i.value = "");
+  document.querySelectorAll(".card").forEach(c => {
+    c.querySelector(".feedback").className = "feedback";
+    c.querySelector(".feedback").textContent = "";
+    c.classList.remove("correct-card","wrong-card");
+    c.querySelectorAll(".opt").forEach(o => o.classList.remove("correct-opt","wrong-opt"));
+  });
+  resultsEl.className = "results";
+  scorePill.classList.remove("visible");
+  window.scrollTo({ top: 0, behavior:"smooth" });
+}
+
+document.getElementById("btnSubmit").addEventListener("click", grade);
+document.getElementById("btnReset").addEventListener("click", resetAll);
+
+render();
+</script>
+</body>
+</html>
