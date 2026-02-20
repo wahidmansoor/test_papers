@@ -1,0 +1,1031 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Grade 3 Maths – Exam Preparation</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --sun:#FFD234;
+  --sky:#4BB8F5;
+  --grass:#52C16A;
+  --coral:#FF6B6B;
+  --purple:#9B72CF;
+  --mint:#52C1A8;
+  --orange:#FF9740;
+  --navy:#1a2744;
+  --ink:#1a2744;
+  --paper:#FFFDF5;
+  --card:#FFFFFF;
+  --line:#E8E3D9;
+  --muted:#7a8096;
+  --r:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Nunito',sans-serif;
+  font-size:15px;
+  line-height:1.55;
+  min-height:100vh;
+}
+
+/* ── STARS / CONFETTI bg ── */
+body::before{
+content:’’;
+position:fixed;inset:0;
+background:
+radial-gradient(circle at 12% 20%, #FFD23415 0 40px, transparent 40px),
+radial-gradient(circle at 88% 15%, #4BB8F515 0 60px, transparent 60px),
+radial-gradient(circle at 55% 80%, #FF6B6B12 0 80px, transparent 80px),
+radial-gradient(circle at 5%  70%, #52C16A12 0 50px, transparent 50px),
+radial-gradient(circle at 95% 65%, #9B72CF12 0 70px, transparent 70px);
+pointer-events:none;z-index:0;
+}
+
+.page{max-width:1100px;margin:0 auto;padding:24px 16px 80px;position:relative;z-index:1}
+
+/* ── HEADER ── */
+.exam-header{
+background:linear-gradient(135deg, #1a2744 0%, #2d3f70 60%, #3d2060 100%);
+border-radius:24px;
+padding:28px 32px;
+color:#fff;
+display:flex;gap:20px;align-items:center;justify-content:space-between;
+flex-wrap:wrap;
+margin-bottom:24px;
+box-shadow:0 8px 32px #1a274440;
+position:relative;overflow:hidden;
+}
+.exam-header::before{
+content:’’;position:absolute;right:-40px;top:-40px;
+width:200px;height:200px;
+background:radial-gradient(circle, #FFD23430 0%, transparent 70%);
+border-radius:50%;
+}
+.exam-header::after{
+content:‘🧮’;font-size:80px;
+position:absolute;right:28px;bottom:-12px;
+opacity:.18;
+}
+.header-left h1{font-family:‘Baloo 2’,sans-serif;font-size:26px;font-weight:800;margin-bottom:6px;line-height:1.2}
+.header-left .subtitle{font-size:13px;opacity:.8;margin-bottom:14px}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap}
+.badge{
+display:inline-flex;align-items:center;gap:5px;
+background:#ffffff20;border:1px solid #ffffff35;
+border-radius:999px;padding:4px 12px;
+font-size:12px;font-weight:700;letter-spacing:.3px;
+}
+.badge-sun{background:#FFD23430;border-color:#FFD23460}
+.badge-sky{background:#4BB8F530;border-color:#4BB8F560}
+.badge-coral{background:#FF6B6B30;border-color:#FF6B6B60}
+
+.info-boxes{display:flex;gap:10px;flex-wrap:wrap}
+.info-box{background:#ffffff18;border:1px solid #ffffff30;border-radius:14px;padding:10px 16px;text-align:center;min-width:90px}
+.info-box .val{font-family:‘Baloo 2’,sans-serif;font-size:22px;font-weight:800;color:#FFD234;display:block}
+.info-box .lbl{font-size:11px;opacity:.75;text-transform:uppercase;letter-spacing:.5px}
+
+.name-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:16px;width:100%}
+.name-row input{
+background:#ffffff15;border:1px solid #ffffff35;border-radius:10px;
+padding:8px 14px;color:#fff;font:600 14px ‘Nunito’,sans-serif;
+min-width:180px;outline:none;
+}
+.name-row input::placeholder{opacity:.55}
+.name-row label{font-size:13px;opacity:.8;font-weight:700}
+
+/* ── CONTROLS ── */
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center;justify-content:space-between}
+.controls-left{font-family:‘Baloo 2’,sans-serif;font-size:20px;font-weight:800;color:var(–navy)}
+.btn{
+border:2px solid transparent;border-radius:12px;
+padding:9px 18px;cursor:pointer;font:700 13px ‘Nunito’,sans-serif;
+transition:all .18s;display:inline-flex;align-items:center;gap:6px;
+}
+.btn-primary{background:var(–navy);color:#fff;border-color:var(–navy)}
+.btn-primary:hover{background:#2d3f70;transform:translateY(-1px);box-shadow:0 4px 12px #1a274440}
+.btn-ghost{background:#fff;color:var(–navy);border-color:var(–line)}
+.btn-ghost:hover{border-color:#9B72CF;color:#9B72CF}
+.btn-warn{background:#fff;color:var(–coral);border-color:#FF6B6B60}
+.btn-warn:hover{background:#FF6B6B10}
+
+/* ── SECTION HEADER ── */
+.section{margin:24px 0 0}
+.section-header{
+display:flex;align-items:center;gap:12px;margin-bottom:14px;
+padding:14px 18px;
+border-radius:16px;
+font-family:‘Baloo 2’,sans-serif;font-size:17px;font-weight:800;
+}
+.sh-mc{background:linear-gradient(90deg,#4BB8F515,transparent);border-left:4px solid #4BB8F5}
+.sh-tf{background:linear-gradient(90deg,#52C16A15,transparent);border-left:4px solid #52C16A}
+.sh-fi{background:linear-gradient(90deg,#9B72CF15,transparent);border-left:4px solid #9B72CF}
+.sh-wd{background:linear-gradient(90deg,#FF674515,transparent);border-left:4px solid #FF6745}
+.sh-dr{background:linear-gradient(90deg,#FF9740 15 ,transparent);border-left:4px solid #FF9740}
+.section-header .icon{font-size:22px}
+.section-header .tag{
+margin-left:auto;font-size:12px;font-weight:700;
+background:#fff;border:1px solid var(–line);
+border-radius:999px;padding:3px 12px;color:var(–muted);
+}
+.hint{color:var(–muted);font-size:13px;margin:-8px 0 12px 4px;font-style:italic}
+
+/* ── GRID ── */
+.grid{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:720px){.grid.two{grid-template-columns:1fr 1fr}}
+
+/* ── QUESTION CARD ── */
+.q{
+background:var(–card);
+border:1.5px solid var(–line);
+border-radius:var(–r);
+padding:14px;
+transition:box-shadow .18s,border-color .18s;
+position:relative;overflow:hidden;
+}
+.q:hover{box-shadow:0 4px 18px #00000010;border-color:#ccc}
+
+.q.mc::before{background:#4BB8F5}
+.q.tf::before{background:#52C16A}
+.q.fi::before{background:#9B72CF}
+.q.wd::before{background:#FF6745}
+.q.dr::before{background:#FF9740}
+.q::before{
+content:’’;position:absolute;left:0;top:0;bottom:0;width:4px;
+border-radius:var(–r) 0 0 var(–r);
+}
+
+.qhead{display:flex;gap:10px;align-items:flex-start}
+.num{
+min-width:36px;height:36px;border-radius:10px;
+display:grid;place-items:center;
+font-family:‘Baloo 2’,sans-serif;font-size:15px;font-weight:800;
+flex-shrink:0;
+}
+.num-mc{background:#4BB8F520;color:#1a8cd8}
+.num-tf{background:#52C16A20;color:#2a9c4f}
+.num-fi{background:#9B72CF20;color:#7b4fc9}
+.num-wd{background:#FF674520;color:#cc3500}
+.num-dr{background:#FF974020;color:#cc6500}
+
+.qbody{flex:1}
+.prompt{margin:0 0 10px;font-weight:700;font-size:14px;line-height:1.45}
+.prompt b,.prompt strong{color:var(–navy)}
+.sub{font-size:13px;color:var(–muted);margin-bottom:8px}
+
+/* options */
+.opts{display:grid;gap:5px}
+.opt{
+display:flex;align-items:center;gap:9px;
+padding:7px 12px;border-radius:10px;border:1.5px solid var(–line);
+cursor:pointer;transition:all .15s;font-size:14px;font-weight:600;
+background:#fff;
+}
+.opt:hover{border-color:#4BB8F5;background:#4BB8F508}
+.opt input[type=radio]{accent-color:#4BB8F5;width:15px;height:15px}
+
+/* text inputs */
+.ans-input{
+width:100%;max-width:300px;
+padding:8px 12px;border-radius:10px;border:1.5px solid var(–line);
+font:600 14px ‘Nunito’,sans-serif;color:var(–ink);
+background:#FAFAFA;transition:border-color .15s;outline:none;
+}
+.ans-input:focus{border-color:#9B72CF;background:#fff}
+.ans-input.sm{max-width:150px}
+.ans-input.xs{max-width:90px}
+
+/* blank underline style */
+.blank{display:inline-block;min-width:100px;border-bottom:2px dashed #aaa;vertical-align:bottom;margin:0 4px}
+
+/* SVG shapes */
+.svgwrap{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:8px}
+.svgcap{font-size:12px;color:var(–muted);font-style:italic;margin-bottom:6px}
+svg{border-radius:10px}
+
+/* pill badge on card */
+.topic-pill{
+display:inline-block;font-size:10px;font-weight:800;letter-spacing:.4px;
+border-radius:999px;padding:2px 9px;text-transform:uppercase;margin-bottom:8px;
+}
+.tp-frac{background:#4BB8F520;color:#1a8cd8}
+.tp-meas{background:#FF974020;color:#cc6500}
+.tp-geom{background:#52C16A20;color:#2a9c4f}
+.tp-num{background:#9B72CF20;color:#7b4fc9}
+.tp-word{background:#FF674520;color:#cc3500}
+
+/* PROGRESS BAR */
+.progress-bar-wrap{background:#fff;border:1.5px solid var(–line);border-radius:999px;height:12px;overflow:hidden;margin-bottom:6px}
+.progress-bar{height:100%;background:linear-gradient(90deg,#4BB8F5,#9B72CF);border-radius:999px;width:0%;transition:width .4s}
+.progress-label{font-size:12px;color:var(–muted);text-align:right}
+
+/* SCORE BADGE */
+.score-banner{
+background:linear-gradient(135deg,#1a2744,#2d3f70);
+color:#fff;border-radius:20px;padding:20px 24px;
+display:none;align-items:center;gap:16px;flex-wrap:wrap;
+margin-top:20px;
+}
+.score-banner.show{display:flex}
+.score-circle{
+width:72px;height:72px;border-radius:50%;
+background:linear-gradient(135deg,#FFD234,#FF9740);
+display:grid;place-items:center;
+font-family:‘Baloo 2’,sans-serif;font-size:22px;font-weight:900;color:#1a2744;
+flex-shrink:0;
+}
+.score-text h3{font-family:‘Baloo 2’,sans-serif;font-size:18px}
+.score-text p{font-size:13px;opacity:.8;margin-top:4px}
+
+/* ANSWERS SECTION */
+.answers{margin-top:20px;display:none}
+.answers.show{display:block}
+.answers-header{
+font-family:‘Baloo 2’,sans-serif;font-size:18px;font-weight:800;
+padding:14px 20px;border-radius:16px;
+background:linear-gradient(90deg,#FFD23415,transparent);
+border-left:4px solid #FFD234;margin-bottom:12px;
+}
+.ansgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.ans{
+background:#fff;border:1.5px solid var(–line);
+border-radius:12px;padding:10px 14px;font-size:14px;
+}
+.ans b{color:var(–navy);font-family:‘Baloo 2’,sans-serif;font-size:16px}
+.ans .av{color:#2a9c4f;font-weight:800}
+
+/* FOOTER */
+.footer{margin-top:24px;text-align:center;color:var(–muted);font-size:12px}
+
+/* PRINT */
+@media print{
+.controls,.btn,.score-banner,button{display:none!important}
+body{font-size:11pt}
+.q{break-inside:avoid;border-color:#ccc}
+.answers.show{break-before:page}
+.exam-header{background:#1a2744!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+
+</head>
+<body>
+<div class="page">
+
+<!-- ══ HEADER ══ -->
+
+<div class="exam-header">
+  <div class="header-left">
+    <h1>🎓 Grade 3 Maths — Exam Preparation</h1>
+    <div class="subtitle">Revision of Units 5, 6 &amp; 7 · Practice Test</div>
+    <div class="badge-row">
+      <span class="badge badge-sun">⭐ Fractions</span>
+      <span class="badge badge-sky">📏 Measurement</span>
+      <span class="badge badge-coral">📐 Area &amp; Perimeter</span>
+      <span class="badge">🔢 Multiples</span>
+      <span class="badge">📊 Equivalent Fractions</span>
+    </div>
+    <div class="name-row">
+      <label>Name:</label><input id="nameInput" type="text" placeholder="Write your name here…">
+      <label>Date:</label><input id="dateInput" type="text" placeholder="Date…">
+    </div>
+  </div>
+  <div class="info-boxes">
+    <div class="info-box"><span class="val">50</span><span class="lbl">Questions</span></div>
+    <div class="info-box"><span class="val">5</span><span class="lbl">Parts</span></div>
+    <div class="info-box"><span class="val" id="scoreLive">0</span><span class="lbl">Answered</span></div>
+  </div>
+</div>
+
+<!-- ══ CONTROLS ══ -->
+
+<div class="controls">
+  <div class="controls-left">
+    <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="progress-label" id="progressLabel">0 / 50 answered</div>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button class="btn btn-ghost" onclick="window.print()">🖨️ Print</button>
+    <button class="btn btn-ghost" id="toggleAnsBtn" onclick="toggleAnswers()">📋 Show Answers</button>
+    <button class="btn btn-warn" onclick="clearAll()">🗑️ Clear</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PART A – MULTIPLE CHOICE  (Q1–Q15)
+     ══════════════════════════════════════ -->
+
+<div class="section">
+  <div class="section-header sh-mc">
+    <span class="icon">🔵</span> Part A – Multiple Choice
+    <span class="tag">15 Questions · 1 mark each</span>
+  </div>
+  <p class="hint">✏️ Circle or tick the correct answer.</p>
+  <div class="grid two">
+
+```
+<!-- Q1 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">1</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">A pizza is cut into 12 equal pieces. Hamza eats 3 pieces. What <strong>fraction</strong> did Hamza eat?</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q1"> A) 3/10</label>
+    <label class="opt"><input type="radio" name="q1"> B) 3/12</label>
+    <label class="opt"><input type="radio" name="q1"> C) 1/2</label>
+    <label class="opt"><input type="radio" name="q1"> D) 4/12</label>
+  </div>
+</div></div></div>
+
+<!-- Q2 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">2</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">From 12 pieces, Hamza eats 3 and Ayesha eats 5. How many pieces are left for Bilal?</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q2"> A) 3</label>
+    <label class="opt"><input type="radio" name="q2"> B) 5</label>
+    <label class="opt"><input type="radio" name="q2"> C) 4</label>
+    <label class="opt"><input type="radio" name="q2"> D) 6</label>
+  </div>
+</div></div></div>
+
+<!-- Q3 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">3</div><div class="qbody">
+  <span class="topic-pill tp-frac">Equivalent Fractions</span>
+  <p class="prompt">Which fraction is <strong>equivalent</strong> to 1/2?</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q3"> A) 2/6</label>
+    <label class="opt"><input type="radio" name="q3"> B) 3/10</label>
+    <label class="opt"><input type="radio" name="q3"> C) 2/4</label>
+    <label class="opt"><input type="radio" name="q3"> D) 1/4</label>
+  </div>
+</div></div></div>
+
+<!-- Q4 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">4</div><div class="qbody">
+  <span class="topic-pill tp-frac">Equivalent Fractions</span>
+  <p class="prompt">Which fraction is equivalent to <strong>1/3</strong>?</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q4"> A) 3/6</label>
+    <label class="opt"><input type="radio" name="q4"> B) 2/6</label>
+    <label class="opt"><input type="radio" name="q4"> C) 4/6</label>
+    <label class="opt"><input type="radio" name="q4"> D) 2/4</label>
+  </div>
+</div></div></div>
+
+<!-- Q5 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">5</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">Which shows <strong>1 whole</strong>?</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q5"> A) 3/4</label>
+    <label class="opt"><input type="radio" name="q5"> B) 2/4</label>
+    <label class="opt"><input type="radio" name="q5"> C) 4/4</label>
+    <label class="opt"><input type="radio" name="q5"> D) 1/4</label>
+  </div>
+</div></div></div>
+
+<!-- Q6 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">6</div><div class="qbody">
+  <span class="topic-pill tp-num">Multiples</span>
+  <p class="prompt">Which number is a multiple of <strong>both 2 and 5</strong>?</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q6"> A) 13</label>
+    <label class="opt"><input type="radio" name="q6"> B) 35</label>
+    <label class="opt"><input type="radio" name="q6"> C) 70</label>
+    <label class="opt"><input type="radio" name="q6"> D) 24</label>
+  </div>
+</div></div></div>
+
+<!-- Q7 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">7</div><div class="qbody">
+  <span class="topic-pill tp-num">Multiples</span>
+  <p class="prompt">Which number belongs <strong>only</strong> in the "multiples of 5" circle (NOT multiples of 2)?</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q7"> A) 50</label>
+    <label class="opt"><input type="radio" name="q7"> B) 100</label>
+    <label class="opt"><input type="radio" name="q7"> C) 70</label>
+    <label class="opt"><input type="radio" name="q7"> D) 35</label>
+  </div>
+</div></div></div>
+
+<!-- Q8 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">8</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">247 cm rounded to the nearest <strong>half metre</strong> is:</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q8"> A) 2 m</label>
+    <label class="opt"><input type="radio" name="q8"> B) 2½ m</label>
+    <label class="opt"><input type="radio" name="q8"> C) 3 m</label>
+    <label class="opt"><input type="radio" name="q8"> D) 1½ m</label>
+  </div>
+</div></div></div>
+
+<!-- Q9 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">9</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">803 m rounded to the nearest <strong>quarter kilometre</strong> is:</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q9"> A) 500 m</label>
+    <label class="opt"><input type="radio" name="q9"> B) 750 m</label>
+    <label class="opt"><input type="radio" name="q9"> C) 1000 m</label>
+    <label class="opt"><input type="radio" name="q9"> D) 250 m</label>
+  </div>
+</div></div></div>
+
+<!-- Q10 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">10</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">Which is <strong>greater</strong>?</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q10"> A) ¾ m &nbsp;(= 75 cm)</label>
+    <label class="opt"><input type="radio" name="q10"> B) 70 cm</label>
+  </div>
+</div></div></div>
+
+<!-- Q11 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">11</div><div class="qbody">
+  <span class="topic-pill tp-geom">Perimeter</span>
+  <p class="prompt">The perimeter of a rectangle <strong>3 cm × 2 cm</strong> is:</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q11"> A) 5 cm</label>
+    <label class="opt"><input type="radio" name="q11"> B) 6 cm</label>
+    <label class="opt"><input type="radio" name="q11"> C) 10 cm</label>
+    <label class="opt"><input type="radio" name="q11"> D) 12 cm</label>
+  </div>
+</div></div></div>
+
+<!-- Q12 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">12</div><div class="qbody">
+  <span class="topic-pill tp-geom">Area</span>
+  <p class="prompt">The area of a rectangle <strong>4 cm × 2 cm</strong> is:</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q12"> A) 6 sq cm</label>
+    <label class="opt"><input type="radio" name="q12"> B) 8 sq cm</label>
+    <label class="opt"><input type="radio" name="q12"> C) 12 sq cm</label>
+    <label class="opt"><input type="radio" name="q12"> D) 10 sq cm</label>
+  </div>
+</div></div></div>
+
+<!-- Q13 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">13</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">3/5 = ?/10. What is the missing number?</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q13"> A) 5</label>
+    <label class="opt"><input type="radio" name="q13"> B) 6</label>
+    <label class="opt"><input type="radio" name="q13"> C) 3</label>
+    <label class="opt"><input type="radio" name="q13"> D) 15</label>
+  </div>
+</div></div></div>
+
+<!-- Q14 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">14</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">1000 m is equal to:</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q14"> A) ½ km</label>
+    <label class="opt"><input type="radio" name="q14"> B) ¼ km</label>
+    <label class="opt"><input type="radio" name="q14"> C) 1 km</label>
+    <label class="opt"><input type="radio" name="q14"> D) 10 km</label>
+  </div>
+</div></div></div>
+
+<!-- Q15 -->
+<div class="q mc"><div class="qhead"><div class="num num-mc">15</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">Which fraction is <strong>larger</strong>?</p>
+  <div class="opts">
+    <label class="opt"><input type="radio" name="q15"> A) 5/12</label>
+    <label class="opt"><input type="radio" name="q15"> B) 3/12</label>
+  </div>
+</div></div></div>
+```
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PART B – TRUE / FALSE  (Q16–Q25)
+     ══════════════════════════════════════ -->
+
+<div class="section">
+  <div class="section-header sh-tf">
+    <span class="icon">✅</span> Part B – True or False
+    <span class="tag">10 Questions · 1 mark each</span>
+  </div>
+  <p class="hint">✏️ Write True or False in the box.</p>
+  <div class="grid two">
+
+```
+<div class="q tf"><div class="qhead"><div class="num num-tf">16</div><div class="qbody">
+  <span class="topic-pill tp-num">Multiples</span>
+  <p class="prompt">73 is a multiple of 2.</p>
+  <input class="ans-input" type="text" placeholder="True / False">
+</div></div></div>
+
+<div class="q tf"><div class="qhead"><div class="num num-tf">17</div><div class="qbody">
+  <span class="topic-pill tp-num">Multiples</span>
+  <p class="prompt">100 is a multiple of both 2 and 5.</p>
+  <input class="ans-input" type="text" placeholder="True / False">
+</div></div></div>
+
+<div class="q tf"><div class="qhead"><div class="num num-tf">18</div><div class="qbody">
+  <span class="topic-pill tp-num">Multiples</span>
+  <p class="prompt">13 is a multiple of 5.</p>
+  <input class="ans-input" type="text" placeholder="True / False">
+</div></div></div>
+
+<div class="q tf"><div class="qhead"><div class="num num-tf">19</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">½ km = 500 m.</p>
+  <input class="ans-input" type="text" placeholder="True / False">
+</div></div></div>
+
+<div class="q tf"><div class="qhead"><div class="num num-tf">20</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">¾ m = 75 cm.</p>
+  <input class="ans-input" type="text" placeholder="True / False">
+</div></div></div>
+
+<div class="q tf"><div class="qhead"><div class="num num-tf">21</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">724 cm rounded to the nearest metre is 7 m.</p>
+  <input class="ans-input" type="text" placeholder="True / False">
+</div></div></div>
+
+<div class="q tf"><div class="qhead"><div class="num num-tf">22</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">2/4 is the same as 1/2.</p>
+  <input class="ans-input" type="text" placeholder="True / False">
+</div></div></div>
+
+<div class="q tf"><div class="qhead"><div class="num num-tf">23</div><div class="qbody">
+  <span class="topic-pill tp-geom">Area</span>
+  <p class="prompt">Area is found by multiplying length × width.</p>
+  <input class="ans-input" type="text" placeholder="True / False">
+</div></div></div>
+
+<div class="q tf"><div class="qhead"><div class="num num-tf">24</div><div class="qbody">
+  <span class="topic-pill tp-geom">Perimeter</span>
+  <p class="prompt">Perimeter is found by adding all the sides together.</p>
+  <input class="ans-input" type="text" placeholder="True / False">
+</div></div></div>
+
+<div class="q tf"><div class="qhead"><div class="num num-tf">25</div><div class="qbody">
+  <span class="topic-pill tp-frac">Equivalent Fractions</span>
+  <p class="prompt">6/8 is equivalent to 3/4.</p>
+  <input class="ans-input" type="text" placeholder="True / False">
+</div></div></div>
+```
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PART C – FILL IN THE BLANKS (Q26–Q40)
+     ══════════════════════════════════════ -->
+
+<div class="section">
+  <div class="section-header sh-fi">
+    <span class="icon">🟣</span> Part C – Fill in the Blanks
+    <span class="tag">15 Questions · 1 mark each</span>
+  </div>
+  <p class="hint">✏️ Write the missing number or fraction.</p>
+  <div class="grid two">
+
+```
+<div class="q fi"><div class="qhead"><div class="num num-fi">26</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">1 whole = <input class="ans-input xs" type="text" placeholder="?">/4</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">27</div><div class="qbody">
+  <span class="topic-pill tp-frac">Equivalent Fractions</span>
+  <p class="prompt">2/4 = <input class="ans-input xs" type="text" placeholder="?">/2</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">28</div><div class="qbody">
+  <span class="topic-pill tp-frac">Equivalent Fractions</span>
+  <p class="prompt">1/3 = <input class="ans-input xs" type="text" placeholder="?">/6</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">29</div><div class="qbody">
+  <span class="topic-pill tp-frac">Equivalent Fractions</span>
+  <p class="prompt">3/5 = <input class="ans-input xs" type="text" placeholder="?">/10</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">30</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">Ayesha ate 5 out of 12 pieces. Fraction eaten = <input class="ans-input xs" type="text" placeholder="?">/12</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">31</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">100 cm = <input class="ans-input xs" type="text" placeholder="?"> m</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">32</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">1000 m = <input class="ans-input xs" type="text" placeholder="?"> km</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">33</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">500 m = <input class="ans-input sm" type="text" placeholder="?"> km</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">34</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">750 m = <input class="ans-input sm" type="text" placeholder="?"> km</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">35</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">247 cm rounded to the nearest half metre = <input class="ans-input sm" type="text" placeholder="e.g. 2.5"> m</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">36</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">923 cm rounded to the nearest metre = <input class="ans-input xs" type="text" placeholder="?"> m</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">37</div><div class="qbody">
+  <span class="topic-pill tp-num">Multiples</span>
+  <p class="prompt">Write one number that is a multiple of BOTH 2 and 5: <input class="ans-input xs" type="text" placeholder="?"></p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">38</div><div class="qbody">
+  <span class="topic-pill tp-geom">Area</span>
+  <p class="prompt">Area = length × width. &nbsp; 4 × 2 = <input class="ans-input xs" type="text" placeholder="?"> sq cm</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">39</div><div class="qbody">
+  <span class="topic-pill tp-geom">Perimeter</span>
+  <p class="prompt">Perimeter = 3+3+2+2 = <input class="ans-input xs" type="text" placeholder="?"> cm</p>
+</div></div></div>
+
+<div class="q fi"><div class="qhead"><div class="num num-fi">40</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">In 12 pieces: 3 + 5 eaten = <input class="ans-input xs" type="text" placeholder="?"> pieces eaten, <input class="ans-input xs" type="text" placeholder="?"> pieces left</p>
+</div></div></div>
+```
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PART D – WORD PROBLEMS (Q41–Q45)
+     ══════════════════════════════════════ -->
+
+<div class="section">
+  <div class="section-header sh-wd">
+    <span class="icon">🔶</span> Part D – Word Problems
+    <span class="tag">5 Questions · 2 marks each</span>
+  </div>
+  <p class="hint">✏️ Show your working and write the answer.</p>
+  <div class="grid">
+
+```
+<!-- Q41 -->
+<div class="q wd"><div class="qhead"><div class="num num-wd">41</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">Fatima has a bar of chocolate with <strong>10 equal pieces</strong>. She eats 3/10 of the bar. How many pieces does she eat? How many pieces are left?</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+    <div><div class="svgcap">Pieces eaten:</div><input class="ans-input xs" type="text" placeholder="?"></div>
+    <div><div class="svgcap">Pieces left:</div><input class="ans-input xs" type="text" placeholder="?"></div>
+  </div>
+  <div style="margin-top:10px"><div class="svgcap">Working:</div><input class="ans-input" type="text" style="max-width:100%" placeholder="Write your working here…"></div>
+</div></div></div>
+
+<!-- Q42 -->
+<div class="q wd"><div class="qhead"><div class="num num-wd">42</div><div class="qbody">
+  <span class="topic-pill tp-geom">Area &amp; Perimeter</span>
+  <p class="prompt">A classroom floor is <strong>6 m long</strong> and <strong>4 m wide</strong>.<br>
+  a) What is the <strong>area</strong> of the floor?<br>
+  b) What is the <strong>perimeter</strong> of the floor?</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+    <div><div class="svgcap">Area:</div><input class="ans-input sm" type="text" placeholder="? sq m"></div>
+    <div><div class="svgcap">Perimeter:</div><input class="ans-input sm" type="text" placeholder="? m"></div>
+  </div>
+</div></div></div>
+
+<!-- Q43 -->
+<div class="q wd"><div class="qhead"><div class="num num-wd">43</div><div class="qbody">
+  <span class="topic-pill tp-meas">Measurement</span>
+  <p class="prompt">Ali runs <strong>473 m</strong>. Round this to the nearest quarter kilometre. Write the answer as a fraction of a km.</p>
+  <div style="margin-top:8px;display:flex;gap:12px;flex-wrap:wrap">
+    <div><div class="svgcap">Rounded metres:</div><input class="ans-input xs" type="text" placeholder="? m"></div>
+    <div><div class="svgcap">As a fraction of 1 km:</div><input class="ans-input sm" type="text" placeholder="e.g. 1/2 km"></div>
+  </div>
+</div></div></div>
+
+<!-- Q44 -->
+<div class="q wd"><div class="qhead"><div class="num num-wd">44</div><div class="qbody">
+  <span class="topic-pill tp-num">Multiples</span>
+  <p class="prompt">List all multiples of 2 between 1 and 20. Then circle the ones that are <strong>also</strong> multiples of 5.</p>
+  <input class="ans-input" type="text" style="max-width:100%;margin-top:8px" placeholder="Write your list here…">
+</div></div></div>
+
+<!-- Q45 -->
+<div class="q wd"><div class="qhead"><div class="num num-wd">45</div><div class="qbody">
+  <span class="topic-pill tp-frac">Equivalent Fractions</span>
+  <p class="prompt">Sara shades <strong>6 out of 8</strong> equal parts of her shape. Write this as a fraction. Then write an equivalent fraction with denominator 4.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+    <div><div class="svgcap">Fraction shaded:</div><input class="ans-input xs" type="text" placeholder="?/?"></div>
+    <div><div class="svgcap">Equivalent (/4):</div><input class="ans-input xs" type="text" placeholder="?/4"></div>
+  </div>
+</div></div></div>
+```
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PART E – DRAWN / DIAGRAM QUESTIONS (Q46–Q50)
+     ══════════════════════════════════════ -->
+
+<div class="section">
+  <div class="section-header sh-dr">
+    <span class="icon">🟠</span> Part E – Draw &amp; Shade
+    <span class="tag">5 Questions · 2 marks each</span>
+  </div>
+  <p class="hint">✏️ Use the diagrams. Shade, label, or answer in the box.</p>
+  <div class="grid">
+
+```
+<!-- Q46: shade 3/12 of a grid -->
+<div class="q dr"><div class="qhead"><div class="num num-dr">46</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">This grid has <strong>12 equal boxes</strong> (like the pizza grid in class). Shade <strong>3/12</strong> of the grid. Then shade <strong>5/12</strong> with a different colour. How many boxes are left?</p>
+  <div class="svgwrap">
+    <svg width="300" height="100" viewBox="0 0 300 100">
+      <rect x="5" y="10" width="290" height="80" fill="white" stroke="#333" stroke-width="2"/>
+      <g stroke="#333" stroke-width="1.5">
+        <line x1="29.2" y1="10" x2="29.2" y2="90"/>
+        <line x1="53.3" y1="10" x2="53.3" y2="90"/>
+        <line x1="77.5" y1="10" x2="77.5" y2="90"/>
+        <line x1="101.7" y1="10" x2="101.7" y2="90"/>
+        <line x1="125.8" y1="10" x2="125.8" y2="90"/>
+        <line x1="150" y1="10" x2="150" y2="90"/>
+        <line x1="174.2" y1="10" x2="174.2" y2="90"/>
+        <line x1="198.3" y1="10" x2="198.3" y2="90"/>
+        <line x1="222.5" y1="10" x2="222.5" y2="90"/>
+        <line x1="246.7" y1="10" x2="246.7" y2="90"/>
+        <line x1="270.8" y1="10" x2="270.8" y2="90"/>
+        <!-- no horizontal lines needed — single row -->
+      </g>
+    </svg>
+    <div>
+      <div class="svgcap">Boxes left (unshaded):</div>
+      <input class="ans-input xs" type="text" placeholder="?">
+    </div>
+  </div>
+</div></div></div>
+
+<!-- Q47: 4-part bar 1/2 -->
+<div class="q dr"><div class="qhead"><div class="num num-dr">47</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">This bar has <strong>4 equal parts</strong>. Shade <strong>1/2</strong>. How many parts are shaded?</p>
+  <div class="svgwrap">
+    <svg width="260" height="70" viewBox="0 0 260 70">
+      <rect x="10" y="15" width="240" height="40" fill="white" stroke="#333" stroke-width="2" rx="4"/>
+      <line x1="70" y1="15" x2="70" y2="55" stroke="#333" stroke-width="1.5"/>
+      <line x1="130" y1="15" x2="130" y2="55" stroke="#333" stroke-width="1.5"/>
+      <line x1="190" y1="15" x2="190" y2="55" stroke="#333" stroke-width="1.5"/>
+    </svg>
+    <div>
+      <div class="svgcap">Parts shaded:</div>
+      <input class="ans-input xs" type="text" placeholder="?">
+    </div>
+  </div>
+</div></div></div>
+
+<!-- Q48: 6-part bar 1/3 -->
+<div class="q dr"><div class="qhead"><div class="num num-dr">48</div><div class="qbody">
+  <span class="topic-pill tp-frac">Fractions</span>
+  <p class="prompt">This bar has <strong>6 equal parts</strong>. Shade <strong>1/3</strong>. How many parts is that?</p>
+  <div class="svgwrap">
+    <svg width="330" height="70" viewBox="0 0 330 70">
+      <rect x="10" y="15" width="310" height="40" fill="white" stroke="#333" stroke-width="2" rx="4"/>
+      <g stroke="#333" stroke-width="1.5">
+        <line x1="61.7" y1="15" x2="61.7" y2="55"/>
+        <line x1="113.3" y1="15" x2="113.3" y2="55"/>
+        <line x1="165" y1="15" x2="165" y2="55"/>
+        <line x1="216.7" y1="15" x2="216.7" y2="55"/>
+        <line x1="268.3" y1="15" x2="268.3" y2="55"/>
+      </g>
+    </svg>
+    <div>
+      <div class="svgcap">Parts shaded:</div>
+      <input class="ans-input xs" type="text" placeholder="?">
+    </div>
+  </div>
+</div></div></div>
+
+<!-- Q49: Equivalent fraction circles -->
+<div class="q dr"><div class="qhead"><div class="num num-dr">49</div><div class="qbody">
+  <span class="topic-pill tp-frac">Equivalent Fractions</span>
+  <p class="prompt">Shade the second circle to match the first. Then write the equivalent fraction: <strong>3/4 = ?/8</strong></p>
+  <div class="svgwrap">
+    <!-- Circle A: quarters, 3 shaded -->
+    <div>
+      <svg width="120" height="120" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="50" fill="white" stroke="#333" stroke-width="2"/>
+        <!-- shade 3 quarters -->
+        <path d="M60,60 L60,10 A50,50 0 0,1 110,60 Z" fill="#4BB8F560"/>
+        <path d="M60,60 L110,60 A50,50 0 0,1 60,110 Z" fill="#4BB8F560"/>
+        <path d="M60,60 L60,110 A50,50 0 0,1 10,60 Z" fill="#4BB8F560"/>
+        <line x1="60" y1="10" x2="60" y2="110" stroke="#333" stroke-width="2"/>
+        <line x1="10" y1="60" x2="110" y2="60" stroke="#333" stroke-width="2"/>
+        <text x="60" y="118" text-anchor="middle" font-size="13" font-family="Nunito,sans-serif" font-weight="700">3/4</text>
+      </svg>
+    </div>
+    <div style="font-size:22px;font-weight:900;color:#9B72CF">=</div>
+    <!-- Circle B: 8 slices, empty -->
+    <div>
+      <svg width="120" height="120" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="50" fill="white" stroke="#333" stroke-width="2"/>
+        <g stroke="#333" stroke-width="1.5">
+          <line x1="60" y1="10" x2="60" y2="110"/>
+          <line x1="10" y1="60" x2="110" y2="60"/>
+          <line x1="24.6" y1="24.6" x2="95.4" y2="95.4"/>
+          <line x1="95.4" y1="24.6" x2="24.6" y2="95.4"/>
+        </g>
+        <text x="60" y="118" text-anchor="middle" font-size="13" font-family="Nunito,sans-serif" font-weight="700">?/8</text>
+      </svg>
+    </div>
+    <div>
+      <div class="svgcap">Missing numerator:</div>
+      <input class="ans-input xs" type="text" placeholder="?">
+    </div>
+  </div>
+</div></div></div>
+
+<!-- Q50: Venn diagram -->
+<div class="q dr"><div class="qhead"><div class="num num-dr">50</div><div class="qbody">
+  <span class="topic-pill tp-num">Multiples</span>
+  <p class="prompt">Sort these numbers into the Venn diagram: <strong>8, 15, 24, 50, 73, 13, 70, 42, 35</strong><br>
+  Left circle = multiples of 2 &nbsp;|&nbsp; Right circle = multiples of 5 &nbsp;|&nbsp; Middle = both</p>
+  <div class="svgwrap">
+    <svg width="480" height="200" viewBox="0 0 480 200" style="min-width:340px">
+      <circle cx="185" cy="100" r="80" fill="#4BB8F510" stroke="#4BB8F5" stroke-width="2.5"/>
+      <circle cx="295" cy="100" r="80" fill="#52C16A10" stroke="#52C16A" stroke-width="2.5"/>
+      <text x="120" y="30" font-size="13" font-family="Nunito,sans-serif" font-weight="800" fill="#1a8cd8">Multiples of 2</text>
+      <text x="290" y="30" font-size="13" font-family="Nunito,sans-serif" font-weight="800" fill="#2a9c4f">Multiples of 5</text>
+      <text x="30" y="100" font-size="12" font-family="Nunito,sans-serif" fill="#666">Neither</text>
+      <text x="445" y="100" font-size="12" font-family="Nunito,sans-serif" fill="#666">↑</text>
+    </svg>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
+    <div><div class="svgcap">🔵 Left only (mult. of 2):</div><input class="ans-input" type="text" style="max-width:100%" placeholder="e.g. 8, 24 …"></div>
+    <div><div class="svgcap">🟢 Right only (mult. of 5):</div><input class="ans-input" type="text" style="max-width:100%" placeholder="e.g. 15 …"></div>
+    <div><div class="svgcap">⭐ Middle (both):</div><input class="ans-input" type="text" style="max-width:100%" placeholder="e.g. 50 …"></div>
+    <div><div class="svgcap">❌ Neither:</div><input class="ans-input" type="text" style="max-width:100%" placeholder="e.g. 73 …"></div>
+  </div>
+</div></div></div>
+```
+
+  </div>
+</div>
+
+<!-- ══ SCORE BANNER ══ -->
+
+<div class="score-banner" id="scoreBanner">
+  <div class="score-circle" id="scorePct">—</div>
+  <div class="score-text">
+    <h3>Well done! Here's your progress 🎉</h3>
+    <p id="scoreMsg">Check your answers with the key below.</p>
+  </div>
+</div>
+
+<!-- ══ ANSWER KEY ══ -->
+
+<div class="answers" id="answers">
+  <div class="answers-header">📋 Answer Key</div>
+  <div class="ansgrid">
+    <div class="ans"><b>1</b> <span class="av">B) 3/12</span></div>
+    <div class="ans"><b>2</b> <span class="av">C) 4 pieces</span></div>
+    <div class="ans"><b>3</b> <span class="av">C) 2/4</span></div>
+    <div class="ans"><b>4</b> <span class="av">B) 2/6</span></div>
+    <div class="ans"><b>5</b> <span class="av">C) 4/4</span></div>
+    <div class="ans"><b>6</b> <span class="av">C) 70</span></div>
+    <div class="ans"><b>7</b> <span class="av">D) 35</span></div>
+    <div class="ans"><b>8</b> <span class="av">B) 2½ m</span></div>
+    <div class="ans"><b>9</b> <span class="av">B) 750 m</span></div>
+    <div class="ans"><b>10</b> <span class="av">A) ¾ m (75 cm)</span></div>
+    <div class="ans"><b>11</b> <span class="av">C) 10 cm</span></div>
+    <div class="ans"><b>12</b> <span class="av">B) 8 sq cm</span></div>
+    <div class="ans"><b>13</b> <span class="av">B) 6</span></div>
+    <div class="ans"><b>14</b> <span class="av">C) 1 km</span></div>
+    <div class="ans"><b>15</b> <span class="av">A) 5/12</span></div>
+    <div class="ans"><b>16</b> <span class="av">False</span></div>
+    <div class="ans"><b>17</b> <span class="av">True</span></div>
+    <div class="ans"><b>18</b> <span class="av">False</span></div>
+    <div class="ans"><b>19</b> <span class="av">True</span></div>
+    <div class="ans"><b>20</b> <span class="av">True</span></div>
+    <div class="ans"><b>21</b> <span class="av">True</span></div>
+    <div class="ans"><b>22</b> <span class="av">True</span></div>
+    <div class="ans"><b>23</b> <span class="av">True</span></div>
+    <div class="ans"><b>24</b> <span class="av">True</span></div>
+    <div class="ans"><b>25</b> <span class="av">True</span></div>
+    <div class="ans"><b>26</b> <span class="av">4</span></div>
+    <div class="ans"><b>27</b> <span class="av">1</span></div>
+    <div class="ans"><b>28</b> <span class="av">2</span></div>
+    <div class="ans"><b>29</b> <span class="av">6</span></div>
+    <div class="ans"><b>30</b> <span class="av">5</span></div>
+    <div class="ans"><b>31</b> <span class="av">1</span></div>
+    <div class="ans"><b>32</b> <span class="av">1</span></div>
+    <div class="ans"><b>33</b> <span class="av">½ km</span></div>
+    <div class="ans"><b>34</b> <span class="av">¾ km</span></div>
+    <div class="ans"><b>35</b> <span class="av">2.5 m</span></div>
+    <div class="ans"><b>36</b> <span class="av">9 m</span></div>
+    <div class="ans"><b>37</b> <span class="av">10, 20, 30, 50 … (any correct)</span></div>
+    <div class="ans"><b>38</b> <span class="av">8 sq cm</span></div>
+    <div class="ans"><b>39</b> <span class="av">10 cm</span></div>
+    <div class="ans"><b>40</b> <span class="av">8 eaten, 4 left</span></div>
+    <div class="ans"><b>41</b> <span class="av">3 eaten, 7 left</span></div>
+    <div class="ans"><b>42</b> <span class="av">Area=24 sq m, Perimeter=20 m</span></div>
+    <div class="ans"><b>43</b> <span class="av">500 m = ½ km</span></div>
+    <div class="ans"><b>44</b> <span class="av">2,4,6,8,10,12,14,16,18,20 → circle 10, 20</span></div>
+    <div class="ans"><b>45</b> <span class="av">6/8 = 3/4</span></div>
+    <div class="ans"><b>46</b> <span class="av">4 boxes left</span></div>
+    <div class="ans"><b>47</b> <span class="av">2 parts</span></div>
+    <div class="ans"><b>48</b> <span class="av">2 parts</span></div>
+    <div class="ans"><b>49</b> <span class="av">6 (3/4 = 6/8)</span></div>
+    <div class="ans"><b>50</b> <span class="av">Left: 8,24,42 | Middle: 50,70 | Right: 15,35 | Neither: 73,13</span></div>
+  </div>
+  <p class="footer" style="margin-top:12px">💡 Check each answer carefully. Well done for completing the test!</p>
+</div>
+
+<p class="footer">Grade 3 Maths · Revision Units 5, 6 &amp; 7 · Printed from claude.ai</p>
+</div>
+
+<script>
+// Progress tracking
+function updateProgress(){
+  const radios = document.querySelectorAll('input[type=radio]');
+  const texts = document.querySelectorAll('input[type=text]');
+  let answered = 0;
+  // count radio groups answered
+  const radioGroups = {};
+  radios.forEach(r=>{
+    if(!radioGroups[r.name]) radioGroups[r.name]=false;
+    if(r.checked) radioGroups[r.name]=true;
+  });
+  Object.values(radioGroups).forEach(v=>{ if(v) answered++; });
+  // count text inputs with content
+  texts.forEach(t=>{ if(t.value.trim()) answered++; });
+  const total = 50;
+  const pct = Math.min(100, Math.round(answered/total*100));
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('progressLabel').textContent = answered+' / '+total+' answered';
+  document.getElementById('scoreLive').textContent = answered;
+}
+
+document.querySelectorAll('input').forEach(inp=>{
+  inp.addEventListener('change', updateProgress);
+  inp.addEventListener('input', updateProgress);
+});
+
+function toggleAnswers(){
+  const a = document.getElementById('answers');
+  const btn = document.getElementById('toggleAnsBtn');
+  const sb = document.getElementById('scoreBanner');
+  if(a.classList.contains('show')){
+    a.classList.remove('show');
+    sb.classList.remove('show');
+    btn.textContent = '📋 Show Answers';
+  } else {
+    a.classList.add('show');
+    sb.classList.add('show');
+    btn.textContent = '🙈 Hide Answers';
+    a.scrollIntoView({behavior:'smooth',block:'start'});
+    // count MCQ score
+    const correctMC = {q1:'B',q2:'C',q3:'C',q4:'B',q5:'C',q6:'C',q7:'D',q8:'B',q9:'B',q10:'A',q11:'C',q12:'B',q13:'B',q14:'C',q15:'A'};
+    let score = 0;
+    Object.entries(correctMC).forEach(([name, correct])=>{
+      const sel = document.querySelector(`input[name="${name}"]:checked`);
+      if(sel && sel.parentElement.textContent.trim().startsWith(correct)) score++;
+    });
+    document.getElementById('scorePct').textContent = score+'/15';
+    document.getElementById('scoreMsg').textContent = 'Multiple choice: '+score+' out of 15 correct. Check all other answers with the key!';
+  }
+}
+
+function clearAll(){
+  if(!confirm('Clear all answers?')) return;
+  document.querySelectorAll('input[type=text]').forEach(i=>i.value='');
+  document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
+  document.getElementById('answers').classList.remove('show');
+  document.getElementById('scoreBanner').classList.remove('show');
+  document.getElementById('toggleAnsBtn').textContent = '📋 Show Answers';
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
