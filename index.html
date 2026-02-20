@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grade 3 Maths – Exam Preparation Test (50 Questions)</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#111;
+      --muted:#666;
+      --line:#d9d9d9;
+      --accent:#0b6cff;
+      --box:#f6f8fb;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    .page{max-width:980px;margin:0 auto;padding:24px 16px 64px}
+    header{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:18px}
+    h1{font-size:22px;margin:0}
+    .meta{font-size:13px;color:var(--muted)}
+    .meta .row{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 10px;background:#fff}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
+    button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;cursor:pointer}
+    button:hover{border-color:#bdbdbd}
+    .section{margin:18px 0 10px}
+    .section h2{font-size:18px;margin:0 0 8px}
+    .hint{color:var(--muted);font-size:13px;margin:0 0 10px}
+    .grid{display:grid;grid-template-columns:1fr;gap:10px}
+    @media (min-width:860px){ .grid.two{grid-template-columns:1fr 1fr} }
+    .q{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 12px 10px;
+      background:var(--box);
+    }
+    .qhead{display:flex;gap:10px;align-items:flex-start}
+    .num{
+      min-width:34px;height:34px;border-radius:10px;
+      display:grid;place-items:center;
+      background:#fff;border:1px solid var(--line);
+      font-weight:700;color:var(--accent)
+    }
+    .qbody{flex:1}
+    .prompt{margin:0 0 8px}
+    .opts{display:grid;gap:6px;margin-top:6px}
+    label{display:flex;gap:8px;align-items:flex-start}
+    input[type="text"]{
+      width:100%;
+      max-width:320px;
+      padding:8px 10px;border-radius:10px;border:1px solid var(--line);
+      background:#fff
+    }
+    .blank{display:inline-block;min-width:140px;border-bottom:2px dotted #888;transform:translateY(-2px)}
+    .mini{font-size:13px;color:var(--muted)}
+    .svgwrap{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:8px}
+    svg{background:#fff;border:1px solid var(--line);border-radius:12px}
+    .svgcap{font-size:13px;color:var(--muted)}
+    .answers{margin-top:18px;border-top:2px dashed var(--line);padding-top:12px}
+    .answers[hidden]{display:none!important}
+    .ansgrid{display:grid;grid-template-columns:1fr;gap:8px}
+    @media (min-width:860px){ .ansgrid{grid-template-columns:1fr 1fr} }
+    .ans{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px}
+    .ans b{color:var(--accent)}
+    .footer{margin-top:18px;color:var(--muted);font-size:12px}
+    .k{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:13px}
+
+    /* Print */
+    @media print{
+      .controls{display:none!important}
+      body{font-size:12pt}
+      .q{break-inside:avoid}
+      .answers{break-before:page}
+      svg{border-color:#999}
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <h1>Grade 3 Maths – Exam Preparation Test</h1>
+      <div class="meta">
+        <div class="row">
+          <span class="pill">Total: 50 Questions</span>
+          <span class="pill">Topics: Fractions • Equivalent Fractions • Rounding • Measure • Area • Perimeter • Multiples</span>
+        </div>
+        <div class="row" style="margin-top:6px">
+          <span>Name: <span class="blank"></span></span>
+          <span>Date: <span class="blank"></span></span>
+          <span>Time: <span class="blank"></span></span>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <button onclick="window.print()">Print</button>
+      <button id="toggleAns" onclick="toggleAnswers()">Show Answers</button>
+      <button onclick="clearAll()">Clear Answers</button>
+    </div>
+  </header>
+
+  <!-- PART A -->
+  <div class="section">
+    <h2>Part A – Multiple Choice (15)</h2>
+    <p class="hint">Tick one answer for each question.</p>
+    <div class="grid two">
+
+      <!-- 1 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">1</div>
+          <div class="qbody">
+            <p class="prompt">Which fraction shows <b>1 whole</b>?</p>
+            <div class="opts">
+              <label><input type="radio" name="q1"> A) 2/4</label>
+              <label><input type="radio" name="q1"> B) 3/4</label>
+              <label><input type="radio" name="q1"> C) 4/4</label>
+              <label><input type="radio" name="q1"> D) 1/4</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">2</div>
+          <div class="qbody">
+            <p class="prompt">Which fraction is equal to <b>1/2</b>?</p>
+            <div class="opts">
+              <label><input type="radio" name="q2"> A) 2/3</label>
+              <label><input type="radio" name="q2"> B) 2/4</label>
+              <label><input type="radio" name="q2"> C) 3/4</label>
+              <label><input type="radio" name="q2"> D) 4/5</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">3</div>
+          <div class="qbody">
+            <p class="prompt">Which number is a multiple of <b>2</b>?</p>
+            <div class="opts">
+              <label><input type="radio" name="q3"> A) 13</label>
+              <label><input type="radio" name="q3"> B) 15</label>
+              <label><input type="radio" name="q3"> C) 24</label>
+              <label><input type="radio" name="q3"> D) 35</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">4</div>
+          <div class="qbody">
+            <p class="prompt">Which number is a multiple of <b>5</b>?</p>
+            <div class="opts">
+              <label><input type="radio" name="q4"> A) 42</label>
+              <label><input type="radio" name="q4"> B) 73</label>
+              <label><input type="radio" name="q4"> C) 55</label>
+              <label><input type="radio" name="q4"> D) 24</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">5</div>
+          <div class="qbody">
+            <p class="prompt">Which number is a multiple of <b>both 2 and 5</b>?</p>
+            <div class="opts">
+              <label><input type="radio" name="q5"> A) 50</label>
+              <label><input type="radio" name="q5"> B) 13</label>
+              <label><input type="radio" name="q5"> C) 73</label>
+              <label><input type="radio" name="q5"> D) 15</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">6</div>
+          <div class="qbody">
+            <p class="prompt">247 cm rounded to the nearest <b>half metre</b> is:</p>
+            <div class="opts">
+              <label><input type="radio" name="q6"> A) 2 m</label>
+              <label><input type="radio" name="q6"> B) 2.5 m</label>
+              <label><input type="radio" name="q6"> C) 3 m</label>
+              <label><input type="radio" name="q6"> D) 1.5 m</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">7</div>
+          <div class="qbody">
+            <p class="prompt">803 m rounded to the nearest <b>quarter kilometre</b> is:</p>
+            <div class="opts">
+              <label><input type="radio" name="q7"> A) 500 m</label>
+              <label><input type="radio" name="q7"> B) 750 m</label>
+              <label><input type="radio" name="q7"> C) 1000 m</label>
+              <label><input type="radio" name="q7"> D) 250 m</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">8</div>
+          <div class="qbody">
+            <p class="prompt">Which is greater?</p>
+            <div class="opts">
+              <label><input type="radio" name="q8"> A) 3/4 m</label>
+              <label><input type="radio" name="q8"> B) 70 cm</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">9</div>
+          <div class="qbody">
+            <p class="prompt">100 cm equals:</p>
+            <div class="opts">
+              <label><input type="radio" name="q9"> A) 1 m</label>
+              <label><input type="radio" name="q9"> B) 10 m</label>
+              <label><input type="radio" name="q9"> C) 1000 m</label>
+              <label><input type="radio" name="q9"> D) 50 m</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">10</div>
+          <div class="qbody">
+            <p class="prompt">1000 m equals:</p>
+            <div class="opts">
+              <label><input type="radio" name="q10"> A) 1 km</label>
+              <label><input type="radio" name="q10"> B) 10 km</label>
+              <label><input type="radio" name="q10"> C) 100 km</label>
+              <label><input type="radio" name="q10"> D) 500 m</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">11</div>
+          <div class="qbody">
+            <p class="prompt">What fraction of 12 is 3?</p>
+            <div class="opts">
+              <label><input type="radio" name="q11"> A) 3/10</label>
+              <label><input type="radio" name="q11"> B) 3/12</label>
+              <label><input type="radio" name="q11"> C) 1/2</label>
+              <label><input type="radio" name="q11"> D) 4/12</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">12</div>
+          <div class="qbody">
+            <p class="prompt">Perimeter of a rectangle 3 cm by 2 cm is:</p>
+            <div class="opts">
+              <label><input type="radio" name="q12"> A) 5 cm</label>
+              <label><input type="radio" name="q12"> B) 6 cm</label>
+              <label><input type="radio" name="q12"> C) 10 cm</label>
+              <label><input type="radio" name="q12"> D) 12 cm</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">13</div>
+          <div class="qbody">
+            <p class="prompt">Area of a rectangle 4 cm by 2 cm is:</p>
+            <div class="opts">
+              <label><input type="radio" name="q13"> A) 6</label>
+              <label><input type="radio" name="q13"> B) 8</label>
+              <label><input type="radio" name="q13"> C) 10</label>
+              <label><input type="radio" name="q13"> D) 12</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">14</div>
+          <div class="qbody">
+            <p class="prompt">Which fraction is bigger?</p>
+            <div class="opts">
+              <label><input type="radio" name="q14"> A) 5/12</label>
+              <label><input type="radio" name="q14"> B) 3/12</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">15</div>
+          <div class="qbody">
+            <p class="prompt">Which is 1/2 of 8?</p>
+            <div class="opts">
+              <label><input type="radio" name="q15"> A) 2</label>
+              <label><input type="radio" name="q15"> B) 3</label>
+              <label><input type="radio" name="q15"> C) 4</label>
+              <label><input type="radio" name="q15"> D) 6</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PART B -->
+  <div class="section">
+    <h2>Part B – True / False (10)</h2>
+    <p class="hint">Write True or False.</p>
+    <div class="grid two">
+
+      <div class="q"><div class="qhead"><div class="num">16</div><div class="qbody"><p class="prompt">100 is a multiple of 5.</p><input type="text" placeholder="True / False"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">17</div><div class="qbody"><p class="prompt">73 is a multiple of 2.</p><input type="text" placeholder="True / False"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">18</div><div class="qbody"><p class="prompt">70 is a multiple of both 2 and 5.</p><input type="text" placeholder="True / False"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">19</div><div class="qbody"><p class="prompt">923 cm rounded to the nearest metre is 9 m.</p><input type="text" placeholder="True / False"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">20</div><div class="qbody"><p class="prompt">500 m is 1/2 km.</p><input type="text" placeholder="True / False"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">21</div><div class="qbody"><p class="prompt">750 m is 3/4 km.</p><input type="text" placeholder="True / False"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">22</div><div class="qbody"><p class="prompt">3/4 m = 75 cm.</p><input type="text" placeholder="True / False"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">23</div><div class="qbody"><p class="prompt">12 pieces shared equally by 3 people gives 4 pieces each.</p><input type="text" placeholder="True / False"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">24</div><div class="qbody"><p class="prompt">Area is found by adding all sides.</p><input type="text" placeholder="True / False"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">25</div><div class="qbody"><p class="prompt">Perimeter is found by adding all sides.</p><input type="text" placeholder="True / False"></div></div></div>
+
+    </div>
+  </div>
+
+  <!-- PART C -->
+  <div class="section">
+    <h2>Part C – Fill in the Blanks (15)</h2>
+    <p class="hint">Write the missing number or fraction.</p>
+    <div class="grid two">
+
+      <div class="q"><div class="qhead"><div class="num">26</div><div class="qbody"><p class="prompt">1 whole = ___/4</p><input type="text"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">27</div><div class="qbody"><p class="prompt">2/4 = ___/2</p><input type="text"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">28</div><div class="qbody"><p class="prompt">Hamza ate 3 pieces out of 12. Fraction = ___/12</p><input type="text"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">29</div><div class="qbody"><p class="prompt">Ayesha ate 5 pieces out of 12. Fraction = ___/12</p><input type="text"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">30</div><div class="qbody"><p class="prompt">12 − 8 = ___</p><input type="text"></div></div></div>
+
+      <div class="q"><div class="qhead"><div class="num">31</div><div class="qbody"><p class="prompt">100 cm = ___ m</p><input type="text"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">32</div><div class="qbody"><p class="prompt">1000 m = ___ km</p><input type="text"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">33</div><div class="qbody"><p class="prompt">500 m = ___ km</p><input type="text"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">34</div><div class="qbody"><p class="prompt">750 m = ___ km</p><input type="text"></div></div></div>
+
+      <div class="q"><div class="qhead"><div class="num">35</div><div class="qbody"><p class="prompt">247 cm ≈ ___ m (nearest half metre)</p><input type="text" placeholder="example: 2.5"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">36</div><div class="qbody"><p class="prompt">724 cm ≈ ___ m (nearest metre)</p><input type="text"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">37</div><div class="qbody"><p class="prompt">42 is a multiple of ___ (2 or 5)</p><input type="text"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">38</div><div class="qbody"><p class="prompt">55 is a multiple of ___ (2 or 5)</p><input type="text"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">39</div><div class="qbody"><p class="prompt">8 × 2 = ___</p><input type="text"></div></div></div>
+      <div class="q"><div class="qhead"><div class="num">40</div><div class="qbody"><p class="prompt">4 × 2 = ___</p><input type="text"></div></div></div>
+
+    </div>
+  </div>
+
+  <!-- PART D (GRAPH / DRAWN QUESTIONS) -->
+  <div class="section">
+    <h2>Part D – Graph / Drawn Questions (10)</h2>
+    <p class="hint">Look at the shapes/graphs. Answer below each one.</p>
+
+    <div class="grid">
+
+      <!-- 41: Shade 1/2 of 4 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">41</div>
+          <div class="qbody">
+            <p class="prompt">The bar is divided into 4 equal parts. <b>Shade 1/2</b> of the bar. How many parts should be shaded?</p>
+            <div class="svgwrap">
+              <svg width="260" height="70" viewBox="0 0 260 70" aria-label="4-part bar">
+                <rect x="10" y="15" width="240" height="40" fill="white" stroke="#111" stroke-width="2"/>
+                <line x1="70" y1="15" x2="70" y2="55" stroke="#111" stroke-width="2"/>
+                <line x1="130" y1="15" x2="130" y2="55" stroke="#111" stroke-width="2"/>
+                <line x1="190" y1="15" x2="190" y2="55" stroke="#111" stroke-width="2"/>
+              </svg>
+              <div>
+                <div class="svgcap">Write the number of parts shaded:</div>
+                <input type="text" placeholder="__ parts">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 42: Circle 8 slices -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">42</div>
+          <div class="qbody">
+            <p class="prompt">This circle has 8 equal slices. <b>Shade 3/8</b>. How many slices are shaded?</p>
+            <div class="svgwrap">
+              <svg width="140" height="140" viewBox="0 0 140 140" aria-label="circle 8 slices">
+                <circle cx="70" cy="70" r="55" fill="white" stroke="#111" stroke-width="2"/>
+                <g stroke="#111" stroke-width="2">
+                  <line x1="70" y1="70" x2="70" y2="15"/>
+                  <line x1="70" y1="70" x2="109" y2="31"/>
+                  <line x1="70" y1="70" x2="125" y2="70"/>
+                  <line x1="70" y1="70" x2="109" y2="109"/>
+                  <line x1="70" y1="70" x2="70" y2="125"/>
+                  <line x1="70" y1="70" x2="31" y2="109"/>
+                  <line x1="70" y1="70" x2="15" y2="70"/>
+                  <line x1="70" y1="70" x2="31" y2="31"/>
+                </g>
+              </svg>
+              <div>
+                <div class="svgcap">Number of slices shaded:</div>
+                <input type="text" placeholder="__ slices">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 43: 6 boxes -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">43</div>
+          <div class="qbody">
+            <p class="prompt">This bar has 6 equal parts. <b>Shade 1/3</b>. How many parts is that?</p>
+            <div class="svgwrap">
+              <svg width="320" height="70" viewBox="0 0 320 70" aria-label="6-part bar">
+                <rect x="10" y="15" width="300" height="40" fill="white" stroke="#111" stroke-width="2"/>
+                <g stroke="#111" stroke-width="2">
+                  <line x1="60" y1="15" x2="60" y2="55"/>
+                  <line x1="110" y1="15" x2="110" y2="55"/>
+                  <line x1="160" y1="15" x2="160" y2="55"/>
+                  <line x1="210" y1="15" x2="210" y2="55"/>
+                  <line x1="260" y1="15" x2="260" y2="55"/>
+                </g>
+              </svg>
+              <div>
+                <div class="svgcap">Parts shaded:</div>
+                <input type="text" placeholder="__ parts">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 44: 10 parts -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">44</div>
+          <div class="qbody">
+            <p class="prompt">This bar has 10 equal parts. If you shade <b>5/10</b>, is it equal to <b>1/2</b>? (Yes / No)</p>
+            <div class="svgwrap">
+              <svg width="360" height="70" viewBox="0 0 360 70" aria-label="10-part bar">
+                <rect x="10" y="15" width="340" height="40" fill="white" stroke="#111" stroke-width="2"/>
+                <g stroke="#111" stroke-width="2">
+                  <line x1="44" y1="15" x2="44" y2="55"/>
+                  <line x1="78" y1="15" x2="78" y2="55"/>
+                  <line x1="112" y1="15" x2="112" y2="55"/>
+                  <line x1="146" y1="15" x2="146" y2="55"/>
+                  <line x1="180" y1="15" x2="180" y2="55"/>
+                  <line x1="214" y1="15" x2="214" y2="55"/>
+                  <line x1="248" y1="15" x2="248" y2="55"/>
+                  <line x1="282" y1="15" x2="282" y2="55"/>
+                  <line x1="316" y1="15" x2="316" y2="55"/>
+                </g>
+              </svg>
+              <div>
+                <div class="svgcap">Answer:</div>
+                <input type="text" placeholder="Yes / No">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 45: 12 grid with 4 shaded -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">45</div>
+          <div class="qbody">
+            <p class="prompt">In this grid, 4 out of 12 boxes are shaded. What fraction is shaded?</p>
+            <div class="svgwrap">
+              <svg width="220" height="90" viewBox="0 0 220 90" aria-label="12 grid 4 shaded">
+                <rect x="10" y="10" width="200" height="70" fill="white" stroke="#111" stroke-width="2"/>
+                <!-- vertical lines 4 cols -->
+                <g stroke="#111" stroke-width="2">
+                  <line x1="60" y1="10" x2="60" y2="80"/>
+                  <line x1="110" y1="10" x2="110" y2="80"/>
+                  <line x1="160" y1="10" x2="160" y2="80"/>
+                  <!-- horizontal lines 3 rows -->
+                  <line x1="10" y1="33.333" x2="210" y2="33.333"/>
+                  <line x1="10" y1="56.666" x2="210" y2="56.666"/>
+                </g>
+                <!-- shaded: first row first 4 boxes -->
+                <g fill="#dfe9ff">
+                  <rect x="10" y="10" width="50" height="23.333"/>
+                  <rect x="60" y="10" width="50" height="23.333"/>
+                  <rect x="110" y="10" width="50" height="23.333"/>
+                  <rect x="160" y="10" width="50" height="23.333"/>
+                </g>
+              </svg>
+              <div>
+                <div class="svgcap">Fraction shaded:</div>
+                <input type="text" placeholder="__/__">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 46: Perimeter rectangle 3 by 2 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">46</div>
+          <div class="qbody">
+            <p class="prompt">Find the <b>perimeter</b> of this rectangle.</p>
+            <div class="svgwrap">
+              <svg width="260" height="120" viewBox="0 0 260 120" aria-label="rectangle 3 by 2">
+                <rect x="60" y="30" width="140" height="60" fill="white" stroke="#111" stroke-width="2"/>
+                <text x="130" y="24" text-anchor="middle" font-size="14" fill="#111">3 cm</text>
+                <text x="210" y="65" font-size="14" fill="#111">2 cm</text>
+              </svg>
+              <div>
+                <div class="svgcap">Perimeter =</div>
+                <input type="text" placeholder="__ cm">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 47: Area rectangle 4 by 2 -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">47</div>
+          <div class="qbody">
+            <p class="prompt">Find the <b>area</b> of this rectangle.</p>
+            <div class="svgwrap">
+              <svg width="260" height="120" viewBox="0 0 260 120" aria-label="rectangle 4 by 2">
+                <rect x="50" y="30" width="160" height="60" fill="white" stroke="#111" stroke-width="2"/>
+                <text x="130" y="24" text-anchor="middle" font-size="14" fill="#111">4 cm</text>
+                <text x="215" y="65" font-size="14" fill="#111">2 cm</text>
+              </svg>
+              <div>
+                <div class="svgcap">Area =</div>
+                <input type="text" placeholder="__ sq units">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 48: Number line for quarter km -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">48</div>
+          <div class="qbody">
+            <p class="prompt">Use the number line to round <b>803 m</b> to the nearest <b>quarter kilometre</b> (250 m steps).</p>
+            <div class="svgwrap">
+              <svg width="520" height="120" viewBox="0 0 520 120" aria-label="number line 0 to 1000 with quarters">
+                <line x1="40" y1="60" x2="480" y2="60" stroke="#111" stroke-width="3"/>
+                <!-- ticks at 0,250,500,750,1000 -->
+                <g stroke="#111" stroke-width="2">
+                  <line x1="40" y1="50" x2="40" y2="70"/>
+                  <line x1="150" y1="50" x2="150" y2="70"/>
+                  <line x1="260" y1="50" x2="260" y2="70"/>
+                  <line x1="370" y1="50" x2="370" y2="70"/>
+                  <line x1="480" y1="50" x2="480" y2="70"/>
+                </g>
+                <g font-size="14" fill="#111">
+                  <text x="40" y="92" text-anchor="middle">0</text>
+                  <text x="150" y="92" text-anchor="middle">250</text>
+                  <text x="260" y="92" text-anchor="middle">500</text>
+                  <text x="370" y="92" text-anchor="middle">750</text>
+                  <text x="480" y="92" text-anchor="middle">1000</text>
+                </g>
+                <!-- marker for 803 (approx) -->
+                <circle cx="393" cy="60" r="6" fill="#0b6cff"/>
+                <text x="393" y="40" text-anchor="middle" font-size="13" fill="#0b6cff">803 m</text>
+              </svg>
+              <div>
+                <div class="svgcap">Rounded value =</div>
+                <input type="text" placeholder="__ m">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 49: Venn diagram -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">49</div>
+          <div class="qbody">
+            <p class="prompt">
+              Sort these numbers into the Venn diagram: <b>8, 15, 24, 50, 73, 13</b><br>
+              Left circle: multiples of 2 • Right circle: multiples of 5
+            </p>
+            <div class="svgwrap">
+              <svg width="520" height="220" viewBox="0 0 520 220" aria-label="venn diagram">
+                <circle cx="210" cy="110" r="80" fill="none" stroke="#111" stroke-width="2"/>
+                <circle cx="310" cy="110" r="80" fill="none" stroke="#111" stroke-width="2"/>
+                <text x="170" y="26" font-size="14" fill="#111">Multiples of 2</text>
+                <text x="295" y="26" font-size="14" fill="#111">Multiples of 5</text>
+                <text x="40" y="110" font-size="13" fill="#666">Neither</text>
+              </svg>
+              <div>
+                <div class="mini">Write numbers in each part:</div>
+                <div class="mini">Left only: <input type="text" placeholder="e.g., 8, 24" style="max-width:260px"></div>
+                <div class="mini">Middle (both): <input type="text" placeholder="e.g., 50" style="max-width:260px"></div>
+                <div class="mini">Right only: <input type="text" placeholder="e.g., 15" style="max-width:260px"></div>
+                <div class="mini">Neither: <input type="text" placeholder="e.g., 73, 13" style="max-width:260px"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 50: Equivalent fractions with circles -->
+      <div class="q">
+        <div class="qhead">
+          <div class="num">50</div>
+          <div class="qbody">
+            <p class="prompt">These show equivalent fractions. Write the missing fraction: <b>1/2 = ___/4</b></p>
+            <div class="svgwrap">
+              <svg width="360" height="140" viewBox="0 0 360 140" aria-label="equivalent fractions circles">
+                <!-- circle 1: 1/2 shaded -->
+                <circle cx="90" cy="70" r="50" fill="white" stroke="#111" stroke-width="2"/>
+                <path d="M90,70 L90,20 A50,50 0 0,1 90,120 Z" fill="#dfe9ff" stroke="none"/>
+                <line x1="90" y1="20" x2="90" y2="120" stroke="#111" stroke-width="2"/>
+                <text x="90" y="132" text-anchor="middle" font-size="14">1/2</text>
+
+                <!-- equals -->
+                <text x="180" y="78" text-anchor="middle" font-size="20">=</text>
+
+                <!-- circle 2: quarters -->
+                <circle cx="270" cy="70" r="50" fill="white" stroke="#111" stroke-width="2"/>
+                <line x1="270" y1="20" x2="270" y2="120" stroke="#111" stroke-width="2"/>
+                <line x1="220" y1="70" x2="320" y2="70" stroke="#111" stroke-width="2"/>
+                <text x="270" y="132" text-anchor="middle" font-size="14">___/4</text>
+              </svg>
+              <div>
+                <div class="svgcap">Missing numerator:</div>
+                <input type="text" placeholder="__">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ANSWERS -->
+  <div class="answers" id="answers" hidden>
+    <h2>Answer Key</h2>
+    <div class="ansgrid">
+      <div class="ans"><b>1</b> C</div>
+      <div class="ans"><b>2</b> B</div>
+      <div class="ans"><b>3</b> C</div>
+      <div class="ans"><b>4</b> C</div>
+      <div class="ans"><b>5</b> A</div>
+      <div class="ans"><b>6</b> B (2.5 m)</div>
+      <div class="ans"><b>7</b> B (750 m)</div>
+      <div class="ans"><b>8</b> A (3/4 m = 75 cm)</div>
+      <div class="ans"><b>9</b> A</div>
+      <div class="ans"><b>10</b> A</div>
+      <div class="ans"><b>11</b> B</div>
+      <div class="ans"><b>12</b> C</div>
+      <div class="ans"><b>13</b> B</div>
+      <div class="ans"><b>14</b> A</div>
+      <div class="ans"><b>15</b> C</div>
+
+      <div class="ans"><b>16</b> True</div>
+      <div class="ans"><b>17</b> False</div>
+      <div class="ans"><b>18</b> True</div>
+      <div class="ans"><b>19</b> True</div>
+      <div class="ans"><b>20</b> True</div>
+      <div class="ans"><b>21</b> True</div>
+      <div class="ans"><b>22</b> True</div>
+      <div class="ans"><b>23</b> True</div>
+      <div class="ans"><b>24</b> False</div>
+      <div class="ans"><b>25</b> True</div>
+
+      <div class="ans"><b>26</b> 4</div>
+      <div class="ans"><b>27</b> 1</div>
+      <div class="ans"><b>28</b> 3</div>
+      <div class="ans"><b>29</b> 5</div>
+      <div class="ans"><b>30</b> 4</div>
+      <div class="ans"><b>31</b> 1</div>
+      <div class="ans"><b>32</b> 1</div>
+      <div class="ans"><b>33</b> 1/2</div>
+      <div class="ans"><b>34</b> 3/4</div>
+      <div class="ans"><b>35</b> 2.5</div>
+      <div class="ans"><b>36</b> 7</div>
+      <div class="ans"><b>37</b> 2</div>
+      <div class="ans"><b>38</b> 5</div>
+      <div class="ans"><b>39</b> 16</div>
+      <div class="ans"><b>40</b> 8</div>
+
+      <div class="ans"><b>41</b> 2 parts</div>
+      <div class="ans"><b>42</b> 3 slices</div>
+      <div class="ans"><b>43</b> 2 parts</div>
+      <div class="ans"><b>44</b> Yes</div>
+      <div class="ans"><b>45</b> 4/12 (also = 1/3)</div>
+      <div class="ans"><b>46</b> 10 cm</div>
+      <div class="ans"><b>47</b> 8 sq units</div>
+      <div class="ans"><b>48</b> 750 m (nearest 250 m)</div>
+      <div class="ans"><b>49</b> Left: 8, 24 • Both: 50 • Right: 15 • Neither: 73, 13</div>
+      <div class="ans"><b>50</b> 2</div>
+    </div>
+    <p class="footer">Tip: Print this page. Student answers go in the boxes. Use “Show Answers” only after finishing.</p>
+  </div>
+
+  <p class="footer">
+    <span class="k">Offline single-file HTML</span> • Works in any browser • Print-friendly.
+  </p>
+</div>
+
+<script>
+  function toggleAnswers(){
+    const a = document.getElementById('answers');
+    const btn = document.getElementById('toggleAns');
+    const showing = !a.hasAttribute('hidden');
+    if(showing){
+      a.setAttribute('hidden','');
+      btn.textContent = 'Show Answers';
+      window.scrollTo({top:0,behavior:'smooth'});
+    }else{
+      a.removeAttribute('hidden');
+      btn.textContent = 'Hide Answers';
+      a.scrollIntoView({behavior:'smooth'});
+    }
+  }
+
+  function clearAll(){
+    // clear text inputs
+    document.querySelectorAll('input[type="text"]').forEach(i => i.value = '');
+    // clear radios
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+    // hide answers
+    const a = document.getElementById('answers');
+    const btn = document.getElementById('toggleAns');
+    a.setAttribute('hidden','');
+    btn.textContent = 'Show Answers';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
