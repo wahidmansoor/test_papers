@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grade 4 English – Exam Prep Test (Myths, Legends & Language)</title>
+  <style>
+    :root { --card:#11131a; --text:#e8eaf0; --muted:#aab0c0; --line:#23283a; --ok:#2ecc71; --bad:#ff5c5c; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+           background:linear-gradient(180deg,#0b0c10,#0b0c10 60%,#08090c); color:var(--text); }
+    header { padding:22px 16px; border-bottom:1px solid var(--line); position:sticky; top:0;
+             background:rgba(11,12,16,.92); backdrop-filter: blur(10px); z-index:5; }
+    .wrap { max-width: 980px; margin:0 auto; padding: 0 16px; }
+    h1 { margin:0; font-size: 20px; }
+    .sub { margin-top:6px; color:var(--muted); font-size: 13px; }
+    .topbar { display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
+    .pill { border:1px solid var(--line); padding:6px 10px; border-radius:999px; color:var(--muted); font-size:12px; }
+    main { padding: 16px 0 40px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin:12px 0; }
+    .qhead { display:flex; gap:10px; align-items:flex-start; }
+    .qnum { min-width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+            background:#0e1020; border:1px solid var(--line); color:var(--muted); font-weight:700; }
+    .qtitle { flex:1; }
+    .qtitle h3 { margin:0; font-size:15px; font-weight:650; }
+    .qtitle p { margin:6px 0 0; color:var(--muted); font-size:13px; }
+    .options { margin-top:12px; display:grid; gap:10px; }
+    label.opt { display:flex; gap:10px; padding:10px; border:1px solid var(--line); border-radius:12px; cursor:pointer;
+                align-items:flex-start; background:#0f1119; }
+    label.opt:hover { border-color:#334066; }
+    input[type="radio"]{ margin-top:3px; transform:scale(1.15); }
+    input[type="text"], textarea {
+      width:100%; box-sizing:border-box; padding:10px; border-radius:10px;
+      border:1px solid var(--line); background:#0f1119; color:var(--text); font-size:14px;
+    }
+    textarea { min-height: 80px; resize: vertical; }
+    .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+    @media (max-width: 740px){ .grid2 { grid-template-columns: 1fr; } }
+    .btnrow { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    button { appearance:none; border:1px solid var(--line); background:#151a2a; color:var(--text);
+             padding:10px 14px; border-radius:12px; font-weight:650; cursor:pointer; }
+    button:hover { border-color:#40508a; }
+    button.primary { background:#1c2a5a; border-color:#2b3e86; }
+    button.danger { background:#3a1418; border-color:#6b2a30; }
+    .note { color:var(--muted); font-size:12px; margin-top:10px; }
+    .result { display:none; }
+    .scorebox { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+    .big { font-size:22px; font-weight:800; }
+    .tag { border:1px solid var(--line); padding:6px 10px; border-radius:999px; font-size:12px; }
+    .tag.ok { border-color:rgba(46,204,113,.35); color:var(--ok); }
+    .tag.bad { border-color:rgba(255,92,92,.35); color:var(--bad); }
+    .reviewItem { border-top:1px dashed var(--line); padding-top:12px; margin-top:12px; }
+    .correct { color:var(--ok); font-weight:700; }
+    .wrong { color:var(--bad); font-weight:700; }
+    footer { padding:18px 0 30px; color:var(--muted); font-size:12px; border-top:1px solid var(--line); }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+           border:1px solid var(--line); padding:2px 6px; border-radius:8px; background:#0f1119; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <div>
+      <h1>Grade 4 English – Exam Prep Test</h1>
+      <div class="sub">Unit: Myths & Legends + Language Skills (pronouns, suffixes, paragraphs, connectives, contractions, punctuation, prepositions, synonyms, letters)</div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <div class="pill">Time: ~35–45 min</div>
+      <div class="pill">Questions: <span id="qCount">0</span></div>
+      <div class="pill">Auto-marking</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="card">
+    <div class="grid2">
+      <div>
+        <label for="studentName"><b>Student name</b></label>
+        <input id="studentName" type="text" placeholder="Type your name" autocomplete="name" />
+      </div>
+      <div>
+        <label for="className"><b>Class / Section</b> <span class="note">(optional)</span></label>
+        <input id="className" type="text" placeholder="e.g., G4-A" />
+      </div>
+    </div>
+    <div class="note">
+      Read carefully. For short answers, spelling matters (but small punctuation differences are accepted).
+      For writing questions, there is no auto-marking — write your best answer.
+    </div>
+    <div class="btnrow">
+      <button class="primary" id="btnSubmit">Submit & Grade</button>
+      <button id="btnSave">Save answers (download)</button>
+      <button class="danger" id="btnReset">Reset</button>
+    </div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div class="card result" id="resultCard">
+    <div class="scorebox">
+      <div class="big">Score: <span id="scoreText">0</span></div>
+      <div class="tag" id="percentTag">0%</div>
+      <div class="tag" id="timeTag">Time: —</div>
+    </div>
+    <div class="note" style="margin-top:8px;">
+      Scroll down to review: you’ll see your answer and the correct answer. Writing questions show “Teacher check”.
+    </div>
+    <div class="btnrow">
+      <button id="btnPrint">Print / Save PDF</button>
+      <button id="btnCopy">Copy result summary</button>
+    </div>
+    <div id="review"></div>
+  </div>
+
+  <footer>
+    Single HTML file (offline). Print to PDF after grading using <span class="kbd">Ctrl/Cmd + P</span>.
+  </footer>
+</main>
+
+<script>
+/*
+  Question types:
+   - mcq : 1 correct option
+   - tf  : true/false
+   - short : short answer (auto-check)
+   - write : long answer (not auto-marked)
+*/
+const QUESTIONS = [
+  // --- Stories: Myth vs Legend (from “Bear and Fire”, “Mulan”, “Sinbad and the Roc”) ---
+  {type:"mcq", topic:"Myths & Legends", prompt:"A myth is usually…", options:[
+    "a true news report",
+    "a traditional story that explains why or how something happens",
+    "a list of facts in a textbook",
+    "a recipe"
+  ], answer:1},
+
+  {type:"mcq", topic:"Myths & Legends", prompt:"A legend often contains…", options:[
+    "a hero/heroine and an event in the past that might be true or linked to a culture or beliefs",
+    "only animals that talk",
+    "only made-up jokes",
+    "no characters"
+  ], answer:0},
+
+  {type:"short", topic:"Bear and Fire", prompt:"In the story “Bear and Fire”, who finally owns Fire at the end?", answer:["man"], explain:"Fire belongs to Man at the end."},
+
+  {type:"short", topic:"Bear and Fire", prompt:"What does the word “dwindle” mean? (one idea)", answer:[
+    "get smaller","to get smaller","become smaller","gets smaller"
+  ]},
+
+  {type:"mcq", topic:"Legend: Mulan", prompt:"Why did Mulan decide to go to war?", options:[
+    "She wanted to travel for fun",
+    "She wanted to help her father because he was too weak/ill to fight",
+    "She wanted to become a queen",
+    "She was looking for treasure"
+  ], answer:1},
+
+  {type:"mcq", topic:"Legend: Sinbad and the Roc", prompt:"Why did Sinbad decide to go on another adventure?", options:[
+    "He was bored and wanted to explore/find more treasure",
+    "He wanted to become a teacher",
+    "He wanted to sell a boat",
+    "He wanted to find a new pet"
+  ], answer:0},
+
+  // --- Pronouns (4.3 Looking at pronouns) ---
+  {type:"mcq", topic:"Pronouns", prompt:"A pronoun is a word that can be used instead of…", options:[
+    "a verb",
+    "a noun or noun phrase",
+    "an adjective",
+    "a punctuation mark"
+  ], answer:1},
+
+  {type:"mcq", topic:"Pronouns", prompt:"Choose the pronoun in this sentence: “Bear is looking. He is looking.”", options:[
+    "Bear",
+    "looking",
+    "He",
+    "is"
+  ], answer:2},
+
+  {type:"short", topic:"Pronouns", prompt:"Replace the noun with a pronoun: “Mulan was nervous. ____ was nervous.”", answer:["she"]},
+
+  {type:"mcq", topic:"Pronouns", prompt:"Which pronoun is plural?", options:["he","it","they","her"], answer:2},
+
+  // --- Suffixes (4.4 What is a legend? Language focus) ---
+  {type:"mcq", topic:"Suffixes", prompt:"A suffix is…", options:[
+    "a group of letters at the start of a word",
+    "a group of letters added to the end of a word to form a new word",
+    "a word that means the opposite",
+    "a punctuation mark"
+  ], answer:1},
+
+  {type:"short", topic:"Suffixes", prompt:"What is the root word in “quietly”?", answer:["quiet"], explain:"quiet + ly"},
+
+  {type:"short", topic:"Suffixes", prompt:"What is the root word in “deepest”?", answer:["deep"], explain:"deep + est"},
+
+  // --- Paragraphs (4.5 Looking at paragraphs) ---
+  {type:"mcq", topic:"Paragraphs", prompt:"A paragraph is…", options:[
+    "one word only",
+    "a section of text about one main idea or event",
+    "a type of punctuation",
+    "a title"
+  ], answer:1},
+
+  {type:"mcq", topic:"Paragraph openings", prompt:"Which phrase is a time opener?", options:[
+    "in the garden",
+    "near the lake",
+    "yesterday",
+    "under my bed"
+  ], answer:2},
+
+  {type:"mcq", topic:"Paragraph openings", prompt:"Which phrase tells place (where)?", options:[
+    "at six o’clock",
+    "eventually",
+    "in the year 2050",
+    "outside"
+  ], answer:3},
+
+  // --- Joining sentences (4.6 Joining sentences) ---
+  {type:"mcq", topic:"Connectives", prompt:"Which connective shows a reason (cause)?", options:["first","then","because","up"], answer:2},
+
+  {type:"mcq", topic:"Connectives", prompt:"Choose the best connective: “The dragon yawned ____ it was tired.”", options:["because","so","but","then"], answer:0},
+
+  {type:"short", topic:"Connectives", prompt:"Join the ideas using “but”: “Sinbad was worried. He continued.” (Write one sentence.)", answer:[
+    "sinbad was worried but he continued.",
+    "sinbad was worried, but he continued.",
+    "sinbad was worried but he continued"
+  ]},
+
+  // --- Contractions (4.9 Exploring a legend) ---
+  {type:"short", topic:"Contractions", prompt:"Write the contraction for “do not”.", answer:["don't","dont"]},
+  {type:"short", topic:"Contractions", prompt:"Write the contraction for “I will”.", answer:["i'll","ill"]},
+  {type:"short", topic:"Contractions", prompt:"Write the two words for the contraction “isn't”.", answer:["is not","isnt not","is not."], explain:"isn't = is not"},
+
+  // --- Writing a legend / speech marks / verbs instead of said (4.11) ---
+  {type:"mcq", topic:"Speech marks", prompt:"Speech marks are used to show…", options:[
+    "where the words a character says begin and end",
+    "where a paragraph ends",
+    "where a word is misspelled",
+    "where a story title is"
+  ], answer:0},
+
+  {type:"mcq", topic:"Speech verbs", prompt:"Which word could replace “said” when speaking loudly?", options:[
+    "whispered",
+    "muttered",
+    "shouted",
+    "sobbed"
+  ], answer:2},
+
+  // --- Improving your legend: punctuation (4.12) ---
+  {type:"mcq", topic:"Punctuation", prompt:"Which punctuation mark ends a question?", options:[".","!","?"," , "], answer:2},
+
+  {type:"short", topic:"Punctuation", prompt:"Add punctuation: Which fruit do you like more apple banana or mango", answer:[
+    "which fruit do you like more, apple, banana or mango?",
+    "which fruit do you like more, apple, banana, or mango?",
+    "which fruit do you like more, apple, banana or mango ?",
+    "which fruit do you like more, apple, banana or mango?"
+  ], explain:"Commas for the list + question mark."},
+
+  // --- Prepositions (5.2 Scanning or reading carefully?) ---
+  {type:"mcq", topic:"Prepositions", prompt:"A preposition shows the relationship (position) between words. Which one is a preposition?", options:[
+    "quickly",
+    "under",
+    "beautiful",
+    "laugh"
+  ], answer:1},
+
+  {type:"mcq", topic:"Prepositions", prompt:"Choose the best preposition: “The cat ran ____ the bush.”", options:["through","happy","because","tiny"], answer:0},
+
+  {type:"short", topic:"Prepositions", prompt:"Write an opposite preposition for “over”.", answer:["under"]},
+
+  // --- Synonyms (5.3 Looking at synonyms) ---
+  {type:"mcq", topic:"Synonyms", prompt:"A synonym is…", options:[
+    "a word with the opposite meaning",
+    "a word with a similar meaning",
+    "a punctuation mark",
+    "a number"
+  ], answer:1},
+
+  {type:"mcq", topic:"Synonyms", prompt:"Which word is a synonym for “huge”?", options:["tiny","massive","sad","odd"], answer:1},
+
+  {type:"short", topic:"Synonyms", prompt:"Write a synonym for “walk” (one word).", answer:[
+    "strolled","wandered","walked slowly","stroll","wander"
+  ]},
+
+  // --- Letters (5.4 What does a letter look like?) ---
+  {type:"mcq", topic:"Letters", prompt:"Which part of a letter usually comes at the end?", options:[
+    "greeting",
+    "signature",
+    "heading",
+    "body"
+  ], answer:1},
+
+  {type:"mcq", topic:"Letters", prompt:"Which is the greeting in a letter?", options:[
+    "28 Riverview Road",
+    "Dear Class 3,",
+    "From, Mrs Sabella",
+    "Saturday 17 May"
+  ], answer:1},
+
+  // --- Writing tasks (teacher check) ---
+  {type:"write", topic:"Writing (Teacher check)", prompt:"Write TWO sentences about Sinbad using at least ONE pronoun (he / him / they / them).", rubric:"Teacher check: pronoun used correctly; clear sentences."},
+  {type:"write", topic:"Writing (Teacher check)", prompt:"Plan a legend: Write 4 short notes (one for each paragraph) about what will happen in your legend.", rubric:"Teacher check: has hero/heroine; dangerous task; past setting; clear events."},
+];
+
+function escapeHtml(str){
+  return (str ?? "").toString()
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function normalizeText(s){
+  return (s ?? "")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replaceAll("’","'")
+    .replaceAll("“",""")
+    .replaceAll("”",""")
+    .replaceAll(/\s+/g," ")
+    .replaceAll(/\s*,\s*/g,", ")
+    .replaceAll(/\s*\?\s*/g,"?")
+    .replaceAll(/\s*\.\s*/g,".")
+    .replaceAll(/\s*! \s*/g,"!")
+    .replaceAll(/\s*;\s*/g,"; ");
+}
+
+function buildQuiz(){
+  const quiz = document.getElementById("quiz");
+  quiz.innerHTML = "";
+  document.getElementById("qCount").textContent = QUESTIONS.length;
+
+  QUESTIONS.forEach((q, idx)=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.qindex = idx;
+
+    const head = document.createElement("div");
+    head.className = "qhead";
+
+    const num = document.createElement("div");
+    num.className = "qnum";
+    num.textContent = (idx+1);
+
+    const title = document.createElement("div");
+    title.className = "qtitle";
+    title.innerHTML = `<h3>${escapeHtml(q.topic)} • ${escapeHtml(q.type.toUpperCase())}</h3>
+                       <p>${escapeHtml(q.prompt)}</p>`;
+
+    head.appendChild(num);
+    head.appendChild(title);
+    card.appendChild(head);
+
+    const body = document.createElement("div");
+    body.className = "options";
+
+    if(q.type === "mcq" || q.type === "tf"){
+      const opts = q.type === "tf" ? ["True","False"] : q.options;
+      opts.forEach((opt, j)=>{
+        const lab = document.createElement("label");
+        lab.className = "opt";
+        lab.innerHTML = `<input type="radio" name="q${idx}" value="${j}" />
+                         <div>${escapeHtml(opt)}</div>`;
+        body.appendChild(lab);
+      });
+    } else if(q.type === "short"){
+      const inp = document.createElement("input");
+      inp.type = "text";
+      inp.placeholder = "Type your answer";
+      inp.id = `q${idx}_short`;
+      body.appendChild(inp);
+    } else if(q.type === "write"){
+      const ta = document.createElement("textarea");
+      ta.placeholder = "Write your answer here";
+      ta.id = `q${idx}_write`;
+      body.appendChild(ta);
+      if(q.rubric){
+        const n = document.createElement("div");
+        n.className = "note";
+        n.innerHTML = `<b>Teacher check:</b> ${escapeHtml(q.rubric)}`;
+        body.appendChild(n);
+      }
+    }
+
+    card.appendChild(body);
+    quiz.appendChild(card);
+  });
+}
+
+function getUserAnswer(q, idx){
+  if(q.type === "mcq" || q.type === "tf"){
+    const el = document.querySelector(`input[name="q${idx}"]:checked`);
+    if(!el) return null;
+    return parseInt(el.value, 10);
+  }
+  if(q.type === "short"){
+    const el = document.getElementById(`q${idx}_short`);
+    return el ? el.value : "";
+  }
+  if(q.type === "write"){
+    const el = document.getElementById(`q${idx}_write`);
+    return el ? el.value : "";
+  }
+  return "";
+}
+
+function isCorrect(q, userAns){
+  if(q.type === "mcq" || q.type === "tf"){
+    return userAns === q.answer;
+  }
+  if(q.type === "short"){
+    const ua = normalizeText(userAns);
+    return q.answer.map(a=>normalizeText(a)).includes(ua);
+  }
+  // write questions: not auto-marked
+  return null;
+}
+
+function correctAnswerText(q){
+  if(q.type === "mcq"){
+    return q.options[q.answer];
+  }
+  if(q.type === "tf"){
+    return q.answer ? "True" : "False";
+  }
+  if(q.type === "short"){
+    return q.answer[0];
+  }
+  if(q.type === "write"){
+    return "Teacher check";
+  }
+  return "";
+}
+
+let startTime = Date.now();
+
+function grade(){
+  const review = document.getElementById("review");
+  review.innerHTML = "";
+
+  let correct = 0;
+  let markedTotal = 0;
+
+  const details = [];
+
+  QUESTIONS.forEach((q, idx)=>{
+    const ua = getUserAnswer(q, idx);
+    const ok = isCorrect(q, ua);
+
+    // Only count auto-marked questions
+    if(ok !== null){
+      markedTotal++;
+      if(ok) correct++;
+    }
+    details.push({idx, q, ua, ok});
+  });
+
+  const percent = markedTotal ? Math.round((correct / markedTotal) * 100) : 0;
+  const elapsedMs = Date.now() - startTime;
+  const mins = Math.floor(elapsedMs / 60000);
+  const secs = Math.floor((elapsedMs % 60000)/1000);
+
+  document.getElementById("scoreText").textContent = `${correct} / ${markedTotal} (auto-marked)`;
+  const pt = document.getElementById("percentTag");
+  pt.textContent = `${percent}%`;
+  pt.className = "tag " + (percent >= 70 ? "ok" : (percent >= 50 ? "" : "bad"));
+  document.getElementById("timeTag").textContent = `Time: ${mins}m ${secs}s`;
+
+  const resultCard = document.getElementById("resultCard");
+  resultCard.style.display = "block";
+
+  details.forEach(d=>{
+    const {idx, q, ua, ok} = d;
+    const div = document.createElement("div");
+    div.className = "reviewItem";
+
+    const userText = (q.type === "mcq" || q.type === "tf")
+      ? (ua === null ? "— (no answer)" : q.options ? q.options[ua] : (ua===0?"True":"False"))
+      : (ua || "— (no answer)");
+
+    let status = "";
+    if(q.type === "write"){
+      status = `<span class="tag">Teacher check</span>`;
+    } else if(ok){
+      status = `<span class="correct">Correct</span>`;
+    } else {
+      status = `<span class="wrong">Wrong</span>`;
+    }
+
+    const corr = escapeHtml(correctAnswerText(q));
+
+    div.innerHTML = `
+      <div style="display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;">
+        <div class="qnum" style="min-width:34px;height:34px;border-radius:10px;">${idx+1}</div>
+        <div style="flex:1;">
+          <div style="color:var(--muted);font-size:12px;margin-bottom:4px;">${escapeHtml(q.topic)} • ${escapeHtml(q.type.toUpperCase())} • ${status}</div>
+          <div style="font-weight:650;margin-bottom:8px;">${escapeHtml(q.prompt)}</div>
+          <div class="grid2" style="margin-top:10px;">
+            <div><div class="note"><b>Your answer</b></div><div>${escapeHtml(userText)}</div></div>
+            <div><div class="note"><b>Correct answer</b></div><div>${corr}</div></div>
+          </div>
+          ${q.explain ? `<div class="note" style="margin-top:10px;"><b>Explanation:</b> ${escapeHtml(q.explain)}</div>` : ``}
+        </div>
+      </div>
+    `;
+    review.appendChild(div);
+  });
+
+  resultCard.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function saveAnswers(){
+  const payload = {
+    meta: {
+      studentName: document.getElementById("studentName").value || "",
+      className: document.getElementById("className").value || "",
+      savedAt: new Date().toISOString(),
+      questionCount: QUESTIONS.length
+    },
+    answers: QUESTIONS.map((q, idx)=>({
+      index: idx+1,
+      type: q.type,
+      topic: q.topic,
+      prompt: q.prompt,
+      userAnswer: getUserAnswer(q, idx)
+    }))
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  const safeName = (payload.meta.studentName || "student").replaceAll(/[^a-z0-9]+/gi,"_");
+  a.download = `G4_English_PrepAnswers_${safeName}.json`;
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
+}
+
+function resetAll(){
+  if(!confirm("Reset all answers?")) return;
+  document.querySelectorAll('input[type="radio"]').forEach(x=>x.checked=false);
+  document.querySelectorAll('input[type="text"]').forEach(x=>{ if(!["studentName","className"].includes(x.id)) x.value=""; });
+  document.querySelectorAll('textarea').forEach(x=>x.value="");
+  document.getElementById("resultCard").style.display = "none";
+  startTime = Date.now();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function printNow(){ window.print(); }
+
+async function copySummary(){
+  const student = document.getElementById("studentName").value || "Student";
+  const cls = document.getElementById("className").value || "";
+  const score = document.getElementById("scoreText").textContent || "";
+  const percent = document.getElementById("percentTag").textContent || "";
+  const time = document.getElementById("timeTag").textContent || "";
+  const lines = [
+    `Grade 4 English – Exam Prep Test`,
+    `Name: ${student}${cls ? " | Class: "+cls : ""}`,
+    `Result: ${score} (${percent})`,
+    `${time}`
+  ].join("\n");
+  try{
+    await navigator.clipboard.writeText(lines);
+    alert("Copied!");
+  } catch(e){
+    const ta = document.createElement("textarea");
+    ta.value = lines;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+    alert("Copied!");
+  }
+}
+
+document.getElementById("btnSubmit").addEventListener("click", grade);
+document.getElementById("btnSave").addEventListener("click", saveAnswers);
+document.getElementById("btnReset").addEventListener("click", resetAll);
+document.getElementById("btnPrint").addEventListener("click", printNow);
+document.getElementById("btnCopy").addEventListener("click", copySummary);
+
+buildQuiz();
+</script>
+</body>
+</html>
