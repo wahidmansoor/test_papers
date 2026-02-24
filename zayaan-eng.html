@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Grade 3 English – Exam Prep (100 Questions)</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --sky:#4BB8F5;--grass:#52C16A;--coral:#FF6B6B;
+  --purple:#9B72CF;--orange:#FF9740;--sun:#FFD234;
+  --navy:#1a2744;--ink:#1a2744;--paper:#FFFDF5;
+  --card:#fff;--line:#E8E3D9;--muted:#7a8096;--r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:'Nunito',sans-serif;font-size:14.5px;line-height:1.55;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background:
+  radial-gradient(circle at 10% 18%,#FFD23412 0 45px,transparent 45px),
+  radial-gradient(circle at 88% 14%,#4BB8F512 0 60px,transparent 60px),
+  radial-gradient(circle at 55% 82%,#FF6B6B10 0 80px,transparent 80px),
+  radial-gradient(circle at 4% 72%,#52C16A10 0 50px,transparent 50px);
+  pointer-events:none;z-index:0;}
+.page{max-width:1120px;margin:0 auto;padding:24px 16px 120px;position:relative;z-index:1}
+
+/* HEADER */
+.exam-header{
+  background:linear-gradient(135deg,#1a2744 0%,#2d3f70 60%,#3d2060 100%);
+  border-radius:24px;padding:28px 32px;color:#fff;display:flex;gap:20px;
+  align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:24px;
+  box-shadow:0 8px 32px #1a274440;position:relative;overflow:hidden;}
+.exam-header::before{content:'';position:absolute;right:-40px;top:-40px;width:200px;height:200px;background:radial-gradient(circle,#FFD23430 0%,transparent 70%);border-radius:50%;}
+.exam-header::after{content:'📘';font-size:80px;position:absolute;right:28px;bottom:-12px;opacity:.14;}
+.h-title{font-family:'Baloo 2',sans-serif;font-size:26px;font-weight:800;margin-bottom:6px;line-height:1.2}
+.h-sub{font-size:13px;opacity:.8;margin-bottom:12px}
+.badge-row{display:flex;gap:7px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:6px;background:#ffffff20;border:1px solid #ffffff35;border-radius:999px;padding:3px 11px;font-size:11.5px;font-weight:700;}
+.b-y{background:#FFD23430;border-color:#FFD23460}.b-b{background:#4BB8F530;border-color:#4BB8F560}.b-r{background:#FF6B6B30;border-color:#FF6B6B60}
+.info-boxes{display:flex;gap:10px;flex-wrap:wrap}
+.info-box{background:#ffffff18;border:1px solid #ffffff30;border-radius:14px;padding:10px 16px;text-align:center;min-width:88px}
+.info-box .val{font-family:'Baloo 2',sans-serif;font-size:22px;font-weight:800;color:#FFD234;display:block}
+.info-box .lbl{font-size:10.5px;opacity:.75;text-transform:uppercase;letter-spacing:.5px}
+.name-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:14px;width:100%}
+.name-row input{background:#ffffff15;border:1px solid #ffffff35;border-radius:10px;padding:7px 13px;color:#fff;font:600 13.5px 'Nunito',sans-serif;min-width:175px;outline:none;}
+.name-row input::placeholder{opacity:.5}
+.name-row label{font-size:13px;opacity:.8;font-weight:700}
+
+/* CONTROLS */
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;align-items:center;justify-content:space-between}
+.pb-wrap{background:#fff;border:1.5px solid var(--line);border-radius:999px;height:11px;overflow:hidden;min-width:240px;margin-bottom:4px}
+.pb{height:100%;background:linear-gradient(90deg,#4BB8F5,#9B72CF);border-radius:999px;width:0%;transition:width .4s}
+.pb-lbl{font-size:11.5px;color:var(--muted)}
+.btn{border:2px solid transparent;border-radius:12px;padding:8px 16px;cursor:pointer;font:700 13px 'Nunito',sans-serif;transition:all .18s;display:inline-flex;align-items:center;gap:6px;}
+.btn-ghost{background:#fff;color:var(--navy);border-color:var(--line)}.btn-ghost:hover{border-color:#9B72CF;color:#9B72CF}
+.btn-warn{background:#fff;color:var(--coral);border-color:#FF6B6B60}.btn-warn:hover{background:#FF6B6B10}
+
+/* SECTION */
+.section{margin:22px 0 0}
+.sh{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding:13px 18px;border-radius:14px;font-family:'Baloo 2',sans-serif;font-size:16px;font-weight:800;}
+.sh-mc{background:linear-gradient(90deg,#4BB8F515,transparent);border-left:4px solid #4BB8F5}
+.sh-tf{background:linear-gradient(90deg,#52C16A15,transparent);border-left:4px solid #52C16A}
+.sh-fi{background:linear-gradient(90deg,#9B72CF15,transparent);border-left:4px solid #9B72CF}
+.sh .tag{margin-left:auto;font-size:11.5px;font-weight:700;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 11px;color:var(--muted);}
+.hint{color:var(--muted);font-size:12.5px;margin:-6px 0 10px 4px;font-style:italic}
+.grid{display:grid;gap:10px;grid-template-columns:1fr}
+@media(min-width:700px){.grid.two{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.grid.three{grid-template-columns:1fr 1fr 1fr}}
+
+/* QUESTION CARD */
+.q{background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:12px 13px;transition:box-shadow .18s,border-color .18s;position:relative;overflow:hidden;}
+.q:hover{box-shadow:0 3px 14px #00000010;border-color:#ccc}
+.q::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:var(--r) 0 0 var(--r);}
+.q.mc::before{background:#4BB8F5}.q.tf::before{background:#52C16A}.q.fi::before{background:#9B72CF}
+.q.correct-card{border-color:#52C16A;background:#f0fff4}.q.correct-card::before{background:#52C16A!important}
+.q.wrong-card{border-color:#FF6B6B;background:#fff5f5}.q.wrong-card::before{background:#FF6B6B!important}
+.rt{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:800;border-radius:999px;padding:3px 9px;margin-top:7px;}
+.rt.ok{background:#52C16A20;color:#2a9c4f}.rt.no{background:#FF6B6B20;color:#cc2020}
+.qh{display:flex;gap:9px;align-items:flex-start}
+.num{min-width:33px;height:33px;border-radius:9px;display:grid;place-items:center;font-family:'Baloo 2',sans-serif;font-size:14px;font-weight:800;flex-shrink:0;}
+.nm{background:#4BB8F520;color:#1a8cd8}.nt{background:#52C16A20;color:#2a9c4f}.nf{background:#9B72CF20;color:#7b4fc9}
+.qb{flex:1}
+.prompt{margin:0 0 8px;font-weight:700;font-size:13.5px;line-height:1.45}
+.prompt strong,.prompt b{color:var(--navy)}
+.opts{display:grid;gap:4px}
+.opt{display:flex;align-items:center;gap:8px;padding:6px 11px;border-radius:9px;border:1.5px solid var(--line);cursor:pointer;transition:all .14s;font-size:13.5px;font-weight:600;background:#fff;}
+.opt:hover{border-color:#4BB8F5;background:#4BB8F508}
+.opt.opt-ok{border-color:#52C16A!important;background:#52C16A15!important}
+.opt.opt-no{border-color:#FF6B6B!important;background:#FF6B6B15!important}
+.opt input[type=radio]{accent-color:#4BB8F5;width:14px;height:14px}
+.ai{width:100%;max-width:320px;padding:7px 11px;border-radius:9px;border:1.5px solid var(--line);font:600 13.5px 'Nunito',sans-serif;color:var(--ink);background:#FAFAFA;transition:border-color .15s;outline:none;}
+.ai:focus{border-color:#9B72CF;background:#fff}
+.ai.sm{max-width:180px}.ai.xs{max-width:120px}
+.pill{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.4px;border-radius:999px;padding:2px 8px;text-transform:uppercase;margin-bottom:7px;}
+.pf{background:#4BB8F520;color:#1a8cd8}.pg{background:#52C16A20;color:#2a9c4f}.pn{background:#9B72CF20;color:#7b4fc9}.pm{background:#FF974020;color:#cc6500}
+.submitted .opt,.submitted .ai{pointer-events:none}
+.submitted .ai{background:#f5f5f5}
+
+/* SUBMIT */
+.submit-row{display:flex;justify-content:center;margin:36px 0 8px}
+.btn-submit{background:linear-gradient(135deg,#52C16A,#2a9c4f);color:#fff;border:none;border-radius:16px;padding:16px 44px;cursor:pointer;font:800 16px 'Baloo 2',sans-serif;box-shadow:0 6px 24px #52C16A40;transition:all .2s;display:inline-flex;align-items:center;gap:10px;letter-spacing:.3px;}
+.btn-submit:hover{transform:translateY(-3px);box-shadow:0 10px 30px #52C16A55}
+.submit-note{text-align:center;color:var(--muted);font-size:13px;margin-top:6px}
+
+/* MODAL */
+.overlay{position:fixed;inset:0;background:#000a;backdrop-filter:blur(5px);z-index:1000;display:flex;align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s;}
+.overlay.open{opacity:1;pointer-events:all}
+.modal{background:#fff;border-radius:28px;max-width:920px;width:100%;box-shadow:0 24px 80px #00000045;overflow:hidden;transform:translateY(50px) scale(.97);transition:transform .38s cubic-bezier(.22,1,.36,1);margin:auto;}
+.overlay.open .modal{transform:translateY(0) scale(1)}
+.m-hero{padding:34px 28px 26px;text-align:center;position:relative;overflow:hidden}
+.m-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#1a2744,#2d3f70,#3d2060)}
+.hi{position:relative;z-index:1}
+.ring-wrap{display:inline-flex;align-items:center;justify-content:center;width:114px;height:114px;margin-bottom:14px;position:relative}
+.ring-bg{position:absolute;inset:0;border-radius:50%;border:9px solid #ffffff18}
+.ring-fill{position:absolute;inset:0;border-radius:50%;border:9px solid transparent;border-top-color:#FFD234;transform:rotate(-90deg);transition:transform 1.1s cubic-bezier(.4,0,.2,1);}
+.ring-fill.q2{border-right-color:#FFD234}.ring-fill.q3{border-right-color:#FFD234;border-bottom-color:#FFD234}.ring-fill.full{border-color:#FFD234}
+.snum{font-family:'Baloo 2',sans-serif;font-size:34px;font-weight:900;color:#FFD234;line-height:1}
+.ssub{font-size:12px;color:#ffffff80;margin-top:2px}
+.m-hero h2{font-family:'Baloo 2',sans-serif;font-size:22px;font-weight:900;color:#fff;margin-bottom:5px}
+.m-hero p{font-size:13.5px;color:#ffffffa0;margin-bottom:14px}
+.gpills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.gpill{display:inline-flex;align-items:center;gap:5px;background:#ffffff20;border:1px solid #ffffff30;border-radius:999px;padding:5px 13px;font-size:12px;font-weight:700;color:#fff}
+.share-bar{padding:16px 22px;background:#f8f9fc;border-bottom:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center}
+.share-title{font-weight:800;font-size:13.5px;color:var(--navy);width:100%;text-align:center;margin-bottom:2px}
+.sbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 17px;border-radius:12px;font:700 13px 'Nunito',sans-serif;cursor:pointer;border:2px solid transparent;transition:all .18s;text-decoration:none;white-space:nowrap}
+.se{background:#1a2744;color:#fff}.se:hover{background:#2d3f70;transform:translateY(-1px)}
+.ss{background:#52C16A;color:#fff}.ss:hover{background:#3db058;transform:translateY(-1px)}
+.sw{background:#25D366;color:#fff}.sw:hover{background:#1da851;transform:translateY(-1px)}
+.sc{background:#fff;color:var(--navy);border-color:var(--line)}.sc:hover{border-color:#9B72CF;color:#9B72CF}
+.r-body{padding:20px 22px;max-height:52vh;overflow-y:auto}
+.r-body h3{font-family:'Baloo 2',sans-serif;font-size:15px;color:var(--navy);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.ri{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #f2f2f2}
+.ri:last-child{border:none}
+.ri-n{min-width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-family:'Baloo 2',sans-serif;font-size:12px;font-weight:800;flex-shrink:0}
+.rio{background:#52C16A20;color:#2a9c4f}.rix{background:#FF6B6B20;color:#cc2020}
+.ri-b{flex:1;font-size:12.5px}
+.ri-q{font-weight:700;color:var(--ink);margin-bottom:2px}
+.ri-g{color:var(--muted)}.ri-c{color:#2a9c4f;font-weight:700;margin-top:2px}
+.m-foot{padding:14px 22px;background:#f8f9fc;border-top:1px solid var(--line);display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.btn-close{background:#fff;color:var(--navy);border:2px solid var(--line);border-radius:12px;padding:9px 18px;font:700 13px 'Nunito',sans-serif;cursor:pointer}
+.btn-close:hover{border-color:var(--coral);color:var(--coral)}
+.btn-retake{background:linear-gradient(135deg,#4BB8F5,#1a8cd8);color:#fff;border:none;border-radius:12px;padding:9px 20px;font:700 13px 'Nunito',sans-serif;cursor:pointer}
+.btn-retake:hover{transform:translateY(-1px);box-shadow:0 4px 14px #4BB8F540}
+.footer{margin-top:24px;text-align:center;color:var(--muted);font-size:12px}
+@media print{.controls,.submit-row,.overlay,button{display:none!important}body{font-size:10.5pt}.q{break-inside:avoid}.exam-header{background:#1a2744!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+
+<body>
+<div class="page" id="examPage">
+
+<!-- HEADER -->
+<div class="exam-header">
+  <div>
+    <div class="h-title">🎓 Grade 3 English — Exam Prep (100 Questions)</div>
+    <div class="h-sub">Myths & Legends · Grammar · Punctuation · Vocabulary</div>
+    <div class="badge-row">
+      <span class="badge b-y">📖 Stories</span>
+      <span class="badge b-b">🔤 Grammar</span>
+      <span class="badge b-r">✏️ Punctuation</span>
+      <span class="badge">🧩 Pronouns</span>
+      <span class="badge">🧷 Connectives</span>
+      <span class="badge">📍 Prepositions</span>
+      <span class="badge">🟰 Synonyms</span>
+    </div>
+    <div class="name-row">
+      <label>Name:</label><input id="nameInput" type="text" placeholder="Write your name here…">
+      <label>Date:</label><input id="dateInput" type="text" placeholder="Date…">
+    </div>
+  </div>
+  <div class="info-boxes">
+    <div class="info-box"><span class="val">100</span><span class="lbl">Questions</span></div>
+    <div class="info-box"><span class="val">3</span><span class="lbl">Parts</span></div>
+    <div class="info-box"><span class="val" id="scoreLive">0</span><span class="lbl">Answered</span></div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="controls">
+  <div>
+    <div class="pb-wrap"><div class="pb" id="pb"></div></div>
+    <div class="pb-lbl" id="pblbl">0 / 100 answered</div>
+  </div>
+  <div style="display:flex;gap:8px">
+    <button class="btn btn-ghost" onclick="window.print()">🖨️ Print</button>
+    <button class="btn btn-warn" onclick="clearAll()">🗑️ Clear</button>
+  </div>
+</div>
+
+<!-- PART A – MCQ (42) -->
+<div class="section">
+  <div class="sh sh-mc"><span>🔵</span> Part A – Multiple Choice <span class="tag">42 Qs · 1 mark each</span></div>
+  <p class="hint">✏️ Tick the correct answer.</p>
+  <div class="grid two">
+
+    <!-- 1–8 Bear and Fire -->
+    <div class="q mc" data-q="1" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">1</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Who owned Fire at the beginning?</p><div class="opts"><label class="opt"><input type="radio" name="q1" value="A"> A) Man</label><label class="opt"><input type="radio" name="q1" value="B"> B) Bear</label><label class="opt"><input type="radio" name="q1" value="C"> C) Mulan</label><label class="opt"><input type="radio" name="q1" value="D"> D) Sinbad</label></div></div></div></div>
+    <div class="q mc" data-q="2" data-type="mc" data-correct="C"><div class="qh"><div class="num nm">2</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Where did Bear put Fire down?</p><div class="opts"><label class="opt"><input type="radio" name="q2" value="A"> A) In a cave</label><label class="opt"><input type="radio" name="q2" value="B"> B) In the village</label><label class="opt"><input type="radio" name="q2" value="C"> C) At the edge of the forest</label><label class="opt"><input type="radio" name="q2" value="D"> D) In the river</label></div></div></div></div>
+    <div class="q mc" data-q="3" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">3</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">What did Fire need?</p><div class="opts"><label class="opt"><input type="radio" name="q3" value="A"> A) Water</label><label class="opt"><input type="radio" name="q3" value="B"> B) Sticks and logs</label><label class="opt"><input type="radio" name="q3" value="C"> C) Sand</label><label class="opt"><input type="radio" name="q3" value="D"> D) Leaves</label></div></div></div></div>
+    <div class="q mc" data-q="4" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">4</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Who helped Fire when it was nearly out?</p><div class="opts"><label class="opt"><input type="radio" name="q4" value="A"> A) Bear</label><label class="opt"><input type="radio" name="q4" value="B"> B) Man</label><label class="opt"><input type="radio" name="q4" value="C"> C) Mulan</label><label class="opt"><input type="radio" name="q4" value="D"> D) Roc</label></div></div></div></div>
+    <div class="q mc" data-q="5" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">5</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Fire gives people:</p><div class="opts"><label class="opt"><input type="radio" name="q5" value="A"> A) Ice and wind</label><label class="opt"><input type="radio" name="q5" value="B"> B) Light and warmth</label><label class="opt"><input type="radio" name="q5" value="C"> C) Rain</label><label class="opt"><input type="radio" name="q5" value="D"> D) Food</label></div></div></div></div>
+    <div class="q mc" data-q="6" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">6</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">At the end of the story, Fire belonged to:</p><div class="opts"><label class="opt"><input type="radio" name="q6" value="A"> A) Bear</label><label class="opt"><input type="radio" name="q6" value="B"> B) Man</label><label class="opt"><input type="radio" name="q6" value="C"> C) No one</label><label class="opt"><input type="radio" name="q6" value="D"> D) The forest</label></div></div></div></div>
+    <div class="q mc" data-q="7" data-type="mc" data-correct="C"><div class="qh"><div class="num nm">7</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">A myth explains:</p><div class="opts"><label class="opt"><input type="radio" name="q7" value="A"> A) A shopping trip</label><label class="opt"><input type="radio" name="q7" value="B"> B) A school day</label><label class="opt"><input type="radio" name="q7" value="C"> C) Why or how something happens</label><label class="opt"><input type="radio" name="q7" value="D"> D) A birthday party</label></div></div></div></div>
+    <div class="q mc" data-q="8" data-type="mc" data-correct="D"><div class="qh"><div class="num nm">8</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Which character could speak?</p><div class="opts"><label class="opt"><input type="radio" name="q8" value="A"> A) Bear</label><label class="opt"><input type="radio" name="q8" value="B"> B) Fire</label><label class="opt"><input type="radio" name="q8" value="C"> C) Man</label><label class="opt"><input type="radio" name="q8" value="D"> D) All of them</label></div></div></div></div>
+
+    <!-- 21–28 Mulan -->
+    <div class="q mc" data-q="9" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">9</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">Why did Mulan join the army?</p><div class="opts"><label class="opt"><input type="radio" name="q9" value="A"> A) She was bored</label><label class="opt"><input type="radio" name="q9" value="B"> B) To save her father</label><label class="opt"><input type="radio" name="q9" value="C"> C) For fun</label><label class="opt"><input type="radio" name="q9" value="D"> D) To travel</label></div></div></div></div>
+    <div class="q mc" data-q="10" data-type="mc" data-correct="C"><div class="qh"><div class="num nm">10</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">Mulan dressed as a:</p><div class="opts"><label class="opt"><input type="radio" name="q10" value="A"> A) Queen</label><label class="opt"><input type="radio" name="q10" value="B"> B) Sailor</label><label class="opt"><input type="radio" name="q10" value="C"> C) Boy</label><label class="opt"><input type="radio" name="q10" value="D"> D) Teacher</label></div></div></div></div>
+    <div class="q mc" data-q="11" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">11</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">A legend usually has:</p><div class="opts"><label class="opt"><input type="radio" name="q11" value="A"> A) A superhero</label><label class="opt"><input type="radio" name="q11" value="B"> B) A hero or heroine</label><label class="opt"><input type="radio" name="q11" value="C"> C) A clown</label><label class="opt"><input type="radio" name="q11" value="D"> D) A robot</label></div></div></div></div>
+    <div class="q mc" data-q="12" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">12</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">Mulan tied her hair so she looked like a:</p><div class="opts"><label class="opt"><input type="radio" name="q12" value="A"> A) Girl</label><label class="opt"><input type="radio" name="q12" value="B"> B) Boy</label><label class="opt"><input type="radio" name="q12" value="C"> C) Queen</label><label class="opt"><input type="radio" name="q12" value="D"> D) Child</label></div></div></div></div>
+    <div class="q mc" data-q="13" data-type="mc" data-correct="C"><div class="qh"><div class="num nm">13</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">The Emperor ruled the:</p><div class="opts"><label class="opt"><input type="radio" name="q13" value="A"> A) Village</label><label class="opt"><input type="radio" name="q13" value="B"> B) School</label><label class="opt"><input type="radio" name="q13" value="C"> C) Country</label><label class="opt"><input type="radio" name="q13" value="D"> D) Forest</label></div></div></div></div>
+    <div class="q mc" data-q="14" data-type="mc" data-correct="C"><div class="qh"><div class="num nm">14</div><div class="qb"><span class="pill pn">Word parts</span><p class="prompt">A suffix is added to the:</p><div class="opts"><label class="opt"><input type="radio" name="q14" value="A"> A) Beginning of a word</label><label class="opt"><input type="radio" name="q14" value="B"> B) Middle</label><label class="opt"><input type="radio" name="q14" value="C"> C) End</label><label class="opt"><input type="radio" name="q14" value="D"> D) Sentence</label></div></div></div></div>
+    <div class="q mc" data-q="15" data-type="mc" data-correct="A"><div class="qh"><div class="num nm">15</div><div class="qb"><span class="pill pn">Word parts</span><p class="prompt">The word “beautiful” has the suffix:</p><div class="opts"><label class="opt"><input type="radio" name="q15" value="A"> A) ful</label><label class="opt"><input type="radio" name="q15" value="B"> B) beau</label><label class="opt"><input type="radio" name="q15" value="C"> C) ti</label><label class="opt"><input type="radio" name="q15" value="D"> D) if</label></div></div></div></div>
+    <div class="q mc" data-q="16" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">16</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">Mulan was:</p><div class="opts"><label class="opt"><input type="radio" name="q16" value="A"> A) Lazy</label><label class="opt"><input type="radio" name="q16" value="B"> B) Brave</label><label class="opt"><input type="radio" name="q16" value="C"> C) Angry</label><label class="opt"><input type="radio" name="q16" value="D"> D) Silly</label></div></div></div></div>
+
+    <!-- 36–43 Sinbad -->
+    <div class="q mc" data-q="17" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">17</div><div class="qb"><span class="pill pf">Legends</span><p class="prompt">Sinbad loved to go to:</p><div class="opts"><label class="opt"><input type="radio" name="q17" value="A"> A) School</label><label class="opt"><input type="radio" name="q17" value="B"> B) Faraway lands</label><label class="opt"><input type="radio" name="q17" value="C"> C) The forest</label><label class="opt"><input type="radio" name="q17" value="D"> D) The farm</label></div></div></div></div>
+    <div class="q mc" data-q="18" data-type="mc" data-correct="C"><div class="qh"><div class="num nm">18</div><div class="qb"><span class="pill pf">Legends</span><p class="prompt">The Roc was a giant:</p><div class="opts"><label class="opt"><input type="radio" name="q18" value="A"> A) Fish</label><label class="opt"><input type="radio" name="q18" value="B"> B) Dragon</label><label class="opt"><input type="radio" name="q18" value="C"> C) Bird</label><label class="opt"><input type="radio" name="q18" value="D"> D) Horse</label></div></div></div></div>
+    <div class="q mc" data-q="19" data-type="mc" data-correct="A"><div class="qh"><div class="num nm">19</div><div class="qb"><span class="pill pf">Legends</span><p class="prompt">The Roc’s egg looked like a:</p><div class="opts"><label class="opt"><input type="radio" name="q19" value="A"> A) Rock</label><label class="opt"><input type="radio" name="q19" value="B"> B) Hill</label><label class="opt"><input type="radio" name="q19" value="C"> C) House</label><label class="opt"><input type="radio" name="q19" value="D"> D) Boat</label></div></div></div></div>
+    <div class="q mc" data-q="20" data-type="mc" data-correct="A"><div class="qh"><div class="num nm">20</div><div class="qb"><span class="pill pf">Legends</span><p class="prompt">A legend usually includes a:</p><div class="opts"><label class="opt"><input type="radio" name="q20" value="A"> A) Dangerous task</label><label class="opt"><input type="radio" name="q20" value="B"> B) Shopping list</label><label class="opt"><input type="radio" name="q20" value="C"> C) Homework</label><label class="opt"><input type="radio" name="q20" value="D"> D) Party</label></div></div></div></div>
+    <div class="q mc" data-q="21" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">21</div><div class="qb"><span class="pill pf">Legends</span><p class="prompt">Sinbad gave his treasure to:</p><div class="opts"><label class="opt"><input type="radio" name="q21" value="A"> A) The king</label><label class="opt"><input type="radio" name="q21" value="B"> B) The poor</label><label class="opt"><input type="radio" name="q21" value="C"> C) The sailors</label><label class="opt"><input type="radio" name="q21" value="D"> D) The Roc</label></div></div></div></div>
+    <div class="q mc" data-q="22" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">22</div><div class="qb"><span class="pill pf">Reading</span><p class="prompt">The storm washed away the:</p><div class="opts"><label class="opt"><input type="radio" name="q22" value="A"> A) Boat</label><label class="opt"><input type="radio" name="q22" value="B"> B) Food and water</label><label class="opt"><input type="radio" name="q22" value="C"> C) Island</label><label class="opt"><input type="radio" name="q22" value="D"> D) Fire</label></div></div></div></div>
+    <div class="q mc" data-q="23" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">23</div><div class="qb"><span class="pill pf">Character</span><p class="prompt">Sinbad was:</p><div class="opts"><label class="opt"><input type="radio" name="q23" value="A"> A) Cowardly</label><label class="opt"><input type="radio" name="q23" value="B"> B) Generous</label><label class="opt"><input type="radio" name="q23" value="C"> C) Mean</label><label class="opt"><input type="radio" name="q23" value="D"> D) Lazy</label></div></div></div></div>
+    <div class="q mc" data-q="24" data-type="mc" data-correct="C"><div class="qh"><div class="num nm">24</div><div class="qb"><span class="pill pn">Punctuation</span><p class="prompt">A contraction uses:</p><div class="opts"><label class="opt"><input type="radio" name="q24" value="A"> A) A comma</label><label class="opt"><input type="radio" name="q24" value="B"> B) A full stop</label><label class="opt"><input type="radio" name="q24" value="C"> C) An apostrophe</label><label class="opt"><input type="radio" name="q24" value="D"> D) A question mark</label></div></div></div></div>
+
+    <!-- Pronouns 51–55 -->
+    <div class="q mc" data-q="25" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">25</div><div class="qb"><span class="pill pn">Pronouns</span><p class="prompt">A pronoun replaces a:</p><div class="opts"><label class="opt"><input type="radio" name="q25" value="A"> A) Verb</label><label class="opt"><input type="radio" name="q25" value="B"> B) Noun</label><label class="opt"><input type="radio" name="q25" value="C"> C) Adjective</label><label class="opt"><input type="radio" name="q25" value="D"> D) Suffix</label></div></div></div></div>
+    <div class="q mc" data-q="26" data-type="mc" data-correct="D"><div class="qh"><div class="num nm">26</div><div class="qb"><span class="pill pn">Pronouns</span><p class="prompt">“Bear is looking. ___ is looking.”</p><div class="opts"><label class="opt"><input type="radio" name="q26" value="A"> A) She</label><label class="opt"><input type="radio" name="q26" value="B"> B) He</label><label class="opt"><input type="radio" name="q26" value="C"> C) They</label><label class="opt"><input type="radio" name="q26" value="D"> D) It</label></div></div></div></div>
+    <div class="q mc" data-q="27" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">27</div><div class="qb"><span class="pill pn">Pronouns</span><p class="prompt">“The sticks are dry. ___ are dry.”</p><div class="opts"><label class="opt"><input type="radio" name="q27" value="A"> A) It</label><label class="opt"><input type="radio" name="q27" value="B"> B) They</label><label class="opt"><input type="radio" name="q27" value="C"> C) He</label><label class="opt"><input type="radio" name="q27" value="D"> D) She</label></div></div></div></div>
+    <div class="q mc" data-q="28" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">28</div><div class="qb"><span class="pill pn">Pronouns</span><p class="prompt">“Mulan saw her father. She hugged ___.”</p><div class="opts"><label class="opt"><input type="radio" name="q28" value="A"> A) he</label><label class="opt"><input type="radio" name="q28" value="B"> B) him</label><label class="opt"><input type="radio" name="q28" value="C"> C) his</label><label class="opt"><input type="radio" name="q28" value="D"> D) they</label></div></div></div></div>
+    <div class="q mc" data-q="29" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">29</div><div class="qb"><span class="pill pn">Pronouns</span><p class="prompt">“The dog wagged ___ tail.”</p><div class="opts"><label class="opt"><input type="radio" name="q29" value="A"> A) it</label><label class="opt"><input type="radio" name="q29" value="B"> B) its</label><label class="opt"><input type="radio" name="q29" value="C"> C) it’s</label><label class="opt"><input type="radio" name="q29" value="D"> D) their</label></div></div></div></div>
+
+    <!-- Connectives 66–70 -->
+    <div class="q mc" data-q="30" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">30</div><div class="qb"><span class="pill pg">Connectives</span><p class="prompt">Which word shows cause?</p><div class="opts"><label class="opt"><input type="radio" name="q30" value="A"> A) first</label><label class="opt"><input type="radio" name="q30" value="B"> B) because</label><label class="opt"><input type="radio" name="q30" value="C"> C) next</label><label class="opt"><input type="radio" name="q30" value="D"> D) over</label></div></div></div></div>
+    <div class="q mc" data-q="31" data-type="mc" data-correct="A"><div class="qh"><div class="num nm">31</div><div class="qb"><span class="pill pg">Connectives</span><p class="prompt">Which word shows time?</p><div class="opts"><label class="opt"><input type="radio" name="q31" value="A"> A) later</label><label class="opt"><input type="radio" name="q31" value="B"> B) under</label><label class="opt"><input type="radio" name="q31" value="C"> C) behind</label><label class="opt"><input type="radio" name="q31" value="D"> D) near</label></div></div></div></div>
+    <div class="q mc" data-q="32" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">32</div><div class="qb"><span class="pill pg">Connectives</span><p class="prompt">“She ran home ___ it was raining.”</p><div class="opts"><label class="opt"><input type="radio" name="q32" value="A"> A) but</label><label class="opt"><input type="radio" name="q32" value="B"> B) because</label><label class="opt"><input type="radio" name="q32" value="C"> C) over</label><label class="opt"><input type="radio" name="q32" value="D"> D) first</label></div></div></div></div>
+    <div class="q mc" data-q="33" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">33</div><div class="qb"><span class="pill pg">Sentences</span><p class="prompt">A multi-clause sentence has:</p><div class="opts"><label class="opt"><input type="radio" name="q33" value="A"> A) One clause</label><label class="opt"><input type="radio" name="q33" value="B"> B) Two or more clauses</label><label class="opt"><input type="radio" name="q33" value="C"> C) No verbs</label><label class="opt"><input type="radio" name="q33" value="D"> D) No subject</label></div></div></div></div>
+    <div class="q mc" data-q="34" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">34</div><div class="qb"><span class="pill pg">Connectives</span><p class="prompt">“Up” is a:</p><div class="opts"><label class="opt"><input type="radio" name="q34" value="A"> A) Time connective</label><label class="opt"><input type="radio" name="q34" value="B"> B) Place connective</label><label class="opt"><input type="radio" name="q34" value="C"> C) Cause connective</label><label class="opt"><input type="radio" name="q34" value="D"> D) Suffix</label></div></div></div></div>
+
+    <!-- Prepositions 76–80 -->
+    <div class="q mc" data-q="35" data-type="mc" data-correct="A"><div class="qh"><div class="num nm">35</div><div class="qb"><span class="pill pm">Prepositions</span><p class="prompt">“The cat is ___ the table.”</p><div class="opts"><label class="opt"><input type="radio" name="q35" value="A"> A) under</label><label class="opt"><input type="radio" name="q35" value="B"> B) because</label><label class="opt"><input type="radio" name="q35" value="C"> C) loudly</label><label class="opt"><input type="radio" name="q35" value="D"> D) beautiful</label></div></div></div></div>
+    <div class="q mc" data-q="36" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">36</div><div class="qb"><span class="pill pm">Prepositions</span><p class="prompt">“The bus stopped ___ the traffic lights.”</p><div class="opts"><label class="opt"><input type="radio" name="q36" value="A"> A) in</label><label class="opt"><input type="radio" name="q36" value="B"> B) at</label><label class="opt"><input type="radio" name="q36" value="C"> C) over</label><label class="opt"><input type="radio" name="q36" value="D"> D) by</label></div></div></div></div>
+    <div class="q mc" data-q="37" data-type="mc" data-correct="A"><div class="qh"><div class="num nm">37</div><div class="qb"><span class="pill pm">Prepositions</span><p class="prompt">“She hid ___ the tree.”</p><div class="opts"><label class="opt"><input type="radio" name="q37" value="A"> A) beside</label><label class="opt"><input type="radio" name="q37" value="B"> B) because</label><label class="opt"><input type="radio" name="q37" value="C"> C) shouted</label><label class="opt"><input type="radio" name="q37" value="D"> D) quickly</label></div></div></div></div>
+    <div class="q mc" data-q="38" data-type="mc" data-correct="C"><div class="qh"><div class="num nm">38</div><div class="qb"><span class="pill pm">Prepositions</span><p class="prompt">A preposition shows:</p><div class="opts"><label class="opt"><input type="radio" name="q38" value="A"> A) Emotion</label><label class="opt"><input type="radio" name="q38" value="B"> B) Action</label><label class="opt"><input type="radio" name="q38" value="C"> C) Position</label><label class="opt"><input type="radio" name="q38" value="D"> D) Suffix</label></div></div></div></div>
+    <div class="q mc" data-q="39" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">39</div><div class="qb"><span class="pill pm">Prepositions</span><p class="prompt">Opposite of “over” is:</p><div class="opts"><label class="opt"><input type="radio" name="q39" value="A"> A) above</label><label class="opt"><input type="radio" name="q39" value="B"> B) under</label><label class="opt"><input type="radio" name="q39" value="C"> C) near</label><label class="opt"><input type="radio" name="q39" value="D"> D) on</label></div></div></div></div>
+
+    <!-- Synonyms 86–90 -->
+    <div class="q mc" data-q="40" data-type="mc" data-correct="B"><div class="qh"><div class="num nm">40</div><div class="qb"><span class="pill pn">Synonyms</span><p class="prompt">A synonym of “big” is:</p><div class="opts"><label class="opt"><input type="radio" name="q40" value="A"> A) tiny</label><label class="opt"><input type="radio" name="q40" value="B"> B) huge</label><label class="opt"><input type="radio" name="q40" value="C"> C) small</label><label class="opt"><input type="radio" name="q40" value="D"> D) little</label></div></div></div></div>
+    <div class="q mc" data-q="41" data-type="mc" data-correct="A"><div class="qh"><div class="num nm">41</div><div class="qb"><span class="pill pn">Synonyms</span><p class="prompt">A synonym of “sad” is:</p><div class="opts"><label class="opt"><input type="radio" name="q41" value="A"> A) miserable</label><label class="opt"><input type="radio" name="q41" value="B"> B) cheerful</label><label class="opt"><input type="radio" name="q41" value="C"> C) bright</label><label class="opt"><input type="radio" name="q41" value="D"> D) strong</label></div></div></div></div>
+    <div class="q mc" data-q="42" data-type="mc" data-correct="C"><div class="qh"><div class="num nm">42</div><div class="qb"><span class="pill pn">Synonyms</span><p class="prompt">A synonym of “walked” is:</p><div class="opts"><label class="opt"><input type="radio" name="q42" value="A"> A) ran</label><label class="opt"><input type="radio" name="q42" value="B"> B) shouted</label><label class="opt"><input type="radio" name="q42" value="C"> C) strolled</label><label class="opt"><input type="radio" name="q42" value="D"> D) jumped</label></div></div></div></div>
+
+  </div>
+</div>
+
+<!-- PART B – TRUE/FALSE (20) -->
+<div class="section">
+  <div class="sh sh-tf"><span>✅</span> Part B – True or False <span class="tag">20 Qs · 1 mark each</span></div>
+  <p class="hint">✏️ Type True or False.</p>
+  <div class="grid two">
+
+    <!-- 9–14 -->
+    <div class="q tf" data-q="43" data-type="tf" data-correct="false"><div class="qh"><div class="num nt">43</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Bear always shared Fire with Man.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="44" data-type="tf" data-correct="false"><div class="qh"><div class="num nt">44</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Fire became angry when Bear came back.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="45" data-type="tf" data-correct="false"><div class="qh"><div class="num nt">45</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Man fed Fire with water.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="46" data-type="tf" data-correct="true"><div class="qh"><div class="num nt">46</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Fire chased Bear away.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="47" data-type="tf" data-correct="true"><div class="qh"><div class="num nt">47</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">The story explains how humans got fire.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="48" data-type="tf" data-correct="false"><div class="qh"><div class="num nt">48</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Myths are usually modern stories.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+
+    <!-- 29–32 -->
+    <div class="q tf" data-q="49" data-type="tf" data-correct="false"><div class="qh"><div class="num nt">49</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">Legends are always completely untrue.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="50" data-type="tf" data-correct="true"><div class="qh"><div class="num nt">50</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">Mulan fought bravely in battles.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="51" data-type="tf" data-correct="false"><div class="qh"><div class="num nt">51</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">Mulan’s family wanted her to go to war.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="52" data-type="tf" data-correct="true"><div class="qh"><div class="num nt">52</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">A legend can be linked to culture or beliefs.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+
+    <!-- 44–47 -->
+    <div class="q tf" data-q="53" data-type="tf" data-correct="false"><div class="qh"><div class="num nt">53</div><div class="qb"><span class="pill pf">Legends</span><p class="prompt">The Roc was an ordinary bird.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="54" data-type="tf" data-correct="true"><div class="qh"><div class="num nt">54</div><div class="qb"><span class="pill pf">Legends</span><p class="prompt">Sinbad needed another adventure.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="55" data-type="tf" data-correct="true"><div class="qh"><div class="num nt">55</div><div class="qb"><span class="pill pn">Grammar</span><p class="prompt">Contractions show missing letters.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="56" data-type="tf" data-correct="true"><div class="qh"><div class="num nt">56</div><div class="qb"><span class="pill pn">Grammar</span><p class="prompt">“I’ll” means “I will”.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+
+    <!-- 61–65 -->
+    <div class="q tf" data-q="57" data-type="tf" data-correct="true"><div class="qh"><div class="num nt">57</div><div class="qb"><span class="pill pg">Paragraphs</span><p class="prompt">A paragraph is about one idea.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="58" data-type="tf" data-correct="false"><div class="qh"><div class="num nt">58</div><div class="qb"><span class="pill pg">Paragraphs</span><p class="prompt">Every sentence is a paragraph.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="59" data-type="tf" data-correct="true"><div class="qh"><div class="num nt">59</div><div class="qb"><span class="pill pg">Connectives</span><p class="prompt">Connectives join sentences.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="60" data-type="tf" data-correct="true"><div class="qh"><div class="num nt">60</div><div class="qb"><span class="pill pg">Connectives</span><p class="prompt">“Because” shows cause.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+    <div class="q tf" data-q="61" data-type="tf" data-correct="false"><div class="qh"><div class="num nt">61</div><div class="qb"><span class="pill pg">Sentences</span><p class="prompt">A simple sentence has more than one clause.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+
+    <!-- extra TF to make 20 -->
+    <div class="q tf" data-q="62" data-type="tf" data-correct="true"><div class="qh"><div class="num nt">62</div><div class="qb"><span class="pill pn">Punctuation</span><p class="prompt">Speech marks show the exact words someone says.</p><input class="ai sm" type="text" placeholder="True / False"></div></div></div>
+
+  </div>
+</div>
+
+<!-- PART C – FILL BLANKS (38) -->
+<div class="section">
+  <div class="sh sh-fi"><span>🟣</span> Part C – Fill in the Blanks <span class="tag">38 Qs · 1 mark each</span></div>
+  <p class="hint">✏️ Type the missing word/number. (Spelling matters.)</p>
+  <div class="grid two">
+
+    <!-- 15–20 -->
+    <div class="q fi" data-q="63" data-type="fi" data-correct="flicker"><div class="qh"><div class="num nf">63</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Fire began to <input class="ai xs" type="text" placeholder="?"> when it was hungry.</p></div></div></div>
+    <div class="q fi" data-q="64" data-type="fi" data-correct="Bear"><div class="qh"><div class="num nf">64</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt"><input class="ai xs" type="text" placeholder="?"> carried Fire with him all the time.</p></div></div></div>
+    <div class="q fi" data-q="65" data-type="fi" data-correct="logs"><div class="qh"><div class="num nf">65</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Man fed Fire with sticks and <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="66" data-type="fi" data-correct="ago"><div class="qh"><div class="num nf">66</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">A myth is a traditional story written long <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="67" data-type="fi" data-correct="real"><div class="qh"><div class="num nf">67</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Myths often include things that do not happen in the <input class="ai xs" type="text" placeholder="?"> world.</p></div></div></div>
+    <div class="q fi" data-q="68" data-type="fi" data-correct="family"><div class="qh"><div class="num nf">68</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">Fire warmed Bear and his <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+
+    <!-- 33–35 -->
+    <div class="q fi" data-q="69" data-type="fi" data-correct="morning"><div class="qh"><div class="num nf">69</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">Mulan left home early one <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="70" data-type="fi" data-correct="hard"><div class="qh"><div class="num nf">70</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">She trained very <input class="ai xs" type="text" placeholder="?"> for battle.</p></div></div></div>
+    <div class="q fi" data-q="71" data-type="fi" data-correct="bravery"><div class="qh"><div class="num nf">71</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">The Emperor thanked Mulan for her <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+
+    <!-- 48–50 -->
+    <div class="q fi" data-q="72" data-type="fi" data-correct="sea"><div class="qh"><div class="num nf">72</div><div class="qb"><span class="pill pf">Legends</span><p class="prompt">Sinbad travelled by <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="73" data-type="fi" data-correct="frightened"><div class="qh"><div class="num nf">73</div><div class="qb"><span class="pill pf">Vocabulary</span><p class="prompt">The sailors were very <input class="ai xs" type="text" placeholder="?"> during the storm.</p></div></div></div>
+    <div class="q fi" data-q="74" data-type="fi" data-correct="dark"><div class="qh"><div class="num nf">74</div><div class="qb"><span class="pill pf">Reading</span><p class="prompt">The sky began to grow <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+
+    <!-- 56–60 -->
+    <div class="q fi" data-q="75" data-type="fi" data-correct="it"><div class="qh"><div class="num nf">75</div><div class="qb"><span class="pill pn">Pronouns</span><p class="prompt">Fire burned because <input class="ai xs" type="text" placeholder="?"> was hungry.</p></div></div></div>
+    <div class="q fi" data-q="76" data-type="fi" data-correct="her"><div class="qh"><div class="num nf">76</div><div class="qb"><span class="pill pn">Pronouns</span><p class="prompt">Mulan loved <input class="ai xs" type="text" placeholder="?"> family.</p></div></div></div>
+    <div class="q fi" data-q="77" data-type="fi" data-correct="themselves"><div class="qh"><div class="num nf">77</div><div class="qb"><span class="pill pn">Pronouns</span><p class="prompt">The sailors saved <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="78" data-type="fi" data-correct="its"><div class="qh"><div class="num nf">78</div><div class="qb"><span class="pill pn">Pronouns</span><p class="prompt">The dragon hurt <input class="ai xs" type="text" placeholder="?"> wing.</p></div></div></div>
+    <div class="q fi" data-q="79" data-type="fi" data-correct="him"><div class="qh"><div class="num nf">79</div><div class="qb"><span class="pill pn">Pronouns</span><p class="prompt">Bear carried Fire with <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+
+    <!-- 71–75 connectives/paragraphs -->
+    <div class="q fi" data-q="80" data-type="fi" data-correct="so"><div class="qh"><div class="num nf">80</div><div class="qb"><span class="pill pg">Connectives</span><p class="prompt">She was tired <input class="ai xs" type="text" placeholder="?"> she went to sleep.</p></div></div></div>
+    <div class="q fi" data-q="81" data-type="fi" data-correct="Next"><div class="qh"><div class="num nf">81</div><div class="qb"><span class="pill pg">Connectives</span><p class="prompt">First, she trained. <input class="ai xs" type="text" placeholder="?">, she fought bravely.</p></div></div></div>
+    <div class="q fi" data-q="82" data-type="fi" data-correct="because"><div class="qh"><div class="num nf">82</div><div class="qb"><span class="pill pg">Connectives</span><p class="prompt">He ran quickly <input class="ai xs" type="text" placeholder="?"> he was scared.</p></div></div></div>
+    <div class="q fi" data-q="83" data-type="fi" data-correct="and"><div class="qh"><div class="num nf">83</div><div class="qb"><span class="pill pg">Connectives</span><p class="prompt">The dragon roared <input class="ai xs" type="text" placeholder="?"> flew away.</p></div></div></div>
+    <div class="q fi" data-q="84" data-type="fi" data-correct="line"><div class="qh"><div class="num nf">84</div><div class="qb"><span class="pill pg">Paragraphs</span><p class="prompt">A paragraph usually starts on a new <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+
+    <!-- 81–85 prepositions -->
+    <div class="q fi" data-q="85" data-type="fi" data-correct="down"><div class="qh"><div class="num nf">85</div><div class="qb"><span class="pill pm">Prepositions</span><p class="prompt">The ball rolled <input class="ai xs" type="text" placeholder="?"> the hill.</p></div></div></div>
+    <div class="q fi" data-q="86" data-type="fi" data-correct="over"><div class="qh"><div class="num nf">86</div><div class="qb"><span class="pill pm">Prepositions</span><p class="prompt">The boy jumped <input class="ai xs" type="text" placeholder="?"> the river.</p></div></div></div>
+    <div class="q fi" data-q="87" data-type="fi" data-correct="beside"><div class="qh"><div class="num nf">87</div><div class="qb"><span class="pill pm">Prepositions</span><p class="prompt">She sat <input class="ai xs" type="text" placeholder="?"> her friend.</p></div></div></div>
+    <div class="q fi" data-q="88" data-type="fi" data-correct="above"><div class="qh"><div class="num nf">88</div><div class="qb"><span class="pill pm">Prepositions</span><p class="prompt">The bird flew <input class="ai xs" type="text" placeholder="?"> the house.</p></div></div></div>
+    <div class="q fi" data-q="89" data-type="fi" data-correct="in"><div class="qh"><div class="num nf">89</div><div class="qb"><span class="pill pm">Prepositions</span><p class="prompt">The book is <input class="ai xs" type="text" placeholder="?"> the bag.</p></div></div></div>
+
+    <!-- 91–95 synonyms -->
+    <div class="q fi" data-q="90" data-type="fi" data-correct="happy"><div class="qh"><div class="num nf">90</div><div class="qb"><span class="pill pn">Synonyms</span><p class="prompt">Cheerful means <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="91" data-type="fi" data-correct="big"><div class="qh"><div class="num nf">91</div><div class="qb"><span class="pill pn">Synonyms</span><p class="prompt">Massive means very <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="92" data-type="fi" data-correct="small"><div class="qh"><div class="num nf">92</div><div class="qb"><span class="pill pn">Synonyms</span><p class="prompt">Tiny means very <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="93" data-type="fi" data-correct="scared"><div class="qh"><div class="num nf">93</div><div class="qb"><span class="pill pn">Synonyms</span><p class="prompt">Brave means not <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="94" data-type="fi" data-correct="sad"><div class="qh"><div class="num nf">94</div><div class="qb"><span class="pill pn">Synonyms</span><p class="prompt">Miserable means very <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+
+    <!-- 99–100 punctuation -->
+    <div class="q fi" data-q="95" data-type="fi" data-correct="exclamation"><div class="qh"><div class="num nf">95</div><div class="qb"><span class="pill pn">Punctuation</span><p class="prompt">“We will win!” shows an <input class="ai xs" type="text" placeholder="?"> mark.</p></div></div></div>
+    <div class="q fi" data-q="96" data-type="fi" data-correct="it"><div class="qh"><div class="num nf">96</div><div class="qb"><span class="pill pn">Contractions</span><p class="prompt">“It’s” means <input class="ai xs" type="text" placeholder="?"> is.</p></div></div></div>
+
+    <!-- extra 4 fill-blanks to make 38 -->
+    <div class="q fi" data-q="97" data-type="fi" data-correct="apostrophe"><div class="qh"><div class="num nf">97</div><div class="qb"><span class="pill pn">Punctuation</span><p class="prompt">A contraction uses an <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="98" data-type="fi" data-correct="myth"><div class="qh"><div class="num nf">98</div><div class="qb"><span class="pill pf">Myths</span><p class="prompt">A traditional story that explains “why” is called a <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="99" data-type="fi" data-correct="legend"><div class="qh"><div class="num nf">99</div><div class="qb"><span class="pill pm">Legends</span><p class="prompt">A story about a brave hero or heroine can be a <input class="ai xs" type="text" placeholder="?">.</p></div></div></div>
+    <div class="q fi" data-q="100" data-type="fi" data-correct="question"><div class="qh"><div class="num nf">100</div><div class="qb"><span class="pill pn">Punctuation</span><p class="prompt">A sentence that asks something ends with a <input class="ai xs" type="text" placeholder="?"> mark.</p></div></div></div>
+
+  </div>
+</div>
+
+<div class="submit-row">
+  <button class="btn-submit" onclick="submitExam()">✅ Submit &amp; See My Results</button>
+</div>
+<p class="submit-note">Answers are hidden until you submit. After submitting, correct answers will appear.</p>
+<p class="footer">Grade 3 English · Myths & Legends + Grammar · 100 Question Full Test</p>
+
+</div><!-- /page -->
+
+<!-- RESULTS MODAL -->
+<div class="overlay" id="overlay" onclick="outsideClick(event)">
+  <div class="modal" id="modal">
+    <div class="m-hero">
+      <div class="hi">
+        <div class="ring-wrap">
+          <div class="ring-bg"></div>
+          <div class="ring-fill" id="ringFill"></div>
+          <div style="text-align:center">
+            <div class="snum" id="heroScore">—</div>
+            <div class="ssub">out of 100</div>
+          </div>
+        </div>
+        <h2 id="heroTitle">Results</h2>
+        <p id="heroMsg"></p>
+        <div class="gpills" id="gpills"></div>
+      </div>
+    </div>
+    <div class="share-bar">
+      <div class="share-title">📤 Share These Results</div>
+      <a class="sbtn se" id="btnEmail" href="#">✉️ Email</a>
+      <a class="sbtn ss" id="btnSms" href="#">💬 Message</a>
+      <a class="sbtn sw" id="btnWa" href="#" target="_blank">📱 WhatsApp</a>
+      <button class="sbtn sc" onclick="copyText()">📋 Copy</button>
+    </div>
+    <div class="r-body">
+      <h3>📝 Full Breakdown — All 100 Questions</h3>
+      <div id="rList"></div>
+    </div>
+    <div class="m-foot">
+      <button class="btn-close" onclick="closeModal()">✖ Close</button>
+      <button class="btn-retake" onclick="retake()">🔄 Retake Test</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TOTAL = 100;
+
+/* ANSWER KEY (auto-marked for all 100) */
+const AK = {
+  // MCQ 1–42
+  1:{l:"Who owned Fire at the beginning?",c:"B",cl:"B) Bear"},
+  2:{l:"Where did Bear put Fire down?",c:"C",cl:"C) At the edge of the forest"},
+  3:{l:"What did Fire need?",c:"B",cl:"B) Sticks and logs"},
+  4:{l:"Who helped Fire when it was nearly out?",c:"B",cl:"B) Man"},
+  5:{l:"Fire gives people:",c:"B",cl:"B) Light and warmth"},
+  6:{l:"At the end of the story, Fire belonged to:",c:"B",cl:"B) Man"},
+  7:{l:"A myth explains:",c:"C",cl:"C) Why or how something happens"},
+  8:{l:"Which character could speak?",c:"D",cl:"D) All of them"},
+
+  9:{l:"Why did Mulan join the army?",c:"B",cl:"B) To save her father"},
+  10:{l:"Mulan dressed as a:",c:"C",cl:"C) Boy"},
+  11:{l:"A legend usually has:",c:"B",cl:"B) A hero or heroine"},
+  12:{l:"Mulan tied her hair so she looked like a:",c:"B",cl:"B) Boy"},
+  13:{l:"The Emperor ruled the:",c:"C",cl:"C) Country"},
+  14:{l:"A suffix is added to the:",c:"C",cl:"C) End"},
+  15:{l:"The word “beautiful” has the suffix:",c:"A",cl:"A) ful"},
+  16:{l:"Mulan was:",c:"B",cl:"B) Brave"},
+
+  17:{l:"Sinbad loved to go to:",c:"B",cl:"B) Faraway lands"},
+  18:{l:"The Roc was a giant:",c:"C",cl:"C) Bird"},
+  19:{l:"The Roc’s egg looked like a:",c:"A",cl:"A) Rock"},
+  20:{l:"A legend usually includes a:",c:"A",cl:"A) Dangerous task"},
+  21:{l:"Sinbad gave his treasure to:",c:"B",cl:"B) The poor"},
+  22:{l:"The storm washed away the:",c:"B",cl:"B) Food and water"},
+  23:{l:"Sinbad was:",c:"B",cl:"B) Generous"},
+  24:{l:"A contraction uses:",c:"C",cl:"C) An apostrophe"},
+
+  25:{l:"A pronoun replaces a:",c:"B",cl:"B) Noun"},
+  26:{l:"“Bear is looking. ___ is looking.”",c:"D",cl:"D) It"},
+  27:{l:"“The sticks are dry. ___ are dry.”",c:"B",cl:"B) They"},
+  28:{l:"“Mulan saw her father. She hugged ___.”",c:"B",cl:"B) him"},
+  29:{l:"“The dog wagged ___ tail.”",c:"B",cl:"B) its"},
+
+  30:{l:"Which word shows cause?",c:"B",cl:"B) because"},
+  31:{l:"Which word shows time?",c:"A",cl:"A) later"},
+  32:{l:"“She ran home ___ it was raining.”",c:"B",cl:"B) because"},
+  33:{l:"A multi-clause sentence has:",c:"B",cl:"B) Two or more clauses"},
+  34:{l:"“Up” is a:",c:"B",cl:"B) Place connective"},
+
+  35:{l:"“The cat is ___ the table.”",c:"A",cl:"A) under"},
+  36:{l:"“The bus stopped ___ the traffic lights.”",c:"B",cl:"B) at"},
+  37:{l:"“She hid ___ the tree.”",c:"A",cl:"A) beside"},
+  38:{l:"A preposition shows:",c:"C",cl:"C) Position"},
+  39:{l:"Opposite of “over” is:",c:"B",cl:"B) under"},
+
+  40:{l:"A synonym of “big” is:",c:"B",cl:"B) huge"},
+  41:{l:"A synonym of “sad” is:",c:"A",cl:"A) miserable"},
+  42:{l:"A synonym of “walked” is:",c:"C",cl:"C) strolled"},
+
+  // TF 43–62
+  43:{l:"Bear always shared Fire with Man.",c:"false",cl:"False"},
+  44:{l:"Fire became angry when Bear came back.",c:"false",cl:"False"},
+  45:{l:"Man fed Fire with water.",c:"false",cl:"False"},
+  46:{l:"Fire chased Bear away.",c:"true",cl:"True"},
+  47:{l:"The story explains how humans got fire.",c:"true",cl:"True"},
+  48:{l:"Myths are usually modern stories.",c:"false",cl:"False"},
+  49:{l:"Legends are always completely untrue.",c:"false",cl:"False"},
+  50:{l:"Mulan fought bravely in battles.",c:"true",cl:"True"},
+  51:{l:"Mulan’s family wanted her to go to war.",c:"false",cl:"False"},
+  52:{l:"A legend can be linked to culture or beliefs.",c:"true",cl:"True"},
+  53:{l:"The Roc was an ordinary bird.",c:"false",cl:"False"},
+  54:{l:"Sinbad needed another adventure.",c:"true",cl:"True"},
+  55:{l:"Contractions show missing letters.",c:"true",cl:"True"},
+  56:{l:"“I’ll” means “I will”.",c:"true",cl:"True"},
+  57:{l:"A paragraph is about one idea.",c:"true",cl:"True"},
+  58:{l:"Every sentence is a paragraph.",c:"false",cl:"False"},
+  59:{l:"Connectives join sentences.",c:"true",cl:"True"},
+  60:{l:"“Because” shows cause.",c:"true",cl:"True"},
+  61:{l:"A simple sentence has more than one clause.",c:"false",cl:"False"},
+  62:{l:"Speech marks show the exact words someone says.",c:"true",cl:"True"},
+
+  // Fill blanks 63–100
+  63:{l:"Fire began to ____ when it was hungry.",c:"flicker",cl:"flicker"},
+  64:{l:"____ carried Fire with him all the time.",c:"Bear",cl:"Bear"},
+  65:{l:"Man fed Fire with sticks and ____.",c:"logs",cl:"logs"},
+  66:{l:"A myth is a traditional story written long ____.",c:"ago",cl:"ago"},
+  67:{l:"Myths include things that do not happen in the ____ world.",c:"real",cl:"real"},
+  68:{l:"Fire warmed Bear and his ____.",c:"family",cl:"family"},
+  69:{l:"Mulan left home early one ____.",c:"morning",cl:"morning"},
+  70:{l:"She trained very ____ for battle.",c:"hard",cl:"hard"},
+  71:{l:"The Emperor thanked Mulan for her ____.",c:"bravery",cl:"bravery"},
+  72:{l:"Sinbad travelled by ____.",c:"sea",cl:"sea"},
+  73:{l:"The sailors were very ____ during the storm.",c:"frightened",cl:"frightened"},
+  74:{l:"The sky began to grow ____.",c:"dark",cl:"dark"},
+  75:{l:"Fire burned because ____ was hungry.",c:"it",cl:"it"},
+  76:{l:"Mulan loved ____ family.",c:"her",cl:"her"},
+  77:{l:"The sailors saved ____.",c:"themselves",cl:"themselves"},
+  78:{l:"The dragon hurt ____ wing.",c:"its",cl:"its"},
+  79:{l:"Bear carried Fire with ____.",c:"him",cl:"him"},
+  80:{l:"She was tired ____ she went to sleep.",c:"so",cl:"so"},
+  81:{l:"First, she trained. ____, she fought bravely.",c:"Next",cl:"Next"},
+  82:{l:"He ran quickly ____ he was scared.",c:"because",cl:"because"},
+  83:{l:"The dragon roared ____ flew away.",c:"and",cl:"and"},
+  84:{l:"A paragraph usually starts on a new ____.",c:"line",cl:"line"},
+  85:{l:"The ball rolled ____ the hill.",c:"down",cl:"down"},
+  86:{l:"The boy jumped ____ the river.",c:"over",cl:"over"},
+  87:{l:"She sat ____ her friend.",c:"beside",cl:"beside"},
+  88:{l:"The bird flew ____ the house.",c:"above",cl:"above"},
+  89:{l:"The book is ____ the bag.",c:"in",cl:"in"},
+  90:{l:"Cheerful means ____.",c:"happy",cl:"happy"},
+  91:{l:"Massive means very ____.",c:"big",cl:"big"},
+  92:{l:"Tiny means very ____.",c:"small",cl:"small"},
+  93:{l:"Brave means not ____.",c:"scared",cl:"scared"},
+  94:{l:"Miserable means very ____.",c:"sad",cl:"sad"},
+  95:{l:"“We will win!” shows an ____ mark.",c:"exclamation",cl:"exclamation"},
+  96:{l:"“It’s” means ____ is.",c:"it",cl:"it"},
+  97:{l:"A contraction uses an ____.",c:"apostrophe",cl:"apostrophe"},
+  98:{l:"A traditional story that explains “why” is called a ____.",c:"myth",cl:"myth"},
+  99:{l:"A story about a brave hero or heroine can be a ____.",c:"legend",cl:"legend"},
+  100:{l:"A sentence that asks something ends with a ____ mark.",c:"question",cl:"question"},
+};
+
+// progress
+function updateProgress(){
+  const rg={};
+  document.querySelectorAll('input[type=radio]').forEach(r=>{if(!rg[r.name])rg[r.name]=false;if(r.checked)rg[r.name]=true;});
+  let n=Object.values(rg).filter(Boolean).length;
+  document.querySelectorAll('input[type=text]').forEach(t=>{if(t.value.trim())n++;});
+  const p=Math.min(100,Math.round(n/TOTAL*100));
+  document.getElementById('pb').style.width=p+'%';
+  document.getElementById('pblbl').textContent=n+' / '+TOTAL+' answered';
+  document.getElementById('scoreLive').textContent=n;
+}
+document.querySelectorAll('input').forEach(i=>{i.addEventListener('change',updateProgress);i.addEventListener('input',updateProgress);});
+
+function collect(){
+  const a={};
+  document.querySelectorAll('.q').forEach(c=>{
+    const q=c.dataset.q;if(!q)return;
+    if(c.dataset.type==='mc'){
+      const s=c.querySelector('input[type=radio]:checked');
+      a[q]=s?s.value:'';
+    } else {
+      const i=c.querySelector('input[type=text]');
+      a[q]=i?i.value.trim():'';
+    }
+  });
+  return a;
+}
+
+function grade(a){
+  let score=0;
+  const res={};
+  Object.entries(AK).forEach(([q,d])=>{
+    const given=(a[q]||'').toString().trim();
+    const ok = given.toLowerCase() === d.c.toLowerCase();
+    if(ok) score++;
+    res[q]={given,correct:d.c,cl:d.cl,ok,label:d.l};
+  });
+  return {score,res};
+}
+
+let _shareText='';
+
+function submitExam(){
+  const name=document.getElementById('nameInput').value.trim()||'Student';
+  const date=document.getElementById('dateInput').value.trim()||(new Date().toLocaleDateString());
+  const a=collect();
+  const {score,res}=grade(a);
+  const pct=Math.round(score/TOTAL*100);
+
+  // disable inputs
+  document.getElementById('examPage').classList.add('submitted');
+
+  // highlight cards + options
+  Object.entries(res).forEach(([q,r])=>{
+    const card=document.querySelector('.q[data-q="'+q+'"]');
+    if(!card) return;
+
+    card.classList.add(r.ok?'correct-card':'wrong-card');
+
+    if(card.dataset.type==='mc'){
+      card.querySelectorAll('.opt').forEach(o=>{
+        const radio=o.querySelector('input[type=radio]'); if(!radio) return;
+        if(radio.value===card.dataset.correct) o.classList.add('opt-ok');
+        if(radio.checked && radio.value!==card.dataset.correct) o.classList.add('opt-no');
+      });
+    }
+
+    const tag=document.createElement('div');
+    tag.className='rt '+(r.ok?'ok':'no');
+    tag.textContent = r.ok ? '✅ Correct' : ('❌ Correct: ' + r.cl);
+    card.querySelector('.qb').appendChild(tag);
+  });
+
+  // hero
+  document.getElementById('heroScore').textContent=score;
+  const ht=document.getElementById('heroTitle'),hm=document.getElementById('heroMsg');
+  if(pct>=90){ht.textContent='🌟 Outstanding, '+name+'!';hm.textContent='Amazing score — keep it up!';}
+  else if(pct>=75){ht.textContent='🎉 Great work, '+name+'!';hm.textContent='Very good — review a few missed ones.';}
+  else if(pct>=50){ht.textContent='👍 Good effort, '+name+'!';hm.textContent='You\'re improving — practise the wrong answers.';}
+  else{ht.textContent='💪 Keep practising, '+name+'!';hm.textContent='Try again — you will get better every time.';}
+
+  // ring
+  const ring=document.getElementById('ringFill');
+  const deg=pct/100*360;
+  ring.classList.remove('q2','q3','full');
+  if(deg>270) ring.classList.add('full');
+  else if(deg>180) ring.classList.add('q3');
+  else if(deg>90) ring.classList.add('q2');
+  setTimeout(()=>{ring.style.transform='rotate('+(deg-90)+'deg)';},150);
+
+  // pills
+  const pills=document.getElementById('gpills');pills.innerHTML='';
+  [{t:`${score}/${TOTAL}`,i:'📊'},{t:`${pct}%`,i:'🎯'},{t:date,i:'📅'}].forEach(p=>{
+    const s=document.createElement('span');s.className='gpill';s.textContent=p.i+' '+p.t;pills.appendChild(s);
+  });
+
+  // results list
+  const list=document.getElementById('rList');list.innerHTML='';
+  Object.entries(res).forEach(([q,r])=>{
+    const d=document.createElement('div');d.className='ri';
+    const n=document.createElement('div');
+    n.className='ri-n '+(r.ok?'rio':'rix');
+    n.textContent=q;
+    const b=document.createElement('div');b.className='ri-b';
+    b.innerHTML='<div class="ri-q">Q'+q+': '+r.label+'</div><div class="ri-g">Your answer: '+(r.given||'(blank)')+'</div>';
+    if(!r.ok){
+      const ca=document.createElement('div');ca.className='ri-c';ca.textContent='✅ Correct: '+r.cl;
+      b.appendChild(ca);
+    }
+    d.appendChild(n);d.appendChild(b);list.appendChild(d);
+  });
+
+  // share text
+  let wrong=Object.entries(res).filter(([,r])=>!r.ok).map(([q])=>'Q'+q);
+  _shareText='📚 Grade 3 English — 100 Question Exam Results\n';
+  _shareText+='👤 '+name+'\n📅 '+date+'\n';
+  _shareText+='✅ Score: '+score+'/'+TOTAL+' ('+pct+'%)\n';
+  if(wrong.length)_shareText+='\n📝 Review: '+wrong.slice(0,25).join(', ')+(wrong.length>25?' …':'' )+'\n';
+  _shareText+='\n🔗 '+window.location.href;
+
+  const enc=encodeURIComponent(_shareText);
+  const subj=encodeURIComponent('Grade 3 English Results (100 Qs) — '+name);
+  document.getElementById('btnEmail').href='mailto:?subject='+subj+'&body='+encodeURIComponent(_shareText);
+  document.getElementById('btnSms').href='sms:?body='+enc;
+  document.getElementById('btnWa').href='https://wa.me/?text='+enc;
+
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function copyText(){
+  if(!_shareText) return;
+  const btn=document.querySelector('.sc');
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(_shareText).then(()=>{btn.textContent='✅ Copied!';setTimeout(()=>btn.textContent='📋 Copy',2000);});
+  } else {
+    const ta=document.createElement('textarea');ta.value=_shareText;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+    btn.textContent='✅ Copied!';setTimeout(()=>btn.textContent='📋 Copy',2000);
+  }
+}
+
+function closeModal(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}
+function outsideClick(e){if(e.target===document.getElementById('overlay'))closeModal();}
+function retake(){if(confirm('Clear all answers and retake the test?')){closeModal();clearAll();}}
+function clearAll(){
+  document.querySelectorAll('input[type=text]').forEach(i=>i.value='');
+  document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
+  document.querySelectorAll('.q').forEach(c=>{
+    c.classList.remove('correct-card','wrong-card');
+    c.querySelectorAll('.opt').forEach(o=>o.classList.remove('opt-ok','opt-no'));
+    c.querySelectorAll('.rt').forEach(t=>t.remove());
+  });
+  document.getElementById('examPage').classList.remove('submitted');
+  _shareText='';updateProgress();window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
