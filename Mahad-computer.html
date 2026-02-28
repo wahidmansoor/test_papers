@@ -3,530 +3,1375 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Grade 4 — Combined ICT & Data Worksheets (Extracted Questions)</title>
+<title>Grade 4 — ICT & Data Adventure! 🚀</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{ --bg:#FFFDF5; --card:#fff; --muted:#666; --accent:#4BB8F5; --navy:#1a2744; --line:#E8E3D9; --r:12px; }
-  body{font-family:Nunito,system-ui,Segoe UI,Arial; background:var(--bg); margin:0; color:#111; padding:20px;}
-  .page{max-width:1100px;margin:0 auto}
-  header{background:linear-gradient(90deg,var(--navy),#2d3f70); color:#fff;padding:22px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.08);margin-bottom:18px}
-  header h1{margin:0;font-family:Baloo,serif;font-size:20px}
-  header p{margin:6px 0 0;opacity:.9;font-size:13px}
-  section{margin-top:18px}
-  .section-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-  .section-head h2{margin:0;font-size:15px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px;margin-bottom:10px}
-  .q{display:flex;gap:12px;align-items:flex-start}
-  .q .num{min-width:36px;height:32px;border-radius:8px;background:#f2f6fb;color:var(--navy);display:grid;place-items:center;font-weight:800}
-  .prompt{flex:1}
-  .opts{display:flex;flex-direction:column;gap:6px;margin-top:8px}
-  input[type="text"], textarea{width:100%;padding:8px;border-radius:8px;border:1px solid var(--line);font-size:14px}
-  textarea{min-height:70px;resize:vertical}
-  .controls{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
-  button{background:var(--accent);border:none;color:#fff;padding:10px 16px;border-radius:10px;cursor:pointer;font-weight:700}
-  .small{font-size:13px;color:var(--muted)}
-  .group-title{font-weight:800;margin-bottom:6px}
-  label.opt{display:flex;gap:8px;align-items:center;cursor:pointer;padding:6px;border-radius:8px;border:1px solid transparent}
-  label.opt:hover{background:#f7fbff;border-color:#e1f0ff}
-  .hint{font-style:italic;color:var(--muted);margin-bottom:8px}
-  @media(min-width:900px){ .cols-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}}
+  :root {
+    --bg: #0f0e1a;
+    --card: #1c1b2e;
+    --card2: #201f35;
+    --accent: #ffcc00;
+    --pink: #ff6b9d;
+    --blue: #4fc3f7;
+    --green: #69f0ae;
+    --purple: #b39ddb;
+    --orange: #ffab40;
+    --red: #ff5252;
+    --text: #f0eeff;
+    --muted: #8885aa;
+    --r: 18px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Starfield background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 10%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 70%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 55%, rgba(255,255,255,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 70% 75%, rgba(255,204,0,0.5) 0%, transparent 100%),
+      radial-gradient(2px 2px at 30% 15%, rgba(79,195,247,0.5) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #2d1b69, #1a0a3d);
+    border: 2px solid rgba(255,204,0,0.3);
+    border-radius: 24px;
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(179,157,219,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(255,204,0,0.05) 60deg, transparent 120deg);
+    animation: spin 12s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .header-emoji { font-size: 48px; display: block; margin-bottom: 8px; animation: bounce 2s ease-in-out infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  header h1 { font-family: 'Fredoka One', cursive; font-size: 28px; color: var(--accent); text-shadow: 0 0 20px rgba(255,204,0,0.5); }
+  header p { color: var(--purple); font-size: 14px; margin-top: 6px; }
+
+  /* PROGRESS BAR */
+  .progress-wrap {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .progress-label { font-family: 'Fredoka One', cursive; font-size: 15px; color: var(--accent); white-space: nowrap; }
+  .progress-bar-outer {
+    flex: 1;
+    height: 18px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--green));
+    border-radius: 100px;
+    transition: width 0.5s cubic-bezier(.34,1.56,.64,1);
+    width: 0%;
+  }
+  .progress-count { font-weight: 800; color: var(--green); font-size: 14px; white-space: nowrap; }
+
+  /* STARS */
+  .stars-display {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-size: 20px;
+  }
+
+  /* SECTION */
+  .ws-section {
+    margin-bottom: 28px;
+  }
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 16px rgba(79,195,247,0.25);
+  }
+
+  /* CARD */
+  .card {
+    background: var(--card);
+    border-radius: var(--r);
+    padding: 20px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .card-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* MCQ QUESTION */
+  .q-block {
+    margin-bottom: 20px;
+    animation: fadeIn 0.4s ease both;
+  }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+  .q-text {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .q-num {
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(255,107,157,0.4);
+  }
+
+  /* MCQ Options */
+  .opts { display: flex; flex-direction: column; gap: 8px; padding-left: 40px; }
+  .opt-btn {
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .opt-btn:hover:not(:disabled) {
+    background: rgba(79,195,247,0.1);
+    border-color: var(--blue);
+    transform: translateX(4px);
+  }
+  .opt-btn.correct {
+    background: rgba(105,240,174,0.15);
+    border-color: var(--green);
+    color: var(--green);
+    animation: pop 0.3s ease;
+  }
+  .opt-btn.wrong {
+    background: rgba(255,82,82,0.12);
+    border-color: var(--red);
+    color: var(--red);
+    animation: shake 0.4s ease;
+  }
+  .opt-btn.reveal-correct {
+    background: rgba(105,240,174,0.08);
+    border-color: rgba(105,240,174,0.4);
+    color: rgba(105,240,174,0.7);
+  }
+  .opt-btn:disabled { cursor: default; }
+
+  @keyframes pop {
+    0%{transform:scale(1)} 40%{transform:scale(1.04)} 100%{transform:scale(1)}
+  }
+  @keyframes shake {
+    0%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} 100%{transform:translateX(0)}
+  }
+
+  .feedback-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-top: 8px;
+    margin-left: 40px;
+  }
+  .feedback-badge.correct { background: rgba(105,240,174,0.15); color: var(--green); }
+  .feedback-badge.wrong { background: rgba(255,82,82,0.12); color: var(--red); }
+
+  /* Fill in blanks */
+  .fill-input {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 7px 12px;
+    min-width: 120px;
+    transition: all 0.2s;
+    outline: none;
+  }
+  .fill-input:focus { border-color: var(--blue); background: rgba(79,195,247,0.08); }
+  .fill-input.correct { border-color: var(--green); background: rgba(105,240,174,0.1); color: var(--green); }
+  .fill-input.wrong { border-color: var(--red); background: rgba(255,82,82,0.08); color: var(--red); }
+
+  .check-btn {
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    border: none;
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    padding: 7px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 3px 12px rgba(79,195,247,0.3);
+  }
+  .check-btn:hover { transform: scale(1.05); box-shadow: 0 5px 16px rgba(79,195,247,0.4); }
+
+  /* True/False */
+  .tf-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .tf-text { flex: 1; font-size: 14px; font-weight: 600; min-width: 200px; }
+  .tf-btns { display: flex; gap: 6px; }
+  .tf-btn {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 6px 14px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text);
+  }
+  .tf-btn:hover:not(:disabled) { transform: scale(1.08); }
+  .tf-btn.selected-true:not(.correct):not(.wrong) { background: rgba(79,195,247,0.2); border-color: var(--blue); color: var(--blue); }
+  .tf-btn.selected-false:not(.correct):not(.wrong) { background: rgba(255,107,157,0.2); border-color: var(--pink); color: var(--pink); }
+  .tf-btn.correct { background: rgba(105,240,174,0.2); border-color: var(--green); color: var(--green); }
+  .tf-btn.wrong { background: rgba(255,82,82,0.15); border-color: var(--red); color: var(--red); }
+  .tf-btn:disabled { cursor: default; }
+
+  /* Short answer */
+  .short-textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    padding: 10px 14px;
+    resize: vertical;
+    min-height: 70px;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-top: 6px;
+    margin-left: 40px;
+    width: calc(100% - 40px);
+  }
+  .short-textarea:focus { border-color: var(--purple); background: rgba(179,157,219,0.06); }
+
+  .submit-short-btn {
+    margin-left: 40px;
+    margin-top: 6px;
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    border: none;
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    padding: 7px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 3px 12px rgba(255,107,157,0.3);
+  }
+  .submit-short-btn:hover { transform: scale(1.05); }
+  .short-saved { margin-left: 40px; margin-top: 4px; font-size: 12px; color: var(--green); display: none; }
+
+  /* Database table */
+  .db-table-wrap { overflow-x: auto; margin-bottom: 14px; }
+  table.db-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .db-table th {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: #fff;
+    padding: 8px 12px;
+    text-align: left;
+    font-family: 'Fredoka One', cursive;
+    font-weight: 400;
+  }
+  .db-table th:first-child { border-radius: 10px 0 0 0; }
+  .db-table th:last-child { border-radius: 0 10px 0 0; }
+  .db-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-weight: 600;
+  }
+  .db-table tr:nth-child(odd) td { background: rgba(255,255,255,0.03); }
+  .db-table tr:hover td { background: rgba(79,195,247,0.07); }
+
+  /* Confetti burst */
+  .confetti-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+  }
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    animation: confettiFall linear forwards;
+    top: -20px;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* SCORE SUMMARY */
+  #scoreSummary {
+    background: linear-gradient(135deg, #1a0a3d, #2d1b69);
+    border: 2px solid rgba(255,204,0,0.4);
+    border-radius: 24px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 28px;
+    display: none;
+    box-shadow: 0 0 50px rgba(255,204,0,0.15);
+  }
+  #scoreSummary h2 { font-family: 'Fredoka One', cursive; font-size: 30px; color: var(--accent); margin-bottom: 8px; }
+  .score-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(var(--green) calc(var(--pct) * 1%), rgba(255,255,255,0.08) 0%);
+    display: grid;
+    place-items: center;
+    margin: 16px auto;
+    box-shadow: 0 0 30px rgba(105,240,174,0.3);
+  }
+  .score-num { font-family: 'Fredoka One', cursive; font-size: 24px; color: var(--text); }
+  .score-msg { font-size: 18px; margin-top: 8px; }
+  .restart-btn {
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--accent), var(--orange));
+    border: none;
+    color: #111;
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    padding: 14px 32px;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255,204,0,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .restart-btn:hover { transform: scale(1.05); box-shadow: 0 8px 28px rgba(255,204,0,0.5); }
+
+  /* Floating submit */
+  .float-submit {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    border: none;
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    padding: 14px 24px;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(255,107,157,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .float-submit:hover { transform: scale(1.06) translateY(-2px); box-shadow: 0 10px 32px rgba(255,107,157,0.6); }
+
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    margin: 8px 0 16px;
+  }
+
+  /* Tooltip answer reveal */
+  .answer-reveal {
+    font-size: 12px;
+    color: var(--orange);
+    margin-left: 40px;
+    margin-top: 4px;
+    display: none;
+    font-weight: 700;
+  }
 </style>
 </head>
 <body>
+
+<div class="confetti-container" id="confettiContainer"></div>
+
 <div class="page">
 
-<header>
-  <h1>Grade 4 — Combined ICT & Data Worksheets (Extracted)</h1>
-  <p class="small">All questions extracted from the uploaded worksheets. Source: uploaded file. :contentReference[oaicite:1]{index=1}</p>
-</header>
+  <header>
+    <span class="header-emoji">🚀</span>
+    <h1>Grade 4 ICT & Data Adventure!</h1>
+    <p>Answer questions, earn stars, and become a coding champion!</p>
+  </header>
 
-<form id="examForm">
+  <div class="progress-wrap">
+    <div class="progress-label">🌟 Progress</div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar"></div>
+    </div>
+    <div class="progress-count" id="progressCount">0 / 0</div>
+    <div class="stars-display" id="starsDisplay">⭐⭐⭐⭐⭐</div>
+  </div>
 
-<!-- WORKSHEET 1.6 -->
-<section>
-  <div class="section-head"><h2>Worksheet 1.6 — Creating good programming solutions</h2></div>
+  <!-- ===== WORKSHEET 1.6 ===== -->
+  <div class="ws-section">
+    <div class="section-badge">🐛 Worksheet 1.6 — Good Programming Solutions</div>
 
-  <div class="card">
-    <div class="group-title">Part A — Multiple Choice (MCQs)</div>
-    <p class="hint">Choose the best answer.</p>
+    <div class="card">
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
 
-    <!-- MCQ 1 -->
-    <div class="q">
-      <div class="num">1</div>
-      <div class="prompt">
-        <div><strong>Why are comments added to a Scratch program?</strong></div>
+      <!-- MCQ -->
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>Why are comments added to a Scratch program?</span></div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="w16_q1" value="a"> a) To make the program run faster</label>
-          <label class="opt"><input type="radio" name="w16_q1" value="b"> b) To decorate the code</label>
-          <label class="opt"><input type="radio" name="w16_q1" value="c"> c) To help explain parts of the program</label>
-          <label class="opt"><input type="radio" name="w16_q1" value="d"> d) d) To stop errors</label>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q1','a')">🏃 a) To make the program run faster</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q1','b')">🎨 b) To decorate the code</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q1','c')">📝 c) To help explain parts of the program</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q1','d')">🛑 d) To stop errors</button>
+        </div>
+        <div class="feedback-badge" id="fb_w16q1" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>Which color are comments shown in Scratch?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q2','a')">💙 a) Blue</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q2','b')">💚 b) Green</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q2','c')">💛 c) Yellow</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q2','d')">❤️ d) Red</button>
+        </div>
+        <div class="feedback-badge" id="fb_w16q2" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>What is a bug?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q3','a')">🔄 a) A type of loop</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q3','b')">🐛 b) A mistake in a program</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q3','c')">🧱 c) A Scratch block</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q3','d')">⚡ d) A trigger</button>
+        </div>
+        <div class="feedback-badge" id="fb_w16q3" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">4</span><span>Which of these is an example of a trigger?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q4','a')">🔁 a) Repeat</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q4','b')">⌨️ b) When space key pressed</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q4','c')">✏️ c) Pen down</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q4','d')">👣 d) Move 10 steps</button>
+        </div>
+        <div class="feedback-badge" id="fb_w16q4" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">5</span><span>What should a programmer do first to find a bug?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q5','a')">🗑️ a) Delete the program</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q5','b')">🔍 b) Look carefully at the code</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q5','c')">🎨 c) Add colors</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w16q5','d')">💾 d) Save the file</button>
+        </div>
+        <div class="feedback-badge" id="fb_w16q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- Fill in blanks 1.6 -->
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B1</span><span>Programmers use <input type="text" class="fill-input" id="w16b1" placeholder="???"> to write notes that do not run as code.</span></div>
+        <button class="check-btn" onclick="checkFill('w16b1',['comments','comment'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w16b1">💡 Answer: comments</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B2</span><span>A mistake in a program is called a <input type="text" class="fill-input" id="w16b2" placeholder="???">.
+</span></div>
+        <button class="check-btn" onclick="checkFill('w16b2',['bug'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w16b2">💡 Answer: bug</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B3</span><span><input type="text" class="fill-input" id="w16b3" placeholder="???"> means finding and fixing errors.</span></div>
+        <button class="check-btn" onclick="checkFill('w16b3',['debugging','debug'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w16b3">💡 Answer: Debugging</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B4</span><span>A <input type="text" class="fill-input" id="w16b4" placeholder="???"> table is used to record test results.</span></div>
+        <button class="check-btn" onclick="checkFill('w16b4',['test'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w16b4">💡 Answer: test</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B5</span><span>Large programs should be tested <input type="text" class="fill-input" id="w16b5" placeholder="???"> part at a time.</span></div>
+        <button class="check-btn" onclick="checkFill('w16b5',['one','1'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w16b5">💡 Answer: one</div>
+      </div>
+    </div>
+
+    <!-- True/False 1.6 -->
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
+      <div class="tf-row">
+        <div class="tf-text">1. A comment affects how a program runs.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w16c1','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w16c1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">2. A bug can stop a program from working correctly.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w16c2','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w16c2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">3. We should test all parts of a program together.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w16c3','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w16c3','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">4. Each trigger in a program can be tested separately.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w16c4','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w16c4','False')">False</button>
         </div>
       </div>
     </div>
 
-    <!-- MCQ 2 -->
-    <div class="q">
-      <div class="num">2</div>
-      <div class="prompt">
-        <div><strong>Which color are comments shown in Scratch?</strong></div>
+    <!-- Short answer 1.6 -->
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D1</span><span>What is a comment?</span></div>
+        <textarea class="short-textarea" id="sa_w16d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('w16d1')">Save ✓</button>
+        <div class="short-saved" id="saved_w16d1">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D2</span><span>Why do programmers use comments?</span></div>
+        <textarea class="short-textarea" id="sa_w16d2" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('w16d2')">Save ✓</button>
+        <div class="short-saved" id="saved_w16d2">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D3</span><span>Why is it difficult to test a large program all at once?</span></div>
+        <textarea class="short-textarea" id="sa_w16d3" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('w16d3')">Save ✓</button>
+        <div class="short-saved" id="saved_w16d3">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D4</span><span>How does a test table help a programmer?</span></div>
+        <textarea class="short-textarea" id="sa_w16d4" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('w16d4')">Save ✓</button>
+        <div class="short-saved" id="saved_w16d4">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WORKSHEET 1.7 ===== -->
+  <div class="ws-section">
+    <div class="section-badge">🤖 Worksheet 1.7 — Physical Devices: Input & Output</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>What does an LED do?</span></div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="w16_q2" value="a"> a) Blue</label>
-          <label class="opt"><input type="radio" name="w16_q2" value="b"> b) Green</label>
-          <label class="opt"><input type="radio" name="w16_q2" value="c"> c) Yellow</label>
-          <label class="opt"><input type="radio" name="w16_q2" value="d"> d) Red</label>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q1','a')">📥 a) Takes input</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q1','b')">💾 b) Stores data</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q1','c')">💡 c) Shows output</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q1','d')">⚙️ d) Runs programs</button>
+        </div>
+        <div class="feedback-badge" id="fb_w17q1" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>Button A pressed → smiley face appears. What is Button A?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q2','a')">📤 a) Output device</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q2','b')">💻 b) Program</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q2','c')">📥 c) Input device</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q2','d')">💡 d) LED display</button>
+        </div>
+        <div class="feedback-badge" id="fb_w17q2" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>Which statement best explains an output?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q3','a')">🕹️ a) Something that controls the computer</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q3','b')">📺 b) Something that shows the result of a program</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q3','c')">🗄️ c) Something that stores data</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q3','d')">⌨️ d) Something that writes code</button>
+        </div>
+        <div class="feedback-badge" id="fb_w17q3" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">4</span><span>Why do we use the MakeCode simulator?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q4','a')">🎮 a) To play games</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q4','b')">🧪 b) To test programs without a real micro:bit</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q4','c')">🔋 c) To charge the micro:bit</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q4','d')">🖼️ d) To draw pictures only</button>
+        </div>
+        <div class="feedback-badge" id="fb_w17q4" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">5</span><span>A program shows a sad face when the micro:bit is shaken. Which input device is being used?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q5','a')">🔘 a) Button A</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q5','b')">💡 b) LED</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q5','c')">🔌 c) USB</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w17q5','d')">📳 d) Accelerometer</button>
+        </div>
+        <div class="feedback-badge" id="fb_w17q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B1</span><span>The MakeCode <input type="text" class="fill-input" id="w17b1" placeholder="???"> helps us test programs without a real micro:bit.</span></div>
+        <button class="check-btn" onclick="checkFill('w17b1',['simulator','sim'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w17b1">💡 Answer: simulator</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B2</span><span>The <input type="text" class="fill-input" id="w17b2" placeholder="???"> is a physical computing device that runs programs.</span></div>
+        <button class="check-btn" onclick="checkFill('w17b2',['micro:bit','microbit','micro bit'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w17b2">💡 Answer: micro:bit</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B3</span><span>Buttons and accelerometer are examples of <input type="text" class="fill-input" id="w17b3" placeholder="???"> devices.</span></div>
+        <button class="check-btn" onclick="checkFill('w17b3',['input'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w17b3">💡 Answer: input</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B4</span><span>LEDs are used to show the <input type="text" class="fill-input" id="w17b4" placeholder="???"> of a program.</span></div>
+        <button class="check-btn" onclick="checkFill('w17b4',['output'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w17b4">💡 Answer: output</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
+      <div class="tf-row">
+        <div class="tf-text">1. The micro:bit itself is a digital pet.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w17c1','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w17c1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">2. We can test programs using the MakeCode simulator.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w17c2','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w17c2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">3. An accelerometer can detect tilting and shaking.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w17c3','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w17c3','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">4. The micro:bit decides by itself what picture to show.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w17c4','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w17c4','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">5. Without testing, programs always work correctly.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w17c5','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w17c5','False')">False</button>
         </div>
       </div>
     </div>
 
-    <!-- MCQ 3 -->
-    <div class="q">
-      <div class="num">3</div>
-      <div class="prompt">
-        <div><strong>What is a bug?</strong></div>
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D1</span><span>What is micro:bit?</span></div>
+        <textarea class="short-textarea" id="sa_w17d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('w17d1')">Save ✓</button>
+        <div class="short-saved" id="saved_w17d1">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D2</span><span>What is an accelerometer?</span></div>
+        <textarea class="short-textarea" id="sa_w17d2" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('w17d2')">Save ✓</button>
+        <div class="short-saved" id="saved_w17d2">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D3</span><span>Ahmed shakes the micro:bit, and a sad face appears. What input and output are used?</span></div>
+        <textarea class="short-textarea" id="sa_w17d3" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('w17d3')">Save ✓</button>
+        <div class="short-saved" id="saved_w17d3">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D4</span><span>Sara presses Button B, but nothing happens. What should she do first?</span></div>
+        <textarea class="short-textarea" id="sa_w17d4" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('w17d4')">Save ✓</button>
+        <div class="short-saved" id="saved_w17d4">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WORKSHEET 2.1 ===== -->
+  <div class="ws-section">
+    <div class="section-badge">📊 Worksheet 2.1 — Collecting Data</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>What is data?</span></div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="w16_q3" value="a"> a) A type of loop</label>
-          <label class="opt"><input type="radio" name="w16_q3" value="b"> b) A mistake in a program</label>
-          <label class="opt"><input type="radio" name="w16_q3" value="c"> c) A Scratch block</label>
-          <label class="opt"><input type="radio" name="w16_q3" value="d"> d) A trigger</label>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q1','a')">📚 a) A story</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q1','b')">🔢 b) Words or numbers about something</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q1','c')">🖼️ c) A picture</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q1','d')">💻 d) A computer</button>
+        </div>
+        <div class="feedback-badge" id="fb_w21q1" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>Which of these is an example of data?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q2','a')">📏 a) He is tall</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q2','b')">💙 b) She likes blue</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q2','c')">🔟 c) 10</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q2','d')">🤝 d) This is my friend</button>
+        </div>
+        <div class="feedback-badge" id="fb_w21q2" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>What stores data in an organized way?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q3','a')">📖 a) Book</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q3','b')">📔 b) Diary</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q3','c')">🗄️ c) Database</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q3','d')">✏️ d) Pencil</button>
+        </div>
+        <div class="feedback-badge" id="fb_w21q3" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">4</span><span>Which is a paper-based database?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q4','a')">📝 a) Google Form</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q4','b')">📓 b) Notebook</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q4','c')">📊 c) Spreadsheet</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q4','d')">🌐 d) Website</button>
+        </div>
+        <div class="feedback-badge" id="fb_w21q4" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">5</span><span>What do we call the headings in a database?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q5','a')">📋 a) Records</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q5','b')">📁 b) Files</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q5','c')">🏷️ c) Fields</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w21q5','d')">📑 d) Forms</button>
+        </div>
+        <div class="feedback-badge" id="fb_w21q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B1</span><span>Data becomes <input type="text" class="fill-input" id="w21b1" placeholder="???"> when it is explained.</span></div>
+        <button class="check-btn" onclick="checkFill('w21b1',['information'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w21b1">💡 Answer: information</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B2</span><span>A collection of data about one thing is called a <input type="text" class="fill-input" id="w21b2" placeholder="???">.
+</span></div>
+        <button class="check-btn" onclick="checkFill('w21b2',['record'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w21b2">💡 Answer: record</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B3</span><span>A database can be stored on paper or <input type="text" class="fill-input" id="w21b3" placeholder="???">.
+</span></div>
+        <button class="check-btn" onclick="checkFill('w21b3',['digitally','digital','computer','electronically'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w21b3">💡 Answer: digitally</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B4</span><span>Forms help us collect <input type="text" class="fill-input" id="w21b4" placeholder="???"> data.</span></div>
+        <button class="check-btn" onclick="checkFill('w21b4',['accurate','correct'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w21b4">💡 Answer: accurate</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
+      <div class="tf-row">
+        <div class="tf-text">1. Data and information mean the same thing.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w21c1','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w21c1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">2. A calendar is an example of a paper database.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w21c2','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w21c2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">3. Fields help us understand what the data means.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w21c3','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w21c3','False')">False</button>
         </div>
       </div>
     </div>
 
-    <!-- MCQ 4 -->
-    <div class="q">
-      <div class="num">4</div>
-      <div class="prompt">
-        <div><strong>Which of these is an example of a trigger?</strong></div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="w16_q4" value="a"> a) Repeat</label>
-          <label class="opt"><input type="radio" name="w16_q4" value="b"> b) When space key pressed</label>
-          <label class="opt"><input type="radio" name="w16_q4" value="c"> c) Pen down</label>
-          <label class="opt"><input type="radio" name="w16_q4" value="d"> d) Move 10 steps</label>
+    <div class="card">
+      <div class="card-title">📖 Short Answers</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q1</span><span>What is a database?</span></div>
+        <textarea class="short-textarea" id="sa_w21q1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('w21q1')">Save ✓</button>
+        <div class="short-saved" id="saved_w21q1">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q2</span><span>How many types of databases are there? Write their names.</span></div>
+        <textarea class="short-textarea" id="sa_w21q2" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('w21q2')">Save ✓</button>
+        <div class="short-saved" id="saved_w21q2">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q3</span><span>Differentiate between data and information. Give one example of each.</span></div>
+        <textarea class="short-textarea" id="sa_w21q3" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('w21q3')">Save ✓</button>
+        <div class="short-saved" id="saved_w21q3">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WORKSHEET 2.2 ===== -->
+  <div class="ws-section">
+    <div class="section-badge">🗂️ Worksheet 2.2 — Managing Data</div>
+
+    <div class="card">
+      <div class="card-title">✏️ Fill in the Blanks!</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>A database is usually shown in a <input type="text" class="fill-input" id="w22b1" placeholder="???">.
+</span></div>
+        <button class="check-btn" onclick="checkFill('w22b1',['table','grid'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w22b1">💡 Answer: table</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>A database is usually organized into <input type="text" class="fill-input" id="w22b2" placeholder="???"> and columns.</span></div>
+        <button class="check-btn" onclick="checkFill('w22b2',['rows','row'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w22b2">💡 Answer: rows</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>Rows go <input type="text" class="fill-input" id="w22b3" placeholder="???"> a database.</span></div>
+        <button class="check-btn" onclick="checkFill('w22b3',['across','horizontal','horizontally'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w22b3">💡 Answer: across</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">4</span><span>The rows in a database are known as <input type="text" class="fill-input" id="w22b4" placeholder="???">.
+</span></div>
+        <button class="check-btn" onclick="checkFill('w22b4',['records','record'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w22b4">💡 Answer: records</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">5</span><span>Columns go <input type="text" class="fill-input" id="w22b5" placeholder="???"> in a database.</span></div>
+        <button class="check-btn" onclick="checkFill('w22b5',['down','vertical','vertically'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w22b5">💡 Answer: down</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ True or False?</div>
+      <div class="tf-row">
+        <div class="tf-text">1. Each field in a database contains one type of data.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w22t1','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w22t1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">2. A data type defines what type of data each field should contain.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w22t2','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w22t2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">3. If we set a field to a Number type, only text can be entered.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w22t3','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w22t3','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">4. If you enter the wrong data type, the computer will stop you from saving.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w22t4','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w22t4','False')">False</button>
         </div>
       </div>
     </div>
 
-    <!-- MCQ 5 -->
-    <div class="q">
-      <div class="num">5</div>
-      <div class="prompt">
-        <div><strong>What should a programmer do first to find a bug?</strong></div>
+    <div class="card">
+      <div class="card-title">🎯 MCQs</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">M1</span><span>For Yes/No or True/False answers, this data type uses checkboxes:</span></div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="w16_q5" value="a"> a) Delete the program</label>
-          <label class="opt"><input type="radio" name="w16_q5" value="b"> b) Look carefully at the code</label>
-          <label class="opt"><input type="radio" name="w16_q5" value="c"> c) Add colors</label>
-          <label class="opt"><input type="radio" name="w16_q5" value="d"> d) Save the file</label>
+          <button class="opt-btn" onclick="checkMCQ(this,'w22m1','a')">📝 a) Text</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w22m1','b')">🔢 b) Number</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w22m1','c')">✅ c) Boolean</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w22m1','d')">🔤 d) Alphanumeric</button>
+        </div>
+        <div class="feedback-badge" id="fb_w22m1" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">M2</span><span>The data type that allows both text AND numbers in a field is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w22m2','a')">🔢 a) Number</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w22m2','b')">✅ b) Boolean</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w22m2','c')">🔤 c) Alphanumeric</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w22m2','d')">📝 d) Text</button>
+        </div>
+        <div class="feedback-badge" id="fb_w22m2" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DATABASE TABLE ===== -->
+  <div class="ws-section">
+    <div class="section-badge">🧙 Database Table Challenge!</div>
+
+    <div class="card">
+      <div class="card-title">🔍 Use this table to answer the questions below!</div>
+      <div class="db-table-wrap">
+        <table class="db-table">
+          <tr><th>Character</th><th>Health</th><th>Energy</th><th>Magic Power</th><th>Hair</th><th>Eyes</th></tr>
+          <tr><td>Healbot</td><td>100</td><td>200</td><td>Healing</td><td>brown</td><td>Green</td></tr>
+          <tr><td>Zapper</td><td>90</td><td>145</td><td>Lightening</td><td>black</td><td>Blue</td></tr>
+          <tr><td>Gusty</td><td>125</td><td>100</td><td>Wind</td><td>brown</td><td>blue</td></tr>
+          <tr><td>Splashy</td><td>100</td><td>175</td><td>Water</td><td>blond</td><td>brown</td></tr>
+        </table>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>How many <strong>fields</strong> are there in the database?</span></div>
+        <input type="text" class="fill-input" id="db_q1" placeholder="Enter a number">
+        <button class="check-btn" onclick="checkFill('db_q1',['6'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_db_q1">💡 Answer: 6 (Character, Health, Energy, Magic Power, Hair, Eyes)</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>How many <strong>records</strong> are there in the database?</span></div>
+        <input type="text" class="fill-input" id="db_q2" placeholder="Enter a number">
+        <button class="check-btn" onclick="checkFill('db_q2',['4'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_db_q2">💡 Answer: 4 (Healbot, Zapper, Gusty, Splashy)</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>How many records have <strong>over 100</strong> for Energy?</span></div>
+        <input type="text" class="fill-input" id="db_q3" placeholder="Enter a number">
+        <button class="check-btn" onclick="checkFill('db_q3',['3'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_db_q3">💡 Answer: 3 (Healbot=200, Zapper=145, Splashy=175)</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">4</span><span>How many records have <strong>both brown hair AND blue eyes</strong>?</span></div>
+        <input type="text" class="fill-input" id="db_q4" placeholder="Enter a number">
+        <button class="check-btn" onclick="checkFill('db_q4',['1'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_db_q4">💡 Answer: 1 (Gusty: brown hair + blue eyes)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WORKSHEET 2.3 ===== -->
+  <div class="ws-section">
+    <div class="section-badge">🔀 Worksheet 2.3 — Sorting & Filtering</div>
+
+    <div class="card">
+      <div class="card-title">✏️ Fill in the Blanks!</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>Writing names in alphabetical order means from <input type="text" class="fill-input" id="w23b1" placeholder="???">.
+</span></div>
+        <button class="check-btn" onclick="checkFill('w23b1',['a to z','a-z','a to z'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w23b1">💡 Answer: A to Z</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>When we sort data, we <input type="text" class="fill-input" id="w23b2" placeholder="???"> it in a specific order.</span></div>
+        <button class="check-btn" onclick="checkFill('w23b2',['arrange','organize','order','put'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w23b2">💡 Answer: arrange / organize</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>Sorting large amounts of data by hand takes a lot of <input type="text" class="fill-input" id="w23b3" placeholder="???">.
+</span></div>
+        <button class="check-btn" onclick="checkFill('w23b3',['time','long time'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_w23b3">💡 Answer: time</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ True or False?</div>
+      <div class="tf-row">
+        <div class="tf-text">1. The more data we have, the more useful it is to sort it.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w23t1','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w23t1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">2. Sorting A to Z is called descending order.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w23t2','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w23t2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">3. To find all records that include "apples", we should use filter.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'w23t3','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'w23t3','False')">False</button>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="card cols-2">
-    <div>
-      <div class="group-title">Part B — Fill in the blanks</div>
-      <div class="q">
-        <div class="num">B1</div>
-        <div class="prompt"><div>Programmers use <input type="text" name="w16_b1" placeholder="answer"> to write notes that do not run as code.</div></div>
-      </div>
-      <div class="q">
-        <div class="num">B2</div>
-        <div class="prompt"><div>A mistake in a program is called a <input type="text" name="w16_b2" placeholder="answer">.</div></div>
-      </div>
-      <div class="q">
-        <div class="num">B3</div>
-        <div class="prompt"><div><input type="text" name="w16_b3" placeholder="answer"> means finding and fixing errors.</div></div>
-      </div>
-      <div class="q">
-        <div class="num">B4</div>
-        <div class="prompt"><div>A <input type="text" name="w16_b4" placeholder="answer"> table is used to record test results.</div></div>
-      </div>
-      <div class="q">
-        <div class="num">B5</div>
-        <div class="prompt"><div>Large programs should be tested <input type="text" name="w16_b5" placeholder="answer"> part at a time.</div></div>
-      </div>
-    </div>
-
-    <div>
-      <div class="group-title">Part C — True or False</div>
-      <p class="small hint">Write True or False.</p>
-      <div class="q"><div class="num">C1</div><div class="prompt">A comment affects how a program runs. <input type="text" name="w16_c1" placeholder="True / False"></div></div>
-      <div class="q"><div class="num">C2</div><div class="prompt">A bug can stop a program from working correctly. <input type="text" name="w16_c2" placeholder="True / False"></div></div>
-      <div class="q"><div class="num">C3</div><div class="prompt">We should test all parts of a program together. <input type="text" name="w16_c3" placeholder="True / False"></div></div>
-      <div class="q"><div class="num">C4</div><div class="prompt">Each trigger in a program can be tested separately. <input type="text" name="w16_c4" placeholder="True / False"></div></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="group-title">Part D — Short Answer Questions</div>
-    <p class="hint small">Answer briefly.</p>
-
-    <div class="q"><div class="num">D1</div><div class="prompt"><div><strong>What is a comment?</strong><textarea name="w16_d1"></textarea></div></div></div>
-    <div class="q"><div class="num">D2</div><div class="prompt"><div><strong>Why do programmers use comments?</strong><textarea name="w16_d2"></textarea></div></div></div>
-    <div class="q"><div class="num">D3</div><div class="prompt"><div><strong>Why is it difficult to test a large program all at once?</strong><textarea name="w16_d3"></textarea></div></div></div>
-    <div class="q"><div class="num">D4</div><div class="prompt"><div><strong>How does a test table help a programmer?</strong><textarea name="w16_d4"></textarea></div></div></div>
-  </div>
-</section>
-
-<!-- WORKSHEET 1.7 -->
-<section>
-  <div class="section-head"><h2>Worksheet 1.7 — Using input and output with a physical device</h2></div>
-
-  <div class="card">
-    <div class="group-title">Part A — Multiple Choice (MCQs)</div>
-    <p class="hint small">Choose the best answer.</p>
-
-    <div class="q"><div class="num">1</div><div class="prompt">
-      <div><strong>What does an LED do?</strong></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="w17_q1" value="a"> a) Takes input</label>
-        <label class="opt"><input type="radio" name="w17_q1" value="b"> b) Stores data</label>
-        <label class="opt"><input type="radio" name="w17_q1" value="c"> c) Shows output</label>
-        <label class="opt"><input type="radio" name="w17_q1" value="d"> d) Runs programs</label>
-      </div>
-    </div></div>
-
-    <div class="q"><div class="num">2</div><div class="prompt">
-      <div><strong>Button A pressed → smiley face appears. What is Button A?</strong></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="w17_q2" value="a"> a) Output device</label>
-        <label class="opt"><input type="radio" name="w17_q2" value="b"> b) Program</label>
-        <label class="opt"><input type="radio" name="w17_q2" value="c"> c) Input device</label>
-        <label class="opt"><input type="radio" name="w17_q2" value="d"> d) LED display</label>
-      </div>
-    </div></div>
-
-    <div class="q"><div class="num">3</div><div class="prompt">
-      <div><strong>Which statement best explains an output?</strong></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="w17_q3" value="a"> a) Something that controls the computer</label>
-        <label class="opt"><input type="radio" name="w17_q3" value="b"> b) Something that shows the result of a program</label>
-        <label class="opt"><input type="radio" name="w17_q3" value="c"> c) Something that stores data</label>
-        <label class="opt"><input type="radio" name="w17_q3" value="d"> d) Something that writes code</label>
-      </div>
-    </div></div>
-
-    <div class="q"><div class="num">4</div><div class="prompt">
-      <div><strong>Why do we use the MakeCode simulator?</strong></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="w17_q4" value="a"> a) To play games</label>
-        <label class="opt"><input type="radio" name="w17_q4" value="b"> b) To test programs without a real micro:bit</label>
-        <label class="opt"><input type="radio" name="w17_q4" value="c"> c) To charge the micro:bit</label>
-        <label class="opt"><input type="radio" name="w17_q4" value="d"> d) To draw pictures only</label>
-      </div>
-    </div></div>
-
-    <div class="q"><div class="num">5</div><div class="prompt">
-      <div><strong>A program shows a sad face when the micro:bit is shaken. Which input device is being used?</strong></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="w17_q5" value="a"> a) Button A</label>
-        <label class="opt"><input type="radio" name="w17_q5" value="b"> b) LED</label>
-        <label class="opt"><input type="radio" name="w17_q5" value="c"> c) USB</label>
-        <label class="opt"><input type="radio" name="w17_q5" value="d"> d) Accelerometer</label>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="card cols-2">
-    <div>
-      <div class="group-title">Part B — Fill in the blanks</div>
-      <div class="q"><div class="num">B1</div><div class="prompt">The MakeCode <input type="text" name="w17_b1" placeholder="simulator"> helps us test programs without a real micro:bit.</div></div>
-      <div class="q"><div class="num">B2</div><div class="prompt">The <input type="text" name="w17_b2" placeholder="micro:bit"> is a physical computing device that runs programs.</div></div>
-      <div class="q"><div class="num">B3</div><div class="prompt">Buttons and accelerometer are examples of <input type="text" name="w17_b3" placeholder="input"> devices.</div></div>
-      <div class="q"><div class="num">B4</div><div class="prompt">LEDs are used to show the <input type="text" name="w17_b4" placeholder="output"> of a program.</div></div>
-    </div>
-
-    <div>
-      <div class="group-title">Part C — True or False</div>
-      <p class="small hint">Write True or False.</p>
-      <div class="q"><div class="num">C1</div><div class="prompt">The micro:bit itself is a digital pet. <input type="text" name="w17_c1"></div></div>
-      <div class="q"><div class="num">C2</div><div class="prompt">We can test programs using the MakeCode simulator. <input type="text" name="w17_c2"></div></div>
-      <div class="q"><div class="num">C3</div><div class="prompt">An accelerometer can detect tilting and shaking. <input type="text" name="w17_c3"></div></div>
-      <div class="q"><div class="num">C4</div><div class="prompt">The micro:bit decides by itself what picture to show. <input type="text" name="w17_c4"></div></div>
-      <div class="q"><div class="num">C5</div><div class="prompt">Without testing, programs always work correctly. <input type="text" name="w17_c5"></div></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="group-title">Part D — Short Answers</div>
-    <div class="q"><div class="num">D1</div><div class="prompt"><div><strong>What is micro:bit?</strong><textarea name="w17_d1"></textarea></div></div></div>
-    <div class="q"><div class="num">D2</div><div class="prompt"><div><strong>What is an accelerometer?</strong><textarea name="w17_d2"></textarea></div></div></div>
-    <div class="q"><div class="num">D3</div><div class="prompt"><div><strong>Ahmed shakes the micro:bit, and a sad face appears. What input and output are used?</strong><textarea name="w17_d3"></textarea></div></div></div>
-    <div class="q"><div class="num">D4</div><div class="prompt"><div><strong>Sara presses Button B, but nothing happens. What should she do first?</strong><textarea name="w17_d4"></textarea></div></div></div>
-  </div>
-</section>
-
-<!-- WORKSHEET 2.1 -->
-<section>
-  <div class="section-head"><h2>Worksheet 2.1 — Collecting Data</h2></div>
-
-  <div class="card">
-    <div class="group-title">Part A — Multiple Choice (MCQs)</div>
-    <p class="hint small">Choose best answer.</p>
-    <div class="q"><div class="num">1</div><div class="prompt">
-      <div><strong>What is data?</strong></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="w21_q1" value="a"> a) A story</label>
-        <label class="opt"><input type="radio" name="w21_q1" value="b"> b) Words or numbers about something</label>
-        <label class="opt"><input type="radio" name="w21_q1" value="c"> c) A picture</label>
-        <label class="opt"><input type="radio" name="w21_q1" value="d"> d) A computer</label>
-      </div>
-    </div></div>
-
-    <div class="q"><div class="num">2</div><div class="prompt">
-      <div><strong>Which of these is an example of data?</strong></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="w21_q2" value="a"> a) He is tall</label>
-        <label class="opt"><input type="radio" name="w21_q2" value="b"> b) She likes blue</label>
-        <label class="opt"><input type="radio" name="w21_q2" value="c"> c) 10</label>
-        <label class="opt"><input type="radio" name="w21_q2" value="d"> d) This is my friend</label>
-      </div>
-    </div></div>
-
-    <div class="q"><div class="num">3</div><div class="prompt">
-      <div><strong>What stores data in an organized way?</strong></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="w21_q3" value="a"> a) Book</label>
-        <label class="opt"><input type="radio" name="w21_q3" value="b"> b) Diary</label>
-        <label class="opt"><input type="radio" name="w21_q3" value="c"> c) Database</label>
-        <label class="opt"><input type="radio" name="w21_q3" value="d"> d) Pencil</label>
-      </div>
-    </div></div>
-
-    <div class="q"><div class="num">4</div><div class="prompt">
-      <div><strong>Which is a paper-based database?</strong></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="w21_q4" value="a"> a) Google Form</label>
-        <label class="opt"><input type="radio" name="w21_q4" value="b"> b) Notebook</label>
-        <label class="opt"><input type="radio" name="w21_q4" value="c"> c) Spreadsheet</label>
-        <label class="opt"><input type="radio" name="w21_q4" value="d"> d) Website</label>
-      </div>
-    </div></div>
-
-    <div class="q"><div class="num">5</div><div class="prompt">
-      <div><strong>What do we call the headings in a database?</strong></div>
-      <div class="opts">
-        <label class="opt"><input type="radio" name="w21_q5" value="a"> a) Records</label>
-        <label class="opt"><input type="radio" name="w21_q5" value="b"> b) Files</label>
-        <label class="opt"><input type="radio" name="w21_q5" value="c"> c) Fields</label>
-        <label class="opt"><input type="radio" name="w21_q5" value="d"> d) Forms</label>
-      </div>
-    </div></div>
-  </div>
-
-  <div class="card cols-2">
-    <div>
-      <div class="group-title">Part B — Fill in the blanks</div>
-      <div class="q"><div class="num">B1</div><div class="prompt">Data becomes <input type="text" name="w21_b1" placeholder="information"> when it is explained.</div></div>
-      <div class="q"><div class="num">B2</div><div class="prompt">A collection of data about one thing is called a <input type="text" name="w21_b2" placeholder="record">.</div></div>
-      <div class="q"><div class="num">B3</div><div class="prompt">A database can be stored on paper or <input type="text" name="w21_b3" placeholder="digitally">.</div></div>
-      <div class="q"><div class="num">B4</div><div class="prompt">Forms help us collect <input type="text" name="w21_b4" placeholder="accurate"> data.</div></div>
-    </div>
-
-    <div>
-      <div class="group-title">Part C — True or False</div>
-      <p class="small hint">Write True or False.</p>
-      <div class="q"><div class="num">C1</div><div class="prompt">Data and information mean the same thing. <input type="text" name="w21_c1"></div></div>
-      <div class="q"><div class="num">C2</div><div class="prompt">A calendar is an example of a paper database. <input type="text" name="w21_c2"></div></div>
-      <div class="q"><div class="num">C3</div><div class="prompt">Fields help us understand what the data means. <input type="text" name="w21_c3"></div></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="group-title">Part D — Short Answer Questions</div>
-    <div class="q"><div class="num">Q1</div><div class="prompt"><strong>What is a database?</strong><textarea name="w21_d1"></textarea></div></div>
-    <div class="q"><div class="num">Q2</div><div class="prompt"><strong>How many types of databases are there? Write their names.</strong><textarea name="w21_d2"></textarea></div></div>
-    <div class="q"><div class="num">Q3</div><div class="prompt"><strong>Differentiate between data and information. Give one example of each.</strong><textarea name="w21_d3"></textarea></div></div>
-    <div class="q"><div class="num">Q4</div><div class="prompt"><strong>Imagine records are stored digitally. How can these records be shared with a different doctor or hospital?</strong><textarea name="w21_d4"></textarea></div></div>
-    <div class="q"><div class="num">Q5</div><div class="prompt"><strong>Who might find digital forms harder to use?</strong><textarea name="w21_d5"></textarea></div></div>
-  </div>
-</section>
-
-<!-- WORKSHEET 2.2 -->
-<section>
-  <div class="section-head"><h2>Worksheet 2.2 — Managing Data</h2></div>
-
-  <div class="card">
-    <div class="group-title">Fill in the blanks</div>
-    <div class="q"><div class="num">1</div><div class="prompt">Database usually shown in a <input type="text" name="w22_b1"></div></div>
-    <div class="q"><div class="num">2</div><div class="prompt">Data base is usually organized into <input type="text" name="w22_b2"></div></div>
-    <div class="q"><div class="num">3</div><div class="prompt">Rows go <input type="text" name="w22_b3"> a database.</div></div>
-    <div class="q"><div class="num">4</div><div class="prompt">The rows in a database are known as <input type="text" name="w22_b4"></div></div>
-    <div class="q"><div class="num">5</div><div class="prompt">Columns go <input type="text" name="w22_b5"> in a database.</div></div>
-  </div>
-
-  <div class="card cols-2">
-    <div>
-      <div class="group-title">True / False (with reason for false)</div>
-      <div class="q"><div class="num">T1</div><div class="prompt">Each field in a database contains one type of data. <input type="text" name="w22_t1"></div></div>
-      <div class="q"><div class="num">T2</div><div class="prompt">What type of data each field should contain is a data type? <input type="text" name="w22_t2"></div></div>
-      <div class="q"><div class="num">T3</div><div class="prompt">If we set a data type field to a number then only text can be entered. <input type="text" name="w22_t3"></div></div>
-      <div class="q"><div class="num">T4</div><div class="prompt">If you give a field a data type and type different data type computer will not stop you from saving data. <input type="text" name="w22_t4"></div></div>
-    </div>
-
-    <div>
-      <div class="group-title">MCQs</div>
-      <div class="q"><div class="num">M1</div><div class="prompt">
-        <strong>For yes/No or True/False answers this data type is in the form of check boxes:</strong>
+    <div class="card">
+      <div class="card-title">🎯 MCQs</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">M1</span><span>Computers make which of these easier?</span></div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="w22_m1" value="a"> a) Text</label>
-          <label class="opt"><input type="radio" name="w22_m1" value="b"> b) Number</label>
-          <label class="opt"><input type="radio" name="w22_m1" value="c"> c) Boolean</label>
-          <label class="opt"><input type="radio" name="w22_m1" value="d"> d) Alphanumeric</label>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m1','a')">🔍 a) Searching data</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m1','b')">🔀 b) Sorting data</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m1','c')">💾 c) Storing data</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m1','d')">🌟 d) All of them</button>
         </div>
-      </div></div>
-
-      <div class="q"><div class="num">M2</div><div class="prompt">
-        <strong>The data type that allows both text and numbers to be entered in a field is:</strong>
+        <div class="feedback-badge" id="fb_w23m1" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">M2</span><span>In spreadsheet software, the columns are the:</span></div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="w22_m2" value="a"> a) Number</label>
-          <label class="opt"><input type="radio" name="w22_m2" value="b"> b) Boolean</label>
-          <label class="opt"><input type="radio" name="w22_m2" value="c"> c) Alphanumeric</label>
-          <label class="opt"><input type="radio" name="w22_m2" value="d"> d) Text</label>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m2','a')">📋 a) Records</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m2','b')">🗄️ b) Database</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m2','c')">🏷️ c) Fields</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m2','d')">🔀 d) Sorting</button>
         </div>
-      </div></div>
+        <div class="feedback-badge" id="fb_w23m2" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">M3</span><span>If we sort ages in descending order, the oldest person will come at the:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m3','a')">⬇️ a) Bottom</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m3','b')">↔️ b) Middle</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m3','c')">⬆️ c) Top</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m3','d')">⬅️ d) Left</button>
+        </div>
+        <div class="feedback-badge" id="fb_w23m3" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">M4</span><span>Microsoft Excel's Sort & Filter button sorts values:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m4','a')">🔤 a) Alphabetically</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m4','b')">🔢 b) Numerically</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m4','c')">🧠 c) Logically</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'w23m4','d')">🌟 d) Alphabetically and numerically</button>
+        </div>
+        <div class="feedback-badge" id="fb_w23m4" style="display:none"></div>
+      </div>
     </div>
   </div>
 
-  <div class="card">
-    <div class="group-title">Short Answers</div>
-    <div class="q"><div class="num">Q1</div><div class="prompt"><strong>What is a record in a database?</strong><textarea name="w22_q1"></textarea></div></div>
-    <div class="q"><div class="num">Q2</div><div class="prompt"><strong>What is a field in a database?</strong><textarea name="w22_q2"></textarea></div></div>
-  </div>
-</section>
-
-<!-- DATABASE TABLE TASK (from page 8) -->
-<section>
-  <div class="section-head"><h2>Database table (Worksheet page with characters)</h2></div>
-  <div class="card small">
-    <p class="small">Use the database table below (from the worksheet) to answer Q1–Q4.</p>
-    <pre style="background:#fafafa;border-radius:8px;padding:10px;border:1px solid var(--line);font-size:13px">
-Character | Health | Energy | Magic Power | Hair  | Eyes
--------------------------------------------------------
-Healbot   | 100    | 200    | Healing     | brown | Green
-Zapper    | 90     | 145    | Lightening  | black | Blue
-Gusty     | 125    | 100    | Wind        | brown | blue
-Splashy   | 100    | 175    | Water       | blond | brown
-    </pre>
-
-    <div class="q"><div class="num">1</div><div class="prompt">How many fields are there in the database? <input type="text" name="db_q1"></div></div>
-    <div class="q"><div class="num">2</div><div class="prompt">How many records are there in the database? <input type="text" name="db_q2"></div></div>
-    <div class="q"><div class="num">3</div><div class="prompt">How many records have over 100 for Energy? <input type="text" name="db_q3"></div></div>
-    <div class="q"><div class="num">4</div><div class="prompt">How many records have both brown hair and blue eyes? <input type="text" name="db_q4"></div></div>
-  </div>
-</section>
-
-<!-- WORKSHEET 2.3 -->
-<section>
-  <div class="section-head"><h2>Worksheet 2.3 — Using Data (Sorting & Filtering)</h2></div>
-
-  <div class="card">
-    <div class="group-title">Part A — Fill in the blanks</div>
-    <div class="q"><div class="num">1</div><div class="prompt">Writing names in alphabetical order means from <input type="text" name="w23_b1"></div></div>
-    <div class="q"><div class="num">2</div><div class="prompt">When we sort data, we <input type="text" name="w23_b2"></div></div>
-    <div class="q"><div class="num">3</div><div class="prompt">Sorting large amount of data by hand takes <input type="text" name="w23_b3"></div></div>
-    <div class="q"><div class="num">4</div><div class="prompt">Filter hides any record that do not match what we are searching for. <input type="text" name="w23_b4"></div></div>
-    <div class="q"><div class="num">5</div><div class="prompt">Spreadsheets have special tools to <input type="text" name="w23_b5"></div></div>
-  </div>
-
-  <div class="card cols-2">
-    <div>
-      <div class="group-title">True / False (with reason for false)</div>
-      <div class="q"><div class="num">T1</div><div class="prompt">The more data we have, the more useful it is to sort data. <input type="text" name="w23_t1"></div></div>
-      <div class="q"><div class="num">T2</div><div class="prompt">Clicking A to Z sorts the data alphabetically from A to Z or numerically from smallest to largest — this is called descending order. <input type="text" name="w23_t2"></div></div>
-      <div class="q"><div class="num">T3</div><div class="prompt">There are two ways to remove filter in Excel. <input type="text" name="w23_t3"></div></div>
-      <div class="q"><div class="num">T4</div><div class="prompt">If we want to find out all records that include apples, we could use sort. <input type="text" name="w23_t4"></div></div>
+  <!-- SCORE SUMMARY -->
+  <div id="scoreSummary">
+    <div style="font-size:48px;animation:bounce 1s infinite">🏆</div>
+    <h2>Amazing Work!</h2>
+    <div class="score-circle" id="scoreCircle">
+      <span class="score-num" id="scoreNum">0%</span>
     </div>
-
-    <div>
-      <div class="group-title">MCQs</div>
-      <div class="q"><div class="num">M1</div><div class="prompt">
-        <strong>Computers make easier?</strong>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="w23_m1" value="a"> a) Searching data</label>
-          <label class="opt"><input type="radio" name="w23_m1" value="b"> b) Sorting data</label>
-          <label class="opt"><input type="radio" name="w23_m1" value="c"> c) Storing data</label>
-          <label class="opt"><input type="radio" name="w23_m1" value="d"> d) All of them</label>
-        </div>
-      </div></div>
-
-      <div class="q"><div class="num">M2</div><div class="prompt">
-        <strong>In spreadsheet software the columns are the:</strong>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="w23_m2" value="a"> a) Records</label>
-          <label class="opt"><input type="radio" name="w23_m2" value="b"> b) Database</label>
-          <label class="opt"><input type="radio" name="w23_m2" value="c"> c) Fields</label>
-          <label class="opt"><input type="radio" name="w23_m2" value="d"> d) Sorting</label>
-        </div>
-      </div></div>
-
-      <div class="q"><div class="num">M3</div><div class="prompt">
-        <strong>If we sort ages in descending order the oldest person will come at the:</strong>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="w23_m3" value="a"> a) Bottom</label>
-          <label class="opt"><input type="radio" name="w23_m3" value="b"> b) Middle</label>
-          <label class="opt"><input type="radio" name="w23_m3" value="c"> c) Top</label>
-          <label class="opt"><input type="radio" name="w23_m3" value="d"> d) Left</label>
-        </div>
-      </div></div>
-
-      <div class="q"><div class="num">M4</div><div class="prompt">
-        <strong>Microsoft Excel Sort & Filter button sorts values:</strong>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="w23_m4" value="a"> a) Alphabetically</label>
-          <label class="opt"><input type="radio" name="w23_m4" value="b"> b) Numerically</label>
-          <label class="opt"><input type="radio" name="w23_m4" value="c"> c) Logically</label>
-          <label class="opt"><input type="radio" name="w23_m4" value="d"> d) Alphabetically and numerically</label>
-        </div>
-      </div></div>
-    </div>
+    <div class="score-msg" id="scoreMsg"></div>
+    <button class="restart-btn" onclick="restartAll()">🔄 Try Again!</button>
   </div>
 
-  <div class="card">
-    <div class="group-title">Q&A</div>
-    <div class="q"><div class="num">1</div><div class="prompt"><strong>What do you mean by sorting?</strong><textarea name="w23_q1"></textarea></div></div>
-    <div class="q"><div class="num">2</div><div class="prompt"><strong>Why we use filters in a database?</strong><textarea name="w23_q2"></textarea></div></div>
-    <div class="q"><div class="num">3</div><div class="prompt"><strong>Why large databases are stored digitally on computers?</strong><textarea name="w23_q3"></textarea></div></div>
-    <div class="q"><div class="num">4</div><div class="prompt"><strong>What sort A to Z and Z to A do in this button?</strong><textarea name="w23_q4"></textarea></div></div>
-    <div class="q"><div class="num">5</div><div class="prompt"><strong>Look at the arrow in cell A1 what has happened to it?</strong><textarea name="w23_q5"></textarea></div></div>
-  </div>
-</section>
-
-<!-- SUBMIT -->
-<div class="controls">
-  <button type="button" onclick="showSummary()">Submit & Preview Answers</button>
 </div>
 
-</form>
-
-<!-- SIMPLE CLIENT-SIDE SUMMARY MODAL (no server) -->
-<div id="summary" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);align-items:center;justify-content:center;padding:20px">
-  <div style="background:#fff;border-radius:12px;padding:18px;max-width:900px;width:100%;max-height:80vh;overflow:auto">
-    <h3>Answers preview (you can copy this)</h3>
-    <pre id="summaryText" style="white-space:pre-wrap;font-size:13px;background:#f6f7fb;padding:10px;border-radius:8px;border:1px solid #eef"></pre>
-    <div style="text-align:right;margin-top:8px">
-      <button onclick="copySummary()">Copy</button>
-      <button onclick="closeSummary()">Close</button>
-    </div>
-  </div>
-</div>
+<!-- Floating submit button -->
+<button class="float-submit" onclick="showScore()">🎯 See My Score!</button>
 
 <script>
-function showSummary(){
-  const f = document.getElementById('examForm');
-  const data = new FormData(f);
-  let out = 'Answers (from form fields)\\n\\n';
-  for(const [k,v] of data.entries()){
-    out += k + ': ' + v + '\\n';
-  }
-  document.getElementById('summaryText').textContent = out;
-  document.getElementById('summary').style.display = 'flex';
-}
-function closeSummary(){ document.getElementById('summary').style.display='none'; }
-function copySummary(){
-  const t = document.getElementById('summaryText').textContent;
-  navigator.clipboard?.writeText(t).then(()=>alert('Copied to clipboard'));
-}
-</script>
+// Correct answers for MCQ and TF
+const CORRECT = {
+  // 1.6
+  w16q1: 'c', w16q2: 'c', w16q3: 'b', w16q4: 'b', w16q5: 'b',
+  w16c1: 'False', w16c2: 'True', w16c3: 'False', w16c4: 'True',
+  // 1.7
+  w17q1: 'c', w17q2: 'c', w17q3: 'b', w17q4: 'b', w17q5: 'd',
+  w17c1: 'False', w17c2: 'True', w17c3: 'True', w17c4: 'False', w17c5: 'False',
+  // 2.1
+  w21q1: 'b', w21q2: 'c', w21q3: 'c', w21q4: 'b', w21q5: 'c',
+  w21c1: 'False', w21c2: 'True', w21c3: 'True',
+  // 2.2
+  w22t1: 'True', w22t2: 'True', w22t3: 'False', w22t4: 'True',
+  w22m1: 'c', w22m2: 'c',
+  // 2.3
+  w23t1: 'True', w23t2: 'False', w23t3: 'True',
+  w23m1: 'd', w23m2: 'c', w23m3: 'c', w23m4: 'd',
+};
 
-</div>
+const answered = {};
+const fillAnswered = {};
+let totalQ = 0, correct = 0;
+
+function updateProgress() {
+  const autoTotal = Object.keys(CORRECT).length;
+  const totalAnswered = Object.keys(answered).length + Object.keys(fillAnswered).length;
+  const correctCount = Object.values(answered).filter(v=>v).length + Object.values(fillAnswered).filter(v=>v).length;
+  const pct = autoTotal > 0 ? Math.round(totalAnswered / autoTotal * 100) : 0;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressCount').textContent = totalAnswered + ' / ' + autoTotal;
+  // Stars
+  const stars = Math.round(correctCount / Math.max(totalAnswered,1) * 5);
+  const filled = '⭐'.repeat(stars) + '🌑'.repeat(5-stars);
+  document.getElementById('starsDisplay').textContent = filled;
+}
+
+function checkMCQ(btn, qId, chosen) {
+  if (answered[qId] !== undefined) return;
+  const correct = CORRECT[qId];
+  const parent = btn.parentElement;
+  const btns = parent.querySelectorAll('.opt-btn');
+  btns.forEach(b => b.disabled = true);
+  const fb = document.getElementById('fb_' + qId);
+  if (chosen === correct) {
+    btn.classList.add('correct');
+    fb.className = 'feedback-badge correct';
+    fb.innerHTML = '🎉 Correct! Well done!';
+    fb.style.display = 'inline-flex';
+    answered[qId] = true;
+    launchConfetti(3);
+  } else {
+    btn.classList.add('wrong');
+    btns.forEach(b => {
+      if (b.textContent.trim().startsWith(correct + ')') || b.onclick?.toString().includes("'"+correct+"'")) {
+        b.classList.add('reveal-correct');
+      }
+    });
+    // Find the correct button
+    btns.forEach(b => {
+      const onclick = b.getAttribute('onclick');
+      if (onclick && onclick.includes("'"+correct+"'")) b.classList.add('reveal-correct');
+    });
+    fb.className = 'feedback-badge wrong';
+    fb.innerHTML = '😅 Not quite! The correct answer is highlighted.';
+    fb.style.display = 'inline-flex';
+    answered[qId] = false;
+  }
+  updateProgress();
+}
+
+function checkTF(btn, qId, chosen) {
+  if (answered[qId] !== undefined) return;
+  const correctAns = CORRECT[qId];
+  const row = btn.closest('.tf-btns');
+  const btns = row.querySelectorAll('.tf-btn');
+  btns.forEach(b => b.disabled = true);
+  if (chosen === correctAns) {
+    btn.classList.add('correct');
+    answered[qId] = true;
+    launchConfetti(2);
+  } else {
+    btn.classList.add('wrong');
+    btns.forEach(b => {
+      if (b.textContent.trim() === correctAns) b.classList.add('correct');
+    });
+    answered[qId] = false;
+  }
+  updateProgress();
+}
+
+function checkFill(id, acceptableAnswers) {
+  if (fillAnswered[id] !== undefined) return;
+  const inp = document.getElementById(id);
+  const val = inp.value.trim().toLowerCase();
+  const revealEl = document.getElementById('reveal_' + id);
+  if (acceptableAnswers.map(a=>a.toLowerCase()).includes(val)) {
+    inp.classList.add('correct');
+    fillAnswered[id] = true;
+    launchConfetti(2);
+  } else {
+    inp.classList.add('wrong');
+    fillAnswered[id] = false;
+    if (revealEl) revealEl.style.display = 'block';
+  }
+  inp.disabled = true;
+  updateProgress();
+}
+
+function saveShort(id) {
+  const el = document.getElementById('saved_' + id);
+  if (el) { el.style.display = 'block'; setTimeout(()=> el.style.display='none', 2000); }
+}
+
+function launchConfetti(count) {
+  const colors = ['#ffcc00','#ff6b9d','#4fc3f7','#69f0ae','#ffab40','#b39ddb'];
+  const container = document.getElementById('confettiContainer');
+  for (let i = 0; i < count * 8; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.width = (6 + Math.random()*8) + 'px';
+    piece.style.height = (6 + Math.random()*8) + 'px';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    const duration = 1.5 + Math.random() * 1.5;
+    piece.style.animationDuration = duration + 's';
+    piece.style.animationDelay = Math.random() * 0.5 + 's';
+    container.appendChild(piece);
+    setTimeout(() => piece.remove(), (duration + 0.5) * 1000);
+  }
+}
+
+function showScore() {
+  const total = Object.keys(CORRECT).length;
+  const correctCount = Object.values(answered).filter(v=>v).length + Object.values(fillAnswered).filter(v=>v).length;
+  const pct = Math.round(correctCount / total * 100);
+  const circle = document.getElementById('scoreCircle');
+  circle.style.setProperty('--pct', pct);
+  document.getElementById('scoreNum').textContent = pct + '%';
+  const msg = pct >= 90 ? '🌟 Outstanding! You\'re a superstar!' :
+              pct >= 75 ? '🎉 Great job! Keep it up!' :
+              pct >= 60 ? '👍 Good effort! Review the tricky parts.' :
+              '💪 Keep practicing — you\'ve got this!';
+  document.getElementById('scoreMsg').textContent = msg;
+  document.getElementById('scoreSummary').style.display = 'block';
+  document.getElementById('scoreSummary').scrollIntoView({behavior:'smooth'});
+  launchConfetti(8);
+}
+
+function restartAll() {
+  location.reload();
+}
+
+updateProgress();
+</script>
 </body>
 </html>
