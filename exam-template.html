@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<!-- PAGE TITLE: Update this -->
+<title>Page Title Here</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e1a;
+    --card: #1c1b2e;
+    --card2: #201f35;
+    --accent: #ffcc00;
+    --pink: #ff6b9d;
+    --blue: #4fc3f7;
+    --green: #69f0ae;
+    --purple: #b39ddb;
+    --orange: #ffab40;
+    --red: #ff5252;
+    --text: #f0eeff;
+    --muted: #8885aa;
+    --r: 18px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Starfield background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 10%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 70%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 55%, rgba(255,255,255,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 70% 75%, rgba(255,204,0,0.5) 0%, transparent 100%),
+      radial-gradient(2px 2px at 30% 15%, rgba(79,195,247,0.5) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #2d1b69, #1a0a3d);
+    border: 2px solid rgba(255,204,0,0.3);
+    border-radius: 24px;
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(179,157,219,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(255,204,0,0.05) 60deg, transparent 120deg);
+    animation: spin 12s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .header-emoji { font-size: 48px; display: block; margin-bottom: 8px; animation: bounce 2s ease-in-out infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  header h1 { font-family: 'Fredoka One', cursive; font-size: 28px; color: var(--accent); text-shadow: 0 0 20px rgba(255,204,0,0.5); }
+  header p { color: var(--purple); font-size: 14px; margin-top: 6px; }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .progress-label { font-family: 'Fredoka One', cursive; font-size: 15px; color: var(--accent); white-space: nowrap; }
+  .progress-bar-outer {
+    flex: 1;
+    height: 18px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--green));
+    border-radius: 100px;
+    transition: width 0.5s cubic-bezier(.34,1.56,.64,1);
+    width: 0%;
+  }
+  .progress-count { font-weight: 800; color: var(--green); font-size: 14px; white-space: nowrap; }
+  .stars-display { display: flex; gap: 4px; align-items: center; font-size: 20px; }
+
+  /* ── SECTION ── */
+  .ws-section { margin-bottom: 28px; }
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 16px rgba(79,195,247,0.25);
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border-radius: var(--r);
+    padding: 20px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .card-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ── MCQ QUESTION BLOCK ── */
+  .q-block {
+    margin-bottom: 20px;
+    animation: fadeIn 0.4s ease both;
+  }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+  .q-text {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .q-num {
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(255,107,157,0.4);
+  }
+
+  /* ── MCQ OPTIONS ── */
+  .opts { display: flex; flex-direction: column; gap: 8px; padding-left: 40px; }
+  .opt-btn {
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .opt-btn:hover:not(:disabled) { background: rgba(79,195,247,0.1); border-color: var(--blue); transform: translateX(4px); }
+  .opt-btn.correct  { background: rgba(105,240,174,0.15); border-color: var(--green); color: var(--green); animation: pop 0.3s ease; }
+  .opt-btn.wrong    { background: rgba(255,82,82,0.12);   border-color: var(--red);   color: var(--red);   animation: shake 0.4s ease; }
+  .opt-btn.reveal-correct { background: rgba(105,240,174,0.08); border-color: rgba(105,240,174,0.4); color: rgba(105,240,174,0.7); }
+  .opt-btn:disabled { cursor: default; }
+
+  @keyframes pop   { 0%{transform:scale(1)} 40%{transform:scale(1.04)} 100%{transform:scale(1)} }
+  @keyframes shake { 0%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} 100%{transform:translateX(0)} }
+
+  .feedback-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-top: 8px;
+    margin-left: 40px;
+  }
+  .feedback-badge.correct { background: rgba(105,240,174,0.15); color: var(--green); }
+  .feedback-badge.wrong   { background: rgba(255,82,82,0.12);   color: var(--red);   }
+
+  /* ── FILL IN THE BLANK ── */
+  .fill-input {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 7px 12px;
+    min-width: 120px;
+    transition: all 0.2s;
+    outline: none;
+  }
+  .fill-input:focus   { border-color: var(--blue);  background: rgba(79,195,247,0.08); }
+  .fill-input.correct { border-color: var(--green); background: rgba(105,240,174,0.1); color: var(--green); }
+  .fill-input.wrong   { border-color: var(--red);   background: rgba(255,82,82,0.08);  color: var(--red);   }
+
+  .check-btn {
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    border: none;
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    padding: 7px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 3px 12px rgba(79,195,247,0.3);
+  }
+  .check-btn:hover { transform: scale(1.05); box-shadow: 0 5px 16px rgba(79,195,247,0.4); }
+
+  .answer-reveal {
+    font-size: 12px;
+    color: var(--orange);
+    margin-left: 40px;
+    margin-top: 4px;
+    display: none;
+    font-weight: 700;
+  }
+
+  /* ── TRUE / FALSE ── */
+  .tf-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .tf-text { flex: 1; font-size: 14px; font-weight: 600; min-width: 200px; }
+  .tf-btns { display: flex; gap: 6px; }
+  .tf-btn {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 6px 14px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text);
+  }
+  .tf-btn:hover:not(:disabled) { transform: scale(1.08); }
+  .tf-btn.correct  { background: rgba(105,240,174,0.2); border-color: var(--green); color: var(--green); }
+  .tf-btn.wrong    { background: rgba(255,82,82,0.15);  border-color: var(--red);   color: var(--red);   }
+  .tf-btn:disabled { cursor: default; }
+
+  /* ── SHORT ANSWER ── */
+  .short-textarea {
+    width: calc(100% - 40px);
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    padding: 10px 14px;
+    resize: vertical;
+    min-height: 70px;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-top: 6px;
+    margin-left: 40px;
+  }
+  .short-textarea:focus { border-color: var(--purple); background: rgba(179,157,219,0.06); }
+
+  .submit-short-btn {
+    margin-left: 40px;
+    margin-top: 6px;
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    border: none;
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    padding: 7px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 3px 12px rgba(255,107,157,0.3);
+  }
+  .submit-short-btn:hover { transform: scale(1.05); }
+  .short-saved { margin-left: 40px; margin-top: 4px; font-size: 12px; color: var(--green); display: none; }
+
+  /* ── DATABASE TABLE ── */
+  .db-table-wrap { overflow-x: auto; margin-bottom: 14px; }
+  table.db-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .db-table th {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: #fff;
+    padding: 8px 12px;
+    text-align: left;
+    font-family: 'Fredoka One', cursive;
+    font-weight: 400;
+  }
+  .db-table th:first-child { border-radius: 10px 0 0 0; }
+  .db-table th:last-child  { border-radius: 0 10px 0 0; }
+  .db-table td { padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); font-weight: 600; }
+  .db-table tr:nth-child(odd) td  { background: rgba(255,255,255,0.03); }
+  .db-table tr:hover td           { background: rgba(79,195,247,0.07); }
+
+  /* ── CONFETTI ── */
+  .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 1000; overflow: hidden; }
+  .confetti-piece {
+    position: absolute;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    animation: confettiFall linear forwards;
+    top: -20px;
+  }
+  @keyframes confettiFall {
+    0%   { transform: translateY(0) rotate(0deg);   opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* ── SCORE SUMMARY ── */
+  #scoreSummary {
+    background: linear-gradient(135deg, #1a0a3d, #2d1b69);
+    border: 2px solid rgba(255,204,0,0.4);
+    border-radius: 24px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 28px;
+    display: none;
+    box-shadow: 0 0 50px rgba(255,204,0,0.15);
+  }
+  #scoreSummary h2 { font-family: 'Fredoka One', cursive; font-size: 30px; color: var(--accent); margin-bottom: 8px; }
+  .score-circle {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(var(--green) calc(var(--pct) * 1%), rgba(255,255,255,0.08) 0%);
+    display: grid;
+    place-items: center;
+    margin: 16px auto;
+    box-shadow: 0 0 30px rgba(105,240,174,0.3);
+  }
+  .score-num  { font-family: 'Fredoka One', cursive; font-size: 24px; color: var(--text); }
+  .score-msg  { font-size: 18px; margin-top: 8px; }
+  .restart-btn {
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--accent), var(--orange));
+    border: none; color: #111;
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    padding: 14px 32px;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255,204,0,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .restart-btn:hover { transform: scale(1.05); box-shadow: 0 8px 28px rgba(255,204,0,0.5); }
+
+  /* ── FLOATING SUBMIT ── */
+  .float-submit {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    border: none; color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    padding: 14px 24px;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(255,107,157,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .float-submit:hover { transform: scale(1.06) translateY(-2px); box-shadow: 0 10px 32px rgba(255,107,157,0.6); }
+
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    margin: 8px 0 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="confetti-container" id="confettiContainer"></div>
+
+<div class="page">
+
+  <!-- ═══════════════════════════════════════════════
+       HEADER — Update emoji, title, and subtitle
+  ═══════════════════════════════════════════════ -->
+  <header>
+    <span class="header-emoji">🚀</span>
+    <h1>Your Worksheet Title Here!</h1>
+    <p>A short motivating subtitle goes here.</p>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       PROGRESS BAR — No changes needed; auto-updates
+  ═══════════════════════════════════════════════ -->
+  <div class="progress-wrap">
+    <div class="progress-label">🌟 Progress</div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar"></div>
+    </div>
+    <div class="progress-count" id="progressCount">0 / 0</div>
+    <div class="stars-display" id="starsDisplay">⭐⭐⭐⭐⭐</div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION — Duplicate this entire block for each
+       worksheet / topic section.
+  ═══════════════════════════════════════════════ -->
+  <div class="ws-section">
+
+    <!-- Section badge: update emoji and label -->
+    <div class="section-badge">📘 Section Label — Topic Name</div>
+
+
+    <!-- ─────────────────────────────────────────
+         PART A — MULTIPLE CHOICE QUESTIONS (MCQ)
+         • Add one .q-block per question.
+         • qId must be unique across the whole page (e.g. s1q1, s1q2 …).
+         • The last argument of checkMCQ() is the correct option letter.
+         • Add the matching entry to the CORRECT object in the JS below.
+    ───────────────────────────────────────────── -->
+    <div class="card">
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
+
+      <!-- MCQ Question (copy & paste this block for each question) -->
+      <div class="q-block">
+        <div class="q-text">
+          <span class="q-num">1</span>
+          <span>Question text goes here?</span>
+        </div>
+        <div class="opts">
+          <button class="opt-btn" onclick="checkMCQ(this,'s1q1','a')">🔵 a) Option A</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'s1q1','b')">🟢 b) Option B</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'s1q1','c')">🟡 c) Option C</button>
+          <button class="opt-btn" onclick="checkMCQ(this,'s1q1','d')">🔴 d) Option D</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q1" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Repeat the q-block above for more MCQ questions -->
+      <!-- <div class="q-block"> ... </div> -->
+
+    </div><!-- /Part A card -->
+
+
+    <!-- ─────────────────────────────────────────
+         PART B — FILL IN THE BLANKS
+         • Each input needs a unique id (e.g. s1b1, s1b2 …).
+         • checkFill() accepts an array of acceptable answers (lowercase).
+         • The reveal text after "💡 Answer:" is shown on a wrong attempt.
+    ───────────────────────────────────────────── -->
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
+
+      <!-- Fill-in-the-blank item (copy & paste for each blank) -->
+      <div class="q-block">
+        <div class="q-text">
+          <span class="q-num">B1</span>
+          <span>Sentence before the blank: <input type="text" class="fill-input" id="s1b1" placeholder="???"> and the rest of the sentence.</span>
+        </div>
+        <button class="check-btn" onclick="checkFill('s1b1',['answer','alternate answer'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_s1b1">💡 Answer: answer</div>
+      </div>
+
+      <!-- Repeat the q-block above for more blanks -->
+
+    </div><!-- /Part B card -->
+
+
+    <!-- ─────────────────────────────────────────
+         PART C — TRUE OR FALSE
+         • Each tf-row needs a unique qId (e.g. s1c1, s1c2 …).
+         • Second argument of checkTF() is 'True' or 'False'.
+         • Add the matching entry to the CORRECT object in the JS below.
+    ───────────────────────────────────────────── -->
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
+
+      <!-- True/False row (copy & paste for each statement) -->
+      <div class="tf-row">
+        <div class="tf-text">1. Statement that is either true or false.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="checkTF(this,'s1c1','True')">True</button>
+          <button class="tf-btn" onclick="checkTF(this,'s1c1','False')">False</button>
+        </div>
+      </div>
+
+      <!-- Repeat the tf-row above for more statements -->
+
+    </div><!-- /Part C card -->
+
+
+    <!-- ─────────────────────────────────────────
+         PART D — SHORT ANSWER (open-ended, saved locally)
+         • Each textarea needs a unique id (e.g. sa_s1d1 …).
+         • saveShort() just confirms saving — no auto-grading.
+    ───────────────────────────────────────────── -->
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+
+      <!-- Short answer item (copy & paste for each question) -->
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D1</span><span>Short answer question goes here?</span></div>
+        <textarea class="short-textarea" id="sa_s1d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s1d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s1d1">✅ Saved!</div>
+      </div>
+
+      <!-- Repeat the q-block above for more short answers -->
+
+    </div><!-- /Part D card -->
+
+
+    <!-- ─────────────────────────────────────────
+         OPTIONAL — DATA TABLE + QUESTIONS
+         Remove this card if not needed.
+    ───────────────────────────────────────────── -->
+    <div class="card">
+      <div class="card-title">🔍 Use this table to answer the questions below!</div>
+      <div class="db-table-wrap">
+        <table class="db-table">
+          <!-- Add or remove <th> columns as needed -->
+          <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+          </tr>
+          <!-- Add data rows -->
+          <tr><td>Row 1, Cell 1</td><td>Row 1, Cell 2</td><td>Row 1, Cell 3</td></tr>
+          <tr><td>Row 2, Cell 1</td><td>Row 2, Cell 2</td><td>Row 2, Cell 3</td></tr>
+          <tr><td>Row 3, Cell 1</td><td>Row 3, Cell 2</td><td>Row 3, Cell 3</td></tr>
+        </table>
+      </div>
+
+      <!-- Table question (reuse fill-in style) -->
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">T1</span><span>Question based on the table above?</span></div>
+        <input type="text" class="fill-input" id="tbl_q1" placeholder="Enter answer">
+        <button class="check-btn" onclick="checkFill('tbl_q1',['answer'])">Check ✓</button>
+        <div class="answer-reveal" id="reveal_tbl_q1">💡 Answer: answer</div>
+      </div>
+
+    </div><!-- /Table card -->
+
+  </div><!-- /ws-section -->
+
+
+  <!-- ═══════════════════════════════════════════════
+       ADD MORE SECTIONS HERE
+       Copy the entire ws-section block above and
+       update all IDs and content for each new section.
+  ═══════════════════════════════════════════════ -->
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCORE SUMMARY — No changes needed
+  ═══════════════════════════════════════════════ -->
+  <div id="scoreSummary">
+    <div style="font-size:48px;animation:bounce 1s infinite">🏆</div>
+    <h2>Amazing Work!</h2>
+    <div class="score-circle" id="scoreCircle">
+      <span class="score-num" id="scoreNum">0%</span>
+    </div>
+    <div class="score-msg" id="scoreMsg"></div>
+    <button class="restart-btn" onclick="restartAll()">🔄 Try Again!</button>
+  </div>
+
+</div><!-- /page -->
+
+<!-- Floating submit button -->
+<button class="float-submit" onclick="showScore()">🎯 See My Score!</button>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   CORRECT ANSWERS
+   ─────────────────────────────────────────────────────────────
+   Add one entry per auto-graded question using its unique qId.
+
+   MCQ  →  value is the correct option letter:  's1q1': 'b'
+   T/F  →  value is 'True' or 'False':           's1c1': 'True'
+
+   Fill-in-the-blank answers are passed directly to checkFill()
+   in the HTML above, so they do NOT need an entry here.
+
+   Short answers are not auto-graded and do NOT need entries.
+════════════════════════════════════════════════════════════ */
+const CORRECT = {
+  // ── Section 1 MCQs ──
+  s1q1: 'b',          // ← replace 'b' with the correct letter
+  // s1q2: 'c',       // ← uncomment and fill in for each question
+
+  // ── Section 1 True/False ──
+  s1c1: 'True',       // ← replace with 'True' or 'False'
+  // s1c2: 'False',
+
+  // ── Add more sections below ──
+};
+
+/* ════════════════════════════════════════════════════════════
+   CORE ENGINE — Do not edit below unless you need to customise
+   the scoring / feedback messages.
+════════════════════════════════════════════════════════════ */
+const answered     = {};
+const fillAnswered = {};
+
+function updateProgress() {
+  const autoTotal      = Object.keys(CORRECT).length;
+  const totalAnswered  = Object.keys(answered).length + Object.keys(fillAnswered).length;
+  const correctCount   = Object.values(answered).filter(v => v).length
+                       + Object.values(fillAnswered).filter(v => v).length;
+  const pct = autoTotal > 0 ? Math.round(totalAnswered / autoTotal * 100) : 0;
+  document.getElementById('progressBar').style.width  = pct + '%';
+  document.getElementById('progressCount').textContent = totalAnswered + ' / ' + autoTotal;
+  const stars  = Math.round(correctCount / Math.max(totalAnswered, 1) * 5);
+  document.getElementById('starsDisplay').textContent =
+    '⭐'.repeat(stars) + '🌑'.repeat(5 - stars);
+}
+
+function checkMCQ(btn, qId, chosen) {
+  if (answered[qId] !== undefined) return;
+  const correctAns = CORRECT[qId];
+  const btns = btn.parentElement.querySelectorAll('.opt-btn');
+  btns.forEach(b => b.disabled = true);
+  const fb = document.getElementById('fb_' + qId);
+  if (chosen === correctAns) {
+    btn.classList.add('correct');
+    fb.className = 'feedback-badge correct';
+    fb.innerHTML = '🎉 Correct! Well done!';
+    answered[qId] = true;
+    launchConfetti(3);
+  } else {
+    btn.classList.add('wrong');
+    btns.forEach(b => {
+      const oc = b.getAttribute('onclick');
+      if (oc && oc.includes("'" + correctAns + "'")) b.classList.add('reveal-correct');
+    });
+    fb.className = 'feedback-badge wrong';
+    fb.innerHTML = '😅 Not quite! The correct answer is highlighted.';
+    answered[qId] = false;
+  }
+  fb.style.display = 'inline-flex';
+  updateProgress();
+}
+
+function checkTF(btn, qId, chosen) {
+  if (answered[qId] !== undefined) return;
+  const correctAns = CORRECT[qId];
+  const btns = btn.closest('.tf-btns').querySelectorAll('.tf-btn');
+  btns.forEach(b => b.disabled = true);
+  if (chosen === correctAns) {
+    btn.classList.add('correct');
+    answered[qId] = true;
+    launchConfetti(2);
+  } else {
+    btn.classList.add('wrong');
+    btns.forEach(b => { if (b.textContent.trim() === correctAns) b.classList.add('correct'); });
+    answered[qId] = false;
+  }
+  updateProgress();
+}
+
+function checkFill(id, acceptableAnswers) {
+  if (fillAnswered[id] !== undefined) return;
+  const inp     = document.getElementById(id);
+  const val     = inp.value.trim().toLowerCase();
+  const reveal  = document.getElementById('reveal_' + id);
+  if (acceptableAnswers.map(a => a.toLowerCase()).includes(val)) {
+    inp.classList.add('correct');
+    fillAnswered[id] = true;
+    launchConfetti(2);
+  } else {
+    inp.classList.add('wrong');
+    fillAnswered[id] = false;
+    if (reveal) reveal.style.display = 'block';
+  }
+  inp.disabled = true;
+  updateProgress();
+}
+
+function saveShort(id) {
+  const el = document.getElementById('saved_' + id);
+  if (el) { el.style.display = 'block'; setTimeout(() => el.style.display = 'none', 2000); }
+}
+
+function launchConfetti(count) {
+  const colors    = ['#ffcc00','#ff6b9d','#4fc3f7','#69f0ae','#ffab40','#b39ddb'];
+  const container = document.getElementById('confettiContainer');
+  for (let i = 0; i < count * 8; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left             = Math.random() * 100 + 'vw';
+    piece.style.background       = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.width            = (6 + Math.random() * 8) + 'px';
+    piece.style.height           = (6 + Math.random() * 8) + 'px';
+    piece.style.borderRadius     = Math.random() > 0.5 ? '50%' : '2px';
+    const duration               = 1.5 + Math.random() * 1.5;
+    piece.style.animationDuration = duration + 's';
+    piece.style.animationDelay   = Math.random() * 0.5 + 's';
+    container.appendChild(piece);
+    setTimeout(() => piece.remove(), (duration + 0.5) * 1000);
+  }
+}
+
+function showScore() {
+  const total        = Object.keys(CORRECT).length;
+  const correctCount = Object.values(answered).filter(v => v).length
+                     + Object.values(fillAnswered).filter(v => v).length;
+  const pct = Math.round(correctCount / total * 100);
+  document.getElementById('scoreCircle').style.setProperty('--pct', pct);
+  document.getElementById('scoreNum').textContent = pct + '%';
+  document.getElementById('scoreMsg').textContent =
+    pct >= 90 ? '🌟 Outstanding! You\'re a superstar!'  :
+    pct >= 75 ? '🎉 Great job! Keep it up!'              :
+    pct >= 60 ? '👍 Good effort! Review the tricky parts.' :
+                '💪 Keep practicing — you\'ve got this!';
+  const summary = document.getElementById('scoreSummary');
+  summary.style.display = 'block';
+  summary.scrollIntoView({ behavior: 'smooth' });
+  launchConfetti(8);
+}
+
+function restartAll() { location.reload(); }
+
+updateProgress();
+</script>
+</body>
+</html>
