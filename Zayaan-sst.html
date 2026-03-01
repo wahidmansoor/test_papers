@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Grade 4 — SST Mega Adventure! 🚀</title>
+<title>SST Exam Prep — 100 Questions</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -21,9 +21,7 @@
     --muted: #8885aa;
     --r: 18px;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: 'Nunito', sans-serif;
     background: var(--bg);
@@ -31,7 +29,6 @@
     min-height: 100vh;
     overflow-x: hidden;
   }
-
   body::before {
     content: '';
     position: fixed;
@@ -44,20 +41,12 @@
       radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
       radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.35) 0%, transparent 100%),
       radial-gradient(1px 1px at 55% 55%, rgba(255,255,255,0.25) 0%, transparent 100%),
-      radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
       radial-gradient(2px 2px at 70% 75%, rgba(255,204,0,0.5) 0%, transparent 100%),
       radial-gradient(2px 2px at 30% 15%, rgba(79,195,247,0.5) 0%, transparent 100%);
     pointer-events: none;
     z-index: 0;
   }
-
-  .page {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
-  }
+  .page { max-width: 960px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
 
   header {
     background: linear-gradient(135deg, #2d1b69, #1a0a3d);
@@ -79,1215 +68,1513 @@
     animation: spin 12s linear infinite;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  .header-emoji { font-size: 48px; display: block; margin-bottom: 8px; animation: bounce 2s ease-in-out infinite; }
+  .header-emoji { font-size: 52px; display: block; margin-bottom: 8px; animation: bounce 2s ease-in-out infinite; }
   @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-  header h1 { font-family: 'Fredoka One', cursive; font-size: 28px; color: var(--accent); text-shadow: 0 0 20px rgba(255,204,0,0.5); }
-  header p { color: var(--purple); font-size: 14px; margin-top: 6px; }
+  header h1 { font-family: 'Fredoka One', cursive; font-size: 30px; color: var(--accent); text-shadow: 0 0 20px rgba(255,204,0,0.5); position:relative; z-index:1; }
+  header p { color: var(--purple); font-size: 14px; margin-top: 6px; position:relative; z-index:1; }
+  .header-chips { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:12px; position:relative; z-index:1; }
+  .header-chip { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius:100px; padding:4px 14px; font-size:12px; font-weight:700; color:var(--purple); }
 
   .progress-wrap {
-    background: var(--card);
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(255,255,255,0.06);
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    background: var(--card); border-radius: 14px; padding: 16px 20px;
+    margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; gap: 16px;
   }
   .progress-label { font-family: 'Fredoka One', cursive; font-size: 15px; color: var(--accent); white-space: nowrap; }
-  .progress-bar-outer {
-    flex: 1;
-    height: 18px;
-    background: rgba(255,255,255,0.07);
-    border-radius: 100px;
-    overflow: hidden;
-  }
-  .progress-bar-inner {
-    height: 100%;
-    background: linear-gradient(90deg, var(--blue), var(--green));
-    border-radius: 100px;
-    transition: width 0.5s cubic-bezier(.34,1.56,.64,1);
-    width: 0%;
-  }
-  .progress-count { font-weight: 800; color: var(--green); font-size: 14px; white-space: nowrap; }
+  .progress-bar-outer { flex:1; height:18px; background:rgba(255,255,255,0.07); border-radius:100px; overflow:hidden; }
+  .progress-bar-inner { height:100%; background:linear-gradient(90deg,var(--blue),var(--green)); border-radius:100px; transition:width 0.5s cubic-bezier(.34,1.56,.64,1); width:0%; }
+  .progress-count { font-weight:800; color:var(--green); font-size:14px; white-space:nowrap; }
   .stars-display { display:flex; gap:4px; align-items:center; font-size:20px; }
 
   .ws-section { margin-bottom: 28px; }
   .section-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    display: inline-flex; align-items: center; gap: 10px;
     background: linear-gradient(135deg, var(--purple), var(--blue));
-    color: #fff;
-    font-family: 'Fredoka One', cursive;
-    font-size: 14px;
-    padding: 8px 18px;
-    border-radius: 100px;
-    margin-bottom: 14px;
+    color: #fff; font-family: 'Fredoka One', cursive; font-size: 14px;
+    padding: 8px 18px; border-radius: 100px; margin-bottom: 14px;
     box-shadow: 0 4px 16px rgba(79,195,247,0.25);
   }
-
   .card {
-    background: var(--card);
-    border-radius: var(--r);
-    padding: 20px;
-    margin-bottom: 14px;
-    border: 1px solid rgba(255,255,255,0.06);
+    background: var(--card); border-radius: var(--r); padding: 20px;
+    margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.06);
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   }
-  .card-title {
-    font-family: 'Fredoka One', cursive;
-    font-size: 16px;
-    color: var(--accent);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
+  .card-title { font-family:'Fredoka One',cursive; font-size:16px; color:var(--accent); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
   .q-block { margin-bottom: 20px; animation: fadeIn 0.4s ease both; }
   @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
-
-  .q-text {
-    font-weight: 700;
-    font-size: 15px;
-    margin-bottom: 10px;
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-  }
+  .q-text { font-weight:700; font-size:15px; margin-bottom:10px; display:flex; gap:10px; align-items:flex-start; }
   .q-num {
-    background: linear-gradient(135deg, var(--pink), var(--orange));
-    color: #fff;
-    font-family: 'Fredoka One', cursive;
-    min-width: 30px;
-    height: 30px;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    font-size: 14px;
-    flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(255,107,157,0.4);
+    background: linear-gradient(135deg,var(--pink),var(--orange)); color:#fff;
+    font-family:'Fredoka One',cursive; min-width:30px; height:30px;
+    border-radius:10px; display:grid; place-items:center; font-size:14px;
+    flex-shrink:0; box-shadow:0 2px 8px rgba(255,107,157,0.4);
   }
-
-  .opts { display: flex; flex-direction: column; gap: 8px; padding-left: 40px; }
+  .opts { display:flex; flex-direction:column; gap:8px; padding-left:40px; }
   .opt-btn {
-    background: rgba(255,255,255,0.04);
-    border: 2px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 10px 14px;
-    color: var(--text);
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: left;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    background:rgba(255,255,255,0.04); border:2px solid rgba(255,255,255,0.1);
+    border-radius:12px; padding:10px 14px; color:var(--text);
+    font-family:'Nunito',sans-serif; font-size:14px; font-weight:600;
+    cursor:pointer; text-align:left; transition:all 0.2s;
+    display:flex; align-items:center; gap:10px;
   }
-  .opt-btn:hover:not(:disabled) {
-    background: rgba(79,195,247,0.1);
-    border-color: var(--blue);
-    transform: translateX(4px);
-  }
-  .opt-btn.correct {
-    background: rgba(105,240,174,0.15);
-    border-color: var(--green);
-    color: var(--green);
-    animation: pop 0.3s ease;
-  }
-  .opt-btn.wrong {
-    background: rgba(255,82,82,0.12);
-    border-color: var(--red);
-    color: var(--red);
-    animation: shake 0.4s ease;
-  }
-  .opt-btn.reveal-correct {
-    background: rgba(105,240,174,0.08);
-    border-color: rgba(105,240,174,0.4);
-    color: rgba(105,240,174,0.7);
-  }
-  .opt-btn:disabled { cursor: default; }
-
-  @keyframes pop { 0%{transform:scale(1)} 40%{transform:scale(1.04)} 100%{transform:scale(1)} }
-  @keyframes shake {
-    0%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)}
-    60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} 100%{transform:translateX(0)}
-  }
-
-  .feedback-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 100px;
-    margin-top: 8px;
-    margin-left: 40px;
-  }
-  .feedback-badge.correct { background: rgba(105,240,174,0.15); color: var(--green); }
-  .feedback-badge.wrong { background: rgba(255,82,82,0.12); color: var(--red); }
+  .opt-btn:hover:not(:disabled):not(.selected) { background:rgba(79,195,247,0.07); border-color:rgba(79,195,247,0.3); transform:translateX(4px); }
+  .opt-btn.selected { background:rgba(179,157,219,0.18); border-color:var(--purple); color:var(--purple); transform:translateX(4px); }
+  .opt-btn.correct { background:rgba(105,240,174,0.15); border-color:var(--green); color:var(--green); animation:pop 0.3s ease; }
+  .opt-btn.wrong   { background:rgba(255,82,82,0.12); border-color:var(--red); color:var(--red); animation:shake 0.4s ease; }
+  .opt-btn.reveal-correct { background:rgba(105,240,174,0.08); border-color:rgba(105,240,174,0.4); color:rgba(105,240,174,0.7); }
+  .opt-btn:disabled { cursor:default; }
+  @keyframes pop   { 0%{transform:scale(1)} 40%{transform:scale(1.04)} 100%{transform:scale(1)} }
+  @keyframes shake { 0%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} 100%{transform:translateX(0)} }
+  .feedback-badge { display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:700; padding:4px 12px; border-radius:100px; margin-top:8px; margin-left:40px; }
+  .feedback-badge.correct { background:rgba(105,240,174,0.15); color:var(--green); }
+  .feedback-badge.wrong   { background:rgba(255,82,82,0.12); color:var(--red); }
 
   .fill-input {
-    background: rgba(255,255,255,0.05);
-    border: 2px solid rgba(255,255,255,0.12);
-    border-radius: 10px;
-    color: var(--text);
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 7px 12px;
-    min-width: 140px;
-    transition: all 0.2s;
-    outline: none;
+    background:rgba(255,255,255,0.05); border:2px solid rgba(255,255,255,0.12);
+    border-radius:10px; color:var(--text); font-family:'Nunito',sans-serif;
+    font-size:14px; font-weight:600; padding:7px 12px; min-width:120px;
+    transition:all 0.2s; outline:none;
   }
-  .fill-input:focus { border-color: var(--blue); background: rgba(79,195,247,0.08); }
-  .fill-input.correct { border-color: var(--green); background: rgba(105,240,174,0.1); color: var(--green); }
-  .fill-input.wrong { border-color: var(--red); background: rgba(255,82,82,0.08); color: var(--red); }
+  .fill-input:focus   { border-color:var(--blue); background:rgba(79,195,247,0.08); }
+  .fill-input.saved   { border-color:var(--purple); background:rgba(179,157,219,0.1); color:var(--purple); }
+  .fill-input.correct { border-color:var(--green); background:rgba(105,240,174,0.1); color:var(--green); }
+  .fill-input.wrong   { border-color:var(--red); background:rgba(255,82,82,0.08); color:var(--red); }
 
   .check-btn {
-    background: linear-gradient(135deg, var(--blue), var(--purple));
-    border: none;
-    color: #fff;
-    font-family: 'Fredoka One', cursive;
-    font-size: 14px;
-    padding: 7px 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 3px 12px rgba(79,195,247,0.3);
-    margin-left: 40px;
-    margin-top: 6px;
+    background:linear-gradient(135deg,var(--purple),var(--blue)); border:none; color:#fff;
+    font-family:'Fredoka One',cursive; font-size:14px; padding:7px 16px;
+    border-radius:10px; cursor:pointer; transition:transform 0.2s, box-shadow 0.2s;
+    box-shadow:0 3px 12px rgba(179,157,219,0.3);
   }
-  .check-btn:hover { transform: scale(1.05); box-shadow: 0 5px 16px rgba(79,195,247,0.4); }
+  .check-btn:hover { transform:scale(1.05); box-shadow:0 5px 16px rgba(179,157,219,0.4); }
+  .check-btn:disabled { opacity:0.5; cursor:default; transform:none; }
+  .answer-reveal { font-size:12px; color:var(--orange); margin-left:40px; margin-top:4px; display:none; font-weight:700; }
 
-  .answer-reveal {
-    font-size: 12px;
-    color: var(--orange);
-    margin-left: 40px;
-    margin-top: 6px;
-    display: none;
-    font-weight: 700;
-  }
-
-  .tf-row { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
-  .tf-text { flex: 1; font-size: 14px; font-weight: 600; min-width: 200px; }
-  .tf-btns { display: flex; gap: 6px; }
+  .tf-row { display:flex; gap:10px; align-items:center; margin-bottom:10px; flex-wrap:wrap; }
+  .tf-text { flex:1; font-size:14px; font-weight:600; min-width:200px; }
+  .tf-btns { display:flex; gap:6px; }
   .tf-btn {
-    background: rgba(255,255,255,0.05);
-    border: 2px solid rgba(255,255,255,0.12);
-    border-radius: 10px;
-    padding: 6px 14px;
-    font-family: 'Fredoka One', cursive;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: var(--text);
+    background:rgba(255,255,255,0.05); border:2px solid rgba(255,255,255,0.12);
+    border-radius:10px; padding:6px 14px; font-family:'Fredoka One',cursive;
+    font-size:13px; cursor:pointer; transition:all 0.2s; color:var(--text);
   }
-  .tf-btn:hover:not(:disabled) { transform: scale(1.08); }
-  .tf-btn.correct { background: rgba(105,240,174,0.2); border-color: var(--green); color: var(--green); }
-  .tf-btn.wrong { background: rgba(255,82,82,0.15); border-color: var(--red); color: var(--red); }
-  .tf-btn:disabled { cursor: default; }
+  .tf-btn:hover:not(:disabled):not(.selected-true):not(.selected-false) { transform:scale(1.08); }
+  .tf-btn.selected-true  { background:rgba(179,157,219,0.2); border-color:var(--purple); color:var(--purple); }
+  .tf-btn.selected-false { background:rgba(179,157,219,0.2); border-color:var(--purple); color:var(--purple); }
+  .tf-btn.correct  { background:rgba(105,240,174,0.2); border-color:var(--green); color:var(--green); }
+  .tf-btn.wrong    { background:rgba(255,82,82,0.15); border-color:var(--red); color:var(--red); }
+  .tf-btn:disabled { cursor:default; }
 
   .short-textarea {
-    width: calc(100% - 40px);
-    margin-left: 40px;
-    background: rgba(255,255,255,0.04);
-    border: 2px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    color: var(--text);
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px;
-    padding: 10px 14px;
-    resize: vertical;
-    min-height: 70px;
-    outline: none;
-    transition: border-color 0.2s;
-    margin-top: 6px;
+    width:calc(100% - 40px); background:rgba(255,255,255,0.04);
+    border:2px solid rgba(255,255,255,0.1); border-radius:12px; color:var(--text);
+    font-family:'Nunito',sans-serif; font-size:14px; padding:10px 14px;
+    resize:vertical; min-height:70px; outline:none; transition:border-color 0.2s;
+    margin-top:6px; margin-left:40px;
   }
-  .short-textarea:focus { border-color: var(--purple); background: rgba(179,157,219,0.06); }
-
+  .short-textarea:focus { border-color:var(--purple); background:rgba(179,157,219,0.06); }
   .submit-short-btn {
-    margin-left: 40px;
-    margin-top: 6px;
-    background: linear-gradient(135deg, var(--orange), var(--pink));
-    border: none;
-    color: #fff;
-    font-family: 'Fredoka One', cursive;
-    font-size: 13px;
-    padding: 7px 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s;
-    box-shadow: 0 3px 12px rgba(255,107,157,0.3);
+    margin-left:40px; margin-top:6px;
+    background:linear-gradient(135deg,var(--orange),var(--pink)); border:none; color:#fff;
+    font-family:'Fredoka One',cursive; font-size:13px; padding:7px 16px;
+    border-radius:10px; cursor:pointer; transition:transform 0.2s;
+    box-shadow:0 3px 12px rgba(255,107,157,0.3);
   }
-  .submit-short-btn:hover { transform: scale(1.05); }
-  .short-saved { margin-left: 40px; margin-top: 4px; font-size: 12px; color: var(--green); display: none; }
+  .submit-short-btn:hover { transform:scale(1.05); }
+  .short-saved { margin-left:40px; margin-top:4px; font-size:12px; color:var(--green); display:none; }
 
-  .divider {
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-    margin: 8px 0 16px;
+  .confirm-overlay {
+    position:fixed; inset:0; background:rgba(10,8,26,0.82);
+    backdrop-filter:blur(6px); z-index:500; display:none;
+    align-items:center; justify-content:center;
   }
+  .confirm-overlay.visible { display:flex; }
+  .confirm-box {
+    background:linear-gradient(135deg,#2d1b69,#1a0a3d);
+    border:2px solid rgba(255,204,0,0.4); border-radius:24px;
+    padding:36px 32px; text-align:center; max-width:420px; width:90%;
+    box-shadow:0 0 60px rgba(255,204,0,0.15); animation:fadeIn 0.25s ease;
+  }
+  .confirm-box .cb-icon { font-size:48px; display:block; margin-bottom:12px; }
+  .confirm-box h3 { font-family:'Fredoka One',cursive; font-size:22px; color:var(--accent); margin-bottom:8px; }
+  .confirm-box p  { color:var(--purple); font-size:14px; margin-bottom:24px; line-height:1.5; }
+  .confirm-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .cb-cancel { background:rgba(255,255,255,0.08); border:2px solid rgba(255,255,255,0.15); color:var(--text); font-family:'Fredoka One',cursive; font-size:15px; padding:11px 24px; border-radius:14px; cursor:pointer; transition:all 0.2s; }
+  .cb-cancel:hover { background:rgba(255,255,255,0.14); }
+  .cb-confirm { background:linear-gradient(135deg,var(--pink),var(--orange)); border:none; color:#fff; font-family:'Fredoka One',cursive; font-size:15px; padding:11px 24px; border-radius:14px; cursor:pointer; box-shadow:0 4px 16px rgba(255,107,157,0.4); transition:all 0.2s; }
+  .cb-confirm:hover { transform:scale(1.04); }
+  .unanswered-note { background:rgba(255,171,64,0.12); border:1px solid rgba(255,171,64,0.25); border-radius:10px; padding:8px 14px; font-size:13px; color:var(--orange); margin-bottom:20px; display:none; }
 
-  .confetti-container {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1000;
-    overflow: hidden;
-  }
-  .confetti-piece {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-    animation: confettiFall linear forwards;
-    top: -20px;
-  }
-  @keyframes confettiFall {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-  }
+  #scoreSummary { background:linear-gradient(135deg,#1a0a3d,#2d1b69); border:2px solid rgba(255,204,0,0.4); border-radius:24px; padding:0; margin-top:28px; display:none; box-shadow:0 0 50px rgba(255,204,0,0.15); overflow:hidden; }
+  .score-hero { padding:36px 28px 28px; text-align:center; border-bottom:2px solid rgba(255,255,255,0.07); }
+  .score-trophy { font-size:52px; animation:bounce 1s ease-in-out infinite; display:block; margin-bottom:8px; }
+  #scoreSummary h2 { font-family:'Fredoka One',cursive; font-size:30px; color:var(--accent); margin-bottom:8px; }
+  .score-circle { width:110px; height:110px; border-radius:50%; background:conic-gradient(var(--green) calc(var(--pct) * 1%),rgba(255,255,255,0.08) 0%); display:grid; place-items:center; margin:16px auto; box-shadow:0 0 30px rgba(105,240,174,0.3); position:relative; }
+  .score-circle::after { content:''; position:absolute; inset:8px; border-radius:50%; background:#1a0a3d; }
+  .score-num { font-family:'Fredoka One',cursive; font-size:26px; color:var(--text); position:relative; z-index:1; }
+  .score-msg { font-size:17px; margin-top:10px; }
+  .score-stats { display:flex; justify-content:center; gap:16px; margin-top:20px; flex-wrap:wrap; }
+  .stat-pill { display:flex; flex-direction:column; align-items:center; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:12px 20px; min-width:90px; }
+  .stat-pill .stat-val { font-family:'Fredoka One',cursive; font-size:24px; }
+  .stat-pill .stat-lbl { font-size:11px; color:var(--muted); margin-top:2px; text-transform:uppercase; letter-spacing:0.05em; }
+  .stat-pill.correct .stat-val { color:var(--green); }
+  .stat-pill.wrong   .stat-val { color:var(--red); }
+  .stat-pill.total   .stat-val { color:var(--blue); }
+  .stat-pill.skipped .stat-val { color:var(--orange); }
+  .results-breakdown { padding:24px 28px; border-bottom:2px solid rgba(255,255,255,0.07); }
+  .results-heading { font-family:'Fredoka One',cursive; font-size:18px; color:var(--accent); margin-bottom:16px; }
+  .result-item { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:14px 16px; margin-bottom:10px; display:grid; grid-template-columns:28px 1fr auto; gap:10px; align-items:start; animation:fadeIn 0.3s ease both; }
+  .result-item.ri-correct { border-left:3px solid var(--green); }
+  .result-item.ri-wrong   { border-left:3px solid var(--red); }
+  .result-item.ri-skipped { border-left:3px solid var(--orange); opacity:0.7; }
+  .ri-icon { font-size:18px; margin-top:1px; }
+  .ri-body { font-size:13px; }
+  .ri-qtext { font-weight:700; color:var(--text); margin-bottom:6px; line-height:1.4; }
+  .ri-row { display:flex; align-items:center; gap:6px; margin-top:4px; flex-wrap:wrap; }
+  .ri-label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; min-width:80px; }
+  .ri-val { font-size:13px; font-weight:700; padding:2px 10px; border-radius:100px; }
+  .ri-val.your-correct { background:rgba(105,240,174,0.15); color:var(--green); }
+  .ri-val.your-wrong   { background:rgba(255,82,82,0.15); color:var(--red); }
+  .ri-val.correct-ans  { background:rgba(105,240,174,0.1); color:var(--green); border:1px solid rgba(105,240,174,0.3); }
+  .ri-val.skipped-val  { background:rgba(255,171,64,0.12); color:var(--orange); }
+  .ri-badge { font-size:11px; font-weight:800; padding:3px 10px; border-radius:100px; }
+  .ri-badge.correct  { background:rgba(105,240,174,0.2); color:var(--green); }
+  .ri-badge.wrong    { background:rgba(255,82,82,0.15); color:var(--red); }
+  .ri-badge.skipped  { background:rgba(255,171,64,0.15); color:var(--orange); }
+  .score-actions { display:flex; justify-content:center; gap:14px; padding:24px 28px; flex-wrap:wrap; }
+  .restart-btn { background:linear-gradient(135deg,var(--accent),var(--orange)); border:none; color:#111; font-family:'Fredoka One',cursive; font-size:16px; padding:13px 28px; border-radius:16px; cursor:pointer; box-shadow:0 4px 20px rgba(255,204,0,0.4); transition:transform 0.2s, box-shadow 0.2s; }
+  .restart-btn:hover { transform:scale(1.05); }
+  .print-btn { background:linear-gradient(135deg,var(--blue),var(--purple)); border:none; color:#fff; font-family:'Fredoka One',cursive; font-size:16px; padding:13px 28px; border-radius:16px; cursor:pointer; box-shadow:0 4px 20px rgba(79,195,247,0.3); transition:transform 0.2s, box-shadow 0.2s; }
+  .print-btn:hover { transform:scale(1.05); }
 
-  #scoreSummary {
-    background: linear-gradient(135deg, #1a0a3d, #2d1b69);
-    border: 2px solid rgba(255,204,0,0.4);
-    border-radius: 24px;
-    padding: 30px;
-    text-align: center;
-    margin-top: 28px;
-    display: none;
-    box-shadow: 0 0 50px rgba(255,204,0,0.15);
-  }
-  #scoreSummary h2 { font-family: 'Fredoka One', cursive; font-size: 30px; color: var(--accent); margin-bottom: 8px; }
-  .score-circle {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    background: conic-gradient(var(--green) calc(var(--pct) * 1%), rgba(255,255,255,0.08) 0%);
-    display: grid;
-    place-items: center;
-    margin: 16px auto;
-    box-shadow: 0 0 30px rgba(105,240,174,0.3);
-  }
-  .score-num { font-family: 'Fredoka One', cursive; font-size: 24px; color: var(--text); }
-  .score-msg { font-size: 18px; margin-top: 8px; }
-  .restart-btn {
-    margin-top: 20px;
-    background: linear-gradient(135deg, var(--accent), var(--orange));
-    border: none;
-    color: #111;
-    font-family: 'Fredoka One', cursive;
-    font-size: 18px;
-    padding: 14px 32px;
-    border-radius: 16px;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(255,204,0,0.4);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .restart-btn:hover { transform: scale(1.05); box-shadow: 0 8px 28px rgba(255,204,0,0.5); }
+  .confetti-container { position:fixed; inset:0; pointer-events:none; z-index:1000; overflow:hidden; }
+  .confetti-piece { position:absolute; width:10px; height:10px; border-radius:2px; animation:confettiFall linear forwards; top:-20px; }
+  @keyframes confettiFall { 0%{transform:translateY(0) rotate(0deg);opacity:1} 100%{transform:translateY(110vh) rotate(720deg);opacity:0} }
 
-  .float-submit {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    background: linear-gradient(135deg, var(--pink), var(--orange));
-    border: none;
-    color: #fff;
-    font-family: 'Fredoka One', cursive;
-    font-size: 16px;
-    padding: 14px 24px;
-    border-radius: 100px;
-    cursor: pointer;
-    box-shadow: 0 6px 24px rgba(255,107,157,0.5);
-    transition: transform 0.2s, box-shadow 0.2s;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .float-submit { position:fixed; bottom:24px; right:24px; background:linear-gradient(135deg,var(--pink),var(--orange)); border:none; color:#fff; font-family:'Fredoka One',cursive; font-size:16px; padding:14px 24px; border-radius:100px; cursor:pointer; box-shadow:0 6px 24px rgba(255,107,157,0.5); transition:transform 0.2s, box-shadow 0.2s; z-index:100; display:flex; align-items:center; gap:8px; }
+  .float-submit:hover { transform:scale(1.06) translateY(-2px); box-shadow:0 10px 32px rgba(255,107,157,0.6); }
+
+  .divider { height:2px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent); margin:8px 0 16px; }
+
+  @media print {
+    body { background:#fff !important; color:#111 !important; }
+    body::before { display:none !important; }
+    .page { max-width:100% !important; padding:0 !important; }
+    header,.progress-wrap,.ws-section,.float-submit,.confetti-container,.score-actions { display:none !important; }
+    #scoreSummary { display:block !important; box-shadow:none !important; border:none !important; background:#fff !important; padding:0 !important; }
+    .score-hero { background:linear-gradient(135deg,#f0eeff,#e8e0ff) !important; border-radius:12px !important; padding:20px !important; border:2px solid #b39ddb !important; margin-bottom:16px; }
+    #scoreSummary h2 { color:#2d1b69 !important; }
+    .score-circle { background:conic-gradient(#2ecc71 calc(var(--pct) * 1%),#ddd 0%) !important; box-shadow:none !important; }
+    .score-circle::after { background:#f0eeff !important; }
+    .score-num { color:#111 !important; }
+    .stat-pill { background:#f4f4f4 !important; border:1px solid #ddd !important; }
+    .stat-pill .stat-lbl { color:#666 !important; }
+    .stat-pill.correct .stat-val { color:#1a9e5a !important; }
+    .stat-pill.wrong   .stat-val { color:#cc3333 !important; }
+    .stat-pill.total   .stat-val { color:#1565c0 !important; }
+    .stat-pill.skipped .stat-val { color:#e65100 !important; }
+    .results-breakdown { padding:0 !important; }
+    .results-heading { color:#2d1b69 !important; }
+    .result-item { background:#fafafa !important; border:1px solid #ddd !important; break-inside:avoid; }
+    .result-item.ri-correct { border-left:3px solid #2ecc71 !important; }
+    .result-item.ri-wrong   { border-left:3px solid #e74c3c !important; }
+    .result-item.ri-skipped { border-left:3px solid #e67e22 !important; }
+    .ri-qtext { color:#111 !important; }
+    .ri-label { color:#666 !important; }
+    .ri-val.your-correct { background:#d4f8e8 !important; color:#1a9e5a !important; }
+    .ri-val.your-wrong   { background:#fde8e8 !important; color:#cc3333 !important; }
+    .ri-val.correct-ans  { background:#d4f8e8 !important; color:#1a9e5a !important; }
+    .ri-val.skipped-val  { background:#fef0e0 !important; color:#e65100 !important; }
+    .ri-badge.correct { background:#d4f8e8 !important; color:#1a9e5a !important; }
+    .ri-badge.wrong   { background:#fde8e8 !important; color:#cc3333 !important; }
+    .ri-badge.skipped { background:#fef0e0 !important; color:#e65100 !important; }
   }
-  .float-submit:hover { transform: scale(1.06) translateY(-2px); box-shadow: 0 10px 32px rgba(255,107,157,0.6); }
 </style>
 </head>
 <body>
 
 <div class="confetti-container" id="confettiContainer"></div>
 
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <span class="cb-icon">📝</span>
+    <h3>Submit Your Test?</h3>
+    <p>Once you submit, you cannot change your answers.<br>Your results will be revealed immediately.</p>
+    <div class="unanswered-note" id="unansweredNote"></div>
+    <div class="confirm-btns">
+      <button class="cb-cancel" onclick="closeConfirm()">← Keep Answering</button>
+      <button class="cb-confirm" onclick="confirmSubmit()">Submit Now 🚀</button>
+    </div>
+  </div>
+</div>
+
 <div class="page">
 
   <header>
-    <span class="header-emoji">🚀</span>
-    <h1>Grade 4 SST Mega Adventure!</h1>
-    <p>Markets • Safety Rules • Resources • Rivers • Soil • Water • Getting Along</p>
+    <span class="header-emoji">🌍</span>
+    <h1>SST Exam Prep — 100 Questions!</h1>
+    <p>Covering all chapters from your classwork notebook • Good luck, superstar!</p>
+    <div class="header-chips">
+      <span class="header-chip">📦 Ch 2.1 Markets</span>
+      <span class="header-chip">🤝 Topic 2.3 Getting Along</span>
+      <span class="header-chip">📜 Ch 2.4 Rules</span>
+      <span class="header-chip">🌊 Ch 3.2 Rivers</span>
+      <span class="header-chip">♻️ Ch 4.4 Resources</span>
+      <span class="header-chip">🌱 Ch 4.5 Fertile Soil</span>
+      <span class="header-chip">💧 Ch 4.6 Water</span>
+    </div>
   </header>
 
   <div class="progress-wrap">
     <div class="progress-label">🌟 Progress</div>
-    <div class="progress-bar-outer">
-      <div class="progress-bar-inner" id="progressBar"></div>
-    </div>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="progressBar"></div></div>
     <div class="progress-count" id="progressCount">0 / 0</div>
     <div class="stars-display" id="starsDisplay">⭐⭐⭐⭐⭐</div>
   </div>
 
-  <!-- ===================== CH 2.1 MARKETS ===================== -->
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 1 — CHAPTER 2.1: MARKETS           -->
+  <!-- ═══════════════════════════════════════════ -->
   <div class="ws-section">
-    <div class="section-badge">🛒 Chapter 2.1 — Markets</div>
+    <div class="section-badge">📦 Chapter 2.1 — Markets (Q1–Q20)</div>
 
+    <!-- PART A — MCQ -->
     <div class="card">
-      <div class="card-title">🎯 Part A — MCQs</div>
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
 
       <div class="q-block">
         <div class="q-text"><span class="q-num">1</span><span>What is a market?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q1','a')">🏠 a) A place where people only live</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q1','b')">🛒 b) A place where goods are sold and bought</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q1','c')">📚 c) A place to read books</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q1','d')">🏥 d) A place to treat patients</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','a')">🏫 a) A place where children go to learn</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','b')">🛒 b) A place where goods are bought and sold</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','c')">🏭 c) A factory where goods are made</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','d')">🚜 d) A farm where crops grow</button>
         </div>
-        <div class="feedback-badge" id="fb_mkt_q1" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s1q1" style="display:none"></div>
       </div>
-
       <div class="divider"></div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">2</span><span>Where do goods sold in markets usually come from?</span></div>
+        <div class="q-text"><span class="q-num">2</span><span>Where do the goods sold in markets come from?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q2','a')">🌙 a) From the moon</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q2','b')">🌾 b) From farms, factories, and sometimes homes</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q2','c')">🧸 c) Only from toy shops</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q2','d')">📺 d) From TV shows</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','a')">🌾 a) Only from farms</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','b')">🏭 b) Only from factories</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','c')">✅ c) Farms, factories, and sometimes homes</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','d')">🏠 d) Only from homes</button>
         </div>
-        <div class="feedback-badge" id="fb_mkt_q2" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s1q2" style="display:none"></div>
       </div>
-
       <div class="divider"></div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">3</span><span>Goods in handicraft shops are usually made…</span></div>
+        <div class="q-text"><span class="q-num">3</span><span>Where are goods sold in handicraft shops made?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q3','a')">🏭 a) Only in big factories</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q3','b')">🏠 b) At home or in small factories</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q3','c')">🚀 c) In space</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q3','d')">🌊 d) Under the sea</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','a')">🏗️ a) In big factories abroad</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','b')">🏙️ b) In supermarkets</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','c')">🏠 c) At home or in small factories</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','d')">🚚 d) They are imported from other countries</button>
         </div>
-        <div class="feedback-badge" id="fb_mkt_q3" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s1q3" style="display:none"></div>
       </div>
-
       <div class="divider"></div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">4</span><span>In autumn, what happens in an apple orchard?</span></div>
+        <div class="q-text"><span class="q-num">4</span><span>What happens to an apple orchard in SUMMER?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q4','a')">💧 a) Orchards are irrigated</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q4','b')">🍎 b) Apples are picked</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q4','c')">✂️ c) Apple trees are pruned</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q4','d')">🌱 d) Land is weeded and sprayed</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','a')">🍎 a) The apples are picked</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','b')">✂️ b) The trees are pruned</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','c')">💧 c) The orchards are irrigated</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','d')">🌿 d) The land is weeded and sprayed</button>
         </div>
-        <div class="feedback-badge" id="fb_mkt_q4" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s1q4" style="display:none"></div>
       </div>
-
       <div class="divider"></div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">5</span><span>In winter, workers usually ______ the apple trees.</span></div>
+        <div class="q-text"><span class="q-num">5</span><span>What happens on an apple orchard in SPRING?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q5','a')">🍎 a) pick</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q5','b')">✂️ b) prune</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q5','c')">💦 c) irrigate</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'mkt_q5','d')">🧼 d) wash</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','a')">🍎 a) The apples are picked</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','b')">💧 b) The orchards are irrigated</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','c')">🌿 c) The land is weeded and sprayed</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','d')">✂️ d) The trees are pruned</button>
         </div>
-        <div class="feedback-badge" id="fb_mkt_q5" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s1q5" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">6</span><span>What happens on an apple orchard in AUTUMN?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q6','a')">✂️ a) The trees are pruned</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q6','b')">🍎 b) The apples are picked</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q6','c')">🌿 c) The land is weeded</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q6','d')">💧 d) The orchards are irrigated</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q6" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">7</span><span>What happens to apple trees in WINTER?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q7','a')">💧 a) They are irrigated</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q7','b')">🍎 b) The apples are picked</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q7','c')">✂️ c) The trees are pruned</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q7','d')">🌿 d) The land is sprayed</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q7" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- PART B — FILL IN THE BLANK -->
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B1</span><span>A market is a place where <input type="text" class="fill-input" id="s1b1" placeholder="???"> are sold and bought.</span></div>
+        <button class="check-btn" onclick="saveFill('s1b1',['products','goods'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b1">💡 Answer: products</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B2</span><span>In winter, the workers <input type="text" class="fill-input" id="s1b2" placeholder="???"> the apple trees.</span></div>
+        <button class="check-btn" onclick="saveFill('s1b2',['prune'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b2">💡 Answer: prune</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B3</span><span>In summer, if there is not enough rain, farmers <input type="text" class="fill-input" id="s1b3" placeholder="???"> the orchards.</span></div>
+        <button class="check-btn" onclick="saveFill('s1b3',['irrigate'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b3">💡 Answer: irrigate</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B4</span><span>In spring, farmers <input type="text" class="fill-input" id="s1b4" placeholder="???"> the land around the trees to keep them safe from harmful insects.</span></div>
+        <button class="check-btn" onclick="saveFill('s1b4',['weed'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b4">💡 Answer: weed</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B5</span><span>People make things by hand at home or in small factories to be sold at <input type="text" class="fill-input" id="s1b5" placeholder="???"> shops.</span></div>
+        <button class="check-btn" onclick="saveFill('s1b5',['handicrafts','handicraft'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b5">💡 Answer: handicrafts</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B6</span><span>In autumn, the <input type="text" class="fill-input" id="s1b6" placeholder="???"> are picked from the orchard.</span></div>
+        <button class="check-btn" onclick="saveFill('s1b6',['apples'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b6">💡 Answer: apples</div>
+      </div>
+    </div>
+
+    <!-- PART C — TRUE / FALSE -->
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
+
+      <div class="tf-row">
+        <div class="tf-text">1. A market is a place where all kinds of goods are sold and bought.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s1c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s1c1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">2. Goods in handicraft shops are always made in large factories.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s1c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s1c2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">3. Apple orchards are irrigated in winter.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s1c3','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s1c3','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">4. In autumn, the apples are picked from the orchard.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s1c4','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s1c4','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">5. In spring, the land around the trees is weeded and sprayed.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s1c5','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s1c5','False')">False</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART D — SHORT ANSWER -->
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D1</span><span>Why do you think markets are important for a community? Give two reasons.</span></div>
+        <textarea class="short-textarea" id="sa_s1d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s1d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s1d1">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D2</span><span>Describe what happens on an apple orchard during ALL four seasons.</span></div>
+        <textarea class="short-textarea" id="sa_s1d2" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s1d2')">Save ✓</button>
+        <div class="short-saved" id="saved_s1d2">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 2 — TOPIC 2.3: GETTING ALONG       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">🤝 Topic 2.3 — Getting Along With Others (Q21–Q30)</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">21</span><span>What is the BEST way to share things with others at home and school?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','a')">😤 a) Keep everything for yourself</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','b')">✅ b) Take turns and be fair</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','c')">😐 c) Only share with best friends</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','d')">🚫 d) Never share anything</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q1" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">22</span><span>Why is it important to listen to others?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','a')">🗣️ a) So you can talk more than them</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','b')">👂 b) To understand their point of view</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','c')">🏆 c) To win arguments</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','d')">😴 d) It is not important to listen</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q2" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">23</span><span>Getting along with others means having a good ___ with them.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','a')">😡 a) Fight</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','b')">🏅 b) Competition</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','c')">🤝 c) Relationship</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','d')">😐 d) Argument</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q3" style="display:none"></div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B1</span><span>A market is a place where <input class="fill-input" id="mkt_b1" placeholder="???"> are sold.</span></div>
-        <button class="check-btn" onclick="checkFill('mkt_b1',['products','goods'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_mkt_b1">💡 Answer: products / goods</div>
+        <div class="q-text"><span class="q-num">B7</span><span>Getting along means having a good <input type="text" class="fill-input" id="s2b1" placeholder="???"> with the people we interact with.</span></div>
+        <button class="check-btn" onclick="saveFill('s2b1',['relationship'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s2b1">💡 Answer: relationship</div>
       </div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B2</span><span>People make things by hand at home to be sold at <input class="fill-input" id="mkt_b2" placeholder="???"> shops.</span></div>
-        <button class="check-btn" onclick="checkFill('mkt_b2',['handicrafts','handicraft'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_mkt_b2">💡 Answer: handicrafts</div>
+        <div class="q-text"><span class="q-num">B8</span><span>We take turns to speak in class so everyone gets a <input type="text" class="fill-input" id="s2b2" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s2b2',['chance'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s2b2">💡 Answer: chance</div>
       </div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B3</span><span>In summer, if there is not enough rain, farmers <input class="fill-input" id="mkt_b3" placeholder="???"> the orchards.</span></div>
-        <button class="check-btn" onclick="checkFill('mkt_b3',['irrigate','irrigated'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_mkt_b3">💡 Answer: irrigate</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B4</span><span>In spring, farmers <input class="fill-input" id="mkt_b4" placeholder="???"> the land and spray to protect trees.</span></div>
-        <button class="check-btn" onclick="checkFill('mkt_b4',['weed','weeded','weeding'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_mkt_b4">💡 Answer: weed</div>
+        <div class="q-text"><span class="q-num">B9</span><span>When we listen to others, we understand their points of <input type="text" class="fill-input" id="s2b3" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s2b3',['view'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s2b3">💡 Answer: view</div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">✅ Part C — True or False</div>
+      <div class="card-title">✅ Part C — True or False?</div>
 
       <div class="tf-row">
-        <div class="tf-text">1. Markets are places where goods are sold and bought.</div>
+        <div class="tf-text">6. Taking turns is a good way to share things fairly.</div>
         <div class="tf-btns">
-          <button class="tf-btn" onclick="checkTF(this,'mkt_t1','True')">True</button>
-          <button class="tf-btn" onclick="checkTF(this,'mkt_t1','False')">False</button>
+          <button class="tf-btn" onclick="selectTF(this,'s2c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s2c1','False')">False</button>
         </div>
       </div>
-
       <div class="tf-row">
-        <div class="tf-text">2. In autumn, apple trees are pruned.</div>
+        <div class="tf-text">7. Listening to others helps us understand their point of view.</div>
         <div class="tf-btns">
-          <button class="tf-btn" onclick="checkTF(this,'mkt_t2','True')">True</button>
-          <button class="tf-btn" onclick="checkTF(this,'mkt_t2','False')">False</button>
+          <button class="tf-btn" onclick="selectTF(this,'s2c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s2c2','False')">False</button>
         </div>
       </div>
+      <div class="tf-row">
+        <div class="tf-text">8. It is not important to take turns when speaking in class.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s2c3','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s2c3','False')">False</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answer</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D3</span><span>Give two examples of how you can get along better with others at school.</span></div>
+        <textarea class="short-textarea" id="sa_s2d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s2d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s2d1">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 3 — CHAPTER 2.4: RULES             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">📜 Chapter 2.4 — Rules Keep Us Safe (Q31–Q45)</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">31</span><span>Why are rules made?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','a')">😠 a) To make life difficult for people</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','b')">👮 b) To punish people when they misbehave</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','c')">🛡️ c) To protect us and keep us safe</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','d')">🤖 d) To control people's every move</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q1" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">32</span><span>How do school rules help students?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','a')">😴 a) They make school boring and slow</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','b')">📚 b) They make learning easy and ensure fair play</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','c')">⛔ c) They prevent students from playing at all</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','d')">🐢 d) They slow down learning</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q2" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">33</span><span>What qualities do good citizens have?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','a')">😈 a) Selfish, rude, and dishonest</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','b')">🌟 b) Responsible, trustworthy, and honest</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','c')">😴 c) Lazy, careless, and quiet</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','d')">😤 d) Bossy, loud, and impatient</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q3" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">34</span><span>What should you NEVER do with a stranger?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','a')">👋 a) Wave at them from a distance</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','b')">🚫 b) Trust them</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','c')">🚶 c) Walk away from them</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','d')">👨‍👧 d) Tell a trusted adult about them</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q4" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B10</span><span>Rules are made to keep us <input type="text" class="fill-input" id="s3b1" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s3b1',['safe'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b1">💡 Answer: safe</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B11</span><span>Never trust a <input type="text" class="fill-input" id="s3b2" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s3b2',['stranger','strangers'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b2">💡 Answer: stranger</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B12</span><span>Do not play with <input type="text" class="fill-input" id="s3b3" placeholder="???"> because they can start a fire.</span></div>
+        <button class="check-btn" onclick="saveFill('s3b3',['matchsticks','matches'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b3">💡 Answer: matchsticks</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B13</span><span>Use electric appliances only in the presence of a <input type="text" class="fill-input" id="s3b4" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s3b4',['grown-up','grownup','adult'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b4">💡 Answer: grown-up</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B14</span><span>Do not play with sharp <input type="text" class="fill-input" id="s3b5" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s3b5',['objects'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b5">💡 Answer: objects</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
 
       <div class="tf-row">
-        <div class="tf-text">3. Handicraft goods can be made at home.</div>
+        <div class="tf-text">9. Rules are made to protect us and keep us safe.</div>
         <div class="tf-btns">
-          <button class="tf-btn" onclick="checkTF(this,'mkt_t3','True')">True</button>
-          <button class="tf-btn" onclick="checkTF(this,'mkt_t3','False')">False</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">10. School rules make learning easy and ensure fair play.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s3c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">11. Good citizens are responsible, trustworthy and honest.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s3c3','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c3','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">12. It is safe to play with matchsticks indoors.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s3c4','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c4','False')">False</button>
         </div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title">📖 Part D — Short Answers</div>
-
       <div class="q-block">
-        <div class="q-text"><span class="q-num">D1</span><span>Write four seasonal activities in an apple orchard (summer, spring, autumn, winter).</span></div>
-        <textarea class="short-textarea" id="sa_mkt_d1" placeholder="Write your answer here..."></textarea>
-        <button class="submit-short-btn" onclick="saveShort('mkt_d1')">Save ✓</button>
-        <div class="short-saved" id="saved_mkt_d1">✅ Saved!</div>
+        <div class="q-text"><span class="q-num">D4</span><span>Give two examples of rules that keep you safe at home.</span></div>
+        <textarea class="short-textarea" id="sa_s3d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s3d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s3d1">✅ Saved!</div>
       </div>
-
       <div class="q-block">
-        <div class="q-text"><span class="q-num">D2</span><span>Where do goods sold in markets come from?</span></div>
-        <textarea class="short-textarea" id="sa_mkt_d2" placeholder="Write your answer here..."></textarea>
-        <button class="submit-short-btn" onclick="saveShort('mkt_d2')">Save ✓</button>
-        <div class="short-saved" id="saved_mkt_d2">✅ Saved!</div>
+        <div class="q-text"><span class="q-num">D5</span><span>What makes a person a good citizen? Choose one quality and explain why it is important.</span></div>
+        <textarea class="short-textarea" id="sa_s3d2" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s3d2')">Save ✓</button>
+        <div class="short-saved" id="saved_s3d2">✅ Saved!</div>
       </div>
     </div>
   </div>
 
-  <!-- ===================== CH 2.4 RULES KEEP US SAFE ===================== -->
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 4 — CH 3.2: RIVERS OF PAKISTAN     -->
+  <!-- ═══════════════════════════════════════════ -->
   <div class="ws-section">
-    <div class="section-badge">🛡️ Chapter 2.4 — Rules Keep Us Safe</div>
+    <div class="section-badge">🌊 Chapter 3.2 — Rivers of Pakistan (Q46–Q65)</div>
 
     <div class="card">
-      <div class="card-title">🎯 Part A — MCQs</div>
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">1</span><span>Why are rules made?</span></div>
+        <div class="q-text"><span class="q-num">46</span><span>What is a tributary?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q1','a')">🎮 a) To play games</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q1','b')">🛡️ b) To protect us and keep us safe</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q1','c')">🍭 c) To give candy</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q1','d')">📺 d) To watch TV</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','a')">🌊 a) A large ocean</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','b')">🏞️ b) A river or stream that joins a main river</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','c')">💧 c) A waterfall</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','d')">🏞️ d) A lake in the mountains</button>
         </div>
-        <div class="feedback-badge" id="fb_safe_q1" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s4q1" style="display:none"></div>
       </div>
-
       <div class="divider"></div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">2</span><span>How do school rules help students?</span></div>
+        <div class="q-text"><span class="q-num">47</span><span>Which rivers are tributaries of the Indus River?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q2','a')">📣 a) By making noise louder</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q2','b')">⚖️ b) By making learning easy and ensuring fair play</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q2','c')">🧁 c) By giving snacks</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q2','d')">🛌 d) By letting everyone sleep</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','a')">🌍 a) Nile, Amazon, Thames, Congo</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','b')">🇵🇰 b) Sutlej, Ravi, Chenab, Jhelum</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','c')">🌏 c) Ganges, Brahmaputra, Yamuna, Beas</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','d')">🌍 d) Orange, Niger, Volta, Senegal</button>
         </div>
-        <div class="feedback-badge" id="fb_safe_q2" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s4q2" style="display:none"></div>
       </div>
-
       <div class="divider"></div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">3</span><span>Good citizens should be…</span></div>
+        <div class="q-text"><span class="q-num">48</span><span>What is the MOUTH of a river?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q3','a')">😈 a) Mean and rude</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q3','b')">🤝 b) Responsible, trustworthy, and honest</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q3','c')">😴 c) Lazy</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'safe_q3','d')">🙈 d) Unfriendly</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','a')">⛰️ a) Where the river starts in the mountains</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','b')">↔️ b) The widest and deepest part of a river</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','c')">🌊 c) The place where a river reaches the sea</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','d')">💧 d) A large waterfall in the river</button>
         </div>
-        <div class="feedback-badge" id="fb_safe_q3" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s4q3" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">49</span><span>Where does the Indus River begin?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','a')">🌊 a) Arabian Sea</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','b')">⛰️ b) Himalaya mountains in Tibet</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','c')">🌾 c) Punjab plains</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','d')">🏙️ d) Karachi</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q4" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">50</span><span>How is water from the Indus River and its tributaries used?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','a')">🥤 a) Only for drinking water</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','b')">🌾 b) Only for farming</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','c')">✅ c) Domestic purposes, agriculture, and transportation</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','d')">🚢 d) Only for transportation</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q5" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">51</span><span>Where does the Indus River end?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q6','a')">🌊 a) Bay of Bengal</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q6','b')">🌊 b) Red Sea</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q6','c')">🌊 c) Arabian Sea</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q6','d')">🌊 d) Persian Gulf</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q6" style="display:none"></div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B1</span><span>Rules are made to keep us <input class="fill-input" id="safe_b1" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('safe_b1',['safe'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_safe_b1">💡 Answer: safe</div>
+        <div class="q-text"><span class="q-num">B15</span><span>A tributary is a river or stream that <input type="text" class="fill-input" id="s4b1" placeholder="???"> a main river.</span></div>
+        <button class="check-btn" onclick="saveFill('s4b1',['joins'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s4b1">💡 Answer: joins</div>
       </div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B2</span><span>Never trust <input class="fill-input" id="safe_b2" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('safe_b2',['strangers','a stranger'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_safe_b2">💡 Answer: strangers</div>
+        <div class="q-text"><span class="q-num">B16</span><span>The longest river of Pakistan is called the <input type="text" class="fill-input" id="s4b2" placeholder="???">.</span></div>
+        <button class="check-btn" onclick="saveFill('s4b2',['indus','indus river'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s4b2">💡 Answer: Indus</div>
       </div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B3</span><span>Do not play with <input class="fill-input" id="safe_b3" placeholder="???"> because they can start a fire.</span></div>
-        <button class="check-btn" onclick="checkFill('safe_b3',['matchsticks','matches'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_safe_b3">💡 Answer: matchsticks</div>
+        <div class="q-text"><span class="q-num">B17</span><span>The Indus River starts from Tibet and ends at the <input type="text" class="fill-input" id="s4b3" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s4b3',['arabian sea','arabian sea'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s4b3">💡 Answer: Arabian Sea</div>
       </div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B4</span><span>Use electric appliances in the presence of a <input class="fill-input" id="safe_b4" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('safe_b4',['grown-up','adult','guardian'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_safe_b4">💡 Answer: grown-up</div>
+        <div class="q-text"><span class="q-num">B18</span><span>Rivers provide water for domestic use and <input type="text" class="fill-input" id="s4b4" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s4b4',['agriculture','farming'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s4b4">💡 Answer: agriculture</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B19</span><span>The mouth of a river is the place where it reaches the <input type="text" class="fill-input" id="s4b5" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s4b5',['sea','ocean'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s4b5">💡 Answer: sea</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B20</span><span>Rivers also <input type="text" class="fill-input" id="s4b6" placeholder="???"> people and goods to other places.</span></div>
+        <button class="check-btn" onclick="saveFill('s4b6',['transport','carry'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s4b6">💡 Answer: transport</div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">✅ Part C — True or False</div>
+      <div class="card-title">✅ Part C — True or False?</div>
 
       <div class="tf-row">
-        <div class="tf-text">1. Rules are made to protect us.</div>
+        <div class="tf-text">13. The River Indus is one of the largest rivers in Asia.</div>
         <div class="tf-btns">
-          <button class="tf-btn" onclick="checkTF(this,'safe_t1','True')">True</button>
-          <button class="tf-btn" onclick="checkTF(this,'safe_t1','False')">False</button>
+          <button class="tf-btn" onclick="selectTF(this,'s4c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s4c1','False')">False</button>
         </div>
       </div>
-
       <div class="tf-row">
-        <div class="tf-text">2. School rules help students by ensuring fair play.</div>
+        <div class="tf-text">14. The Indus River rises in the Himalaya mountains in Tibet.</div>
         <div class="tf-btns">
-          <button class="tf-btn" onclick="checkTF(this,'safe_t2','True')">True</button>
-          <button class="tf-btn" onclick="checkTF(this,'safe_t2','False')">False</button>
+          <button class="tf-btn" onclick="selectTF(this,'s4c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s4c2','False')">False</button>
         </div>
       </div>
-
       <div class="tf-row">
-        <div class="tf-text">3. Good citizens should be dishonest.</div>
+        <div class="tf-text">15. The Indus River forms a delta near Karachi as it approaches the Arabian Sea.</div>
         <div class="tf-btns">
-          <button class="tf-btn" onclick="checkTF(this,'safe_t3','True')">True</button>
-          <button class="tf-btn" onclick="checkTF(this,'safe_t3','False')">False</button>
+          <button class="tf-btn" onclick="selectTF(this,'s4c3','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s4c3','False')">False</button>
         </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">16. The water from the Indus River is used ONLY for agriculture.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s4c4','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s4c4','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">17. Tourists visit the River Indus to enjoy beautiful places along its course.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s4c5','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s4c5','False')">False</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D6</span><span>Name all four tributaries of the Indus River and explain what a tributary is.</span></div>
+        <textarea class="short-textarea" id="sa_s4d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s4d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s4d1">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D7</span><span>Why are rivers important to Pakistan? Give at least three reasons.</span></div>
+        <textarea class="short-textarea" id="sa_s4d2" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s4d2')">Save ✓</button>
+        <div class="short-saved" id="saved_s4d2">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D8</span><span>Where does the Indus River start and where does it end? Describe its journey in your own words.</span></div>
+        <textarea class="short-textarea" id="sa_s4d3" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s4d3')">Save ✓</button>
+        <div class="short-saved" id="saved_s4d3">✅ Saved!</div>
       </div>
     </div>
   </div>
 
-  <!-- ===================== CH 4.4 RESOURCES ===================== -->
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 5 — CH 4.4: RESOURCES              -->
+  <!-- ═══════════════════════════════════════════ -->
   <div class="ws-section">
-    <div class="section-badge">♻️ Chapter 4.4 — Resources & Their Types</div>
+    <div class="section-badge">♻️ Chapter 4.4 — Resources and Their Types (Q66–Q80)</div>
 
     <div class="card">
-      <div class="card-title">🎯 Part A — MCQs</div>
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">1</span><span>What is a natural resource?</span></div>
+        <div class="q-text"><span class="q-num">66</span><span>What is a NATURAL RESOURCE?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q1','a')">🧱 a) A thing made in a factory only</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q1','b')">🌿 b) A useful thing that comes from nature</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q1','c')">🎮 c) A video game</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q1','d')">📺 d) A TV channel</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','a')">🏭 a) Something made in a factory</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','b')">🌿 b) A useful thing we get from nature</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','c')">🛒 c) Something bought in a market</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','d')">🔧 d) A tool made by humans</button>
         </div>
-        <div class="feedback-badge" id="fb_res_q1" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s5q1" style="display:none"></div>
       </div>
-
       <div class="divider"></div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">2</span><span>Which set is the “Three Rs”?</span></div>
+        <div class="q-text"><span class="q-num">67</span><span>What do the THREE Rs stand for?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q2','a')">🚗 a) Run, Ride, Rest</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q2','b')">♻️ b) Reduce, Reuse, Recycle</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q2','c')">🍎 c) Read, Write, Draw</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q2','d')">📦 d) Roll, Remove, Replace</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','a')">📚 a) Read, Write, Recite</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','b')">🏃 b) Run, Rest, Relax</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','c')">♻️ c) Reduce, Reuse, Recycle</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','d')">🔧 d) Repair, Replace, Remove</button>
         </div>
-        <div class="feedback-badge" id="fb_res_q2" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s5q2" style="display:none"></div>
       </div>
-
       <div class="divider"></div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">3</span><span>Which is an example of saving paper at home?</span></div>
+        <div class="q-text"><span class="q-num">68</span><span>What is a RESOURCE?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q3','a')">🧻 a) Throw paper after one use</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q3','b')">📝 b) Use both sides of paper</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q3','c')">🔥 c) Burn paper</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q3','d')">🌊 d) Soak paper in water</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','a')">🧸 a) A toy or game</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','b')">✅ b) Something people use to meet their needs</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','c')">🍔 c) A type of food</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','d')">📖 d) A school subject</button>
         </div>
-        <div class="feedback-badge" id="fb_res_q3" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s5q3" style="display:none"></div>
       </div>
-
       <div class="divider"></div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">4</span><span>A resource is something people use to…</span></div>
+        <div class="q-text"><span class="q-num">69</span><span>What do HUMAN RESOURCES refer to?</span></div>
         <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q4','a')">🎭 a) make jokes only</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q4','b')">✅ b) meet their needs</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q4','c')">🛌 c) sleep more</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'res_q4','d')">🚫 d) stop learning</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','a')">🤖 a) Machines used in factories</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','b')">🏠 b) Buildings and roads</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','c')">👷 c) People who provide services</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','d')">🌿 d) Natural materials from the ground</button>
         </div>
-        <div class="feedback-badge" id="fb_res_q4" style="display:none"></div>
+        <div class="feedback-badge" id="fb_s5q4" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">70</span><span>What are CAPITAL RESOURCES?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','a')">🌿 a) Natural resources found in the ground</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','b')">👨 b) Human resources like teachers and doctors</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','c')">🏗️ c) Human-made assets used in production of goods and services</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','d')">💧 d) Fresh water sources</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q5" style="display:none"></div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B1</span><span>A <input class="fill-input" id="res_b1" placeholder="???"> resource comes from nature.</span></div>
-        <button class="check-btn" onclick="checkFill('res_b1',['natural'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_res_b1">💡 Answer: natural</div>
+        <div class="q-text"><span class="q-num">B21</span><span>A <input type="text" class="fill-input" id="s5b1" placeholder="???"> resource is a useful thing we get from nature.</span></div>
+        <button class="check-btn" onclick="saveFill('s5b1',['natural'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s5b1">💡 Answer: natural</div>
       </div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B2</span><span>The three Rs are Reduce, Reuse and <input class="fill-input" id="res_b2" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('res_b2',['recycle','recycling'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_res_b2">💡 Answer: Recycle</div>
+        <div class="q-text"><span class="q-num">B22</span><span>The three Rs are reduce, <input type="text" class="fill-input" id="s5b2" placeholder="???">, and recycle.</span></div>
+        <button class="check-btn" onclick="saveFill('s5b2',['reuse'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s5b2">💡 Answer: reuse</div>
       </div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B3</span><span>Human resources refer to the <input class="fill-input" id="res_b3" placeholder="???"> who provide services.</span></div>
-        <button class="check-btn" onclick="checkFill('res_b3',['people','persons'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_res_b3">💡 Answer: people</div>
+        <div class="q-text"><span class="q-num">B23</span><span>Human resources refer to the <input type="text" class="fill-input" id="s5b3" placeholder="???"> who provide services.</span></div>
+        <button class="check-btn" onclick="saveFill('s5b3',['people'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s5b3">💡 Answer: people</div>
       </div>
 
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B4</span><span><input class="fill-input" id="res_b4" placeholder="???"> resources are human-made assets used in producing goods and services.</span></div>
-        <button class="check-btn" onclick="checkFill('res_b4',['capital'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_res_b4">💡 Answer: capital</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================== CH 3.2 RIVERS OF PAKISTAN ===================== -->
-  <div class="ws-section">
-    <div class="section-badge">🏞️ Chapter 3.2 — The Rivers of Pakistan</div>
-
-    <div class="card">
-      <div class="card-title">🎯 Part A — MCQs</div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">1</span><span>What is a tributary?</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q1','a')">🏔️ a) A mountain peak</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q1','b')">🌊 b) A river/stream that joins a main river</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q1','c')">🏜️ c) A desert</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q1','d')">🏠 d) A type of house</button>
-        </div>
-        <div class="feedback-badge" id="fb_riv_q1" style="display:none"></div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">2</span><span>The longest river of Pakistan is the…</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q2','a')">🌊 a) Ravi</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q2','b')">🏞️ b) Indus</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q2','c')">🌊 c) Jhelum</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q2','d')">🌊 d) Sutlej</button>
-        </div>
-        <div class="feedback-badge" id="fb_riv_q2" style="display:none"></div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">3</span><span>The mouth of a river is the place where it…</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q3','a')">🏁 a) begins</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q3','b')">🌊 b) reaches the sea</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q3','c')">🪨 c) turns into rocks</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q3','d')">🧊 d) freezes forever</button>
-        </div>
-        <div class="feedback-badge" id="fb_riv_q3" style="display:none"></div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">4</span><span>Water from the Indus and its tributaries is used for…</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q4','a')">🎮 a) gaming only</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q4','b')">🏠 b) domestic use, agriculture, and transportation</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q4','c')">🚀 c) space travel</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'riv_q4','d')">📺 d) TV channels</button>
-        </div>
-        <div class="feedback-badge" id="fb_riv_q4" style="display:none"></div>
+        <div class="q-text"><span class="q-num">B24</span><span><input type="text" class="fill-input" id="s5b4" placeholder="???"> resources are human-made assets used in the production of goods and services.</span></div>
+        <button class="check-btn" onclick="saveFill('s5b4',['capital'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s5b4">💡 Answer: Capital</div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B1</span><span>The longest river of Pakistan is called <input class="fill-input" id="riv_b1" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('riv_b1',['indus'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_riv_b1">💡 Answer: Indus</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B2</span><span>It ends at the <input class="fill-input" id="riv_b2" placeholder="???"> Sea.</span></div>
-        <button class="check-btn" onclick="checkFill('riv_b2',['arabian','arabian sea'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_riv_b2">💡 Answer: Arabian</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B3</span><span>Rivers provide water for domestic use and <input class="fill-input" id="riv_b3" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('riv_b3',['agriculture','farming'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_riv_b3">💡 Answer: agriculture</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B4</span><span>Rivers also <input class="fill-input" id="riv_b4" placeholder="???"> people and goods to other places.</span></div>
-        <button class="check-btn" onclick="checkFill('riv_b4',['transport','carry'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_riv_b4">💡 Answer: transport</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">✅ Part C — True or False</div>
+      <div class="card-title">✅ Part C — True or False?</div>
 
       <div class="tf-row">
-        <div class="tf-text">1. The Indus River rises in the Himalaya mountains in Tibet.</div>
+        <div class="tf-text">18. Water is an example of a natural resource.</div>
         <div class="tf-btns">
-          <button class="tf-btn" onclick="checkTF(this,'riv_t1','True')">True</button>
-          <button class="tf-btn" onclick="checkTF(this,'riv_t1','False')">False</button>
+          <button class="tf-btn" onclick="selectTF(this,'s5c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s5c1','False')">False</button>
         </div>
       </div>
+      <div class="tf-row">
+        <div class="tf-text">19. The Three Rs stand for Reduce, Reuse, and Recycle.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s5c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s5c2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">20. Capital resources are found naturally in the environment.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s5c3','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s5c3','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">21. A resource is something people use to meet their needs.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s5c4','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s5c4','False')">False</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D9</span><span>List two ways you can save paper at home using the Three Rs.</span></div>
+        <textarea class="short-textarea" id="sa_s5d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s5d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s5d1">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D10</span><span>Explain the difference between natural resources, human resources, and capital resources. Give one example of each.</span></div>
+        <textarea class="short-textarea" id="sa_s5d2" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s5d2')">Save ✓</button>
+        <div class="short-saved" id="saved_s5d2">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 6 — CH 4.5: FERTILE SOIL           -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">🌱 Chapter 4.5 — Fertile Soil: A Natural Resource (Q81–Q90)</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">81</span><span>Why do we need fertile soil?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q1','a')">🏗️ a) For building roads and houses</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q1','b')">🌾 b) For growing healthy crops</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q1','c')">🏊 c) For swimming</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q1','d')">🎨 d) For making pottery</button>
+        </div>
+        <div class="feedback-badge" id="fb_s6q1" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">82</span><span>What is a FERTILISER?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q2','a')">🌱 a) A type of seed used for planting</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q2','b')">🧪 b) A substance added to soil to improve its quality</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q2','c')">🔨 c) A farming tool used to dig soil</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q2','d')">💧 d) A type of water used for irrigation</button>
+        </div>
+        <div class="feedback-badge" id="fb_s6q2" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">83</span><span>What is another name for an INORGANIC fertiliser?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q3','a')">🌿 a) Organic fertiliser</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q3','b')">🐄 b) Manure</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q3','c')">🧪 c) Chemical fertiliser</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q3','d')">🌱 d) Compost</button>
+        </div>
+        <div class="feedback-badge" id="fb_s6q3" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B25</span><span>Fertile soil has lots of <input type="text" class="fill-input" id="s6b1" placeholder="???"> and minerals that plants need to grow strong and healthy.</span></div>
+        <button class="check-btn" onclick="saveFill('s6b1',['nutrients'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s6b1">💡 Answer: nutrients</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B26</span><span>A fertiliser is a substance added to soil to improve its <input type="text" class="fill-input" id="s6b2" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s6b2',['quality'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s6b2">💡 Answer: quality</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B27</span><span>Farmer Rafiq saved his fertile soil by mixing manure with <input type="text" class="fill-input" id="s6b3" placeholder="???"> fertilisers.</span></div>
+        <button class="check-btn" onclick="saveFill('s6b3',['chemical'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s6b3">💡 Answer: chemical</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
 
       <div class="tf-row">
-        <div class="tf-text">2. Water from the Indus River is used only for agriculture.</div>
+        <div class="tf-text">22. Fertile soil is needed to grow healthy crops.</div>
         <div class="tf-btns">
-          <button class="tf-btn" onclick="checkTF(this,'riv_t2','True')">True</button>
-          <button class="tf-btn" onclick="checkTF(this,'riv_t2','False')">False</button>
+          <button class="tf-btn" onclick="selectTF(this,'s6c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s6c1','False')">False</button>
         </div>
       </div>
+      <div class="tf-row">
+        <div class="tf-text">23. A fertiliser makes soil less fertile and damages crops.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s6c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s6c2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">24. Chemical fertilisers are also called inorganic fertilisers.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s6c3','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s6c3','False')">False</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answer</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D11</span><span>How can farmers keep their soil fertile? Mention at least two different methods.</span></div>
+        <textarea class="short-textarea" id="sa_s6d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s6d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s6d1">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SECTION 7 — CH 4.6: THE WATER WE USE       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">💧 Chapter 4.6 — The Water We Use (Q91–Q100)</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">91</span><span>Where is MOST of the Earth's fresh water stored?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q1','a')">🏞️ a) In rivers and lakes</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q1','b')">🧊 b) In ice caps and glaciers</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q1','c')">🌍 c) Underground in the ground</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q1','d')">🌊 d) In the sea</button>
+        </div>
+        <div class="feedback-badge" id="fb_s7q1" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">92</span><span>What is DESALINATION?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q2','a')">🧂 a) Adding salt to water to make it tastier</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q2','b')">🔬 b) The process of removing salt from sea water</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q2','c')">🏞️ c) Filtering water from rivers</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q2','d')">🔥 d) Boiling water to clean it</button>
+        </div>
+        <div class="feedback-badge" id="fb_s7q2" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">93</span><span>What percentage of all water in the world is fresh water?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q3','a')">📊 a) 10%</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q3','b')">📊 b) 50%</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q3','c')">📊 c) 25%</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q3','d')">📊 d) 2.5%</button>
+        </div>
+        <div class="feedback-badge" id="fb_s7q3" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B28</span><span>Most of the Earth's fresh water is stored in ice caps and <input type="text" class="fill-input" id="s7b1" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s7b1',['glaciers'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s7b1">💡 Answer: glaciers</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B29</span><span>Desalination is the process of removing <input type="text" class="fill-input" id="s7b2" placeholder="???"> from sea water.</span></div>
+        <button class="check-btn" onclick="saveFill('s7b2',['salt'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s7b2">💡 Answer: salt</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B30</span><span>Rainwater seeps into the <input type="text" class="fill-input" id="s7b3" placeholder="???"> and collects there.</span></div>
+        <button class="check-btn" onclick="saveFill('s7b3',['ground'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s7b3">💡 Answer: ground</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B31</span><span><input type="text" class="fill-input" id="s7b4" placeholder="???"> is very salty and not fit for drinking without treatment.</span></div>
+        <button class="check-btn" onclick="saveFill('s7b4',['seawater','sea water'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s7b4">💡 Answer: Seawater</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
 
       <div class="tf-row">
-        <div class="tf-text">3. Tourists visit the River Indus to enjoy beautiful places along its course.</div>
+        <div class="tf-text">25. Most of Earth's fresh water is stored in ice caps and glaciers.</div>
         <div class="tf-btns">
-          <button class="tf-btn" onclick="checkTF(this,'riv_t3','True')">True</button>
-          <button class="tf-btn" onclick="checkTF(this,'riv_t3','False')">False</button>
+          <button class="tf-btn" onclick="selectTF(this,'s7c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s7c1','False')">False</button>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- ===================== CH 4.5 FERTILE SOIL ===================== -->
-  <div class="ws-section">
-    <div class="section-badge">🌱 Chapter 4.5 — Fertile Soil (A Natural Resource)</div>
-
-    <div class="card">
-      <div class="card-title">🎯 Part A — MCQs</div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">1</span><span>Why do we need fertile soil?</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q1','a')">🎨 a) To paint walls</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q1','b')">🌾 b) For growing healthy crops</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q1','c')">📺 c) To watch TV</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q1','d')">🎮 d) For gaming</button>
+      <div class="tf-row">
+        <div class="tf-text">26. Seawater is safe for drinking without any treatment.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s7c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s7c2','False')">False</button>
         </div>
-        <div class="feedback-badge" id="fb_soil_q1" style="display:none"></div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">2</span><span>What is a fertiliser?</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q2','a')">🍬 a) A sweet candy</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q2','b')">🧪 b) A substance added to soil to improve its quality</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q2','c')">🧊 c) Frozen water</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q2','d')">🧸 d) A toy</button>
-        </div>
-        <div class="feedback-badge" id="fb_soil_q2" style="display:none"></div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">3</span><span>Another name for inorganic fertiliser is…</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q3','a')">🍃 a) Leaf fertiliser</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q3','b')">🧫 b) Chemical fertiliser</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q3','c')">💧 c) Rain fertiliser</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'soil_q3','d')">🪨 d) Rock fertiliser</button>
-        </div>
-        <div class="feedback-badge" id="fb_soil_q3" style="display:none"></div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
-
+      <div class="card-title">📖 Part D — Short Answer</div>
       <div class="q-block">
-        <div class="q-text"><span class="q-num">B1</span><span>Fertile soil has lots of <input class="fill-input" id="soil_b1" placeholder="???"> and minerals plants need.</span></div>
-        <button class="check-btn" onclick="checkFill('soil_b1',['nutrients','nutrient'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_soil_b1">💡 Answer: nutrients</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B2</span><span>Fertile soil is often found near <input class="fill-input" id="soil_b2" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('soil_b2',['rivers','river'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_soil_b2">💡 Answer: rivers</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B3</span><span>Some farmers mix manure with <input class="fill-input" id="soil_b3" placeholder="???"> fertilisers.</span></div>
-        <button class="check-btn" onclick="checkFill('soil_b3',['chemical','chemicals'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_soil_b3">💡 Answer: chemical</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B4</span><span>By rotating crops, farmers keep the land healthy and <input class="fill-input" id="soil_b4" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('soil_b4',['productive'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_soil_b4">💡 Answer: productive</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================== CH 4.6 WATER WE USE ===================== -->
-  <div class="ws-section">
-    <div class="section-badge">💧 Chapter 4.6 — The Water We Use</div>
-
-    <div class="card">
-      <div class="card-title">🎯 Part A — MCQs</div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">1</span><span>Where is most of the Earth's fresh water stored?</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q1','a')">🏖️ a) In deserts</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q1','b')">🧊 b) In ice caps and glaciers</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q1','c')">🌋 c) In volcanoes</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q1','d')">🏙️ d) In cities</button>
-        </div>
-        <div class="feedback-badge" id="fb_wat_q1" style="display:none"></div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">2</span><span>What is desalination?</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q2','a')">🍋 a) Adding salt to water</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q2','b')">🧂 b) Removing salt from sea water</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q2','c')">🔥 c) Heating rocks</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q2','d')">🌧️ d) Making rain</button>
-        </div>
-        <div class="feedback-badge" id="fb_wat_q2" style="display:none"></div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">3</span><span>Which is NOT fit for drinking?</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q3','a')">🚰 a) fresh water</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q3','b')">🌊 b) sea water</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q3','c')">🧊 c) melted ice</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'wat_q3','d')">💧 d) river water</button>
-        </div>
-        <div class="feedback-badge" id="fb_wat_q3" style="display:none"></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B1</span><span>We get water from rivers, lakes, and <input class="fill-input" id="wat_b1" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('wat_b1',['streams','stream'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_wat_b1">💡 Answer: streams</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B2</span><span>Rainwater seeps in the <input class="fill-input" id="wat_b2" placeholder="???"> and collects there.</span></div>
-        <button class="check-btn" onclick="checkFill('wat_b2',['ground','soil'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_wat_b2">💡 Answer: ground</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B3</span><span>Only about <input class="fill-input" id="wat_b3" placeholder="???">% of all water in the world is fresh water.</span></div>
-        <button class="check-btn" onclick="checkFill('wat_b3',['2.5','2.5%','2.50'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_wat_b3">💡 Answer: 2.5</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B4</span><span>We use water for drinking, cooking, washing, farming, recreation and <input class="fill-input" id="wat_b4" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('wat_b4',['transportation','transport'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_wat_b4">💡 Answer: transportation</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================== TOPIC 2.3 GETTING ALONG ===================== -->
-  <div class="ws-section">
-    <div class="section-badge">🤝 Topic 2.3 — Getting Along With Others</div>
-
-    <div class="card">
-      <div class="card-title">🎯 Part A — MCQs</div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">1</span><span>What is the best way to share things at home and school?</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'ga_q1','a')">😤 a) Grab first</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'ga_q1','b')">🤝 b) Take turns and be fair</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'ga_q1','c')">🙈 c) Hide things</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'ga_q1','d')">🚫 d) Never share</button>
-        </div>
-        <div class="feedback-badge" id="fb_ga_q1" style="display:none"></div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">2</span><span>Why is listening to others important?</span></div>
-        <div class="opts">
-          <button class="opt-btn" onclick="checkMCQ(this,'ga_q2','a')">📺 a) To watch TV</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'ga_q2','b')">👂 b) To understand their point of view</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'ga_q2','c')">🏃 a) To run faster</button>
-          <button class="opt-btn" onclick="checkMCQ(this,'ga_q2','d')">🍭 d) To get candy</button>
-        </div>
-        <div class="feedback-badge" id="fb_ga_q2" style="display:none"></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B1</span><span>Getting along means having a good <input class="fill-input" id="ga_b1" placeholder="???"> with people we interact with.</span></div>
-        <button class="check-btn" onclick="checkFill('ga_b1',['relationship'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_ga_b1">💡 Answer: relationship</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B2</span><span>In class, taking turns to speak gives everyone a <input class="fill-input" id="ga_b2" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('ga_b2',['chance'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_ga_b2">💡 Answer: chance</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">B3</span><span>When we listen to others, we understand their points of <input class="fill-input" id="ga_b3" placeholder="???">.</span></div>
-        <button class="check-btn" onclick="checkFill('ga_b3',['view','viewpoint'])">Check ✓</button>
-        <div class="answer-reveal" id="reveal_ga_b3">💡 Answer: view</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">📖 Short Answer</div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q1</span><span>Write 2 ways to get along with others at school.</span></div>
-        <textarea class="short-textarea" id="sa_ga_q1" placeholder="Write your answer here..."></textarea>
-        <button class="submit-short-btn" onclick="saveShort('ga_q1')">Save ✓</button>
-        <div class="short-saved" id="saved_ga_q1">✅ Saved!</div>
+        <div class="q-text"><span class="q-num">D12</span><span>List SIX different uses of water in everyday life. (Uses of water: drinking, cooking, washing, farming, recreation, transportation)</span></div>
+        <textarea class="short-textarea" id="sa_s7d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s7d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s7d1">✅ Saved!</div>
       </div>
     </div>
   </div>
 
   <!-- SCORE SUMMARY -->
   <div id="scoreSummary">
-    <div style="font-size:48px;animation:bounce 1s infinite">🏆</div>
-    <h2>Amazing Work!</h2>
-    <div class="score-circle" id="scoreCircle">
-      <span class="score-num" id="scoreNum">0%</span>
+    <div class="score-hero">
+      <div class="score-trophy" id="scoreTrophy">🏆</div>
+      <h2 id="scoreHeading">Amazing Work!</h2>
+      <div class="score-circle" id="scoreCircle">
+        <span class="score-num" id="scoreNum">0%</span>
+      </div>
+      <div class="score-msg" id="scoreMsg"></div>
+      <div class="score-stats" id="scoreStats"></div>
     </div>
-    <div class="score-msg" id="scoreMsg"></div>
-    <button class="restart-btn" onclick="restartAll()">🔄 Try Again!</button>
+    <div class="results-breakdown">
+      <div class="results-heading">📋 Full Results Breakdown</div>
+      <div id="resultsBody"></div>
+    </div>
+    <div class="score-actions">
+      <button class="print-btn" onclick="printScore()">🖨️ Print Results</button>
+      <button class="restart-btn" onclick="restartAll()">🔄 Try Again</button>
+    </div>
   </div>
 
-</div>
+</div><!-- /page -->
 
-<button class="float-submit" onclick="showScore()">🎯 See My Score!</button>
+<button class="float-submit" onclick="openConfirm()">🎯 Submit Test</button>
 
 <script>
-/* ===================== ANSWERS ===================== */
 const CORRECT = {
-  // Markets
-  mkt_q1: 'b', mkt_q2: 'b', mkt_q3: 'b', mkt_q4: 'b', mkt_q5: 'b',
-  mkt_t1: 'True', mkt_t2: 'False', mkt_t3: 'True',
-
-  // Safety rules
-  safe_q1: 'b', safe_q2: 'b', safe_q3: 'b',
-  safe_t1: 'True', safe_t2: 'True', safe_t3: 'False',
-
-  // Resources
-  res_q1: 'b', res_q2: 'b', res_q3: 'b', res_q4: 'b',
-
-  // Rivers
-  riv_q1: 'b', riv_q2: 'b', riv_q3: 'b', riv_q4: 'b',
-  riv_t1: 'True', riv_t2: 'False', riv_t3: 'True',
-
-  // Soil
-  soil_q1: 'b', soil_q2: 'b', soil_q3: 'b',
-
-  // Water
-  wat_q1: 'b', wat_q2: 'b', wat_q3: 'b',
-
-  // Getting along
-  ga_q1: 'b', ga_q2: 'b',
+  // Section 1 — Markets MCQ
+  s1q1:'b', s1q2:'c', s1q3:'c', s1q4:'c', s1q5:'c', s1q6:'b', s1q7:'c',
+  // Section 1 — T/F
+  s1c1:'True', s1c2:'False', s1c3:'False', s1c4:'True', s1c5:'True',
+  // Section 2 — Getting Along MCQ
+  s2q1:'b', s2q2:'b', s2q3:'c',
+  // Section 2 — T/F
+  s2c1:'True', s2c2:'True', s2c3:'False',
+  // Section 3 — Rules MCQ
+  s3q1:'c', s3q2:'b', s3q3:'b', s3q4:'b',
+  // Section 3 — T/F
+  s3c1:'True', s3c2:'True', s3c3:'True', s3c4:'False',
+  // Section 4 — Rivers MCQ
+  s4q1:'b', s4q2:'b', s4q3:'c', s4q4:'b', s4q5:'c', s4q6:'c',
+  // Section 4 — T/F
+  s4c1:'True', s4c2:'True', s4c3:'True', s4c4:'False', s4c5:'True',
+  // Section 5 — Resources MCQ
+  s5q1:'b', s5q2:'c', s5q3:'b', s5q4:'c', s5q5:'c',
+  // Section 5 — T/F
+  s5c1:'True', s5c2:'True', s5c3:'False', s5c4:'True',
+  // Section 6 — Fertile Soil MCQ
+  s6q1:'b', s6q2:'b', s6q3:'c',
+  // Section 6 — T/F
+  s6c1:'True', s6c2:'False', s6c3:'True',
+  // Section 7 — Water MCQ
+  s7q1:'b', s7q2:'b', s7q3:'d',
+  // Section 7 — T/F
+  s7c1:'True', s7c2:'False',
 };
 
-const FILL_IDS = [
-  'mkt_b1','mkt_b2','mkt_b3','mkt_b4',
-  'safe_b1','safe_b2','safe_b3','safe_b4',
-  'res_b1','res_b2','res_b3','res_b4',
-  'riv_b1','riv_b2','riv_b3','riv_b4',
-  'soil_b1','soil_b2','soil_b3','soil_b4',
-  'wat_b1','wat_b2','wat_b3','wat_b4',
-  'ga_b1','ga_b2','ga_b3'
-];
+/* ─── State ─── */
+const mcqSelections={}, mcqBtnMap={}, tfSelections={}, tfBtnMap={};
+const fillValues={}, fillAcceptable={};
+const answered={}, fillAnswered={};
+const questionLog=[];
+let submitted=false;
 
-const answered = {};
-const fillAnswered = {};
-
-function updateProgress() {
-  const total = Object.keys(CORRECT).length + FILL_IDS.length;
-  const totalAnswered = Object.keys(answered).length + Object.keys(fillAnswered).length;
-  const correctCount = Object.values(answered).filter(v=>v).length + Object.values(fillAnswered).filter(v=>v).length;
-  const pct = total > 0 ? Math.round(totalAnswered / total * 100) : 0;
-
-  document.getElementById('progressBar').style.width = pct + '%';
-  document.getElementById('progressCount').textContent = totalAnswered + ' / ' + total;
-
-  const stars = Math.round((correctCount / Math.max(totalAnswered,1)) * 5);
-  document.getElementById('starsDisplay').textContent = '⭐'.repeat(stars) + '🌑'.repeat(5 - stars);
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function getQText(el){
+  if(!el) return '';
+  const c=el.cloneNode(true);
+  c.querySelectorAll('input').forEach(i=>i.replaceWith('[___]'));
+  return (c.querySelector('span:last-child')?.textContent||c.textContent).trim();
 }
 
-function checkMCQ(btn, qId, chosen) {
-  if (answered[qId] !== undefined) return;
-  const correct = CORRECT[qId];
-  const parent = btn.parentElement;
-  const btns = parent.querySelectorAll('.opt-btn');
-  btns.forEach(b => b.disabled = true);
-  const fb = document.getElementById('fb_' + qId);
+function updateProgress(){
+  const autoTotal=Object.keys(CORRECT).length;
+  const fillTotal=Object.keys(fillAcceptable).length;
+  const grand=autoTotal+fillTotal;
+  const done=Object.keys(mcqSelections).length+Object.keys(tfSelections).length+
+             Object.keys(fillValues).filter(id=>fillValues[id].trim()!=='').length;
+  const pct=grand>0?Math.round(done/grand*100):0;
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('progressCount').textContent=done+' / '+grand;
+  const s=Math.round(pct/20);
+  document.getElementById('starsDisplay').textContent='⭐'.repeat(s)+'🌑'.repeat(5-s);
+}
 
-  if (chosen === correct) {
-    btn.classList.add('correct');
-    if (fb) {
-      fb.className = 'feedback-badge correct';
-      fb.innerHTML = '🎉 Correct! Well done!';
-      fb.style.display = 'inline-flex';
+function selectMCQ(btn,qId,chosen){
+  if(submitted) return;
+  btn.parentElement.querySelectorAll('.opt-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  mcqSelections[qId]=chosen; mcqBtnMap[qId]=btn;
+  updateProgress();
+}
+
+function selectTF(btn,qId,chosen){
+  if(submitted) return;
+  btn.closest('.tf-btns').querySelectorAll('.tf-btn').forEach(b=>b.classList.remove('selected-true','selected-false'));
+  btn.classList.add(chosen==='True'?'selected-true':'selected-false');
+  tfSelections[qId]=chosen; tfBtnMap[qId]=btn;
+  updateProgress();
+}
+
+function saveFill(id,acceptable){
+  if(submitted) return;
+  const inp=document.getElementById(id);
+  const val=inp.value.trim();
+  if(!val) return;
+  fillValues[id]=val; fillAcceptable[id]=acceptable;
+  inp.classList.remove('correct','wrong');
+  inp.classList.add('saved');
+  const msg=document.createElement('span');
+  msg.style.cssText='margin-left:8px;font-size:12px;color:var(--purple);font-weight:700';
+  msg.textContent='💾 Saved!';
+  inp.parentElement.appendChild(msg);
+  setTimeout(()=>msg.remove(),1800);
+  updateProgress();
+}
+
+function openConfirm(){
+  if(submitted) return;
+  const grand=Object.keys(CORRECT).length+Object.keys(fillAcceptable).length;
+  const done=Object.keys(mcqSelections).length+Object.keys(tfSelections).length+
+             Object.keys(fillValues).filter(id=>fillValues[id].trim()!=='').length;
+  const un=grand-done;
+  const note=document.getElementById('unansweredNote');
+  if(un>0){note.style.display='block';note.textContent=`⚠️ You have ${un} unanswered question${un>1?'s':''}. They will be marked as skipped.`;}
+  else note.style.display='none';
+  document.getElementById('confirmOverlay').classList.add('visible');
+}
+function closeConfirm(){ document.getElementById('confirmOverlay').classList.remove('visible'); }
+
+function confirmSubmit(){
+  closeConfirm();
+  submitted=true;
+
+  Object.keys(CORRECT).forEach(qId=>{
+    if(mcqSelections[qId]!==undefined){
+      const chosen=mcqSelections[qId], correct=CORRECT[qId], ok=chosen===correct;
+      answered[qId]=ok;
+      const btns=document.querySelectorAll(`.opt-btn[onclick*="'${qId}'"]`);
+      btns.forEach(b=>{
+        b.disabled=true; b.classList.remove('selected');
+        const oc=b.getAttribute('onclick');
+        if(oc&&oc.includes("'"+chosen+"'")) b.classList.add(ok?'correct':'wrong');
+        if(!ok&&oc&&oc.includes("'"+correct+"'")) b.classList.add('reveal-correct');
+      });
+      const fb=document.getElementById('fb_'+qId);
+      if(fb){fb.className='feedback-badge '+(ok?'correct':'wrong');fb.innerHTML=ok?'🎉 Correct!':'😅 Incorrect — correct answer highlighted.';fb.style.display='inline-flex';}
+      let chosenText='',correctText='';
+      btns.forEach(b=>{const oc=b.getAttribute('onclick');if(oc&&oc.includes("'"+chosen+"'"))chosenText=b.textContent.trim();if(oc&&oc.includes("'"+correct+"'"))correctText=b.textContent.trim();});
+      const qBlock=document.getElementById('fb_'+qId)?.closest('.q-block');
+      questionLog.push({type:'mcq',qId,questionText:qBlock?getQText(qBlock.querySelector('.q-text')):qId,yourAnswer:chosenText,correctAnswer:correctText,isCorrect:ok});
+    } else if(tfSelections[qId]!==undefined){
+      const chosen=tfSelections[qId], correct=CORRECT[qId], ok=chosen===correct;
+      answered[qId]=ok;
+      const btns=document.querySelectorAll(`.tf-btn[onclick*="'${qId}'"]`);
+      btns.forEach(b=>{b.disabled=true;b.classList.remove('selected-true','selected-false');const t=b.textContent.trim();if(t===chosen)b.classList.add(ok?'correct':'wrong');if(!ok&&t===correct)b.classList.add('correct');});
+      const tfRow=btns[0]?.closest('.tf-row');
+      questionLog.push({type:'tf',qId,questionText:tfRow?.querySelector('.tf-text')?.textContent.trim()||qId,yourAnswer:chosen,correctAnswer:correct,isCorrect:ok});
+    } else {
+      // Skipped
+      const correct=CORRECT[qId];
+      const mcqBtns=document.querySelectorAll(`.opt-btn[onclick*="'${qId}'"]`);
+      mcqBtns.forEach(b=>{b.disabled=true;b.classList.remove('selected');const oc=b.getAttribute('onclick');if(oc&&oc.includes("'"+correct+"'"))b.classList.add('reveal-correct');});
+      const tfBtns=document.querySelectorAll(`.tf-btn[onclick*="'${qId}'"]`);
+      tfBtns.forEach(b=>{b.disabled=true;if(b.textContent.trim()===correct)b.classList.add('correct');});
+      let qt=qId;
+      const fbEl=document.getElementById('fb_'+qId);
+      if(fbEl?.closest('.q-block')) qt=getQText(fbEl.closest('.q-block').querySelector('.q-text'))||qId;
+      if(qt===qId){document.querySelectorAll('.tf-row').forEach(row=>{row.querySelectorAll('.tf-btn').forEach(b=>{if(b.getAttribute('onclick')?.includes("'"+qId+"'"))qt=row.querySelector('.tf-text')?.textContent.trim()||qId;});});}
+      questionLog.push({type:'skipped',qId,questionText:qt,yourAnswer:'—',correctAnswer:correct,isCorrect:false});
     }
-    answered[qId] = true;
-    launchConfetti(3);
-  } else {
-    btn.classList.add('wrong');
-    btns.forEach(b => {
-      const onclick = b.getAttribute('onclick');
-      if (onclick && onclick.includes("'" + correct + "'")) b.classList.add('reveal-correct');
-    });
-    if (fb) {
-      fb.className = 'feedback-badge wrong';
-      fb.innerHTML = '😅 Not quite! The correct answer is highlighted.';
-      fb.style.display = 'inline-flex';
+  });
+
+  document.querySelectorAll('.fill-input').forEach(inp=>{
+    const id=inp.id, acceptable=fillAcceptable[id], val=fillValues[id]||'';
+    const qBlock=inp.closest('.q-block');
+    const qt=qBlock?getQText(qBlock.querySelector('.q-text')):id;
+    inp.disabled=true; inp.classList.remove('saved');
+    if(acceptable){
+      const ok=acceptable.map(a=>a.toLowerCase()).includes(val.toLowerCase());
+      fillAnswered[id]=ok; inp.classList.add(ok?'correct':'wrong');
+      if(!ok){const r=document.getElementById('reveal_'+id);if(r)r.style.display='block';}
+      questionLog.push({type:'fill',qId:id,questionText:qt,yourAnswer:val||'(blank)',correctAnswer:acceptable[0],isCorrect:ok});
+    } else {
+      const r=document.getElementById('reveal_'+id);if(r)r.style.display='block';
+      questionLog.push({type:'skipped-fill',qId:id,questionText:qt,yourAnswer:'—',correctAnswer:'?',isCorrect:false});
     }
-    answered[qId] = false;
-  }
-  updateProgress();
+  });
+
+  document.querySelectorAll('.check-btn').forEach(b=>{b.disabled=true;});
+  showScore();
 }
 
-function checkTF(btn, qId, chosen) {
-  if (answered[qId] !== undefined) return;
-  const correctAns = CORRECT[qId];
-  const row = btn.closest('.tf-btns');
-  const btns = row.querySelectorAll('.tf-btn');
-  btns.forEach(b => b.disabled = true);
-
-  if (chosen === correctAns) {
-    btn.classList.add('correct');
-    answered[qId] = true;
-    launchConfetti(2);
-  } else {
-    btn.classList.add('wrong');
-    btns.forEach(b => {
-      if (b.textContent.trim() === correctAns) b.classList.add('correct');
-    });
-    answered[qId] = false;
-  }
-  updateProgress();
+function saveShort(id){
+  const el=document.getElementById('saved_'+id);
+  if(el){el.style.display='block';setTimeout(()=>el.style.display='none',2000);}
 }
 
-function checkFill(id, acceptableAnswers) {
-  if (fillAnswered[id] !== undefined) return;
-  const inp = document.getElementById(id);
-  const val = (inp.value || '').trim().toLowerCase();
-  const revealEl = document.getElementById('reveal_' + id);
-
-  const ok = acceptableAnswers.map(a => String(a).toLowerCase()).includes(val);
-  if (ok) {
-    inp.classList.add('correct');
-    fillAnswered[id] = true;
-    launchConfetti(2);
-  } else {
-    inp.classList.add('wrong');
-    fillAnswered[id] = false;
-    if (revealEl) revealEl.style.display = 'block';
-  }
-  inp.disabled = true;
-  updateProgress();
-}
-
-function saveShort(id) {
-  const el = document.getElementById('saved_' + id);
-  if (el) { el.style.display = 'block'; setTimeout(()=> el.style.display='none', 2000); }
-}
-
-function launchConfetti(count) {
-  const colors = ['#ffcc00','#ff6b9d','#4fc3f7','#69f0ae','#ffab40','#b39ddb'];
-  const container = document.getElementById('confettiContainer');
-  for (let i = 0; i < count * 8; i++) {
-    const piece = document.createElement('div');
-    piece.className = 'confetti-piece';
-    piece.style.left = Math.random() * 100 + 'vw';
-    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-    piece.style.width = (6 + Math.random()*8) + 'px';
-    piece.style.height = (6 + Math.random()*8) + 'px';
-    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-    const duration = 1.5 + Math.random() * 1.5;
-    piece.style.animationDuration = duration + 's';
-    piece.style.animationDelay = Math.random() * 0.5 + 's';
-    container.appendChild(piece);
-    setTimeout(() => piece.remove(), (duration + 0.5) * 1000);
+function launchConfetti(n){
+  const colors=['#ffcc00','#ff6b9d','#4fc3f7','#69f0ae','#ffab40','#b39ddb'];
+  const c=document.getElementById('confettiContainer');
+  for(let i=0;i<n*8;i++){
+    const p=document.createElement('div');
+    p.className='confetti-piece';
+    p.style.left=Math.random()*100+'vw';
+    p.style.background=colors[Math.floor(Math.random()*colors.length)];
+    p.style.width=(6+Math.random()*8)+'px'; p.style.height=p.style.width;
+    p.style.borderRadius=Math.random()>0.5?'50%':'2px';
+    const dur=1.5+Math.random()*1.5;
+    p.style.animationDuration=dur+'s'; p.style.animationDelay=Math.random()*0.5+'s';
+    c.appendChild(p); setTimeout(()=>p.remove(),(dur+0.5)*1000);
   }
 }
 
-function showScore() {
-  const total = Object.keys(CORRECT).length + FILL_IDS.length;
-  const correctCount = Object.values(answered).filter(v=>v).length + Object.values(fillAnswered).filter(v=>v).length;
-  const pct = Math.round((correctCount / Math.max(total,1)) * 100);
+function showScore(){
+  const total=Object.keys(CORRECT).length+Object.keys(fillAcceptable).length;
+  const correctCount=Object.values(answered).filter(v=>v).length+Object.values(fillAnswered).filter(v=>v).length;
+  const allGraded=Object.keys(answered).length+Object.keys(fillAnswered).length;
+  const wrong=allGraded-correctCount, skipped=total-allGraded;
+  const pct=total>0?Math.round(correctCount/total*100):0;
 
-  const circle = document.getElementById('scoreCircle');
-  circle.style.setProperty('--pct', pct);
-  document.getElementById('scoreNum').textContent = pct + '%';
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('progressCount').textContent=correctCount+' / '+total+' correct';
+  const s=Math.round(correctCount/Math.max(total,1)*5);
+  document.getElementById('starsDisplay').textContent='⭐'.repeat(s)+'🌑'.repeat(5-s);
 
-  const msg = pct >= 90 ? "🌟 Outstanding! You're a superstar!" :
-              pct >= 75 ? "🎉 Great job! Keep it up!" :
-              pct >= 60 ? "👍 Good effort! Review the tricky parts." :
-              "💪 Keep practicing — you've got this!";
-  document.getElementById('scoreMsg').textContent = msg;
+  document.getElementById('scoreCircle').style.setProperty('--pct',pct);
+  document.getElementById('scoreNum').textContent=pct+'%';
+  document.getElementById('scoreTrophy').textContent=pct>=90?'🏆':pct>=75?'🥇':pct>=60?'🥈':'🎯';
+  document.getElementById('scoreHeading').textContent=pct>=90?'Outstanding! 🌟':pct>=75?'Great Job! 🎉':pct>=60?'Good Effort! 👍':'Keep Practicing! 💪';
+  document.getElementById('scoreMsg').textContent=pct>=90?'You are a superstar — nearly perfect!':pct>=75?'Fantastic work! A few more to master.':pct>=60?'Solid effort! Review the ones you missed.':'Don\'t give up — every attempt makes you better!';
 
-  document.getElementById('scoreSummary').style.display = 'block';
-  document.getElementById('scoreSummary').scrollIntoView({behavior:'smooth'});
-  launchConfetti(8);
+  document.getElementById('scoreStats').innerHTML=`
+    <div class="stat-pill correct"><span class="stat-val">${correctCount}</span><span class="stat-lbl">Correct ✅</span></div>
+    <div class="stat-pill wrong">  <span class="stat-val">${wrong}</span>         <span class="stat-lbl">Wrong ❌</span></div>
+    <div class="stat-pill skipped"><span class="stat-val">${skipped}</span>        <span class="stat-lbl">Skipped ⏭️</span></div>
+    <div class="stat-pill total">  <span class="stat-val">${total}</span>          <span class="stat-lbl">Total 📋</span></div>
+  `;
+
+  const html=questionLog.map((q,i)=>{
+    const isSk=q.type==='skipped'||q.type==='skipped-fill';
+    const cls=isSk?'ri-skipped':q.isCorrect?'ri-correct':'ri-wrong';
+    const icon=isSk?'⏭️':q.isCorrect?'✅':'❌';
+    const badge=isSk?'<span class="ri-badge skipped">Skipped</span>':q.isCorrect?'<span class="ri-badge correct">Correct</span>':'<span class="ri-badge wrong">Incorrect</span>';
+    const vc=isSk?'skipped-val':q.isCorrect?'your-correct':'your-wrong';
+    const cr=(!q.isCorrect||isSk)?`<div class="ri-row"><span class="ri-label">✅ Correct:</span><span class="ri-val correct-ans">${escHtml(q.correctAnswer)}</span></div>`:'';
+    return `<div class="result-item ${cls}" style="animation-delay:${i*0.03}s">
+      <div class="ri-icon">${icon}</div>
+      <div class="ri-body">
+        <div class="ri-qtext">${escHtml(q.questionText)}</div>
+        <div class="ri-row"><span class="ri-label">Your answer:</span><span class="ri-val ${vc}">${escHtml(q.yourAnswer)}</span></div>
+        ${cr}
+      </div>
+      <div>${badge}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('resultsBody').innerHTML=html||'<p style="color:var(--muted);text-align:center;padding:20px">No questions were answered.</p>';
+
+  const sum=document.getElementById('scoreSummary');
+  sum.style.display='block';
+  sum.scrollIntoView({behavior:'smooth'});
+  launchConfetti(10);
 }
 
-function restartAll() { location.reload(); }
-
+function printScore(){ window.print(); }
+function restartAll(){ location.reload(); }
 updateProgress();
 </script>
 </body>
