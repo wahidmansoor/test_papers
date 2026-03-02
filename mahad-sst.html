@@ -1,0 +1,1646 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Grade 4 SST — 100-Question Exam Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e1a;
+    --card: #1c1b2e;
+    --card2: #201f35;
+    --accent: #ffcc00;
+    --pink: #ff6b9d;
+    --blue: #4fc3f7;
+    --green: #69f0ae;
+    --purple: #b39ddb;
+    --orange: #ffab40;
+    --red: #ff5252;
+    --text: #f0eeff;
+    --muted: #8885aa;
+    --r: 18px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 10%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 70%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 55%, rgba(255,255,255,0.25) 0%, transparent 100%),
+      radial-gradient(2px 2px at 70% 75%, rgba(255,204,0,0.5) 0%, transparent 100%),
+      radial-gradient(2px 2px at 30% 15%, rgba(79,195,247,0.5) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page { max-width: 940px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #2d1b69, #1a0a3d);
+    border: 2px solid rgba(255,204,0,0.3);
+    border-radius: 24px;
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(179,157,219,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(255,204,0,0.05) 60deg, transparent 120deg);
+    animation: spin 12s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .header-emoji { font-size: 48px; display: block; margin-bottom: 8px; animation: bounce 2s ease-in-out infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  header h1 { font-family: 'Fredoka One', cursive; font-size: 26px; color: var(--accent); text-shadow: 0 0 20px rgba(255,204,0,0.5); }
+  header p { color: var(--purple); font-size: 14px; margin-top: 6px; }
+
+  /* INSTRUCTIONS */
+  .instructions {
+    background: linear-gradient(135deg, rgba(79,195,247,0.12), rgba(179,157,219,0.12));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 16px 18px;
+    margin: 0 0 20px;
+  }
+  .instructions-title { font-family: 'Fredoka One', cursive; color: var(--accent); font-size: 16px; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .instructions p { color: var(--text); font-size: 13.5px; line-height: 1.55; margin-bottom: 10px; font-weight: 600; }
+  .instructions-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  @media (min-width: 720px){ .instructions-grid { grid-template-columns: 1fr 1fr; } }
+  .inst-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; }
+  .inst-card h4 { font-family: 'Fredoka One', cursive; font-size: 13px; color: var(--blue); margin-bottom: 6px; font-weight: 400; }
+  .inst-card ul { padding-left: 18px; }
+  .inst-card li { font-size: 13px; color: var(--text); line-height: 1.5; margin: 4px 0; font-weight: 600; }
+  .inst-pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .inst-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 800; color: var(--text); }
+  .inst-pill strong { color: var(--accent); }
+
+  /* PROGRESS */
+  .progress-wrap { background: var(--card); border-radius: 14px; padding: 16px 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 16px; }
+  .progress-label { font-family: 'Fredoka One', cursive; font-size: 15px; color: var(--accent); white-space: nowrap; }
+  .progress-bar-outer { flex: 1; height: 18px; background: rgba(255,255,255,0.07); border-radius: 100px; overflow: hidden; }
+  .progress-bar-inner { height: 100%; background: linear-gradient(90deg, var(--blue), var(--green)); border-radius: 100px; transition: width 0.5s cubic-bezier(.34,1.56,.64,1); width: 0%; }
+  .progress-count { font-weight: 800; color: var(--green); font-size: 14px; white-space: nowrap; }
+  .stars-display { display: flex; gap: 4px; align-items: center; font-size: 20px; }
+
+  /* SECTION */
+  .ws-section { margin-bottom: 28px; }
+  .section-badge { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--purple), var(--blue)); color: #fff; font-family: 'Fredoka One', cursive; font-size: 14px; padding: 8px 18px; border-radius: 100px; margin-bottom: 14px; box-shadow: 0 4px 16px rgba(79,195,247,0.25); }
+
+  /* CARD */
+  .card { background: var(--card); border-radius: var(--r); padding: 20px; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+  .card-title { font-family: 'Fredoka One', cursive; font-size: 16px; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+
+  /* MCQ */
+  .q-block { margin-bottom: 20px; animation: fadeIn 0.4s ease both; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+  .q-text { font-weight: 700; font-size: 15px; margin-bottom: 10px; display: flex; gap: 10px; align-items: flex-start; }
+  .q-num { background: linear-gradient(135deg, var(--pink), var(--orange)); color: #fff; font-family: 'Fredoka One', cursive; min-width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; font-size: 14px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(255,107,157,0.4); }
+  .opts { display: flex; flex-direction: column; gap: 8px; padding-left: 40px; }
+  .opt-btn { background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 10px 14px; color: var(--text); font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-align: left; transition: all 0.2s; display: flex; align-items: center; gap: 10px; }
+  .opt-btn:hover:not(:disabled):not(.selected) { background: rgba(79,195,247,0.07); border-color: rgba(79,195,247,0.3); transform: translateX(4px); }
+  .opt-btn.selected { background: rgba(179,157,219,0.18); border-color: var(--purple); color: var(--purple); transform: translateX(4px); }
+  .opt-btn.correct { background: rgba(105,240,174,0.15); border-color: var(--green); color: var(--green); animation: pop 0.3s ease; }
+  .opt-btn.wrong { background: rgba(255,82,82,0.12); border-color: var(--red); color: var(--red); animation: shake 0.4s ease; }
+  .opt-btn.reveal-correct { background: rgba(105,240,174,0.08); border-color: rgba(105,240,174,0.4); color: rgba(105,240,174,0.7); }
+  .opt-btn:disabled { cursor: default; }
+  @keyframes pop { 0%{transform:scale(1)} 40%{transform:scale(1.04)} 100%{transform:scale(1)} }
+  @keyframes shake { 0%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} 100%{transform:translateX(0)} }
+  .feedback-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 100px; margin-top: 8px; margin-left: 40px; }
+  .feedback-badge.correct { background: rgba(105,240,174,0.15); color: var(--green); }
+  .feedback-badge.wrong { background: rgba(255,82,82,0.12); color: var(--red); }
+
+  /* FILL */
+  .fill-input { background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.12); border-radius: 10px; color: var(--text); font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 600; padding: 7px 12px; min-width: 130px; transition: all 0.2s; outline: none; }
+  .fill-input:focus { border-color: var(--blue); background: rgba(79,195,247,0.08); }
+  .fill-input.saved { border-color: var(--purple); background: rgba(179,157,219,0.1); color: var(--purple); }
+  .fill-input.correct { border-color: var(--green); background: rgba(105,240,174,0.1); color: var(--green); }
+  .fill-input.wrong { border-color: var(--red); background: rgba(255,82,82,0.08); color: var(--red); }
+  .check-btn { background: linear-gradient(135deg, var(--purple), var(--blue)); border: none; color: #fff; font-family: 'Fredoka One', cursive; font-size: 14px; padding: 7px 16px; border-radius: 10px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 3px 12px rgba(179,157,219,0.3); margin-left: 8px; }
+  .check-btn:hover { transform: scale(1.05); }
+  .check-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+  .answer-reveal { font-size: 12px; color: var(--orange); margin-left: 40px; margin-top: 4px; display: none; font-weight: 700; }
+
+  /* TRUE/FALSE */
+  .tf-row { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+  .tf-text { flex: 1; font-size: 14px; font-weight: 600; min-width: 200px; }
+  .tf-btns { display: flex; gap: 6px; }
+  .tf-btn { background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 6px 14px; font-family: 'Fredoka One', cursive; font-size: 13px; cursor: pointer; transition: all 0.2s; color: var(--text); }
+  .tf-btn:hover:not(:disabled):not(.selected-true):not(.selected-false) { transform: scale(1.08); }
+  .tf-btn.selected-true { background: rgba(179,157,219,0.2); border-color: var(--purple); color: var(--purple); }
+  .tf-btn.selected-false { background: rgba(179,157,219,0.2); border-color: var(--purple); color: var(--purple); }
+  .tf-btn.correct { background: rgba(105,240,174,0.2); border-color: var(--green); color: var(--green); }
+  .tf-btn.wrong { background: rgba(255,82,82,0.15); border-color: var(--red); color: var(--red); }
+  .tf-btn:disabled { cursor: default; }
+
+  /* SHORT ANSWER */
+  .short-textarea { width: calc(100% - 40px); background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; color: var(--text); font-family: 'Nunito', sans-serif; font-size: 14px; padding: 10px 14px; resize: vertical; min-height: 70px; outline: none; transition: border-color 0.2s; margin-top: 6px; margin-left: 40px; }
+  .short-textarea:focus { border-color: var(--purple); background: rgba(179,157,219,0.06); }
+  .submit-short-btn { margin-left: 40px; margin-top: 6px; background: linear-gradient(135deg, var(--orange), var(--pink)); border: none; color: #fff; font-family: 'Fredoka One', cursive; font-size: 13px; padding: 7px 16px; border-radius: 10px; cursor: pointer; transition: transform 0.2s; }
+  .submit-short-btn:hover { transform: scale(1.05); }
+  .short-saved { margin-left: 40px; margin-top: 4px; font-size: 12px; color: var(--green); display: none; }
+
+  /* CONFIRM OVERLAY */
+  .confirm-overlay { position: fixed; inset: 0; background: rgba(10,8,26,0.82); backdrop-filter: blur(6px); z-index: 500; display: none; align-items: center; justify-content: center; }
+  .confirm-overlay.visible { display: flex; }
+  .confirm-box { background: linear-gradient(135deg, #2d1b69, #1a0a3d); border: 2px solid rgba(255,204,0,0.4); border-radius: 24px; padding: 36px 32px; text-align: center; max-width: 420px; width: 90%; box-shadow: 0 0 60px rgba(255,204,0,0.15); animation: fadeIn 0.25s ease; }
+  .confirm-box .cb-icon { font-size: 48px; display: block; margin-bottom: 12px; }
+  .confirm-box h3 { font-family: 'Fredoka One', cursive; font-size: 22px; color: var(--accent); margin-bottom: 8px; }
+  .confirm-box p { color: var(--purple); font-size: 14px; margin-bottom: 24px; line-height: 1.5; }
+  .confirm-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .cb-cancel { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.15); color: var(--text); font-family: 'Fredoka One', cursive; font-size: 15px; padding: 11px 24px; border-radius: 14px; cursor: pointer; transition: all 0.2s; }
+  .cb-cancel:hover { background: rgba(255,255,255,0.14); }
+  .cb-confirm { background: linear-gradient(135deg, var(--pink), var(--orange)); border: none; color: #fff; font-family: 'Fredoka One', cursive; font-size: 15px; padding: 11px 24px; border-radius: 14px; cursor: pointer; box-shadow: 0 4px 16px rgba(255,107,157,0.4); transition: all 0.2s; }
+  .cb-confirm:hover { transform: scale(1.04); }
+  .unanswered-note { background: rgba(255,171,64,0.12); border: 1px solid rgba(255,171,64,0.25); border-radius: 10px; padding: 8px 14px; font-size: 13px; color: var(--orange); margin-bottom: 20px; display: none; }
+
+  /* CONFETTI */
+  .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 1000; overflow: hidden; }
+  .confetti-piece { position: absolute; width: 10px; height: 10px; border-radius: 2px; animation: confettiFall linear forwards; top: -20px; }
+  @keyframes confettiFall { 0%{transform:translateY(0) rotate(0deg);opacity:1} 100%{transform:translateY(110vh) rotate(720deg);opacity:0} }
+
+  /* SCORE SUMMARY */
+  #scoreSummary { background: linear-gradient(135deg, #1a0a3d, #2d1b69); border: 2px solid rgba(255,204,0,0.4); border-radius: 24px; padding: 0; margin-top: 28px; display: none; box-shadow: 0 0 50px rgba(255,204,0,0.15); overflow: hidden; }
+  .score-hero { padding: 36px 28px 28px; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.07); }
+  .score-trophy { font-size: 52px; animation: bounce 1s ease-in-out infinite; display: block; margin-bottom: 8px; }
+  #scoreSummary h2 { font-family: 'Fredoka One', cursive; font-size: 30px; color: var(--accent); margin-bottom: 8px; }
+  .score-circle { width: 110px; height: 110px; border-radius: 50%; background: conic-gradient(var(--green) calc(var(--pct) * 1%), rgba(255,255,255,0.08) 0%); display: grid; place-items: center; margin: 16px auto; box-shadow: 0 0 30px rgba(105,240,174,0.3); position: relative; }
+  .score-circle::after { content: ''; position: absolute; inset: 8px; border-radius: 50%; background: #1a0a3d; }
+  .score-num { font-family: 'Fredoka One', cursive; font-size: 26px; color: var(--text); position: relative; z-index: 1; }
+  .score-msg { font-size: 17px; margin-top: 10px; }
+  .score-stats { display: flex; justify-content: center; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+  .stat-pill { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 12px 20px; min-width: 90px; }
+  .stat-pill .stat-val { font-family: 'Fredoka One', cursive; font-size: 24px; }
+  .stat-pill .stat-lbl { font-size: 11px; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat-pill.correct .stat-val { color: var(--green); }
+  .stat-pill.wrong .stat-val { color: var(--red); }
+  .stat-pill.total .stat-val { color: var(--blue); }
+  .stat-pill.skipped .stat-val { color: var(--orange); }
+  .results-breakdown { padding: 24px 28px; border-bottom: 2px solid rgba(255,255,255,0.07); }
+  .results-heading { font-family: 'Fredoka One', cursive; font-size: 18px; color: var(--accent); margin-bottom: 16px; }
+  .result-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 14px 16px; margin-bottom: 10px; display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: start; animation: fadeIn 0.3s ease both; }
+  .result-item.ri-correct { border-left: 3px solid var(--green); }
+  .result-item.ri-wrong { border-left: 3px solid var(--red); }
+  .result-item.ri-skipped { border-left: 3px solid var(--orange); opacity: 0.7; }
+  .ri-icon { font-size: 18px; margin-top: 1px; }
+  .ri-body { font-size: 13px; }
+  .ri-qtext { font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .ri-row { display: flex; align-items: center; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+  .ri-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; min-width: 80px; }
+  .ri-val { font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 100px; }
+  .ri-val.your-correct { background: rgba(105,240,174,0.15); color: var(--green); }
+  .ri-val.your-wrong { background: rgba(255,82,82,0.15); color: var(--red); }
+  .ri-val.correct-ans { background: rgba(105,240,174,0.1); color: var(--green); border: 1px solid rgba(105,240,174,0.3); }
+  .ri-val.skipped-val { background: rgba(255,171,64,0.12); color: var(--orange); }
+  .ri-badge { font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 100px; }
+  .ri-badge.correct { background: rgba(105,240,174,0.2); color: var(--green); }
+  .ri-badge.wrong { background: rgba(255,82,82,0.15); color: var(--red); }
+  .ri-badge.skipped { background: rgba(255,171,64,0.15); color: var(--orange); }
+  .score-actions { display: flex; justify-content: center; gap: 14px; padding: 24px 28px; flex-wrap: wrap; }
+  .restart-btn { background: linear-gradient(135deg, var(--accent), var(--orange)); border: none; color: #111; font-family: 'Fredoka One', cursive; font-size: 16px; padding: 13px 28px; border-radius: 16px; cursor: pointer; box-shadow: 0 4px 20px rgba(255,204,0,0.4); transition: transform 0.2s; }
+  .restart-btn:hover { transform: scale(1.05); }
+  .print-btn { background: linear-gradient(135deg, var(--blue), var(--purple)); border: none; color: #fff; font-family: 'Fredoka One', cursive; font-size: 16px; padding: 13px 28px; border-radius: 16px; cursor: pointer; transition: transform 0.2s; }
+  .print-btn:hover { transform: scale(1.05); }
+
+  /* FLOAT SUBMIT */
+  .float-submit { position: fixed; bottom: 24px; right: 24px; background: linear-gradient(135deg, var(--pink), var(--orange)); border: none; color: #fff; font-family: 'Fredoka One', cursive; font-size: 16px; padding: 14px 24px; border-radius: 100px; cursor: pointer; box-shadow: 0 6px 24px rgba(255,107,157,0.5); transition: transform 0.2s, box-shadow 0.2s; z-index: 100; display: flex; align-items: center; gap: 8px; }
+  .float-submit:hover { transform: scale(1.06) translateY(-2px); box-shadow: 0 10px 32px rgba(255,107,157,0.6); }
+  .divider { height: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); margin: 8px 0 16px; }
+
+  @media print {
+    body { background: #fff !important; color: #111 !important; }
+    body::before { display: none !important; }
+    .page { max-width: 100% !important; padding: 0 !important; }
+    header, .instructions, .progress-wrap, .ws-section, .float-submit, .confetti-container, .score-actions { display: none !important; }
+    #scoreSummary { display: block !important; box-shadow: none !important; border: none !important; background: #fff !important; }
+    .score-hero { background: linear-gradient(135deg, #f0eeff, #e8e0ff) !important; border-radius: 12px !important; padding: 20px !important; border: 2px solid #b39ddb !important; margin-bottom: 16px; }
+    #scoreSummary h2 { color: #2d1b69 !important; }
+    .score-circle { background: conic-gradient(#2ecc71 calc(var(--pct) * 1%), #ddd 0%) !important; box-shadow: none !important; }
+    .score-circle::after { background: #f0eeff !important; }
+    .score-num { color: #111 !important; }
+    .results-breakdown { padding: 0 !important; }
+    .results-heading { color: #2d1b69 !important; }
+    .result-item { background: #fafafa !important; border: 1px solid #ddd !important; break-inside: avoid; }
+    .result-item.ri-correct { border-left: 3px solid #2ecc71 !important; }
+    .result-item.ri-wrong { border-left: 3px solid #e74c3c !important; }
+    .ri-qtext { color: #111 !important; }
+    .ri-label { color: #666 !important; }
+  }
+</style>
+</head>
+<body>
+<div class="confetti-container" id="confettiContainer"></div>
+
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <span class="cb-icon">📝</span>
+    <h3>Submit Your Test?</h3>
+    <p>Once you submit, you cannot change your answers.<br>Your results will be revealed immediately.</p>
+    <div class="unanswered-note" id="unansweredNote"></div>
+    <div class="confirm-btns">
+      <button class="cb-cancel" onclick="closeConfirm()">← Keep Answering</button>
+      <button class="cb-confirm" onclick="confirmSubmit()">Submit Now 🚀</button>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <header>
+    <span class="header-emoji">🌍</span>
+    <h1>Grade 4 Social Studies — 100-Question Exam Prep</h1>
+    <p>State &amp; Government · Maps &amp; Globes · Physical Features · Pakistan Map · Population</p>
+  </header>
+
+  <div class="instructions">
+    <div class="instructions-title">📌 How to do this test</div>
+    <p>Answer all 100 questions across 5 sections. You can change answers anytime <strong>before</strong> submitting. The progress bar shows questions attempted.</p>
+    <div class="instructions-grid">
+      <div class="inst-card">
+        <h4>🎯 Part A — Multiple Choice</h4>
+        <ul>
+          <li>Click one option to select it.</li>
+          <li>You can click a different option to change.</li>
+          <li>Do <strong>not</strong> submit until you are done.</li>
+        </ul>
+      </div>
+      <div class="inst-card">
+        <h4>✏️ Part B — Fill in the Blanks</h4>
+        <ul>
+          <li>Type your answer in the blank.</li>
+          <li>Click <strong>Save Answer 💾</strong> for each blank.</li>
+          <li>You can edit and save again before submitting.</li>
+        </ul>
+      </div>
+      <div class="inst-card">
+        <h4>✅ Part C — True / False</h4>
+        <ul>
+          <li>Choose <strong>True</strong> or <strong>False</strong>.</li>
+          <li>You can change your choice before submitting.</li>
+        </ul>
+      </div>
+      <div class="inst-card">
+        <h4>📖 Part D — Short Answers</h4>
+        <ul>
+          <li>Write a short answer in the box.</li>
+          <li>Click <strong>Save ✓</strong> to store it.</li>
+          <li>Short answers are checked by your teacher.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="inst-pill-row">
+      <div class="inst-pill">🟣 <strong>Saved</strong> = stored, not graded yet</div>
+      <div class="inst-pill">🎯 Submit = shows score + correct answers</div>
+      <div class="inst-pill">⏭️ Unanswered = marked skipped</div>
+      <div class="inst-pill">🖨️ Print = prints results page</div>
+    </div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-label">🌟 Progress</div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar"></div>
+    </div>
+    <div class="progress-count" id="progressCount">0 / 0</div>
+    <div class="stars-display" id="starsDisplay">⭐⭐⭐⭐⭐</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 1 — STATE AND GOVERNMENT
+  ═══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">🏛️ Section 1 — State and Government (Ch. 3)</div>
+
+    <!-- Part A MCQ -->
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>A specific area where people of a nation live is called a ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','a')">🔵 a) Government</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','b')">🟢 b) State</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','c')">🟡 c) Constitution</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','d')">🔴 d) Election</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q1" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>How often are elections held in Pakistan?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','a')">🔵 a) Every 3 years</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','b')">🟢 b) Every 4 years</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','c')">🟡 c) Every 5 years</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','d')">🔴 d) Every 10 years</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q2" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>Which was Pakistan's FIRST constitution?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','a')">🔵 a) 1947</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','b')">🟢 b) 1956</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','c')">🟡 c) 1962</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','d')">🔴 d) 1973</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q3" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">4</span><span>The state is ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','a')">🔵 a) Temporary</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','b')">🟢 b) Elected</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','c')">🟡 c) Permanent</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','d')">🔴 d) Changeable</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q4" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">5</span><span>The government is ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','a')">🔵 a) Permanent</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','b')">🟢 b) Temporary</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','c')">🟡 c) A state</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','d')">🔴 d) A constitution</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- Part B Fill -->
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B1</span><span>A specific area where people of a nation live is called a <input type="text" class="fill-input" id="s1b1" placeholder="???">.</span></div>
+        <button class="check-btn" onclick="saveFill('s1b1',['state'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b1">💡 Answer: state</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B2</span><span>A government is a group of <input type="text" class="fill-input" id="s1b2" placeholder="???"> people empowered to run the affairs of the state.</span></div>
+        <button class="check-btn" onclick="saveFill('s1b2',['elected'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b2">💡 Answer: elected</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B3</span><span>The state is a <input type="text" class="fill-input" id="s1b3" placeholder="???"> entity.</span></div>
+        <button class="check-btn" onclick="saveFill('s1b3',['permanent'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b3">💡 Answer: permanent</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B4</span><span>The government is <input type="text" class="fill-input" id="s1b4" placeholder="???"> and changes after a certain period.</span></div>
+        <button class="check-btn" onclick="saveFill('s1b4',['temporary'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b4">💡 Answer: temporary</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B5</span><span>The constitution is the set of <input type="text" class="fill-input" id="s1b5" placeholder="???"> according to which the country is governed.</span></div>
+        <button class="check-btn" onclick="saveFill('s1b5',['rules'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b5">💡 Answer: rules</div>
+      </div>
+    </div>
+
+    <!-- Part C True/False -->
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
+      <div class="tf-row">
+        <div class="tf-text">1. The government is a permanent entity.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s1c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s1c1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">2. Elections are held every five years in Pakistan.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s1c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s1c2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">3. Pakistan's constitutions were drafted in 1956, 1962, and 1973.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s1c3','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s1c3','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">4. The constitution tells us how the government runs and governs the country.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s1c4','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s1c4','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">5. The state changes after every election.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s1c5','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s1c5','False')">False</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part D Short Answers -->
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D1</span><span>What is meant by Constitution?</span></div>
+        <textarea class="short-textarea" id="sa_s1d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s1d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s1d1">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D2</span><span>On what characteristics are leaders chosen?</span></div>
+        <textarea class="short-textarea" id="sa_s1d2" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s1d2')">Save ✓</button>
+        <div class="short-saved" id="saved_s1d2">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 2 — MAPS AND GLOBES
+  ═══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">🗺️ Section 2 — Maps and Globes (Ch. 5.1)</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>A flat drawing that shows all or part of Earth's surface is called a ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','a')">🔵 a) Latitude</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','b')">🟢 b) Globe</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','c')">🟡 c) Map</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','d')">🔴 d) Diagram</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q1" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>A globe is a ___ representation of the Earth.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','a')">🔵 a) 2D</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','b')">🟢 b) Flat</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','c')">🟡 c) 3D</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','d')">🔴 d) Digital</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q2" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>The main directions North, South, East, and West are called ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','a')">🔵 a) Cardinal Directions</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','b')">🟢 b) Map Key</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','c')">🟡 c) Intermediate Directions</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','d')">🔴 d) Compass Directions</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q3" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">4</span><span>The in-between directions (NE, NW, SE, SW) are called ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q4','a')">🔵 a) Intermediate Directions</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q4','b')">🟢 b) Map Key</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q4','c')">🟡 c) Landform Directions</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q4','d')">🔴 d) Cardinal Directions</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q4" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">5</span><span>What does a legend (map key) show?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q5','a')">🔵 a) A famous rockstar's picture</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q5','b')">🟢 b) Where things are located on a map, represented by symbols</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q5','c')">🟡 c) The title of the map</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q5','d')">🔴 d) The scale of the map</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q5" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">6</span><span>What part of the map shows you the SUBJECT (topic) of the map?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q6','a')">🔵 a) The Title</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q6','b')">🟢 b) The Compass Rose</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q6','c')">🟡 c) The Scale</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q6','d')">🔴 d) The Legend</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q6" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">7</span><span>What are the five features of a map?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q7','a')">🔵 a) Title, Key/Legend, Scale, Grid, Compass Rose</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q7','b')">🟢 b) America, Title, Key/Legend, Map, Compass Rose</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q7','c')">🟡 c) North America, Key/Legend, Map, Grid, Compass Rose</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q7','d')">🔴 d) Border, Title, Scale, Compass Rose, Grid</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q7" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">8</span><span>Which is the biggest continent in the world?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q8','a')">🔵 a) North America</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q8','b')">🟢 b) Australia</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q8','c')">🟡 c) Asia</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q8','d')">🔴 d) Africa</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q8" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">9</span><span>What do we call a person who makes maps?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q9','a')">🔵 a) Photographer</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q9','b')">🟢 b) Choreographer</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q9','c')">🟡 c) Cartographer</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q9','d')">🔴 d) Geographer</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q9" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">10</span><span>Which is the biggest ocean in the world?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q10','a')">🔵 a) Antarctic Ocean</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q10','b')">🟢 b) Indian Ocean</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q10','c')">🟡 c) Pacific Ocean</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q10','d')">🔴 d) Atlantic Ocean</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q10" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B1</span><span>BOLTSS stands for Border, Orientation, Legend, Title, <input type="text" class="fill-input" id="s2b1" placeholder="?">, Source.</span></div>
+        <button class="check-btn" onclick="saveFill('s2b1',['scale'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s2b1">💡 Answer: Scale</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B2</span><span>A <input type="text" class="fill-input" id="s2b2" placeholder="???"> is a 3D representation of the Earth.</span></div>
+        <button class="check-btn" onclick="saveFill('s2b2',['globe'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s2b2">💡 Answer: Globe</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B3</span><span>A <input type="text" class="fill-input" id="s2b3" placeholder="???"> is a flat representation of a portion of Earth's surface.</span></div>
+        <button class="check-btn" onclick="saveFill('s2b3',['map'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s2b3">💡 Answer: Map</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B4</span><span>Pakistan is located in the <input type="text" class="fill-input" id="s2b4" placeholder="???"> of Asia.</span></div>
+        <button class="check-btn" onclick="saveFill('s2b4',['south'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s2b4">💡 Answer: South</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B5</span><span>The province of <input type="text" class="fill-input" id="s2b5" placeholder="???"> is in the south of Pakistan.</span></div>
+        <button class="check-btn" onclick="saveFill('s2b5',['sindh'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s2b5">💡 Answer: Sindh</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B6</span><span>The legend of a map shows real <input type="text" class="fill-input" id="s2b6" placeholder="???"> or areas.</span></div>
+        <button class="check-btn" onclick="saveFill('s2b6',['places'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s2b6">💡 Answer: places</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B7</span><span><input type="text" class="fill-input" id="s2b7" placeholder="???"> is the biggest continent in the world.</span></div>
+        <button class="check-btn" onclick="saveFill('s2b7',['asia'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s2b7">💡 Answer: Asia</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B8</span><span>There are <input type="text" class="fill-input" id="s2b8" placeholder="???"> continents in the world.</span></div>
+        <button class="check-btn" onclick="saveFill('s2b8',['7','seven'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s2b8">💡 Answer: 7</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
+      <div class="tf-row">
+        <div class="tf-text">1. A globe can be carried easily and provides detailed information.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s2c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s2c1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">2. Maps provide more detailed information than globes.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s2c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s2c2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">3. There are 7 continents in the world.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s2c3','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s2c3','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">4. The Pacific Ocean is the biggest ocean in the world.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s2c4','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s2c4','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">5. Cardinal directions include NE, NW, SE, and SW.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s2c5','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s2c5','False')">False</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D1</span><span>How is a globe different from a map?</span></div>
+        <textarea class="short-textarea" id="sa_s2d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s2d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s2d1">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D2</span><span>Why are symbols used in maps?</span></div>
+        <textarea class="short-textarea" id="sa_s2d2" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s2d2')">Save ✓</button>
+        <div class="short-saved" id="saved_s2d2">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 3 — PHYSICAL FEATURES OF PAKISTAN
+  ═══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">⛰️ Section 3 — Physical Features of Pakistan (Ch. 5.2)</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>___ is the famous mountain range of Pakistan.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','a')">🔵 a) The Karakoram</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','b')">🟢 b) K2</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','c')">🟡 c) The Sulaiman</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','d')">🔴 d) The Himalayas</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q1" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>Which province occupies 47% of the total area of Pakistan?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','a')">🔵 a) Punjab</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','b')">🟢 b) Balochistan</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','c')">🟡 c) Sindh</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','d')">🔴 d) KPK</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q2" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>Which river flows through the province throughout the year?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','a')">🔵 a) Chenab</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','b')">🟢 b) Jhelum</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','c')">🟡 c) Indus</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','d')">🔴 d) Ravi</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q3" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">4</span><span>Which is a dry, sandy desert in south-eastern Punjab?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','a')">🔵 a) Cholistan</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','b')">🟢 b) Thar</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','c')">🟡 c) Sahara</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','d')">🔴 d) Thal</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q4" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">5</span><span>Which pass links South Asia to Central Asia?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q5','a')">🔵 a) Bolan Pass</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q5','b')">🟢 b) Khyber Pass</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q5','c')">🟡 c) Khunjerab Pass</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q5','d')">🔴 d) Babusar Pass</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q5" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">6</span><span>The coastal area of Balochistan is known as the ___ coast.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q6','a')">🔵 a) Makran</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q6','b')">🟢 b) Arabian</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q6','c')">🟡 c) Indus</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q6','d')">🔴 d) Sindh</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q6" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">7</span><span>Balochistan is famous for its fruit ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q7','a')">🔵 a) Forests</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q7','b')">🟢 b) Orchards</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q7','c')">🟡 c) Farms</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q7','d')">🔴 d) Gardens</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q7" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">8</span><span>The Indus Delta is the ___ largest delta in the world.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q8','a')">🔵 a) Fifth</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q8','b')">🟢 b) Sixth</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q8','c')">🟡 c) Seventh</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q8','d')">🔴 d) Eighth</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q8" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">9</span><span>Karakoram mountain range is located in the region of ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q9','a')">🔵 a) Punjab and Sindh</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q9','b')">🟢 b) Gilgit Baltistan and Kashmir</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q9','c')">🟡 c) KPK and Balochistan</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q9','d')">🔴 d) Sindh and Balochistan</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q9" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">10</span><span>Which province has the largest forest area in Pakistan?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q10','a')">🔵 a) Punjab</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q10','b')">🟢 b) Balochistan</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q10','c')">🟡 c) Khyber Pakhtunkhwa (KPK)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q10','d')">🔴 d) Sindh</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q10" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">11</span><span>The tributaries of the Indus River include ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q11','a')">🔵 a) Jhelum, Chenab, Ravi, Sutlej</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q11','b')">🟢 b) Nile, Amazon, Congo</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q11','c')">🟡 c) Thames, Rhine, Seine</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q11','d')">🔴 d) Tigris, Euphrates, Jordan</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q11" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">12</span><span>The largest river of Pakistan is ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q12','a')">🔵 a) Jhelum</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q12','b')">🟢 b) Indus</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q12','c')">🟡 c) Ravi</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q12','d')">🔴 d) Chenab</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q12" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B1</span><span>The <input type="text" class="fill-input" id="s3b1" placeholder="???"> of Earth includes mountains, rivers, plains, hills, etc.</span></div>
+        <button class="check-btn" onclick="saveFill('s3b1',['landforms'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b1">💡 Answer: landforms</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B2</span><span>The Khyber Pass links South Asia to <input type="text" class="fill-input" id="s3b2" placeholder="???"> Asia.</span></div>
+        <button class="check-btn" onclick="saveFill('s3b2',['central'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b2">💡 Answer: Central</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B3</span><span>The province of KPK contains about <input type="text" class="fill-input" id="s3b3" placeholder="??" style="min-width:60px">% of the total forest area of Pakistan.</span></div>
+        <button class="check-btn" onclick="saveFill('s3b3',['45'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b3">💡 Answer: 45</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B4</span><span>The coastal area of Balochistan is known as the <input type="text" class="fill-input" id="s3b4" placeholder="???"> coast.</span></div>
+        <button class="check-btn" onclick="saveFill('s3b4',['makran'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b4">💡 Answer: Makran</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B5</span><span>The Kirthar and <input type="text" class="fill-input" id="s3b5" placeholder="???"> mountain ranges are located in Balochistan province.</span></div>
+        <button class="check-btn" onclick="saveFill('s3b5',['sulaiman'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b5">💡 Answer: Sulaiman</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B6</span><span>Karakoram is located in the region of Gilgit Baltistan and <input type="text" class="fill-input" id="s3b6" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s3b6',['kashmir'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b6">💡 Answer: Kashmir</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B7</span><span>Balochistan is famous for its fruit <input type="text" class="fill-input" id="s3b7" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s3b7',['orchards','orchard'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b7">💡 Answer: orchards</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B8</span><span>Plateau Potohar is in the province of <input type="text" class="fill-input" id="s3b8" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s3b8',['punjab'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s3b8">💡 Answer: Punjab</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
+      <div class="tf-row">
+        <div class="tf-text">1. Khyber Pakhtunkhwa and Punjab are mostly mountainous provinces.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s3c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">2. The Makran coast is 500 km long.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s3c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">3. Punjab is the largest province of Pakistan with respect to area.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s3c3','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c3','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">4. The Khunjerab Pass links Pakistan to China.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s3c4','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c4','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">5. The Khyber Pass links South Asia to Central Asia.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s3c5','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c5','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">6. Balochistan is the largest province of Pakistan by area.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s3c6','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c6','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">7. A series of mountains is called a mountain range.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s3c7','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s3c7','False')">False</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D1</span><span>What are physical features? Write their names.</span></div>
+        <textarea class="short-textarea" id="sa_s3d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s3d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s3d1">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D2</span><span>Name the plateaus and deserts found in Pakistan.</span></div>
+        <textarea class="short-textarea" id="sa_s3d2" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s3d2')">Save ✓</button>
+        <div class="short-saved" id="saved_s3d2">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 4 — PAKISTAN MAP & PROVINCES
+  ═══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">📍 Section 4 — Pakistan Map &amp; Provinces</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>Which country is towards the NORTH of Pakistan?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','a')">🔵 a) India</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','b')">🟢 b) China</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','c')">🟡 c) Afghanistan</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','d')">🔴 d) Iran</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q1" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>Which country is towards the NORTHWEST of Pakistan?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','a')">🔵 a) China</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','b')">🟢 b) India</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','c')">🟡 c) Afghanistan</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','d')">🔴 d) Iran</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q2" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>Which province is in the SOUTH of Pakistan?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','a')">🔵 a) Punjab</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','b')">🟢 b) KPK</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','c')">🟡 c) Sindh</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','d')">🔴 d) Gilgit Baltistan</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q3" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">4</span><span>Which country lies to the EAST of Pakistan?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','a')">🔵 a) China</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','b')">🟢 b) Afghanistan</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','c')">🟡 c) India</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','d')">🔴 d) Iran</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q4" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">5</span><span>Which is the largest province of Pakistan by POPULATION?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','a')">🔵 a) KPK</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','b')">🟢 b) Punjab</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','c')">🟡 c) Balochistan</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','d')">🔴 d) Sindh</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q5" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">6</span><span>Peshawar is the capital city of ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q6','a')">🔵 a) KPK (Khyber Pakhtunkhwa)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q6','b')">🟢 b) Punjab</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q6','c')">🟡 c) Sindh</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q6','d')">🔴 d) Balochistan</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q6" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">7</span><span>Lahore is the capital city of ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q7','a')">🔵 a) KPK</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q7','b')">🟢 b) Punjab</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q7','c')">🟡 c) Sindh</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q7','d')">🔴 d) Balochistan</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q7" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">8</span><span>Which seaport is located in the province of Balochistan?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q8','a')">🔵 a) Port Qasim</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q8','b')">🟢 b) Gwadar</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q8','c')">🟡 c) Karachi East Port</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q8','d')">🔴 d) Manchar Port</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q8" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B1</span><span><input type="text" class="fill-input" id="s4b1" placeholder="???"> is the largest province of Pakistan by area.</span></div>
+        <button class="check-btn" onclick="saveFill('s4b1',['balochistan'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s4b1">💡 Answer: Balochistan</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B2</span><span>Peshawar is the capital city of <input type="text" class="fill-input" id="s4b2" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s4b2',['kpk','khyber pakhtunkhwa'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s4b2">💡 Answer: KPK (Khyber Pakhtunkhwa)</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B3</span><span>Lahore is the capital city of <input type="text" class="fill-input" id="s4b3" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s4b3',['punjab'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s4b3">💡 Answer: Punjab</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B4</span><span>Port Qasim seaport is in the province of <input type="text" class="fill-input" id="s4b4" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s4b4',['sindh'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s4b4">💡 Answer: Sindh</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B5</span><span>Gwadar seaport is in the province of <input type="text" class="fill-input" id="s4b5" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s4b5',['balochistan'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s4b5">💡 Answer: Balochistan</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
+      <div class="tf-row">
+        <div class="tf-text">1. Punjab is the largest province of Pakistan by population.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s4c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s4c1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">2. China is to the north of Pakistan.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s4c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s4c2','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">3. Iran borders Pakistan to the east.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s4c3','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s4c3','False')">False</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D1</span><span>Name Pakistan's neighbouring countries and its four provinces.</span></div>
+        <textarea class="short-textarea" id="sa_s4d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s4d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s4d1">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 5 — POPULATION
+  ═══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">👥 Section 5 — Population (Ch. 5.4)</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>Population refers to ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','a')">🔵 a) Number of animals in an area</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','b')">🟢 b) Total number of people living in an area</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','c')">🟡 c) Number of cities in a country</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','d')">🔴 d) Number of schools in a province</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q1" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>Census is ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','a')">🔵 a) A population count ceremony</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','b')">🟢 b) A method used by the government for counting people</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','c')">🟡 c) Population density formula</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','d')">🔴 d) Population distribution report</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q2" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>Which of these is a major cause of rapid population growth in Pakistan?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','a')">🔵 a) Large families</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','b')">🟢 b) Good education for all</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','c')">🟡 c) Decrease in birth rates</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','d')">🔴 d) Better healthcare only</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q3" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">4</span><span>A DENSELY populated area is one where ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','a')">🔵 a) Fewer people live</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','b')">🟢 b) More people live</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','c')">🟡 c) No one lives</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','d')">🔴 d) Only animals live</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q4" style="display:none"></div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">5</span><span>Population ratio is increasing in Pakistan because of ___.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','a')">🔵 a) Decrease in birth rates</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','b')">🟢 b) Increase in birth rates</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','c')">🟡 c) More jobs available</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','d')">🔴 d) Better technology</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B1</span><span>The total number of people living in an area is called <input type="text" class="fill-input" id="s5b1" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s5b1',['population'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s5b1">💡 Answer: population</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B2</span><span>A method used by the government for counting people is called <input type="text" class="fill-input" id="s5b2" placeholder="???">.  </span></div>
+        <button class="check-btn" onclick="saveFill('s5b2',['census'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s5b2">💡 Answer: census</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B3</span><span>A sparsely populated area is one where <input type="text" class="fill-input" id="s5b3" placeholder="???"> people live.</span></div>
+        <button class="check-btn" onclick="saveFill('s5b3',['less','fewer'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s5b3">💡 Answer: less / fewer</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
+      <div class="tf-row">
+        <div class="tf-text">1. Census is used by the government to count people.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s5c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s5c1','False')">False</button>
+        </div>
+      </div>
+      <div class="tf-row">
+        <div class="tf-text">2. Population density is the same in all provinces of Pakistan.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s5c2','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s5c2','False')">False</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D1</span><span>Define Population Density.</span></div>
+        <textarea class="short-textarea" id="sa_s5d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s5d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s5d1">✅ Saved!</div>
+      </div>
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D2</span><span>What are the problems arising due to population growth in Pakistan?</span></div>
+        <textarea class="short-textarea" id="sa_s5d2" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s5d2')">Save ✓</button>
+        <div class="short-saved" id="saved_s5d2">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCORE SUMMARY -->
+  <div id="scoreSummary">
+    <div class="score-hero">
+      <div class="score-trophy" id="scoreTrophy">🏆</div>
+      <h2 id="scoreHeading">Amazing Work!</h2>
+      <div class="score-circle" id="scoreCircle">
+        <span class="score-num" id="scoreNum">0%</span>
+      </div>
+      <div class="score-msg" id="scoreMsg"></div>
+      <div class="score-stats" id="scoreStats"></div>
+    </div>
+    <div class="results-breakdown">
+      <div class="results-heading">📋 Full Results Breakdown</div>
+      <div id="resultsBody"></div>
+    </div>
+    <div class="score-actions">
+      <button class="print-btn" onclick="printScore()">🖨️ Print Results</button>
+      <button class="restart-btn" onclick="restartAll()">🔄 Try Again</button>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<button class="float-submit" onclick="openConfirm()">🎯 Submit Test</button>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   CORRECT ANSWERS
+════════════════════════════════════════════════════════════ */
+const CORRECT = {
+  // Section 1 MCQ
+  s1q1: 'b', s1q2: 'c', s1q3: 'b', s1q4: 'c', s1q5: 'b',
+  // Section 1 TF
+  s1c1: 'False', s1c2: 'True', s1c3: 'True', s1c4: 'True', s1c5: 'False',
+
+  // Section 2 MCQ
+  s2q1: 'c', s2q2: 'c', s2q3: 'a', s2q4: 'a', s2q5: 'b',
+  s2q6: 'a', s2q7: 'a', s2q8: 'c', s2q9: 'c', s2q10: 'c',
+  // Section 2 TF
+  s2c1: 'False', s2c2: 'True', s2c3: 'True', s2c4: 'True', s2c5: 'False',
+
+  // Section 3 MCQ
+  s3q1: 'a', s3q2: 'b', s3q3: 'c', s3q4: 'a', s3q5: 'b',
+  s3q6: 'a', s3q7: 'b', s3q8: 'c', s3q9: 'b', s3q10: 'c',
+  s3q11: 'a', s3q12: 'b',
+  // Section 3 TF
+  s3c1: 'False', s3c2: 'True', s3c3: 'False', s3c4: 'True',
+  s3c5: 'True',  s3c6: 'True',  s3c7: 'True',
+
+  // Section 4 MCQ
+  s4q1: 'b', s4q2: 'c', s4q3: 'c', s4q4: 'c', s4q5: 'b',
+  s4q6: 'a', s4q7: 'b', s4q8: 'b',
+  // Section 4 TF
+  s4c1: 'True', s4c2: 'True', s4c3: 'False',
+
+  // Section 5 MCQ
+  s5q1: 'b', s5q2: 'b', s5q3: 'a', s5q4: 'b', s5q5: 'b',
+  // Section 5 TF
+  s5c1: 'True', s5c2: 'False',
+};
+
+/* ════════════════════════════════════════════════════════════
+   CORE ENGINE
+════════════════════════════════════════════════════════════ */
+const mcqSelections = {}, mcqBtnMap = {}, tfSelections = {}, tfBtnMap = {};
+const fillValues = {}, fillAcceptable = {};
+const answered = {}, fillAnswered = {};
+const questionLog = [];
+let submitted = false;
+
+function escHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function getQText(el) {
+  if (!el) return '';
+  const clone = el.cloneNode(true);
+  clone.querySelectorAll('input').forEach(i => i.replaceWith('[___]'));
+  return (clone.querySelector('span:last-child')?.textContent || clone.textContent).trim();
+}
+
+function updateProgress() {
+  const autoTotal  = Object.keys(CORRECT).length;
+  const fillTotal  = Object.keys(fillAcceptable).length;
+  const grandTotal = autoTotal + fillTotal;
+  const mcqDone    = Object.keys(mcqSelections).length;
+  const tfDone     = Object.keys(tfSelections).length;
+  const fillDone   = Object.keys(fillValues).filter(id => fillValues[id].trim() !== '').length;
+  const totalDone  = mcqDone + tfDone + fillDone;
+  const pct        = grandTotal > 0 ? Math.round(totalDone / grandTotal * 100) : 0;
+  document.getElementById('progressBar').style.width   = pct + '%';
+  document.getElementById('progressCount').textContent = totalDone + ' / ' + grandTotal;
+  const starCount = Math.round(pct / 20);
+  document.getElementById('starsDisplay').textContent = '⭐'.repeat(starCount) + '🌑'.repeat(5 - starCount);
+}
+
+function selectMCQ(btn, qId, chosen) {
+  if (submitted) return;
+  btn.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  mcqSelections[qId] = chosen;
+  mcqBtnMap[qId]     = btn;
+  updateProgress();
+}
+
+function selectTF(btn, qId, chosen) {
+  if (submitted) return;
+  btn.closest('.tf-btns').querySelectorAll('.tf-btn').forEach(b => b.classList.remove('selected-true','selected-false'));
+  btn.classList.add(chosen === 'True' ? 'selected-true' : 'selected-false');
+  tfSelections[qId] = chosen;
+  tfBtnMap[qId]     = btn;
+  updateProgress();
+}
+
+function saveFill(id, acceptableAnswers) {
+  if (submitted) return;
+  const inp = document.getElementById(id);
+  const val = inp.value.trim();
+  if (!val) return;
+  fillValues[id]     = val;
+  fillAcceptable[id] = acceptableAnswers;
+  inp.classList.remove('correct','wrong');
+  inp.classList.add('saved');
+  const savedMsg = document.createElement('span');
+  savedMsg.style.cssText = 'margin-left:8px;font-size:12px;color:var(--purple);font-weight:700';
+  savedMsg.textContent   = '💾 Saved!';
+  inp.parentElement.appendChild(savedMsg);
+  setTimeout(() => savedMsg.remove(), 1800);
+  updateProgress();
+}
+
+function openConfirm() {
+  if (submitted) return;
+  const autoTotal  = Object.keys(CORRECT).length;
+  const fillTotal  = Object.keys(fillAcceptable).length;
+  const grandTotal = autoTotal + fillTotal;
+  const mcqDone    = Object.keys(mcqSelections).length;
+  const tfDone     = Object.keys(tfSelections).length;
+  const fillDone   = Object.keys(fillValues).filter(id => fillValues[id].trim() !== '').length;
+  const unanswered = grandTotal - (mcqDone + tfDone + fillDone);
+  const note = document.getElementById('unansweredNote');
+  if (unanswered > 0) {
+    note.style.display = 'block';
+    note.textContent   = '⚠️ You have ' + unanswered + ' unanswered question' + (unanswered > 1 ? 's' : '') + '. They will be marked as skipped.';
+  } else {
+    note.style.display = 'none';
+  }
+  document.getElementById('confirmOverlay').classList.add('visible');
+}
+function closeConfirm() { document.getElementById('confirmOverlay').classList.remove('visible'); }
+
+function confirmSubmit() {
+  closeConfirm();
+  submitted = true;
+
+  Object.keys(CORRECT).forEach(qId => {
+    if (mcqSelections[qId] !== undefined) {
+      const chosen = mcqSelections[qId], correctAns = CORRECT[qId];
+      const isCorrect = chosen === correctAns;
+      answered[qId] = isCorrect;
+      const btns = document.querySelectorAll(`.opt-btn[onclick*="'${qId}'"]`);
+      btns.forEach(b => {
+        b.disabled = true;
+        b.classList.remove('selected');
+        const oc = b.getAttribute('onclick');
+        if (oc && oc.includes("'" + chosen + "'"))    b.classList.add(isCorrect ? 'correct' : 'wrong');
+        if (!isCorrect && oc && oc.includes("'" + correctAns + "'")) b.classList.add('reveal-correct');
+      });
+      const fb = document.getElementById('fb_' + qId);
+      if (fb) {
+        fb.className = 'feedback-badge ' + (isCorrect ? 'correct' : 'wrong');
+        fb.innerHTML = isCorrect ? '🎉 Correct!' : '😅 Incorrect — correct answer highlighted.';
+        fb.style.display = 'inline-flex';
+      }
+      let chosenText = '', correctText = '';
+      btns.forEach(b => {
+        const oc = b.getAttribute('onclick');
+        if (oc && oc.includes("'" + chosen + "'"))    chosenText  = b.textContent.trim();
+        if (oc && oc.includes("'" + correctAns + "'")) correctText = b.textContent.trim();
+      });
+      const qBlock = document.getElementById('fb_' + qId)?.closest('.q-block');
+      const questionTxt = qBlock ? getQText(qBlock.querySelector('.q-text')) : qId;
+      questionLog.push({ type:'mcq', qId, questionText:questionTxt, yourAnswer:chosenText, correctAnswer:correctText, isCorrect });
+
+    } else if (tfSelections[qId] !== undefined) {
+      const chosen = tfSelections[qId], correctAns = CORRECT[qId];
+      const isCorrect = chosen === correctAns;
+      answered[qId] = isCorrect;
+      const btns = document.querySelectorAll(`.tf-btn[onclick*="'${qId}'"]`);
+      btns.forEach(b => {
+        b.disabled = true;
+        b.classList.remove('selected-true','selected-false');
+        const txt = b.textContent.trim();
+        if (txt === chosen)    b.classList.add(isCorrect ? 'correct' : 'wrong');
+        if (!isCorrect && txt === correctAns) b.classList.add('correct');
+      });
+      const tfRow = btns[0]?.closest('.tf-row');
+      const questionTxt = tfRow?.querySelector('.tf-text')?.textContent.trim() || qId;
+      questionLog.push({ type:'tf', qId, questionText:questionTxt, yourAnswer:chosen, correctAnswer:correctAns, isCorrect });
+
+    } else {
+      // Skipped
+      const mcqBtns = document.querySelectorAll(`.opt-btn[onclick*="'${qId}'"]`);
+      mcqBtns.forEach(b => { b.disabled = true; b.classList.remove('selected'); });
+      const correctAns = CORRECT[qId];
+      mcqBtns.forEach(b => {
+        const oc = b.getAttribute('onclick');
+        if (oc && oc.includes("'" + correctAns + "'")) b.classList.add('reveal-correct');
+      });
+      const tfBtns = document.querySelectorAll(`.tf-btn[onclick*="'${qId}'"]`);
+      tfBtns.forEach(b => {
+        b.disabled = true;
+        if (b.textContent.trim() === correctAns) b.classList.add('correct');
+      });
+      let questionTxt = qId;
+      const fbEl = document.getElementById('fb_' + qId);
+      if (fbEl?.closest('.q-block')) questionTxt = getQText(fbEl.closest('.q-block').querySelector('.q-text')) || qId;
+      if (questionTxt === qId) {
+        document.querySelectorAll('.tf-row').forEach(row => {
+          row.querySelectorAll('.tf-btn').forEach(b => {
+            if (b.getAttribute('onclick')?.includes("'" + qId + "'"))
+              questionTxt = row.querySelector('.tf-text')?.textContent.trim() || qId;
+          });
+        });
+      }
+      questionLog.push({ type:'skipped', qId, questionText:questionTxt, yourAnswer:'—', correctAnswer:correctAns, isCorrect:false });
+    }
+  });
+
+  document.querySelectorAll('.fill-input').forEach(inp => {
+    const id = inp.id, acceptable = fillAcceptable[id], val = fillValues[id] || '';
+    const qBlock = inp.closest('.q-block');
+    const questionTxt = qBlock ? getQText(qBlock.querySelector('.q-text')) : id;
+    inp.disabled = true;
+    inp.classList.remove('saved');
+    if (acceptable) {
+      const isCorrect = acceptable.map(a => a.toLowerCase()).includes(val.toLowerCase());
+      fillAnswered[id] = isCorrect;
+      inp.classList.add(isCorrect ? 'correct' : 'wrong');
+      if (!isCorrect) { const r = document.getElementById('reveal_' + id); if (r) r.style.display = 'block'; }
+      questionLog.push({ type:'fill', qId:id, questionText:questionTxt, yourAnswer:val||'(blank)', correctAnswer:acceptable[0], isCorrect });
+    } else {
+      inp.classList.add('wrong');
+      const r = document.getElementById('reveal_' + id); if (r) r.style.display = 'block';
+      questionLog.push({ type:'skipped-fill', qId:id, questionText:questionTxt, yourAnswer:'—', correctAnswer:'?', isCorrect:false });
+    }
+  });
+
+  document.querySelectorAll('.check-btn').forEach(b => { b.disabled = true; });
+  showScore();
+}
+
+function saveShort(id) {
+  const el = document.getElementById('saved_' + id);
+  if (el) { el.style.display = 'block'; setTimeout(() => el.style.display = 'none', 2000); }
+}
+
+function launchConfetti(count) {
+  const colors = ['#ffcc00','#ff6b9d','#4fc3f7','#69f0ae','#ffab40','#b39ddb'];
+  const container = document.getElementById('confettiContainer');
+  for (let i = 0; i < count * 8; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.width  = (6 + Math.random() * 8) + 'px';
+    piece.style.height = (6 + Math.random() * 8) + 'px';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    const dur = 1.5 + Math.random() * 1.5;
+    piece.style.animationDuration = dur + 's';
+    piece.style.animationDelay    = Math.random() * 0.5 + 's';
+    container.appendChild(piece);
+    setTimeout(() => piece.remove(), (dur + 0.5) * 1000);
+  }
+}
+
+function showScore() {
+  const total        = Object.keys(CORRECT).length + Object.keys(fillAcceptable).length;
+  const correctCount = Object.values(answered).filter(v => v).length + Object.values(fillAnswered).filter(v => v).length;
+  const allGraded    = Object.keys(answered).length + Object.keys(fillAnswered).length;
+  const wrongCount   = allGraded - correctCount;
+  const skipped      = total - allGraded;
+  const pct          = total > 0 ? Math.round(correctCount / total * 100) : 0;
+
+  document.getElementById('progressBar').style.width   = pct + '%';
+  document.getElementById('progressCount').textContent = correctCount + ' / ' + total + ' correct';
+  const stars = Math.round(correctCount / Math.max(total, 1) * 5);
+  document.getElementById('starsDisplay').textContent  = '⭐'.repeat(stars) + '🌑'.repeat(5 - stars);
+
+  document.getElementById('scoreCircle').style.setProperty('--pct', pct);
+  document.getElementById('scoreNum').textContent = pct + '%';
+  document.getElementById('scoreTrophy').textContent =
+    pct >= 90 ? '🏆' : pct >= 75 ? '🥇' : pct >= 60 ? '🥈' : '🎯';
+  document.getElementById('scoreHeading').textContent =
+    pct >= 90 ? 'Outstanding!' : pct >= 75 ? 'Great Job!' : pct >= 60 ? 'Good Effort!' : 'Keep Practicing!';
+  document.getElementById('scoreMsg').textContent =
+    pct >= 90 ? '🌟 You\'re a superstar — nearly perfect!'     :
+    pct >= 75 ? '🎉 Fantastic work! A few more to master.'      :
+    pct >= 60 ? '👍 Solid effort! Review the ones you missed.'  :
+                '💪 Don\'t give up — every attempt makes you better!';
+
+  document.getElementById('scoreStats').innerHTML = `
+    <div class="stat-pill correct"><span class="stat-val">${correctCount}</span><span class="stat-lbl">Correct ✅</span></div>
+    <div class="stat-pill wrong">  <span class="stat-val">${wrongCount}</span><span class="stat-lbl">Wrong ❌</span></div>
+    <div class="stat-pill skipped"><span class="stat-val">${skipped}</span><span class="stat-lbl">Skipped ⏭️</span></div>
+    <div class="stat-pill total">  <span class="stat-val">${total}</span><span class="stat-lbl">Total 📋</span></div>
+  `;
+
+  const html = questionLog.map((q, i) => {
+    const isSkipped = q.type === 'skipped' || q.type === 'skipped-fill';
+    const cls   = isSkipped ? 'ri-skipped' : q.isCorrect ? 'ri-correct' : 'ri-wrong';
+    const icon  = isSkipped ? '⏭️' : q.isCorrect ? '✅' : '❌';
+    const badge = isSkipped ? '<span class="ri-badge skipped">Skipped</span>'
+                : q.isCorrect ? '<span class="ri-badge correct">Correct</span>'
+                : '<span class="ri-badge wrong">Incorrect</span>';
+    const yourValCls = isSkipped ? 'skipped-val' : q.isCorrect ? 'your-correct' : 'your-wrong';
+    const correctRow = (!q.isCorrect || isSkipped)
+      ? `<div class="ri-row"><span class="ri-label">✅ Correct:</span><span class="ri-val correct-ans">${escHtml(q.correctAnswer)}</span></div>` : '';
+    return `<div class="result-item ${cls}" style="animation-delay:${i*0.03}s">
+      <div class="ri-icon">${icon}</div>
+      <div class="ri-body">
+        <div class="ri-qtext">${escHtml(q.questionText)}</div>
+        <div class="ri-row"><span class="ri-label">Your answer:</span><span class="ri-val ${yourValCls}">${escHtml(q.yourAnswer)}</span></div>
+        ${correctRow}
+      </div>
+      <div>${badge}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('resultsBody').innerHTML =
+    html || '<p style="color:var(--muted);text-align:center;padding:20px">No questions were answered.</p>';
+
+  const summary = document.getElementById('scoreSummary');
+  summary.style.display = 'block';
+  summary.scrollIntoView({ behavior:'smooth' });
+  launchConfetti(10);
+}
+
+function printScore() { window.print(); }
+function restartAll() { location.reload(); }
+
+updateProgress();
+</script>
+</body>
+</html>
