@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grade 3 Science – Exam Prep Test (Plants, Humans, Matter, Forces, Light)</title>
+  <style>
+    :root { --card:#11131a; --text:#e8eaf0; --muted:#aab0c0; --line:#23283a; --ok:#2ecc71; --bad:#ff5c5c; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+           background:linear-gradient(180deg,#0b0c10,#0b0c10 60%,#08090c); color:var(--text); }
+    header { padding:22px 16px; border-bottom:1px solid var(--line); position:sticky; top:0;
+             background:rgba(11,12,16,.92); backdrop-filter: blur(10px); z-index:5; }
+    .wrap { max-width: 980px; margin:0 auto; padding: 0 16px; }
+    h1 { margin:0; font-size: 20px; }
+    .sub { margin-top:6px; color:var(--muted); font-size: 13px; }
+    .topbar { display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
+    .pill { border:1px solid var(--line); padding:6px 10px; border-radius:999px; color:var(--muted); font-size:12px; }
+    main { padding: 16px 0 40px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin:12px 0; }
+    .qhead { display:flex; gap:10px; align-items:flex-start; }
+    .qnum { min-width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+            background:#0e1020; border:1px solid var(--line); color:var(--muted); font-weight:700; }
+    .qtitle { flex:1; }
+    .qtitle h3 { margin:0; font-size:15px; font-weight:650; }
+    .qtitle p { margin:6px 0 0; color:var(--muted); font-size:13px; }
+    .options { margin-top:12px; display:grid; gap:10px; }
+    label.opt { display:flex; gap:10px; padding:10px; border:1px solid var(--line); border-radius:12px; cursor:pointer;
+                align-items:flex-start; background:#0f1119; }
+    label.opt:hover { border-color:#334066; }
+    input[type="radio"]{ margin-top:3px; transform:scale(1.15); }
+    input[type="text"], textarea {
+      width:100%; box-sizing:border-box; padding:10px; border-radius:10px;
+      border:1px solid var(--line); background:#0f1119; color:var(--text); font-size:14px;
+    }
+    textarea { min-height: 80px; resize: vertical; }
+    .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+    @media (max-width: 740px){ .grid2 { grid-template-columns: 1fr; } }
+    .btnrow { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    button { appearance:none; border:1px solid var(--line); background:#151a2a; color:var(--text);
+             padding:10px 14px; border-radius:12px; font-weight:650; cursor:pointer; }
+    button:hover { border-color:#40508a; }
+    button.primary { background:#1c2a5a; border-color:#2b3e86; }
+    button.danger { background:#3a1418; border-color:#6b2a30; }
+    .note { color:var(--muted); font-size:12px; margin-top:10px; }
+    .result { display:none; }
+    .scorebox { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+    .big { font-size:22px; font-weight:800; }
+    .tag { border:1px solid var(--line); padding:6px 10px; border-radius:999px; font-size:12px; }
+    .tag.ok { border-color:rgba(46,204,113,.35); color:var(--ok); }
+    .tag.bad { border-color:rgba(255,92,92,.35); color:var(--bad); }
+    .reviewItem { border-top:1px dashed var(--line); padding-top:12px; margin-top:12px; }
+    .correct { color:var(--ok); font-weight:700; }
+    .wrong { color:var(--bad); font-weight:700; }
+    footer { padding:18px 0 30px; color:var(--muted); font-size:12px; border-top:1px solid var(--line); }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+           border:1px solid var(--line); padding:2px 6px; border-radius:8px; background:#0f1119; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <div>
+      <h1>Grade 3 Science – Exam Prep Test</h1>
+      <div class="sub">Units: Ch 4 (Plants & Humans) • Ch 5 (Matter & Mixtures) • Ch 6 (Friction & Gravity) • Ch 7 (Light & Shadows)</div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <div class="pill">Time: ~45–60 min</div>
+      <div class="pill">Questions: <span id="qCount">0</span></div>
+      <div class="pill">Auto-marking</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="card">
+    <div class="grid2">
+      <div>
+        <label for="studentName"><b>Student name</b></label>
+        <input id="studentName" type="text" placeholder="Type your name" autocomplete="name" />
+      </div>
+      <div>
+        <label for="className"><b>Class / Section</b> <span class="note">(optional)</span></label>
+        <input id="className" type="text" placeholder="e.g., G3-A" />
+      </div>
+    </div>
+    <div class="note">
+      Read carefully. For short answers, spelling matters (small punctuation differences are accepted).
+      Writing questions are not auto-marked — teacher/parent checks them.
+    </div>
+    <div class="btnrow">
+      <button class="primary" id="btnSubmit">Submit & Grade</button>
+      <button id="btnSave">Save answers (download)</button>
+      <button class="danger" id="btnReset">Reset</button>
+    </div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div class="card result" id="resultCard">
+    <div class="scorebox">
+      <div class="big">Score: <span id="scoreText">0</span></div>
+      <div class="tag" id="percentTag">0%</div>
+      <div class="tag" id="timeTag">Time: —</div>
+    </div>
+    <div class="note" style="margin-top:8px;">
+      Scroll down to review: you’ll see your answer and the correct answer. Writing questions show “Teacher check”.
+    </div>
+    <div class="btnrow">
+      <button id="btnPrint">Print / Save PDF</button>
+      <button id="btnCopy">Copy result summary</button>
+    </div>
+    <div id="review"></div>
+  </div>
+
+  <footer>
+    Single HTML file (offline). Print to PDF after grading using <span class="kbd">Ctrl/Cmd + P</span>.
+  </footer>
+</main>
+
+<script>
+/*
+  Question types:
+   - mcq : 1 correct option
+   - tf  : true/false
+   - short : short answer (auto-check)
+   - write : long answer (not auto-marked)
+*/
+const QUESTIONS = [
+  // =========================
+  // CHAPTER 4 — PLANTS
+  // =========================
+  {type:"mcq", topic:"Ch4 Plants", prompt:"Which part of a flowering plant holds it firmly in the soil?", options:["Leaf","Stem","Roots","Flower"], answer:2},
+  {type:"mcq", topic:"Ch4 Plants", prompt:"Which part of a flowering plant makes food using sunlight?", options:["Roots","Leaves","Flower","Soil"], answer:1},
+  {type:"mcq", topic:"Ch4 Plants", prompt:"Which part of a plant supports it and keeps it upright?", options:["Stem","Roots","Flower","Seeds"], answer:0},
+  {type:"mcq", topic:"Ch4 Plants", prompt:"Flowers help the plant to…", options:["make shadows","reproduce","stop friction","become opaque"], answer:1},
+  {type:"tf",  topic:"Ch4 Plants", prompt:"Plants need water to stay healthy.", answer:true},
+  {type:"tf",  topic:"Ch4 Plants", prompt:"A plant can stay healthy without light.", answer:false},
+  {type:"short", topic:"Ch4 Plants", prompt:"Write ONE thing plants need to stay alive.", answer:["water","light","sunlight","air","soil","nutrients","suitable temperature","warmth"]},
+  {type:"short", topic:"Ch4 Plants", prompt:"What do roots absorb from the soil? (one idea)", answer:["water","nutrients","minerals","water and nutrients","water and minerals"]},
+  {type:"short", topic:"Ch4 Plants", prompt:"If you remove the roots, what may happen to the plant? (one short idea)", answer:["it may die","plant may die","it will die","the plant will die","it may dry","it may fall over"]},
+  {type:"mcq", topic:"Ch4 Plants", prompt:"In an experiment, the thing you change is called the…", options:["result","variable","shadow","seed"], answer:1},
+  {type:"mcq", topic:"Ch4 Plants", prompt:"To keep a test fair, you should…", options:["change everything","change one thing only","never measure","guess the answer"], answer:1},
+  {type:"mcq", topic:"Ch4 Plants", prompt:"Which plant condition helps it grow well?", options:["No water","No light","Suitable temperature","Only darkness"], answer:2},
+  {type:"short", topic:"Ch4 Plants", prompt:"What word means a plant becomes weak and droopy when it has not enough water?", answer:["wilt","wilts","wilting"]},
+  {type:"mcq", topic:"Ch4 Plants", prompt:"A greenhouse is useful because it can…", options:["make plants heavier","keep suitable conditions for plants","remove all light","stop plants from growing"], answer:1},
+  {type:"write", topic:"Ch4 Plants (Teacher check)", prompt:"Write 3 sentences explaining how to take care of a plant.", rubric:"Teacher check: mentions water + light + another care idea (soil/temperature)."},
+  {type:"write", topic:"Ch4 Plants (Teacher check)", prompt:"Plan a fair test: How does light affect plant growth? Write: (1) what you change, (2) what you measure, (3) what you keep the same.", rubric:"Teacher check: clear variables."},
+
+  // =========================
+  // CHAPTER 4 — HUMAN ORGANS
+  // =========================
+  {type:"mcq", topic:"Ch4 Human body", prompt:"Organs are parts inside the body that have…", options:["no job","an important job","only colors","only shapes"], answer:1},
+  {type:"mcq", topic:"Ch4 Human body", prompt:"Which organ is in your head and controls other organs?", options:["Heart","Brain","Stomach","Lungs"], answer:1},
+  {type:"mcq", topic:"Ch4 Human body", prompt:"Which organ pumps blood around the body?", options:["Brain","Heart","Lungs","Large intestine"], answer:1},
+  {type:"mcq", topic:"Ch4 Human body", prompt:"Which organ takes oxygen from the air into the blood?", options:["Lungs","Stomach","Small intestine","Brain"], answer:0},
+  {type:"mcq", topic:"Ch4 Human body", prompt:"Which organ digests (breaks down) food?", options:["Stomach","Heart","Lungs","Brain"], answer:0},
+  {type:"mcq", topic:"Ch4 Human body", prompt:"Which organ absorbs nutrients from digested food?", options:["Small intestine","Heart","Brain","Lungs"], answer:0},
+  {type:"mcq", topic:"Ch4 Human body", prompt:"Which organ absorbs water from undigested food?", options:["Lungs","Large intestine","Brain","Stomach"], answer:1},
+  {type:"tf",  topic:"Ch4 Human body", prompt:"When you breathe out, carbon dioxide leaves the body.", answer:true},
+  {type:"short", topic:"Ch4 Human body", prompt:"Name ONE organ found inside the body.", answer:["brain","heart","lungs","stomach","intestines","small intestine","large intestine"]},
+  {type:"short", topic:"Ch4 Human body", prompt:"Where is the heart located? (one short idea)", answer:["chest","in the chest","left chest","middle of chest","upper body"]},
+  {type:"write", topic:"Ch4 Human body (Teacher check)", prompt:"Explain in 3–4 sentences how the heart and lungs work together.", rubric:"Teacher check: mentions oxygen in blood + heart pumps blood."},
+
+  // =========================
+  // CHAPTER 5 — MATTER (SOLID/LIQUID/GAS)
+  // =========================
+  {type:"mcq", topic:"Ch5 Matter", prompt:"Matter is anything that…", options:["has no mass","takes up space and has mass","is only liquid","is only invisible"], answer:1},
+  {type:"mcq", topic:"Ch5 Matter", prompt:"A solid usually…", options:["keeps its shape","flows like water","fills the whole room","has no volume"], answer:0},
+  {type:"mcq", topic:"Ch5 Matter", prompt:"A liquid…", options:["always keeps its shape","changes shape to fit its container","cannot be poured","is always hard"], answer:1},
+  {type:"mcq", topic:"Ch5 Matter", prompt:"A gas…", options:["keeps a fixed shape","can be poured into a cup","spreads out to fill a space","is always sticky"], answer:2},
+  {type:"mcq", topic:"Ch5 Matter", prompt:"Which is a liquid?", options:["Rock","Milk","Chair","Button"], answer:1},
+  {type:"mcq", topic:"Ch5 Matter", prompt:"Which is a gas?", options:["Oil","Water","Oxygen","Paint"], answer:2},
+  {type:"tf",  topic:"Ch5 Matter", prompt:"A solid does not take the shape of its container.", answer:true},
+  {type:"tf",  topic:"Ch5 Matter", prompt:"Liquids can flow.", answer:true},
+  {type:"short", topic:"Ch5 Matter", prompt:"Give ONE example of a solid.", answer:["rock","chair","key","buttons","wood","metal","plastic","book","stone"]},
+  {type:"short", topic:"Ch5 Matter", prompt:"Give ONE example of a gas.", answer:["air","oxygen","carbon dioxide","helium"]},
+  {type:"short", topic:"Ch5 Matter", prompt:"When water is poured into different containers, what changes? (one word)", answer:["shape","its shape","the shape"]},
+
+  // =========================
+  // CHAPTER 5 — MIXTURES & SEPARATING
+  // =========================
+  {type:"mcq", topic:"Ch5 Mixtures", prompt:"A mixture is made when materials are…", options:["burned","combined physically","turned into gas","melted forever"], answer:1},
+  {type:"mcq", topic:"Ch5 Mixtures", prompt:"When you mix materials physically, their properties usually…", options:["always change completely","do not change","become invisible","stop existing"], answer:1},
+  {type:"mcq", topic:"Ch5 Mixtures", prompt:"Which method can separate a solid/solid mixture like beads and pebbles?", options:["Freezing","Picking by hand","Evaporation","Melting"], answer:1},
+  {type:"mcq", topic:"Ch5 Mixtures", prompt:"A magnet can help separate…", options:["paper and water","iron filings and sand","wood and plastic","air and water"], answer:1},
+  {type:"mcq", topic:"Ch5 Mixtures", prompt:"Sieving is used to separate solids that have different…", options:["colors only","sizes","smells","shapes only"], answer:1},
+  {type:"tf",  topic:"Ch5 Mixtures", prompt:"A sieve has holes that allow smaller pieces to pass through.", answer:true},
+  {type:"tf",  topic:"Ch5 Mixtures", prompt:"A magnet attracts all materials.", answer:false},
+  {type:"short", topic:"Ch5 Mixtures", prompt:"Name ONE method to separate a mixture.", answer:["hand picking","picking by hand","magnet","magnets","sieving","sieve"]},
+  {type:"short", topic:"Ch5 Mixtures", prompt:"What does a magnet attract? (one word)", answer:["iron","steel"]},
+  {type:"write", topic:"Ch5 Mixtures (Teacher check)", prompt:"Describe how you would separate a mixture of sand and stones using a sieve.", rubric:"Teacher check: mentions sieve holes + stones stay + sand passes."},
+
+  // =========================
+  // CHAPTER 6 — MEASURING FORCE & GRAVITY
+  // =========================
+  {type:"mcq", topic:"Ch6 Forces", prompt:"A force can be a…", options:["push or pull","shadow or light","solid or liquid","plant or animal"], answer:0},
+  {type:"mcq", topic:"Ch6 Forces", prompt:"A forcemeter is used to measure…", options:["temperature","force","light","sound"], answer:1},
+  {type:"mcq", topic:"Ch6 Forces", prompt:"Force is measured in…", options:["meters (m)","Newtons (N)","liters (L)","grams (g)"], answer:1},
+  {type:"mcq", topic:"Ch6 Forces", prompt:"Which part of a forcemeter stretches when you pull it?", options:["hook","spring","wheel","leaf"], answer:1},
+  {type:"mcq", topic:"Ch6 Forces", prompt:"Which part of a forcemeter shows the reading?", options:["scale","shoe","root","cloud"], answer:0},
+  {type:"mcq", topic:"Ch6 Forces", prompt:"Gravity is a force that pulls objects…", options:["away from Earth","towards the center of Earth","sideways only","only upward"], answer:1},
+  {type:"tf",  topic:"Ch6 Forces", prompt:"Gravity pulls objects towards Earth.", answer:true},
+  {type:"tf",  topic:"Ch6 Forces", prompt:"A bigger force is needed to lift more books.", answer:true},
+  {type:"short", topic:"Ch6 Forces", prompt:"What tool measures force? (one word)", answer:["forcemeter","force meter"]},
+  {type:"short", topic:"Ch6 Forces", prompt:"Write the unit symbol for Newton.", answer:["n","N"]},
+
+  // =========================
+  // CHAPTER 6 — FRICTION
+  // =========================
+  {type:"mcq", topic:"Ch6 Friction", prompt:"Friction is a force that…", options:["helps plants grow","opposes movement between surfaces","makes objects float","creates light"], answer:1},
+  {type:"mcq", topic:"Ch6 Friction", prompt:"Friction acts in the ______ direction to movement.", options:["same","opposite","up","random"], answer:1},
+  {type:"mcq", topic:"Ch6 Friction", prompt:"When a floor is wet, people may slip because there is…", options:["more friction","less friction","more gravity","no force"], answer:1},
+  {type:"mcq", topic:"Ch6 Friction", prompt:"Which surface usually has the MOST friction?", options:["smooth ice","gravel path","glass","oily floor"], answer:1},
+  {type:"mcq", topic:"Ch6 Friction", prompt:"Objects move more easily on a…", options:["rough surface","smooth surface","sticky surface","sharp surface"], answer:1},
+  {type:"tf",  topic:"Ch6 Friction", prompt:"A rough surface usually creates more friction than a smooth surface.", answer:true},
+  {type:"tf",  topic:"Ch6 Friction", prompt:"Friction can slow down or stop moving objects.", answer:true},
+  {type:"short", topic:"Ch6 Friction", prompt:"Write the word for the force between an object and the surface it moves on.", answer:["friction"]},
+  {type:"short", topic:"Ch6 Friction", prompt:"Write ONE word: Friction makes movement (easier / harder).", answer:["harder"]},
+
+  // =========================
+  // CHAPTER 6 — SURFACES & INVESTIGATION SKILLS
+  // =========================
+  {type:"mcq", topic:"Ch6 Investigation", prompt:"What equipment measures time in an experiment?", options:["stopwatch","ruler","thermometer","sieve"], answer:0},
+  {type:"mcq", topic:"Ch6 Investigation", prompt:"What equipment measures distance travelled?", options:["measuring tape","magnet","torch","scale"], answer:0},
+  {type:"mcq", topic:"Ch6 Investigation", prompt:"If you want results you can compare, it is best to measure in…", options:["standard units","guesses","hand spans only","random numbers"], answer:0},
+  {type:"tf",  topic:"Ch6 Investigation", prompt:"Standard units help people compare results easily.", answer:true},
+  {type:"write", topic:"Ch6 Investigation (Teacher check)", prompt:"A toy car rolls down a ramp on different surfaces. Write: (1) your prediction, (2) what you will measure, (3) how you will keep it a fair test.", rubric:"Teacher check: prediction + measures time/distance + fair test."},
+
+  // =========================
+  // CHAPTER 7 — LIGHT, TRANSPARENT/TRANSLUCENT/OPAQUE
+  // =========================
+  {type:"mcq", topic:"Ch7 Light", prompt:"Light travels in a…", options:["zigzag always","straight line","circle","square"], answer:1},
+  {type:"mcq", topic:"Ch7 Materials", prompt:"A transparent material lets…", options:["no light pass","some light pass but not clearly","most light pass through so you can see clearly","only sound pass"], answer:2},
+  {type:"mcq", topic:"Ch7 Materials", prompt:"A translucent material lets…", options:["no light pass","some light pass but you cannot see clearly","all light pass clearly","only heat pass"], answer:1},
+  {type:"mcq", topic:"Ch7 Materials", prompt:"An opaque material lets…", options:["all light pass","some light pass","no light pass through","only blue light pass"], answer:2},
+  {type:"mcq", topic:"Ch7 Materials", prompt:"Clear glass is usually…", options:["transparent","translucent","opaque","magnetic"], answer:0},
+  {type:"mcq", topic:"Ch7 Materials", prompt:"Frosted glass is usually…", options:["transparent","translucent","opaque","liquid"], answer:1},
+  {type:"mcq", topic:"Ch7 Materials", prompt:"Wood is usually…", options:["transparent","translucent","opaque","gas"], answer:2},
+  {type:"tf",  topic:"Ch7 Materials", prompt:"You can see clearly through transparent materials.", answer:true},
+  {type:"tf",  topic:"Ch7 Materials", prompt:"Opaque materials allow light to pass through.", answer:false},
+  {type:"short", topic:"Ch7 Materials", prompt:"Write ONE example of a transparent material.", answer:["glass","clear glass"]},
+  {type:"short", topic:"Ch7 Materials", prompt:"Write ONE example of an opaque material.", answer:["wood","cardboard","metal","stone","book"]},
+
+  // =========================
+  // CHAPTER 7 — SHADOWS
+  // =========================
+  {type:"mcq", topic:"Ch7 Shadows", prompt:"A shadow forms when…", options:["light bends around nothing","light is blocked by an object","objects become transparent","air turns into gas"], answer:1},
+  {type:"mcq", topic:"Ch7 Shadows", prompt:"A shadow is usually a…", options:["bright shape","dark shape","rainbow shape","sound wave"], answer:1},
+  {type:"tf",  topic:"Ch7 Shadows", prompt:"You need a light source and an object to make a shadow.", answer:true},
+  {type:"tf",  topic:"Ch7 Shadows", prompt:"Shadows can be formed without light.", answer:false},
+  {type:"mcq", topic:"Ch7 Shadows", prompt:"If the light source is closer to the object, the shadow usually becomes…", options:["smaller","larger","invisible","a different color"], answer:1},
+  {type:"mcq", topic:"Ch7 Shadows", prompt:"If the light source is higher, the shadow is often…", options:["shorter","longer","louder","colder"], answer:0},
+  {type:"short", topic:"Ch7 Shadows", prompt:"Name ONE light source.", answer:["sun","torch","lamp","light bulb","candle"]},
+  {type:"write", topic:"Ch7 Shadows (Teacher check)", prompt:"Explain (in 3–4 sentences) why your shadow changes size during the day.", rubric:"Teacher check: mentions Sun position/angle and shadow length."},
+
+  // =========================
+  // MIXED REVISION — 100 QUESTIONS TOTAL
+  // (Extra auto-marked practice based on the same chapters)
+  // =========================
+  {type:"mcq", topic:"Mixed Revision", prompt:"Which is the best description of a fair test?", options:["Change many things at once","Change one thing and keep others the same","Never measure anything","Only guess"], answer:1},
+  {type:"mcq", topic:"Mixed Revision", prompt:"Which tool is best for measuring plant height?", options:["Ruler","Magnet","Torch","Sieve"], answer:0},
+  {type:"mcq", topic:"Mixed Revision", prompt:"Which is NOT a state of matter?", options:["Solid","Liquid","Gas","Shadow"], answer:3},
+  {type:"mcq", topic:"Mixed Revision", prompt:"A solid has a…", options:["fixed shape","changing shape","no volume","no mass"], answer:0},
+  {type:"mcq", topic:"Mixed Revision", prompt:"A liquid has a…", options:["fixed shape","fixed volume (amount)","no volume","fixed color"], answer:1},
+  {type:"mcq", topic:"Mixed Revision", prompt:"Which mixture is best separated using a magnet?", options:["Iron filings and sand","Sugar and water","Oil and water","Stones and water"], answer:0},
+  {type:"mcq", topic:"Mixed Revision", prompt:"Which mixture is best separated by hand?", options:["Rice and stones","Salt and water","Ink and water","Air and dust"], answer:0},
+  {type:"mcq", topic:"Mixed Revision", prompt:"Which mixture is best separated by sieving?", options:["Sand and stones","Milk and water","Oil and juice","Oxygen and carbon dioxide"], answer:0},
+  {type:"tf",  topic:"Mixed Revision", prompt:"Friction can be helpful (for example, stopping when you walk).", answer:true},
+  {type:"tf",  topic:"Mixed Revision", prompt:"A smooth surface usually creates more friction than a rough surface.", answer:false},
+  {type:"short", topic:"Mixed Revision", prompt:"Write ONE word: Force is a push or a ____.", answer:["pull"]},
+  {type:"short", topic:"Mixed Revision", prompt:"Write ONE word: Gravity pulls objects ____ Earth.", answer:["towards","to","toward"]},
+  {type:"short", topic:"Mixed Revision", prompt:"Write ONE word: A shadow is formed when light is ____.", answer:["blocked"]},
+  {type:"short", topic:"Mixed Revision", prompt:"Write ONE word: Leaves make ____ for the plant.", answer:["food"]},
+  {type:"short", topic:"Mixed Revision", prompt:"Write ONE word: The organ that pumps blood is the ____.", answer:["heart"]},
+
+  // --- More practice MCQs (to reach 100) ---
+  {type:"mcq", topic:"Ch4 Plants", prompt:"Which plant part transports water from roots to leaves?", options:["Stem","Flower","Leaf","Seed"], answer:0},
+  {type:"mcq", topic:"Ch4 Plants", prompt:"Which plant part is often colorful to help reproduction?", options:["Roots","Flower","Stem","Soil"], answer:1},
+  {type:"mcq", topic:"Ch4 Plants", prompt:"Which condition can make a plant unhealthy?", options:["Enough water","Suitable temperature","No water","Enough light"], answer:2},
+  {type:"mcq", topic:"Ch4 Human body", prompt:"Which organ is mainly used for breathing?", options:["Lungs","Stomach","Heart","Brain"], answer:0},
+  {type:"mcq", topic:"Ch4 Human body", prompt:"Which organ sends messages to control other organs?", options:["Brain","Large intestine","Stomach","Lungs"], answer:0},
+
+  {type:"mcq", topic:"Ch5 Matter", prompt:"Which is a solid?", options:["Oil","Air","Rock","Milk"], answer:2},
+  {type:"mcq", topic:"Ch5 Matter", prompt:"Which statement is true about gases?", options:["They keep their shape","They cannot move","They spread out","They are always visible"], answer:2},
+  {type:"mcq", topic:"Ch5 Mixtures", prompt:"When beads and pebbles are mixed, the beads can be separated by…", options:["hand picking","freezing","burning","melting"], answer:0},
+  {type:"mcq", topic:"Ch5 Mixtures", prompt:"A mixture is different from a new material because in a mixture…", options:["materials keep their properties","materials disappear","materials become the same","everything turns to gas"], answer:0},
+
+  {type:"mcq", topic:"Ch6 Forces", prompt:"A forcemeter often has a spring and a…", options:["hook","leaf","flower","shadow"], answer:0},
+  {type:"mcq", topic:"Ch6 Gravity", prompt:"A roller coaster moves down after going up mainly because of…", options:["gravity","light","mixing","roots"], answer:0},
+  {type:"mcq", topic:"Ch6 Friction", prompt:"Which situation shows friction?", options:["A ball rolling on the ground","A shadow on a wall","A seed growing","A magnet attracting iron"], answer:0},
+  {type:"mcq", topic:"Ch6 Friction", prompt:"People slip more easily on a wet floor because…", options:["friction is reduced","gravity stops","light is stronger","air is heavier"], answer:0},
+
+  {type:"mcq", topic:"Ch7 Light", prompt:"Why are windows usually made of glass?", options:["Glass is opaque","Glass is transparent","Glass is magnetic","Glass is a gas"], answer:1},
+  {type:"mcq", topic:"Ch7 Shadows", prompt:"A shadow is formed on the side ______ the light source.", options:["towards","opposite","inside","above"], answer:1},
+
+  // --- Final writing tasks (not auto-marked) ---
+  {type:"write", topic:"Mixed Writing (Teacher check)", prompt:"Write a short paragraph (4–5 sentences) explaining the difference between solid, liquid, and gas. Give one example of each.", rubric:"Teacher check: correct differences + 3 examples."},
+  {type:"write", topic:"Mixed Writing (Teacher check)", prompt:"Explain how you could safely investigate which surface makes a toy car travel the shortest distance. Include equipment and steps.", rubric:"Teacher check: clear steps + safety + measurements."}
+];
+
+// Ensure exactly 100 questions (in case you edit later)
+if (QUESTIONS.length !== 100) {
+  console.warn("QUESTIONS count is", QUESTIONS.length, "— you can add/remove to make it exactly 100.");
+}
+
+function escapeHtml(str){
+  return (str ?? "").toString()
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function normalizeText(s){
+  return (s ?? "")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replaceAll("’","'")
+    .replaceAll("“","")
+    .replaceAll("”","")
+    .replaceAll(/\s+/g," ")
+    .replaceAll(/\s*,\s*/g,", ")
+    .replaceAll(/\s*\?\s*/g,"?")
+    .replaceAll(/\s*\.\s*/g,".")
+    .replaceAll(/\s*!\s*/g,"!")
+    .replaceAll(/\s*;\s*/g,"; ");
+}
+
+function buildQuiz(){
+  const quiz = document.getElementById("quiz");
+  quiz.innerHTML = "";
+  document.getElementById("qCount").textContent = QUESTIONS.length;
+
+  QUESTIONS.forEach((q, idx)=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.qindex = idx;
+
+    const head = document.createElement("div");
+    head.className = "qhead";
+
+    const num = document.createElement("div");
+    num.className = "qnum";
+    num.textContent = (idx+1);
+
+    const title = document.createElement("div");
+    title.className = "qtitle";
+    title.innerHTML = `<h3>${escapeHtml(q.topic)} • ${escapeHtml(q.type.toUpperCase())}</h3>
+                       <p>${escapeHtml(q.prompt)}</p>`;
+
+    head.appendChild(num);
+    head.appendChild(title);
+    card.appendChild(head);
+
+    const body = document.createElement("div");
+    body.className = "options";
+
+    if(q.type === "mcq" || q.type === "tf"){
+      const opts = q.type === "tf" ? ["True","False"] : q.options;
+      opts.forEach((opt, j)=>{
+        const lab = document.createElement("label");
+        lab.className = "opt";
+        lab.innerHTML = `<input type="radio" name="q${idx}" value="${j}" />
+                         <div>${escapeHtml(opt)}</div>`;
+        body.appendChild(lab);
+      });
+    } else if(q.type === "short"){
+      const inp = document.createElement("input");
+      inp.type = "text";
+      inp.placeholder = "Type your answer";
+      inp.id = `q${idx}_short`;
+      body.appendChild(inp);
+    } else if(q.type === "write"){
+      const ta = document.createElement("textarea");
+      ta.placeholder = "Write your answer here";
+      ta.id = `q${idx}_write`;
+      body.appendChild(ta);
+      if(q.rubric){
+        const n = document.createElement("div");
+        n.className = "note";
+        n.innerHTML = `<b>Teacher check:</b> ${escapeHtml(q.rubric)}`;
+        body.appendChild(n);
+      }
+    }
+
+    card.appendChild(body);
+    quiz.appendChild(card);
+  });
+}
+
+function getUserAnswer(q, idx){
+  if(q.type === "mcq" || q.type === "tf"){
+    const el = document.querySelector(`input[name="q${idx}"]:checked`);
+    if(!el) return null;
+    return parseInt(el.value, 10);
+  }
+  if(q.type === "short"){
+    const el = document.getElementById(`q${idx}_short`);
+    return el ? el.value : "";
+  }
+  if(q.type === "write"){
+    const el = document.getElementById(`q${idx}_write`);
+    return el ? el.value : "";
+  }
+  return "";
+}
+
+function isCorrect(q, userAns){
+  if(q.type === "mcq"){
+    return userAns === q.answer;
+  }
+  if(q.type === "tf"){
+    // In this template, tf uses radio values 0=True, 1=False
+    const correctIndex = q.answer ? 0 : 1;
+    return userAns === correctIndex;
+  }
+  if(q.type === "short"){
+    const ua = normalizeText(userAns);
+    return q.answer.map(a=>normalizeText(a)).includes(ua);
+  }
+  // write questions: not auto-marked
+  return null;
+}
+
+function correctAnswerText(q){
+  if(q.type === "mcq"){
+    return q.options[q.answer];
+  }
+  if(q.type === "tf"){
+    return q.answer ? "True" : "False";
+  }
+  if(q.type === "short"){
+    return q.answer[0];
+  }
+  if(q.type === "write"){
+    return "Teacher check";
+  }
+  return "";
+}
+
+let startTime = Date.now();
+
+function grade(){
+  const review = document.getElementById("review");
+  review.innerHTML = "";
+
+  let correct = 0;
+  let markedTotal = 0;
+
+  const details = [];
+
+  QUESTIONS.forEach((q, idx)=>{
+    const ua = getUserAnswer(q, idx);
+    const ok = isCorrect(q, ua);
+
+    // Only count auto-marked questions
+    if(ok !== null){
+      markedTotal++;
+      if(ok) correct++;
+    }
+    details.push({idx, q, ua, ok});
+  });
+
+  const percent = markedTotal ? Math.round((correct / markedTotal) * 100) : 0;
+  const elapsedMs = Date.now() - startTime;
+  const mins = Math.floor(elapsedMs / 60000);
+  const secs = Math.floor((elapsedMs % 60000)/1000);
+
+  document.getElementById("scoreText").textContent = `${correct} / ${markedTotal} (auto-marked)`;
+  const pt = document.getElementById("percentTag");
+  pt.textContent = `${percent}%`;
+  pt.className = "tag " + (percent >= 70 ? "ok" : (percent >= 50 ? "" : "bad"));
+  document.getElementById("timeTag").textContent = `Time: ${mins}m ${secs}s`;
+
+  const resultCard = document.getElementById("resultCard");
+  resultCard.style.display = "block";
+
+  details.forEach(d=>{
+    const {idx, q, ua, ok} = d;
+    const div = document.createElement("div");
+    div.className = "reviewItem";
+
+    let userText = "— (no answer)";
+    if(q.type === "mcq" && ua !== null) userText = q.options[ua];
+    if(q.type === "tf" && ua !== null) userText = ua === 0 ? "True" : "False";
+    if(q.type === "short") userText = ua ? ua : "— (no answer)";
+    if(q.type === "write") userText = ua ? ua : "— (no answer)";
+
+    let status = "";
+    if(q.type === "write"){
+      status = `<span class="tag">Teacher check</span>`;
+    } else if(ok){
+      status = `<span class="correct">Correct</span>`;
+    } else {
+      status = `<span class="wrong">Wrong</span>`;
+    }
+
+    const corr = escapeHtml(correctAnswerText(q));
+
+    div.innerHTML = `
+      <div style="display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;">
+        <div class="qnum" style="min-width:34px;height:34px;border-radius:10px;">${idx+1}</div>
+        <div style="flex:1;">
+          <div style="color:var(--muted);font-size:12px;margin-bottom:4px;">${escapeHtml(q.topic)} • ${escapeHtml(q.type.toUpperCase())} • ${status}</div>
+          <div style="font-weight:650;margin-bottom:8px;">${escapeHtml(q.prompt)}</div>
+          <div class="grid2" style="margin-top:10px;">
+            <div><div class="note"><b>Your answer</b></div><div>${escapeHtml(userText)}</div></div>
+            <div><div class="note"><b>Correct answer</b></div><div>${corr}</div></div>
+          </div>
+          ${q.explain ? `<div class="note" style="margin-top:10px;"><b>Explanation:</b> ${escapeHtml(q.explain)}</div>` : ``}
+        </div>
+      </div>
+    `;
+    review.appendChild(div);
+  });
+
+  resultCard.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function saveAnswers(){
+  const payload = {
+    meta: {
+      studentName: document.getElementById("studentName").value || "",
+      className: document.getElementById("className").value || "",
+      savedAt: new Date().toISOString(),
+      questionCount: QUESTIONS.length
+    },
+    answers: QUESTIONS.map((q, idx)=>({
+      index: idx+1,
+      type: q.type,
+      topic: q.topic,
+      prompt: q.prompt,
+      userAnswer: getUserAnswer(q, idx)
+    }))
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  const safeName = (payload.meta.studentName || "student").replaceAll(/[^a-z0-9]+/gi,"_");
+  a.download = `G3_Science_PrepAnswers_${safeName}.json`;
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
+}
+
+function resetAll(){
+  if(!confirm("Reset all answers?")) return;
+  document.querySelectorAll('input[type="radio"]').forEach(x=>x.checked=false);
+  document.querySelectorAll('input[type="text"]').forEach(x=>{ if(!["studentName","className"].includes(x.id)) x.value=""; });
+  document.querySelectorAll('textarea').forEach(x=>x.value="");
+  document.getElementById("resultCard").style.display = "none";
+  startTime = Date.now();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function printNow(){ window.print(); }
+
+async function copySummary(){
+  const student = document.getElementById("studentName").value || "Student";
+  const cls = document.getElementById("className").value || "";
+  const score = document.getElementById("scoreText").textContent || "";
+  const percent = document.getElementById("percentTag").textContent || "";
+  const time = document.getElementById("timeTag").textContent || "";
+  const lines = [
+    `Grade 3 Science – Exam Prep Test`,
+    `Name: ${student}${cls ? " | Class: "+cls : ""}`,
+    `Result: ${score} (${percent})`,
+    `${time}`
+  ].join("\n");
+  try{
+    await navigator.clipboard.writeText(lines);
+    alert("Copied!");
+  } catch(e){
+    const ta = document.createElement("textarea");
+    ta.value = lines;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+    alert("Copied!");
+  }
+}
+
+document.getElementById("btnSubmit").addEventListener("click", grade);
+document.getElementById("btnSave").addEventListener("click", saveAnswers);
+document.getElementById("btnReset").addEventListener("click", resetAll);
+document.getElementById("btnPrint").addEventListener("click", printNow);
+document.getElementById("btnCopy").addEventListener("click", copySummary);
+
+buildQuiz();
+</script>
+</body>
+</html>
