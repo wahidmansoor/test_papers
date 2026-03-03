@@ -1,356 +1,1490 @@
+
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Grade 4 English Revision Prep</title>
+<title>Grade 4 English – 100 Question Exam Prep</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0f0e1a;
-    --card: #1c1b2e;
-    --card2: #201f35;
-    --accent: #ffcc00;
-    --pink: #ff6b9d;
-    --blue: #4fc3f7;
-    --green: #69f0ae;
-    --purple: #b39ddb;
-    --orange: #ffab40;
-    --red: #ff5252;
-    --text: #f0eeff;
-    --muted: #8885aa;
-    --r: 18px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 60% 10%, rgba(255,255,255,0.3) 0%, transparent 100%),
-      radial-gradient(2px 2px at 70% 75%, rgba(255,204,0,0.5) 0%, transparent 100%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .page {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
-  }
-
-  header {
-    background: linear-gradient(135deg, #2d1b69, #1a0a3d);
-    border: 2px solid rgba(255,204,0,0.3);
-    border-radius: 24px;
-    padding: 28px 24px;
-    text-align: center;
-    margin-bottom: 16px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 40px rgba(179,157,219,0.2);
-  }
-
-  .header-emoji { font-size: 48px; display: block; margin-bottom: 8px; animation: bounce 2s ease-in-out infinite; }
-  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-  header h1 { font-family: 'Fredoka One', cursive; font-size: 28px; color: var(--accent); }
-  header p { color: var(--purple); font-size: 14px; margin-top: 6px; }
-
-  .instructions {
-    background: rgba(255,255,255,0.05);
-    border-radius: 18px;
-    padding: 16px;
-    margin-bottom: 20px;
-    font-size: 13px;
-  }
-
-  .progress-wrap {
-    background: var(--card);
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .progress-bar-outer { flex: 1; height: 18px; background: rgba(255,255,255,0.07); border-radius: 100px; overflow: hidden; }
-  .progress-bar-inner { height: 100%; background: linear-gradient(90deg, var(--blue), var(--green)); width: 0%; transition: width 0.3s; }
-
-  .ws-section { margin-bottom: 28px; }
-  .section-badge {
-    display: inline-flex;
-    background: linear-gradient(135deg, var(--purple), var(--blue));
-    color: #fff;
-    font-family: 'Fredoka One', cursive;
-    padding: 8px 18px;
-    border-radius: 100px;
-    margin-bottom: 14px;
-  }
-
-  .card {
-    background: var(--card);
-    border-radius: var(--r);
-    padding: 20px;
-    margin-bottom: 14px;
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-  .card-title { font-family: 'Fredoka One', cursive; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-
-  .q-block { margin-bottom: 20px; }
-  .q-text { font-weight: 700; margin-bottom: 10px; display: flex; gap: 10px; }
-  .q-num { background: var(--pink); color: #fff; font-family: 'Fredoka One', cursive; min-width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; flex-shrink: 0; }
-
-  .opts { display: flex; flex-direction: column; gap: 8px; padding-left: 40px; }
-  .opt-btn {
-    background: rgba(255,255,255,0.04);
-    border: 2px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 10px;
-    color: var(--text);
-    cursor: pointer;
-    text-align: left;
-  }
-  .opt-btn.selected { background: var(--purple); color: #000; }
-  .opt-btn.correct { background: var(--green); color: #000; }
-  .opt-btn.wrong { background: var(--red); color: #fff; }
-
-  .fill-input {
-    background: rgba(255,255,255,0.05);
-    border: 2px solid rgba(255,255,255,0.12);
-    border-radius: 8px;
-    color: var(--text);
-    padding: 4px 8px;
-    width: 120px;
-  }
-
-  .float-submit {
-    position: fixed; bottom: 24px; right: 24px;
-    background: var(--pink);
-    border: none; color: #fff;
-    font-family: 'Fredoka One', cursive;
-    padding: 14px 24px;
-    border-radius: 100px;
-    cursor: pointer;
-    z-index: 100;
-  }
-
-  #scoreSummary {
-    background: var(--card);
-    border-radius: 24px;
-    padding: 30px;
-    margin-top: 28px;
-    display: none;
-    text-align: center;
-  }
+  :root{--bg:#0f0e1a;--card:#1c1b2e;--card2:#201f35;--accent:#ffcc00;--pink:#ff6b9d;--blue:#4fc3f7;--green:#69f0ae;--purple:#b39ddb;--orange:#ffab40;--red:#ff5252;--text:#f0eeff;--muted:#8885aa;--r:18px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(1px 1px at 20% 30%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1px 1px at 60% 10%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(1px 1px at 80% 50%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1px 1px at 10% 70%,rgba(255,255,255,.2) 0%,transparent 100%),radial-gradient(1px 1px at 40% 80%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(2px 2px at 70% 75%,rgba(255,204,0,.5) 0%,transparent 100%),radial-gradient(2px 2px at 30% 15%,rgba(79,195,247,.5) 0%,transparent 100%);pointer-events:none;z-index:0}
+  .page{max-width:900px;margin:0 auto;padding:20px;position:relative;z-index:1}
+  header{background:linear-gradient(135deg,#2d1b69,#1a0a3d);border:2px solid rgba(255,204,0,.3);border-radius:24px;padding:28px 24px;text-align:center;margin-bottom:16px;position:relative;overflow:hidden;box-shadow:0 0 40px rgba(179,157,219,.2),inset 0 1px 0 rgba(255,255,255,.1)}
+  header::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent 0deg,rgba(255,204,0,.05) 60deg,transparent 120deg);animation:spin 12s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .header-emoji{font-size:48px;display:block;margin-bottom:8px;animation:bounce 2s ease-in-out infinite}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  header h1{font-family:'Fredoka One',cursive;font-size:26px;color:var(--accent);text-shadow:0 0 20px rgba(255,204,0,.5)}
+  header p{color:var(--purple);font-size:13px;margin-top:6px}
+  .instructions{background:linear-gradient(135deg,rgba(79,195,247,.12),rgba(179,157,219,.12));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px 18px;margin:0 0 20px;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+  .instructions-title{font-family:'Fredoka One',cursive;color:var(--accent);font-size:16px;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+  .instructions p{color:var(--text);font-size:13.5px;line-height:1.55;margin-bottom:10px;font-weight:600}
+  .instructions-grid{display:grid;grid-template-columns:1fr;gap:10px}
+  @media(min-width:720px){.instructions-grid{grid-template-columns:1fr 1fr}}
+  .inst-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px}
+  .inst-card h4{font-family:'Fredoka One',cursive;font-size:13px;color:var(--blue);margin-bottom:6px;font-weight:400}
+  .inst-card ul{padding-left:18px}
+  .inst-card li{font-size:13px;color:var(--text);line-height:1.5;margin:4px 0;font-weight:600}
+  .inst-pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .inst-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800;color:var(--text)}
+  .inst-pill strong{color:var(--accent)}
+  .progress-wrap{background:var(--card);border-radius:14px;padding:16px 20px;margin-bottom:20px;border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:16px}
+  .progress-label{font-family:'Fredoka One',cursive;font-size:15px;color:var(--accent);white-space:nowrap}
+  .progress-bar-outer{flex:1;height:18px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden}
+  .progress-bar-inner{height:100%;background:linear-gradient(90deg,var(--blue),var(--green));border-radius:100px;transition:width .5s cubic-bezier(.34,1.56,.64,1);width:0%}
+  .progress-count{font-weight:800;color:var(--green);font-size:14px;white-space:nowrap}
+  .stars-display{display:flex;gap:4px;align-items:center;font-size:20px}
+  .ws-section{margin-bottom:28px}
+  .section-badge{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;font-family:'Fredoka One',cursive;font-size:14px;padding:8px 18px;border-radius:100px;margin-bottom:14px;box-shadow:0 4px 16px rgba(79,195,247,.25)}
+  .card{background:var(--card);border-radius:var(--r);padding:20px;margin-bottom:14px;border:1px solid rgba(255,255,255,.06);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+  .card-title{font-family:'Fredoka One',cursive;font-size:16px;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .q-block{margin-bottom:20px;animation:fadeIn .4s ease both}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .q-text{font-weight:700;font-size:15px;margin-bottom:10px;display:flex;gap:10px;align-items:flex-start}
+  .q-num{background:linear-gradient(135deg,var(--pink),var(--orange));color:#fff;font-family:'Fredoka One',cursive;min-width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font-size:14px;flex-shrink:0;box-shadow:0 2px 8px rgba(255,107,157,.4)}
+  .opts{display:flex;flex-direction:column;gap:8px;padding-left:40px}
+  .opt-btn{background:rgba(255,255,255,.04);border:2px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 14px;color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;cursor:pointer;text-align:left;transition:all .2s;display:flex;align-items:center;gap:10px}
+  .opt-btn:hover:not(:disabled):not(.selected){background:rgba(79,195,247,.07);border-color:rgba(79,195,247,.3);transform:translateX(4px)}
+  .opt-btn.selected{background:rgba(179,157,219,.18);border-color:var(--purple);color:var(--purple);transform:translateX(4px)}
+  .opt-btn.correct{background:rgba(105,240,174,.15);border-color:var(--green);color:var(--green);animation:pop .3s ease}
+  .opt-btn.wrong{background:rgba(255,82,82,.12);border-color:var(--red);color:var(--red);animation:shake .4s ease}
+  .opt-btn.reveal-correct{background:rgba(105,240,174,.08);border-color:rgba(105,240,174,.4);color:rgba(105,240,174,.7)}
+  .opt-btn:disabled{cursor:default}
+  @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.04)}100%{transform:scale(1)}}
+  @keyframes shake{0%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}100%{transform:translateX(0)}}
+  .feedback-badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:4px 12px;border-radius:100px;margin-top:8px;margin-left:40px}
+  .feedback-badge.correct{background:rgba(105,240,174,.15);color:var(--green)}
+  .feedback-badge.wrong{background:rgba(255,82,82,.12);color:var(--red)}
+  .fill-input{background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.12);border-radius:10px;color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;padding:7px 12px;min-width:120px;transition:all .2s;outline:none}
+  .fill-input:focus{border-color:var(--blue);background:rgba(79,195,247,.08)}
+  .fill-input.saved{border-color:var(--purple);background:rgba(179,157,219,.1);color:var(--purple)}
+  .fill-input.correct{border-color:var(--green);background:rgba(105,240,174,.1);color:var(--green)}
+  .fill-input.wrong{border-color:var(--red);background:rgba(255,82,82,.08);color:var(--red)}
+  .check-btn{background:linear-gradient(135deg,var(--purple),var(--blue));border:none;color:#fff;font-family:'Fredoka One',cursive;font-size:14px;padding:7px 16px;border-radius:10px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 3px 12px rgba(179,157,219,.3)}
+  .check-btn:hover{transform:scale(1.05);box-shadow:0 5px 16px rgba(179,157,219,.4)}
+  .check-btn:disabled{opacity:.5;cursor:default;transform:none}
+  .confirm-overlay{position:fixed;inset:0;background:rgba(10,8,26,.82);backdrop-filter:blur(6px);z-index:500;display:none;align-items:center;justify-content:center}
+  .confirm-overlay.visible{display:flex}
+  .confirm-box{background:linear-gradient(135deg,#2d1b69,#1a0a3d);border:2px solid rgba(255,204,0,.4);border-radius:24px;padding:36px 32px;text-align:center;max-width:420px;width:90%;box-shadow:0 0 60px rgba(255,204,0,.15);animation:fadeIn .25s ease}
+  .confirm-box .cb-icon{font-size:48px;display:block;margin-bottom:12px}
+  .confirm-box h3{font-family:'Fredoka One',cursive;font-size:22px;color:var(--accent);margin-bottom:8px}
+  .confirm-box p{color:var(--purple);font-size:14px;margin-bottom:24px;line-height:1.5}
+  .confirm-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .cb-cancel{background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.15);color:var(--text);font-family:'Fredoka One',cursive;font-size:15px;padding:11px 24px;border-radius:14px;cursor:pointer;transition:all .2s}
+  .cb-cancel:hover{background:rgba(255,255,255,.14)}
+  .cb-confirm{background:linear-gradient(135deg,var(--pink),var(--orange));border:none;color:#fff;font-family:'Fredoka One',cursive;font-size:15px;padding:11px 24px;border-radius:14px;cursor:pointer;box-shadow:0 4px 16px rgba(255,107,157,.4);transition:all .2s}
+  .cb-confirm:hover{transform:scale(1.04);box-shadow:0 6px 22px rgba(255,107,157,.5)}
+  .unanswered-note{background:rgba(255,171,64,.12);border:1px solid rgba(255,171,64,.25);border-radius:10px;padding:8px 14px;font-size:13px;color:var(--orange);margin-bottom:20px;display:none}
+  .answer-reveal{font-size:12px;color:var(--orange);margin-left:40px;margin-top:4px;display:none;font-weight:700}
+  .tf-row{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+  .tf-text{flex:1;font-size:14px;font-weight:600;min-width:200px}
+  .tf-btns{display:flex;gap:6px}
+  .tf-btn{background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.12);border-radius:10px;padding:6px 14px;font-family:'Fredoka One',cursive;font-size:13px;cursor:pointer;transition:all .2s;color:var(--text)}
+  .tf-btn:hover:not(:disabled):not(.selected-true):not(.selected-false){transform:scale(1.08)}
+  .tf-btn.selected-true{background:rgba(179,157,219,.2);border-color:var(--purple);color:var(--purple)}
+  .tf-btn.selected-false{background:rgba(179,157,219,.2);border-color:var(--purple);color:var(--purple)}
+  .tf-btn.correct{background:rgba(105,240,174,.2);border-color:var(--green);color:var(--green)}
+  .tf-btn.wrong{background:rgba(255,82,82,.15);border-color:var(--red);color:var(--red)}
+  .tf-btn:disabled{cursor:default}
+  .short-textarea{width:calc(100% - 40px);background:rgba(255,255,255,.04);border:2px solid rgba(255,255,255,.1);border-radius:12px;color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;padding:10px 14px;resize:vertical;min-height:70px;outline:none;transition:border-color .2s;margin-top:6px;margin-left:40px}
+  .short-textarea:focus{border-color:var(--purple);background:rgba(179,157,219,.06)}
+  .submit-short-btn{margin-left:40px;margin-top:6px;background:linear-gradient(135deg,var(--orange),var(--pink));border:none;color:#fff;font-family:'Fredoka One',cursive;font-size:13px;padding:7px 16px;border-radius:10px;cursor:pointer;transition:transform .2s;box-shadow:0 3px 12px rgba(255,107,157,.3)}
+  .submit-short-btn:hover{transform:scale(1.05)}
+  .short-saved{margin-left:40px;margin-top:4px;font-size:12px;color:var(--green);display:none}
+  .confetti-container{position:fixed;inset:0;pointer-events:none;z-index:1000;overflow:hidden}
+  .confetti-piece{position:absolute;width:10px;height:10px;border-radius:2px;animation:confettiFall linear forwards;top:-20px}
+  @keyframes confettiFall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+  #scoreSummary{background:linear-gradient(135deg,#1a0a3d,#2d1b69);border:2px solid rgba(255,204,0,.4);border-radius:24px;padding:0;margin-top:28px;display:none;box-shadow:0 0 50px rgba(255,204,0,.15);overflow:hidden}
+  .score-hero{padding:36px 28px 28px;text-align:center;border-bottom:2px solid rgba(255,255,255,.07)}
+  .score-trophy{font-size:52px;animation:bounce 1s ease-in-out infinite;display:block;margin-bottom:8px}
+  #scoreSummary h2{font-family:'Fredoka One',cursive;font-size:30px;color:var(--accent);margin-bottom:8px}
+  .score-circle{width:110px;height:110px;border-radius:50%;background:conic-gradient(var(--green) calc(var(--pct)*1%),rgba(255,255,255,.08) 0%);display:grid;place-items:center;margin:16px auto;box-shadow:0 0 30px rgba(105,240,174,.3);position:relative}
+  .score-circle::after{content:'';position:absolute;inset:8px;border-radius:50%;background:#1a0a3d}
+  .score-num{font-family:'Fredoka One',cursive;font-size:26px;color:var(--text);position:relative;z-index:1}
+  .score-msg{font-size:17px;margin-top:10px}
+  .score-stats{display:flex;justify-content:center;gap:16px;margin-top:20px;flex-wrap:wrap}
+  .stat-pill{display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 20px;min-width:90px}
+  .stat-pill .stat-val{font-family:'Fredoka One',cursive;font-size:24px}
+  .stat-pill .stat-lbl{font-size:11px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.05em}
+  .stat-pill.correct .stat-val{color:var(--green)}
+  .stat-pill.wrong .stat-val{color:var(--red)}
+  .stat-pill.total .stat-val{color:var(--blue)}
+  .stat-pill.skipped .stat-val{color:var(--orange)}
+  .results-breakdown{padding:24px 28px;border-bottom:2px solid rgba(255,255,255,.07)}
+  .results-heading{font-family:'Fredoka One',cursive;font-size:18px;color:var(--accent);margin-bottom:16px}
+  .result-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px 16px;margin-bottom:10px;display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:start;animation:fadeIn .3s ease both}
+  .result-item.ri-correct{border-left:3px solid var(--green)}
+  .result-item.ri-wrong{border-left:3px solid var(--red)}
+  .result-item.ri-skipped{border-left:3px solid var(--orange);opacity:.7}
+  .ri-icon{font-size:18px;margin-top:1px}
+  .ri-body{font-size:13px}
+  .ri-qtext{font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.4}
+  .ri-row{display:flex;align-items:center;gap:6px;margin-top:4px;flex-wrap:wrap}
+  .ri-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;min-width:80px}
+  .ri-val{font-size:13px;font-weight:700;padding:2px 10px;border-radius:100px}
+  .ri-val.your-correct{background:rgba(105,240,174,.15);color:var(--green)}
+  .ri-val.your-wrong{background:rgba(255,82,82,.15);color:var(--red)}
+  .ri-val.correct-ans{background:rgba(105,240,174,.1);color:var(--green);border:1px solid rgba(105,240,174,.3)}
+  .ri-val.skipped-val{background:rgba(255,171,64,.12);color:var(--orange)}
+  .ri-badge{font-size:11px;font-weight:800;padding:3px 10px;border-radius:100px}
+  .ri-badge.correct{background:rgba(105,240,174,.2);color:var(--green)}
+  .ri-badge.wrong{background:rgba(255,82,82,.15);color:var(--red)}
+  .ri-badge.skipped{background:rgba(255,171,64,.15);color:var(--orange)}
+  .score-actions{display:flex;justify-content:center;gap:14px;padding:24px 28px;flex-wrap:wrap}
+  .restart-btn{background:linear-gradient(135deg,var(--accent),var(--orange));border:none;color:#111;font-family:'Fredoka One',cursive;font-size:16px;padding:13px 28px;border-radius:16px;cursor:pointer;box-shadow:0 4px 20px rgba(255,204,0,.4);transition:transform .2s,box-shadow .2s}
+  .restart-btn:hover{transform:scale(1.05);box-shadow:0 8px 28px rgba(255,204,0,.5)}
+  .print-btn{background:linear-gradient(135deg,var(--blue),var(--purple));border:none;color:#fff;font-family:'Fredoka One',cursive;font-size:16px;padding:13px 28px;border-radius:16px;cursor:pointer;box-shadow:0 4px 20px rgba(79,195,247,.3);transition:transform .2s,box-shadow .2s}
+  .print-btn:hover{transform:scale(1.05);box-shadow:0 8px 28px rgba(79,195,247,.4)}
+  .float-submit{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,var(--pink),var(--orange));border:none;color:#fff;font-family:'Fredoka One',cursive;font-size:16px;padding:14px 24px;border-radius:100px;cursor:pointer;box-shadow:0 6px 24px rgba(255,107,157,.5);transition:transform .2s,box-shadow .2s;z-index:100;display:flex;align-items:center;gap:8px}
+  .float-submit:hover{transform:scale(1.06) translateY(-2px);box-shadow:0 10px 32px rgba(255,107,157,.6)}
+  .divider{height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);margin:8px 0 16px}
+  @media print{body{background:#fff!important;color:#111!important}body::before{display:none!important}.page{max-width:100%!important;padding:0!important}header,.instructions,.progress-wrap,.ws-section,.float-submit,.confetti-container,.score-actions{display:none!important}#scoreSummary{display:block!important;box-shadow:none!important;border:none!important;background:#fff!important;padding:0!important}.score-hero{background:linear-gradient(135deg,#f0eeff,#e8e0ff)!important;border-radius:12px!important;padding:20px!important;border:2px solid #b39ddb!important;margin-bottom:16px}#scoreSummary h2{color:#2d1b69!important}.score-circle{background:conic-gradient(#2ecc71 calc(var(--pct)*1%),#ddd 0%)!important;box-shadow:none!important}.score-circle::after{background:#f0eeff!important}.score-num,.score-msg{color:#111!important}.stat-pill{background:#f4f4f4!important;border:1px solid #ddd!important}.stat-pill .stat-lbl{color:#666!important}.stat-pill.correct .stat-val{color:#1a9e5a!important}.stat-pill.wrong .stat-val{color:#cc3333!important}.stat-pill.total .stat-val{color:#1565c0!important}.stat-pill.skipped .stat-val{color:#e65100!important}.results-breakdown{padding:0!important}.results-heading{color:#2d1b69!important}.result-item{background:#fafafa!important;border:1px solid #ddd!important;break-inside:avoid}.result-item.ri-correct{border-left:3px solid #2ecc71!important}.result-item.ri-wrong{border-left:3px solid #e74c3c!important}.result-item.ri-skipped{border-left:3px solid #e67e22!important}.ri-qtext{color:#111!important}.ri-label{color:#666!important}.ri-val.your-correct{background:#d4f8e8!important;color:#1a9e5a!important}.ri-val.your-wrong{background:#fde8e8!important;color:#cc3333!important}.ri-val.correct-ans{background:#d4f8e8!important;color:#1a9e5a!important}.ri-val.skipped-val{background:#fef0e0!important;color:#e65100!important}.ri-badge.correct{background:#d4f8e8!important;color:#1a9e5a!important}.ri-badge.wrong{background:#fde8e8!important;color:#cc3333!important}.ri-badge.skipped{background:#fef0e0!important;color:#e65100!important}}
 </style>
 </head>
 <body>
-
-<div class="page">
-  <header>
-    <span class="header-emoji">📖</span>
-    <h1>Grade 4 English Revision</h1>
-    <p>Practice test based on Revision.pdf</p>
-  </header>
-
-  <div class="progress-wrap">
-    <div class="progress-bar-outer"><div class="progress-bar-inner" id="progressBar"></div></div>
-    <div class="progress-count" id="progressCount">0 / 100</div>
-  </div>
-
-  <div class="ws-section">
-    <div class="section-badge">🏆 Degrees of Adjectives</div>
-    <div class="card" id="mcq-container-1">
-      <div class="card-title">Comparative & Superlative</div>
-      </div>
-  </div>
-
-  <div class="ws-section">
-    <div class="section-badge">✨ Verb "To Be" (am, is, are)</div>
-    <div class="card" id="fill-container-1">
-      <div class="card-title">Present Tense Practice</div>
+<div class="confetti-container" id="confettiContainer"></div>
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <span class="cb-icon">📝</span>
+    <h3>Submit Your Test?</h3>
+    <p>Once you submit, you cannot change your answers.<br>Your results will be revealed immediately.</p>
+    <div class="unanswered-note" id="unansweredNote"></div>
+    <div class="confirm-btns">
+      <button class="cb-cancel" onclick="closeConfirm()">← Keep Answering</button>
+      <button class="cb-confirm" onclick="confirmSubmit()">Submit Now 🚀</button>
     </div>
-  </div>
-
-  <div class="ws-section">
-    <div class="section-badge">🌍 Proper Nouns & Adjectives</div>
-    <div class="card" id="mcq-container-2">
-      <div class="card-title">Identify Countries & Nationalities</div>
-    </div>
-  </div>
-
-  <div class="ws-section">
-    <div class="section-badge">🐻 The Grizzy-Groo & Fizz Fuzz</div>
-    <div class="card" id="poem-container">
-      <div class="card-title">Nonsense Poem Analysis</div>
-    </div>
-  </div>
-
-  <div id="scoreSummary">
-    <h2 id="scoreHeading">Test Complete!</h2>
-    <div style="font-size: 48px; margin: 20px 0;" id="scoreNum">0%</div>
-    <p id="scoreMsg"></p>
-    <button onclick="location.reload()" style="margin-top:20px; padding:10px 20px; border-radius:10px; cursor:pointer;">Restart Test</button>
   </div>
 </div>
 
-<button class="float-submit" onclick="gradeTest()">🎯 Submit Test</button>
+<div class="page">
+  <header>
+    <span class="header-emoji">📚</span>
+    <h1>Grade 4 English — 100 Question Exam Prep!</h1>
+    <p>Teacher: Miss Malaika Riaz &nbsp;|&nbsp; Topics: Adjectives • Verb To Be • Punctuation • Homophones • Story Parts & More!</p>
+  </header>
+
+  <div class="instructions">
+    <div class="instructions-title">📌 How to use this worksheet</div>
+    <p>Answer all 100 questions across 12 sections. You can change answers any time <strong>before</strong> you hit Submit. The progress bar tracks how many questions you have attempted.</p>
+    <div class="instructions-grid">
+      <div class="inst-card"><h4>🎯 MCQ Questions</h4><ul><li>Click one option to select it.</li><li>Click another to change your choice.</li><li>Do not submit until you are done!</li></ul></div>
+      <div class="inst-card"><h4>✏️ Fill in the Blanks</h4><ul><li>Type your answer in the box.</li><li>Click <strong>Save 💾</strong> — important!</li><li>You can re-save a new answer any time.</li></ul></div>
+      <div class="inst-card"><h4>✅ True / False</h4><ul><li>Choose True or False for each statement.</li><li>You can change before submitting.</li></ul></div>
+      <div class="inst-card"><h4>📖 Short Answers (Part D)</h4><ul><li>Write your answer in the text box.</li><li>Click <strong>Save ✓</strong> to store it.</li><li>Short answers are teacher-checked, not auto-graded.</li></ul></div>
+    </div>
+    <div class="inst-pill-row">
+      <div class="inst-pill">🟣 <strong>Saved</strong> = stored, not graded yet</div>
+      <div class="inst-pill">🎯 Submit = shows score instantly</div>
+      <div class="inst-pill">⏭️ Unanswered = marked skipped</div>
+      <div class="inst-pill">🖨️ Print = prints results page</div>
+    </div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-label">🌟 Progress</div>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="progressBar"></div></div>
+    <div class="progress-count" id="progressCount">0 / 0</div>
+    <div class="stars-display" id="starsDisplay">⭐⭐⭐⭐⭐</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 1: COMPARATIVE & SUPERLATIVE          -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">📘 Section 1 — Comparative &amp; Superlative Adjectives</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q1–Q5)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">1</span><span>What is the <strong>comparative</strong> form of "tall"?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','a')">🔵 a) most tall</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','b')">🟢 b) taller</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','c')">🟡 c) tallest</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','d')">🔴 d) talls</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">2</span><span>What is the <strong>superlative</strong> form of "big"?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','a')">🔵 a) bigger</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','b')">🟢 b) more big</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','c')">🟡 c) biggest</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q2','d')">🔴 d) bigest</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">3</span><span>The <strong>comparative</strong> of "good" is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','a')">🔵 a) gooder</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','b')">🟢 b) more good</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','c')">🟡 c) better</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q3','d')">🔴 d) best</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">4</span><span>The <strong>superlative</strong> of "happy" is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','a')">🔵 a) happier</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','b')">🟢 b) more happy</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','c')">🟡 c) most happy</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q4','d')">🔴 d) happiest</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">5</span><span>What is the <strong>comparative</strong> form of "heavy"?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','a')">🔵 a) heavyer</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','b')">🟢 b) more heavy</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','c')">🟡 c) heavier</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q5','d')">🔴 d) heaviest</button>
+        </div>
+        <div class="feedback-badge" id="fb_s1q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks (B1–B5)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B1</span><span>The comparative of "fast" is: <input type="text" class="fill-input" id="s1b1" placeholder="???"></span></div>
+        <button class="check-btn" onclick="saveFill('s1b1',['faster'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s1b1">💡 Answer: faster</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B2</span><span>The superlative of "cold" is: <input type="text" class="fill-input" id="s1b2" placeholder="???"></span></div>
+        <button class="check-btn" onclick="saveFill('s1b2',['coldest'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s1b2">💡 Answer: coldest</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B3</span><span>The comparative of "long" is: <input type="text" class="fill-input" id="s1b3" placeholder="???"></span></div>
+        <button class="check-btn" onclick="saveFill('s1b3',['longer'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s1b3">💡 Answer: longer</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B4</span><span>The superlative of "small" is: <input type="text" class="fill-input" id="s1b4" placeholder="???"></span></div>
+        <button class="check-btn" onclick="saveFill('s1b4',['smallest'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s1b4">💡 Answer: smallest</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B5</span><span>The comparative of "bright" is: <input type="text" class="fill-input" id="s1b5" placeholder="???"></span></div>
+        <button class="check-btn" onclick="saveFill('s1b5',['brighter'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s1b5">💡 Answer: brighter</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 2: VERB TO BE                         -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">🔤 Section 2 — Verb "To Be": am, is, are</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q6–Q10)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">6</span><span>Choose the correct verb: "The classroom ___ neat."</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','a')">🔵 a) am</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','b')">🟢 b) is</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','c')">🟡 c) are</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q1','d')">🔴 d) be</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">7</span><span>Choose the correct verb: "The students ___ ready to learn."</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','a')">🔵 a) am</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','b')">🟢 b) is</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','c')">🟡 c) are</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q2','d')">🔴 d) was</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">8</span><span>Choose the correct verb: "I ___ a student of Grade 4."</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','a')">🔵 a) am</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','b')">🟢 b) is</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','c')">🟡 c) are</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q3','d')">🔴 d) be</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">9</span><span>Choose the correct verb: "My best friend ___ kind and helpful."</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q4','a')">🔵 a) am</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q4','b')">🟢 b) is</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q4','c')">🟡 c) are</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q4','d')">🔴 d) were</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">10</span><span>Choose the correct verb: "We ___ sitting in the classroom."</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q5','a')">🔵 a) am</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q5','b')">🟢 b) is</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q5','c')">🟡 c) are</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s2q5','d')">🔴 d) was</button>
+        </div>
+        <div class="feedback-badge" id="fb_s2q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks (B6–B7)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B6</span><span>"My name ___ Ayaan." Fill in: <input type="text" class="fill-input" id="s2b1" placeholder="am / is / are"></span></div>
+        <button class="check-btn" onclick="saveFill('s2b1',['is'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s2b1">💡 Answer: is</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B7</span><span>"I ___ very excited about English class." Fill in: <input type="text" class="fill-input" id="s2b2" placeholder="am / is / are"></span></div>
+        <button class="check-btn" onclick="saveFill('s2b2',['am'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s2b2">💡 Answer: am</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 3: PROPER NOUNS & ADJECTIVES          -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">🗺️ Section 3 — Proper Nouns &amp; Proper Adjectives</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q11–Q15)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">11</span><span>Which of the following is a <strong>proper noun</strong>?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','a')">🔵 a) city</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','b')">🟢 b) teacher</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','c')">🟡 c) Pakistan</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q1','d')">🔴 d) school</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">12</span><span>Which of the following is a <strong>proper adjective</strong>?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','a')">🔵 a) beautiful</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','b')">🟢 b) Chinese</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','c')">🟡 c) happy</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q2','d')">🔴 d) small</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">13</span><span>The proper noun in "We visited Karachi during our holidays" is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','a')">🔵 a) holidays</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','b')">🟢 b) visited</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','c')">🟡 c) Karachi</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q3','d')">🔴 d) during</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">14</span><span>Which sentence contains a <strong>proper adjective</strong>?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','a')">🔵 a) She is very tall.</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','b')">🟢 b) He likes apples.</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','c')">🟡 c) I like Pakistani clothes.</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q4','d')">🔴 d) The sky is blue.</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">15</span><span>In "Friday is my favourite school day," the proper noun is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q5','a')">🔵 a) favourite</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q5','b')">🟢 b) school</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q5','c')">🟡 c) Friday</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s3q5','d')">🔴 d) day</button>
+        </div>
+        <div class="feedback-badge" id="fb_s3q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False? (C1–C3)</div>
+      <div class="tf-row"><div class="tf-text">C1. "Pakistan" is a proper noun.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s3c1','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s3c1','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C2. Proper adjectives do NOT need a capital letter.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s3c2','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s3c2','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C3. "December" is a proper noun.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s3c3','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s3c3','False')">False</button></div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 4: PUNCTUATION                        -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">✏️ Section 4 — Punctuation Marks (. ? ! ,)</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q16–Q20)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">16</span><span>"Where are you going" needs which punctuation mark at the end?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','a')">🔵 a) Full stop (.)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','b')">🟢 b) Exclamation mark (!)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','c')">🟡 c) Question mark (?)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q1','d')">🔴 d) Comma (,)</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">17</span><span>"Oh no I forgot my bag" needs which mark to show strong feeling?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','a')">🔵 a) Question mark (?)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','b')">🟢 b) Exclamation mark (!)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','c')">🟡 c) Full stop (.)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q2','d')">🔴 d) Comma (,)</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">18</span><span>Which punctuation mark separates items in a list?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','a')">🔵 a) Exclamation mark (!)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','b')">🟢 b) Question mark (?)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','c')">🟡 c) Full stop (.)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q3','d')">🔴 d) Comma (,)</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">19</span><span>"Stop making noise" ends with which mark?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','a')">🔵 a) Question mark (?)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','b')">🟢 b) Exclamation mark (!)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','c')">🟡 c) Full stop (.)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q4','d')">🔴 d) Comma (,)</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">20</span><span>"How beautiful this place is" ends with which mark?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','a')">🔵 a) Full stop (.)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','b')">🟢 b) Question mark (?)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','c')">🟡 c) Exclamation mark (!)</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s4q5','d')">🔴 d) Comma (,)</button>
+        </div>
+        <div class="feedback-badge" id="fb_s4q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False? (C4–C6)</div>
+      <div class="tf-row"><div class="tf-text">C4. A question mark is used at the end of a statement.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s4c1','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s4c1','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C5. An exclamation mark shows strong feeling or excitement.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s4c2','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s4c2','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C6. Commas can be used to separate items in a list.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s4c3','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s4c3','False')">False</button></div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 5: HOMOPHONES                         -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">🔀 Section 5 — Homophones</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q21–Q28)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">21</span><span>A homophone of "see" is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','a')">🔵 a) say</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','b')">🟢 b) sea</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','c')">🟡 c) she</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q1','d')">🔴 d) key</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">22</span><span>"The book is over ___." Choose the correct homophone.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','a')">🔵 a) their</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','b')">🟢 b) there</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','c')">🟡 c) they're</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q2','d')">🔴 d) thier</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">23</span><span>"I will ___ my homework now." Choose the correct word.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','a')">🔵 a) right</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','b')">🟢 b) write</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','c')">🟡 c) wright</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q3','d')">🔴 d) rite</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">24</span><span>"She has ___ sisters." Choose the correct word.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','a')">🔵 a) too</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','b')">🟢 b) to</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','c')">🟡 c) two</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q4','d')">🔴 d) tew</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">25</span><span>"The horse has a long ___." Choose the correct word.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','a')">🔵 a) tale</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','b')">🟢 b) tail</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','c')">🟡 c) tael</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q5','d')">🔴 d) teel</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q5" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">26</span><span>"We are going ___ bus." Choose the correct word.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q6','a')">🔵 a) buy</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q6','b')">🟢 b) bye</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q6','c')">🟡 c) by</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q6','d')">🔴 d) bi</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q6" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">27</span><span>"The baby is ___." Choose the correct word (homophone of "week").</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q7','a')">🔵 a) week</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q7','b')">🟢 b) weak</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q7','c')">🟡 c) weke</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q7','d')">🔴 d) weac</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q7" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">28</span><span>A homophone of "son" is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q8','a')">🔵 a) some</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q8','b')">🟢 b) same</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q8','c')">🟡 c) sun</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s5q8','d')">🔴 d) sin</button>
+        </div>
+        <div class="feedback-badge" id="fb_s5q8" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 6: APOSTROPHES & CONTRACTIONS         -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">🔗 Section 6 — Apostrophes &amp; Contractions</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q29–Q33)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">29</span><span>The correct contraction for "do not" is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q1','a')">🔵 a) do'nt</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q1','b')">🟢 b) dont</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q1','c')">🟡 c) don't</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q1','d')">🔴 d) do-not</button>
+        </div>
+        <div class="feedback-badge" id="fb_s6q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">30</span><span>The correct contraction for "I am" is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q2','a')">🔵 a) Im</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q2','b')">🟢 b) I'm</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q2','c')">🟡 c) I'am</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q2','d')">🔴 d) Iam</button>
+        </div>
+        <div class="feedback-badge" id="fb_s6q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">31</span><span>The correct contraction for "will not" is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q3','a')">🔵 a) willn't</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q3','b')">🟢 b) wont</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q3','c')">🟡 c) won't</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q3','d')">🔴 d) will'nt</button>
+        </div>
+        <div class="feedback-badge" id="fb_s6q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">32</span><span>The correct contraction for "They are" is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q4','a')">🔵 a) Theyre</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q4','b')">🟢 b) They'are</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q4','c')">🟡 c) They're</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q4','d')">🔴 d) Theyr'e</button>
+        </div>
+        <div class="feedback-badge" id="fb_s6q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">33</span><span>The correct contraction for "She is" is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q5','a')">🔵 a) Shes</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q5','b')">🟢 b) She's</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q5','c')">🟡 c) Sh'is</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s6q5','d')">🔴 d) She'is</button>
+        </div>
+        <div class="feedback-badge" id="fb_s6q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks (B8–B11)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B8</span><span>Write the contraction of "I am happy." → <input type="text" class="fill-input" id="s6b1" placeholder="???"> happy.</span></div>
+        <button class="check-btn" onclick="saveFill('s6b1',['i\'m','im'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s6b1">💡 Answer: I'm</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B9</span><span>Write the contraction of "We are ready." → <input type="text" class="fill-input" id="s6b2" placeholder="???"> ready.</span></div>
+        <button class="check-btn" onclick="saveFill('s6b2',['we\'re','were'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s6b2">💡 Answer: We're</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B10</span><span>Write the contraction of "Do not run in class." → <input type="text" class="fill-input" id="s6b3" placeholder="???"> run in class.</span></div>
+        <button class="check-btn" onclick="saveFill('s6b3',['don\'t','dont'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s6b3">💡 Answer: Don't</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B11</span><span>Write the contraction of "They are happy." → <input type="text" class="fill-input" id="s6b4" placeholder="???"> happy.</span></div>
+        <button class="check-btn" onclick="saveFill('s6b4',['they\'re','theyre'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s6b4">💡 Answer: They're</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False? (C7–C9)</div>
+      <div class="tf-row"><div class="tf-text">C7. An apostrophe in a contraction shows where letters are missing.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s6c1','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s6c1','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C8. "cant" (without apostrophe) is the correctly written contraction for "cannot".</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s6c2','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s6c2','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C9. "Ali's book" uses an apostrophe to show possession.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s6c3','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s6c3','False')">False</button></div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 7: SPEECH MARKS                       -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">💬 Section 7 — Speech Marks</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q34–Q38)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">34</span><span>Which sentence uses speech marks correctly?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q1','a')">🔵 a) Ali said I am happy.</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q1','b')">🟢 b) Ali said, "I am happy."</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q1','c')">🟡 c) "Ali said, I am happy".</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q1','d')">🔴 d) Ali, said "I am happy"</button>
+        </div>
+        <div class="feedback-badge" id="fb_s7q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">35</span><span>Where do speech marks go in a sentence?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q2','a')">🔵 a) Around the whole sentence</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q2','b')">🟢 b) Around the exact words spoken</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q2','c')">🟡 c) At the end of the sentence only</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q2','d')">🔴 d) At the beginning only</button>
+        </div>
+        <div class="feedback-badge" id="fb_s7q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">36</span><span>"Where are you going?" asked Ahmed. This is an example of:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q3','a')">🔵 a) A statement</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q3','b')">🟢 b) Direct speech</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q3','c')">🟡 c) Indirect speech</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q3','d')">🔴 d) A question without speech marks</button>
+        </div>
+        <div class="feedback-badge" id="fb_s7q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">37</span><span>Which is the correct rewrite of: Mother said Wash your hands.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q4','a')">🔵 a) Mother said, "Wash your hands."</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q4','b')">🟢 b) "Mother said Wash your hands."</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q4','c')">🟡 c) Mother, said "Wash your hands"</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q4','d')">🔴 d) Mother said 'Wash your hands'</button>
+        </div>
+        <div class="feedback-badge" id="fb_s7q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">38</span><span>In 'The teacher said, "Write your name."' — what are the spoken words?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q5','a')">🔵 a) The teacher said</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q5','b')">🟢 b) Write your name</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q5','c')">🟡 c) The teacher</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s7q5','d')">🔴 d) said</button>
+        </div>
+        <div class="feedback-badge" id="fb_s7q5" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 8: PARTS OF A STORY                   -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">📖 Section 8 — Parts of a Story (Plot Structure)</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q39–Q43)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">39</span><span>The <strong>introduction</strong> of a story tells us:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q1','a')">🔵 a) How the problem is solved</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q1','b')">🟢 b) The most exciting part</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q1','c')">🟡 c) Who the characters are and where the story happens</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q1','d')">🔴 d) The events and actions</button>
+        </div>
+        <div class="feedback-badge" id="fb_s8q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">40</span><span>The <strong>climax</strong> of a story is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q2','a')">🔵 a) The beginning</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q2','b')">🟢 b) The ending</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q2','c')">🟡 c) The most exciting or important part</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q2','d')">🔴 d) How the problem is solved</button>
+        </div>
+        <div class="feedback-badge" id="fb_s8q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">41</span><span>The <strong>resolution</strong> of a story shows:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q3','a')">🔵 a) Characters and setting</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q3','b')">🟢 b) How the problem is solved</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q3','c')">🟡 c) The most exciting part</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q3','d')">🔴 d) How the story finishes</button>
+        </div>
+        <div class="feedback-badge" id="fb_s8q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">42</span><span>Which part of a story includes the events and actions?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q4','a')">🔵 a) Introduction</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q4','b')">🟢 b) Climax</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q4','c')">🟡 c) Plot</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q4','d')">🔴 d) Resolution</button>
+        </div>
+        <div class="feedback-badge" id="fb_s8q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">43</span><span>Match: "Ahmed answered a difficult question correctly and the teacher praised him." This shows the:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q5','a')">🔵 a) Introduction</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q5','b')">🟢 b) Plot</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q5','c')">🟡 c) Climax</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s8q5','d')">🔴 d) Ending</button>
+        </div>
+        <div class="feedback-badge" id="fb_s8q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False? (C10–C13)</div>
+      <div class="tf-row"><div class="tf-text">C10. The climax comes BEFORE the introduction in a story.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s8c1','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s8c1','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C11. The plot includes the events of the story.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s8c2','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s8c2','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C12. The resolution shows how the problem ends.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s8c3','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s8c3','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C13. Every story must have an ending.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s8c4','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s8c4','False')">False</button></div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 9: NONSENSE POEMS                     -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">🎭 Section 9 — Nonsense Poems &amp; Literary Devices</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q44–Q48)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">44</span><span>What is a nonsense poem mainly written for?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q1','a')">🔵 a) To teach facts</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q1','b')">🟢 b) For fun and to encourage imagination</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q1','c')">🟡 c) To tell the news</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q1','d')">🔴 d) To describe real people</button>
+        </div>
+        <div class="feedback-badge" id="fb_s9q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">45</span><span>In "The Flimsy Flopsy Frog," what does the frog wear on his feet?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q2','a')">🔵 a) Shoes</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q2','b')">🟢 b) Sandals</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q2','c')">🟡 c) Boots</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q2','d')">🔴 d) Nothing</button>
+        </div>
+        <div class="feedback-badge" id="fb_s9q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">46</span><span>Which pair of words rhymes in "The Flimsy Flopsy Frog"?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q3','a')">🔵 a) boots / head</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q3','b')">🟢 b) town / down</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q3','c')">🟡 c) trees / frog</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q3','d')">🔴 d) frog / boots</button>
+        </div>
+        <div class="feedback-badge" id="fb_s9q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">47</span><span>What did the Flimsy Flopsy Frog balance on his head?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q4','a')">🔵 a) Books</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q4','b')">🟢 b) Hats</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q4','c')">🟡 c) Pies</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q4','d')">🔴 d) Fruits</button>
+        </div>
+        <div class="feedback-badge" id="fb_s9q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">48</span><span>What is <strong>alliteration</strong>?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q5','a')">🔵 a) Words that rhyme at the end</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q5','b')">🟢 b) Words that start with the same letter sound</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q5','c')">🟡 c) Silly made-up words</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s9q5','d')">🔴 d) Words listed in a poem</button>
+        </div>
+        <div class="feedback-badge" id="fb_s9q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False? (C14–C16)</div>
+      <div class="tf-row"><div class="tf-text">C14. A nonsense poem must always make real, logical sense.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s9c1','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s9c1','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C15. In "The Flimsy Flopsy Frog," the frog stood upon his head.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s9c2','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s9c2','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C16. In the Grizzy-Groo poem, "mud" and "thud" are rhyming words.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s9c3','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s9c3','False')">False</button></div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 10: NEWS REPORT COMPREHENSION         -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">📰 Section 10 — News Report Comprehension</div>
+
+    <div class="card">
+      <div class="card-title">🔍 Read and answer about the News Report below!</div>
+      <div style="background:rgba(79,195,247,0.07);border:1px solid rgba(79,195,247,0.2);border-radius:14px;padding:16px;margin-bottom:16px;font-size:13.5px;line-height:1.7;font-weight:600">
+        <strong style="color:var(--accent);font-family:'Fredoka One',cursive;">THE DAILY TIMES — February 14, 2026</strong><br>
+        <strong style="color:var(--blue);">Headline: LOCAL HERO: 9-YEAR-OLD SAVES CITY PARK!</strong><br><br>
+        ISLAMABAD – A 4th-grade student, Ali Ahmed, has become a local hero after starting a "Green Club" to save the National City Park. The park was filled with plastic bottles and trash, making it unsafe for birds and children.<br><br>
+        Last Sunday, Ali and ten of his classmates spent five hours cleaning the park. They collected over twenty bags of garbage. The City Mayor visited the park and announced new dustbins and more flowers. He also gave Ali a "Young Citizen Award" for his leadership.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q49–Q53)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">49</span><span>Who is the main person in the news report?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q1','a')">🔵 a) The Mayor</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q1','b')">🟢 b) The teacher</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q1','c')">🟡 c) Ali Ahmed</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q1','d')">🔴 d) The reporter</button>
+        </div>
+        <div class="feedback-badge" id="fb_s10q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">50</span><span>Why was the park considered "unsafe"?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q2','a')">🔵 a) Wild animals lived there</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q2','b')">🟢 b) The equipment was broken</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q2','c')">🟡 c) Too much trash and plastic bottles</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q2','d')">🔴 d) There was no water</button>
+        </div>
+        <div class="feedback-badge" id="fb_s10q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">51</span><span>What award did Ali receive?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q3','a')">🔵 a) Green Hero Award</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q3','b')">🟢 b) Young Citizen Award</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q3','c')">🟡 c) Mayor's Excellence Award</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q3','d')">🔴 d) School Leadership Award</button>
+        </div>
+        <div class="feedback-badge" id="fb_s10q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">52</span><span>How many classmates helped Ali clean the park?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q4','a')">🔵 a) Five</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q4','b')">🟢 b) Twenty</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q4','c')">🟡 c) Ten</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q4','d')">🔴 d) Fifteen</button>
+        </div>
+        <div class="feedback-badge" id="fb_s10q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">53</span><span>What did the Mayor promise to provide for the park?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q5','a')">🔵 a) New benches and lights</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q5','b')">🟢 b) New dustbins and more flowers</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q5','c')">🟡 c) Swings and slides</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s10q5','d')">🔴 d) Trees and benches</button>
+        </div>
+        <div class="feedback-badge" id="fb_s10q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks (B12–B13)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B12</span><span>Ali started a "<input type="text" class="fill-input" id="s10b1" placeholder="???"> Club" to save the park.</span></div>
+        <button class="check-btn" onclick="saveFill('s10b1',['green'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s10b1">💡 Answer: Green</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B13</span><span>Ali and his classmates collected over <input type="text" class="fill-input" id="s10b2" placeholder="???"> bags of garbage.</span></div>
+        <button class="check-btn" onclick="saveFill('s10b2',['twenty','20'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s10b2">💡 Answer: twenty</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 11: SYLLABLES                         -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">🎵 Section 11 — Syllables (Stressed &amp; Unstressed)</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q54–Q58)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">54</span><span>How many syllables does "pen-cil" have?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q1','a')">🔵 a) 1</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q1','b')">🟢 b) 2</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q1','c')">🟡 c) 3</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q1','d')">🔴 d) 4</button>
+        </div>
+        <div class="feedback-badge" id="fb_s11q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">55</span><span>In "TA-ble," which syllable is <strong>stressed</strong> (said louder)?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q2','a')">🔵 a) ble</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q2','b')">🟢 b) TA</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q2','c')">🟡 c) Both equally</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q2','d')">🔴 d) Neither</button>
+        </div>
+        <div class="feedback-badge" id="fb_s11q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">56</span><span>How many syllables does "ba-na-na" have?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q3','a')">🔵 a) 2</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q3','b')">🟢 b) 3</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q3','c')">🟡 c) 4</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q3','d')">🔴 d) 1</button>
+        </div>
+        <div class="feedback-badge" id="fb_s11q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">57</span><span>In "TEA-cher," which syllable is stressed?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q4','a')">🔵 a) cher</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q4','b')">🟢 b) TEA</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q4','c')">🟡 c) Both equally</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q4','d')">🔴 d) Neither</button>
+        </div>
+        <div class="feedback-badge" id="fb_s11q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">58</span><span>How many syllables does "gar-den" have?</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q5','a')">🔵 a) 1</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q5','b')">🟢 b) 2</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q5','c')">🟡 c) 3</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s11q5','d')">🔴 d) 4</button>
+        </div>
+        <div class="feedback-badge" id="fb_s11q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False? (C17–C19)</div>
+      <div class="tf-row"><div class="tf-text">C17. A syllable is a part of a word that we say in one beat.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s11c1','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s11c1','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C18. The word "cat" has two syllables.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s11c2','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s11c2','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">C19. In "be-GIN," the stressed syllable is "be".</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'s11c3','True')">True</button><button class="tf-btn" onclick="selectTF(this,'s11c3','False')">False</button></div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SECTION 12: DEGREES OF ADJECTIVES             -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">📊 Section 12 — Degrees of Adjectives</div>
+
+    <div class="card">
+      <div class="card-title">🎯 Part A — Multiple Choice (Q59–Q63)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">59</span><span>"The Grizzy-Groo is ___ (funny) than a normal brown bear." Fill in the blank.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q1','a')">🔵 a) funniest</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q1','b')">🟢 b) more funny</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q1','c')">🟡 c) funnier</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q1','d')">🔴 d) funny</button>
+        </div>
+        <div class="feedback-badge" id="fb_s12q1" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">60</span><span>"This is the ___ (strange) poem in the whole book." Fill in the blank.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q2','a')">🔵 a) stranger</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q2','b')">🟢 b) more strange</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q2','c')">🟡 c) strangest</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q2','d')">🔴 d) strange</button>
+        </div>
+        <div class="feedback-badge" id="fb_s12q2" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">61</span><span>"My cat Mittens is ___ (small) than your big dog." Fill in the blank.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q3','a')">🔵 a) smallest</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q3','b')">🟢 b) more small</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q3','c')">🟡 c) smaller</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q3','d')">🔴 d) small</button>
+        </div>
+        <div class="feedback-badge" id="fb_s12q3" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">62</span><span>"Ali is the ___ (brave) boy in his entire class." Fill in the blank.</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q4','a')">🔵 a) braver</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q4','b')">🟢 b) more brave</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q4','c')">🟡 c) most brave</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q4','d')">🔴 d) bravest</button>
+        </div>
+        <div class="feedback-badge" id="fb_s12q4" style="display:none"></div>
+      </div><div class="divider"></div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">63</span><span>The correct <strong>superlative</strong> of "good" is:</span></div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q5','a')">🔵 a) gooder</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q5','b')">🟢 b) goodest</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q5','c')">🟡 c) most good</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s12q5','d')">🔴 d) best</button>
+        </div>
+        <div class="feedback-badge" id="fb_s12q5" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks (B14–B18)</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B14</span><span>The comparative of "happy" is: <input type="text" class="fill-input" id="s12b1" placeholder="???"></span></div>
+        <button class="check-btn" onclick="saveFill('s12b1',['happier'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s12b1">💡 Answer: happier</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B15</span><span>The superlative of "tall" is: <input type="text" class="fill-input" id="s12b2" placeholder="???"></span></div>
+        <button class="check-btn" onclick="saveFill('s12b2',['tallest'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s12b2">💡 Answer: tallest</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B16</span><span>The comparative of "good" is: <input type="text" class="fill-input" id="s12b3" placeholder="???"></span></div>
+        <button class="check-btn" onclick="saveFill('s12b3',['better'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s12b3">💡 Answer: better</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B17</span><span>The superlative of "heavy" is: <input type="text" class="fill-input" id="s12b4" placeholder="???"></span></div>
+        <button class="check-btn" onclick="saveFill('s12b4',['heaviest'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s12b4">💡 Answer: heaviest</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">B18</span><span>The comparative of "cold" is: <input type="text" class="fill-input" id="s12b5" placeholder="???"></span></div>
+        <button class="check-btn" onclick="saveFill('s12b5',['colder'])">Save 💾</button>
+        <div class="answer-reveal" id="reveal_s12b5">💡 Answer: colder</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PART D: SHORT ANSWER (teacher-checked)        -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="ws-section">
+    <div class="section-badge">📖 Part D — Short Answer Questions (Teacher Marked)</div>
+    <div class="card">
+      <div class="card-title">📝 Write your answers below. These will be checked by your teacher.</div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D1</span><span>In your own words, what is a nonsense poem? Give one example of a silly idea from a poem you have read.</span></div>
+        <textarea class="short-textarea" id="sa_d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('d1')">Save ✓</button>
+        <div class="short-saved" id="saved_d1">✅ Saved!</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D2</span><span>List the five parts of a story in the correct order.</span></div>
+        <textarea class="short-textarea" id="sa_d2" placeholder="1. ___  2. ___  3. ___  4. ___  5. ___"></textarea>
+        <button class="submit-short-btn" onclick="saveShort('d2')">Save ✓</button>
+        <div class="short-saved" id="saved_d2">✅ Saved!</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D3</span><span>Write a sentence using correct speech marks (e.g. a character says something).</span></div>
+        <textarea class="short-textarea" id="sa_d3" placeholder="Write your sentence here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('d3')">Save ✓</button>
+        <div class="short-saved" id="saved_d3">✅ Saved!</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D4</span><span>Write two pairs of homophones and use each word in a sentence.</span></div>
+        <textarea class="short-textarea" id="sa_d4" placeholder="Pair 1: ___ / ___  Sentences: ..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('d4')">Save ✓</button>
+        <div class="short-saved" id="saved_d4">✅ Saved!</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D5</span><span>What is the difference between a proper noun and a proper adjective? Give one example of each.</span></div>
+        <textarea class="short-textarea" id="sa_d5" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('d5')">Save ✓</button>
+        <div class="short-saved" id="saved_d5">✅ Saved!</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D6</span><span>Write the contraction for "will not" and use it in a sentence of your own.</span></div>
+        <textarea class="short-textarea" id="sa_d6" placeholder="Contraction: ___  Sentence: ..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('d6')">Save ✓</button>
+        <div class="short-saved" id="saved_d6">✅ Saved!</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D7</span><span>Write the comparative AND superlative forms of "cold."</span></div>
+        <textarea class="short-textarea" id="sa_d7" placeholder="Comparative: ___  Superlative: ___"></textarea>
+        <button class="submit-short-btn" onclick="saveShort('d7')">Save ✓</button>
+        <div class="short-saved" id="saved_d7">✅ Saved!</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D8</span><span>Explain what a syllable is and break the word "window" into its syllables.</span></div>
+        <textarea class="short-textarea" id="sa_d8" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('d8')">Save ✓</button>
+        <div class="short-saved" id="saved_d8">✅ Saved!</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D9</span><span>Why is the climax the most important part of a story? Write 2–3 sentences.</span></div>
+        <textarea class="short-textarea" id="sa_d9" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('d9')">Save ✓</button>
+        <div class="short-saved" id="saved_d9">✅ Saved!</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D10</span><span>Write your own two-line nonsense poem. It must rhyme and include at least one silly or made-up idea.</span></div>
+        <textarea class="short-textarea" id="sa_d10" placeholder="Write your poem here..." style="min-height:90px"></textarea>
+        <button class="submit-short-btn" onclick="saveShort('d10')">Save ✓</button>
+        <div class="short-saved" id="saved_d10">✅ Saved!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCORE SUMMARY -->
+  <div id="scoreSummary">
+    <div class="score-hero">
+      <div class="score-trophy" id="scoreTrophy">🏆</div>
+      <h2 id="scoreHeading">Amazing Work!</h2>
+      <div class="score-circle" id="scoreCircle"><span class="score-num" id="scoreNum">0%</span></div>
+      <div class="score-msg" id="scoreMsg"></div>
+      <div class="score-stats" id="scoreStats"></div>
+    </div>
+    <div class="results-breakdown">
+      <div class="results-heading">📋 Full Results Breakdown</div>
+      <div id="resultsBody"></div>
+    </div>
+    <div class="score-actions">
+      <button class="print-btn" onclick="printScore()">🖨️ Print Results</button>
+      <button class="restart-btn" onclick="restartAll()">🔄 Try Again</button>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<button class="float-submit" onclick="openConfirm()">🎯 Submit Test</button>
 
 <script>
-const QUESTIONS = [];
-const ANSWERS = {};
+const CORRECT = {
+  // Section 1 – Comparative & Superlative MCQ
+  s1q1:'b', s1q2:'c', s1q3:'c', s1q4:'d', s1q5:'c',
+  // Section 2 – Verb To Be MCQ
+  s2q1:'b', s2q2:'c', s2q3:'a', s2q4:'b', s2q5:'c',
+  // Section 3 – Proper Nouns MCQ
+  s3q1:'c', s3q2:'b', s3q3:'c', s3q4:'c', s3q5:'c',
+  // Section 3 – T/F
+  s3c1:'True', s3c2:'False', s3c3:'True',
+  // Section 4 – Punctuation MCQ
+  s4q1:'c', s4q2:'b', s4q3:'d', s4q4:'b', s4q5:'c',
+  // Section 4 – T/F
+  s4c1:'False', s4c2:'True', s4c3:'True',
+  // Section 5 – Homophones MCQ
+  s5q1:'b', s5q2:'b', s5q3:'b', s5q4:'c', s5q5:'b', s5q6:'c', s5q7:'b', s5q8:'c',
+  // Section 6 – Contractions MCQ
+  s6q1:'c', s6q2:'b', s6q3:'c', s6q4:'c', s6q5:'b',
+  // Section 6 – T/F
+  s6c1:'True', s6c2:'False', s6c3:'True',
+  // Section 7 – Speech Marks MCQ
+  s7q1:'b', s7q2:'b', s7q3:'b', s7q4:'a', s7q5:'b',
+  // Section 8 – Story Parts MCQ
+  s8q1:'c', s8q2:'c', s8q3:'b', s8q4:'c', s8q5:'c',
+  // Section 8 – T/F
+  s8c1:'False', s8c2:'True', s8c3:'True', s8c4:'True',
+  // Section 9 – Nonsense Poems MCQ
+  s9q1:'b', s9q2:'c', s9q3:'b', s9q4:'c', s9q5:'b',
+  // Section 9 – T/F
+  s9c1:'False', s9c2:'True', s9c3:'True',
+  // Section 10 – News Report MCQ
+  s10q1:'c', s10q2:'c', s10q3:'b', s10q4:'c', s10q5:'b',
+  // Section 11 – Syllables MCQ
+  s11q1:'b', s11q2:'b', s11q3:'b', s11q4:'b', s11q5:'b',
+  // Section 11 – T/F
+  s11c1:'True', s11c2:'False', s11c3:'False',
+  // Section 12 – Degrees MCQ
+  s12q1:'c', s12q2:'c', s12q3:'c', s12q4:'d', s12q5:'d',
+};
 
-// 1. ADJECTIVES (1-30)
-const adjData = [
-  ['tall', 'taller', 'tallest'], ['small', 'smaller', 'smallest'], ['happy', 'happier', 'happiest'],
-  ['fast', 'faster', 'fastest'], ['big', 'bigger', 'biggest'], ['cold', 'colder', 'coldest'],
-  ['good', 'better', 'best'], ['long', 'longer', 'longest'], ['heavy', 'heavier', 'heaviest'],
-  ['bright', 'brighter', 'brightest']
-];
+/* ── Core Engine (unchanged from template) ── */
+const mcqSelections={},mcqBtnMap={},tfSelections={},tfBtnMap={},fillValues={},fillAcceptable={};
+const answered={},fillAnswered={},questionLog=[];
+let submitted=false;
 
-let qIdx = 1;
-adjData.forEach(set => {
-  // Question for Comparative
-  QUESTIONS.push({
-    id: 'q'+qIdx, type: 'mcq', 
-    text: `What is the comparative form of "${set[0]}"?`,
-    opts: [set[1], set[0]+'er', set[0]+'est', 'more '+set[0]],
-    correct: 0
-  });
-  ANSWERS['q'+qIdx] = set[1];
-  qIdx++;
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function getQText(el){if(!el)return'';const c=el.cloneNode(true);c.querySelectorAll('input').forEach(i=>i.replaceWith('[___]'));return(c.querySelector('span:last-child')?.textContent||c.textContent).trim()}
 
-  // Question for Superlative
-  QUESTIONS.push({
-    id: 'q'+qIdx, type: 'mcq',
-    text: `What is the superlative form of "${set[0]}"?`,
-    opts: [set[0]+'er', set[2], 'most '+set[0], set[0]+'est'],
-    correct: 1
-  });
-  ANSWERS['q'+qIdx] = set[2];
-  qIdx++;
-  
-  // Usage question
-  QUESTIONS.push({
-    id: 'q'+qIdx, type: 'fill',
-    text: `The Grizzy-Groo is ________ (funny) than a normal bear.`,
-    correct: 'funnier'
-  });
-  qIdx++;
-});
-
-// 2. VERB TO BE (31-50)
-const verbSentences = [
-  "My name ________ Ayaan.", "I ________ a student.", "We ________ excited.", 
-  "Today ________ our English class.", "My best friend ________ kind.",
-  "We ________ sitting in class.", "The teacher ________ explaining.",
-  "The classroom ________ neat.", "The students ________ ready.", "It ________ cold in December."
-];
-verbSentences.forEach(s => {
-  const correctVal = s.includes("I ") ? "am" : (s.includes("We") || s.includes("students")) ? "are" : "is";
-  QUESTIONS.push({ id: 'q'+qIdx, type: 'fill', text: s, correct: correctVal });
-  qIdx++;
-  // Duplicate for variety/count
-  QUESTIONS.push({ id: 'q'+qIdx, type: 'mcq', text: `Pick the correct verb: "${s}"`, opts: ["am", "is", "are"], correct: (correctVal === "am" ? 0 : correctVal === "is" ? 1 : 2) });
-  qIdx++;
-});
-
-// 3. PROPER NOUNS/ADJECTIVES (51-80)
-const properData = [
-  ["Pakistan", "Pakistani"], ["China", "Chinese"], ["England", "English"], 
-  ["Islam", "Islamic"], ["India", "Indian"], ["Karachi", "City"]
-];
-properData.forEach(pair => {
-  QUESTIONS.push({ id: 'q'+qIdx, type: 'mcq', text: `Is "${pair[0]}" a Proper Noun?`, opts: ["Yes", "No"], correct: 0 }); qIdx++;
-  QUESTIONS.push({ id: 'q'+qIdx, type: 'mcq', text: `What is the proper adjective for "${pair[0]}"?`, opts: [pair[1], pair[0]+"ish", "New "+pair[0]], correct: 0 }); qIdx++;
-  QUESTIONS.push({ id: 'q'+qIdx, type: 'mcq', text: `Is "${pair[1]}" always capitalized?`, opts: ["Yes", "No"], correct: 0 }); qIdx++;
-});
-
-// 4. POETRY (81-100)
-const poemQ = [
-  ["What color is the grass in the poem?", "Blue"],
-  ["What color is the spoon?", "Silver"],
-  ["Where does Grizzy-Groo hide?", "Crinkly creaky shells"],
-  ["What does he do with the spoon?", "Dances a jig"],
-  ["Is the Grizzy-Groo real?", "No, it's nonsense"]
-];
-poemQ.forEach(pq => {
-  QUESTIONS.push({ id: 'q'+qIdx, type: 'mcq', text: pq[0], opts: [pq[1], "Green", "Red", "None"], correct: 0 }); qIdx++;
-  QUESTIONS.push({ id: 'q'+qIdx, type: 'fill', text: `In the poem, the grass is ________.`, correct: 'blue' }); qIdx++;
-  QUESTIONS.push({ id: 'q'+qIdx, type: 'mcq', text: `Does Grizzy-Groo dance?`, opts: ["Yes", "No"], correct: 0 }); qIdx++;
-  QUESTIONS.push({ id: 'q'+qIdx, type: 'fill', text: `The spoon is made of ________.`, correct: 'silver' }); qIdx++;
-});
-
-// Inject into HTML
-function render() {
-  QUESTIONS.forEach((q, i) => {
-    let container = document.getElementById('mcq-container-1');
-    if (i >= 30) container = document.getElementById('fill-container-1');
-    if (i >= 50) container = document.getElementById('mcq-container-2');
-    if (i >= 80) container = document.getElementById('poem-container');
-
-    const div = document.createElement('div');
-    div.className = 'q-block';
-    if (q.type === 'mcq') {
-      div.innerHTML = `
-        <div class="q-text"><span class="q-num">${i+1}</span><span>${q.text}</span></div>
-        <div class="opts">
-          ${q.opts.map((o, oi) => `<button class="opt-btn" onclick="select(${i}, ${oi}, this)">${o}</button>`).join('')}
-        </div>`;
-    } else {
-      div.innerHTML = `
-        <div class="q-text"><span class="q-num">${i+1}</span><span>${q.text.replace('________', `<input type="text" class="fill-input" id="inp${i}" oninput="updateProgress()">`)}</span></div>`;
-    }
-    container.appendChild(div);
-  });
+function updateProgress(){
+  const aT=Object.keys(CORRECT).length,fT=Object.keys(fillAcceptable).length,gT=aT+fT;
+  const mD=Object.keys(mcqSelections).length,tD=Object.keys(tfSelections).length,fD=Object.keys(fillValues).filter(id=>fillValues[id].trim()!=='').length;
+  const done=mD+tD+fD,pct=gT>0?Math.round(done/gT*100):0;
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('progressCount').textContent=done+' / '+gT;
+  const s=Math.round(pct/20);
+  document.getElementById('starsDisplay').textContent='⭐'.repeat(s)+'🌑'.repeat(5-s);
 }
 
-const selections = {};
-function select(qIdx, optIdx, btn) {
-  selections[qIdx] = optIdx;
-  const btns = btn.parentElement.querySelectorAll('.opt-btn');
-  btns.forEach(b => b.classList.remove('selected'));
+function selectMCQ(btn,qId,chosen){
+  if(submitted)return;
+  btn.parentElement.querySelectorAll('.opt-btn').forEach(b=>b.classList.remove('selected'));
   btn.classList.add('selected');
-  updateProgress();
+  mcqSelections[qId]=chosen;mcqBtnMap[qId]=btn;updateProgress();
 }
 
-function updateProgress() {
-  let count = Object.keys(selections).length;
-  document.querySelectorAll('.fill-input').forEach(inp => { if(inp.value.trim()) count++; });
-  document.getElementById('progressBar').style.width = count + '%';
-  document.getElementById('progressCount').textContent = count + ' / 100';
+function selectTF(btn,qId,chosen){
+  if(submitted)return;
+  btn.closest('.tf-btns').querySelectorAll('.tf-btn').forEach(b=>b.classList.remove('selected-true','selected-false'));
+  btn.classList.add(chosen==='True'?'selected-true':'selected-false');
+  tfSelections[qId]=chosen;tfBtnMap[qId]=btn;updateProgress();
 }
 
-function gradeTest() {
-  let correct = 0;
-  QUESTIONS.forEach((q, i) => {
-    if (q.type === 'mcq') {
-      if (selections[i] === q.correct) correct++;
+function saveFill(id,acc){
+  if(submitted)return;
+  const inp=document.getElementById(id),val=inp.value.trim();
+  if(!val)return;
+  fillValues[id]=val;fillAcceptable[id]=acc;
+  inp.classList.remove('correct','wrong');inp.classList.add('saved');
+  const msg=document.createElement('span');
+  msg.style.cssText='margin-left:8px;font-size:12px;color:var(--purple);font-weight:700';
+  msg.textContent='💾 Saved!';inp.parentElement.appendChild(msg);
+  setTimeout(()=>msg.remove(),1800);updateProgress();
+}
+
+function openConfirm(){
+  if(submitted)return;
+  const aT=Object.keys(CORRECT).length,fT=Object.keys(fillAcceptable).length,gT=aT+fT;
+  const done=Object.keys(mcqSelections).length+Object.keys(tfSelections).length+Object.keys(fillValues).filter(id=>fillValues[id].trim()!=='').length;
+  const un=gT-done,note=document.getElementById('unansweredNote');
+  note.style.display=un>0?'block':'none';
+  if(un>0)note.textContent=`⚠️ You have ${un} unanswered question${un>1?'s':''}. They will be marked as skipped.`;
+  document.getElementById('confirmOverlay').classList.add('visible');
+}
+function closeConfirm(){document.getElementById('confirmOverlay').classList.remove('visible')}
+
+function confirmSubmit(){
+  closeConfirm();submitted=true;
+  Object.keys(CORRECT).forEach(qId=>{
+    if(mcqSelections[qId]!==undefined){
+      const chosen=mcqSelections[qId],corr=CORRECT[qId],ok=chosen===corr;
+      answered[qId]=ok;
+      const btns=document.querySelectorAll(`.opt-btn[onclick*="'${qId}'"]`);
+      btns.forEach(b=>{b.disabled=true;b.classList.remove('selected');const oc=b.getAttribute('onclick');if(oc&&oc.includes("'"+chosen+"'"))b.classList.add(ok?'correct':'wrong');if(!ok&&oc&&oc.includes("'"+corr+"'"))b.classList.add('reveal-correct')});
+      const fb=document.getElementById('fb_'+qId);
+      if(fb){fb.className='feedback-badge '+(ok?'correct':'wrong');fb.innerHTML=ok?'🎉 Correct!':'😅 Incorrect — correct answer highlighted.';fb.style.display='inline-flex'}
+      let cT='',aT='';
+      btns.forEach(b=>{const oc=b.getAttribute('onclick');if(oc&&oc.includes("'"+chosen+"'"))cT=b.textContent.trim();if(oc&&oc.includes("'"+corr+"'"))aT=b.textContent.trim()});
+      const fb2=document.getElementById('fb_'+qId),qB=fb2?.closest('.q-block'),qT=qB?getQText(qB.querySelector('.q-text')):qId;
+      questionLog.push({type:'mcq',qId,questionText:qT,yourAnswer:cT,correctAnswer:aT,isCorrect:ok});
+    } else if(tfSelections[qId]!==undefined){
+      const chosen=tfSelections[qId],corr=CORRECT[qId],ok=chosen===corr;
+      answered[qId]=ok;
+      const btns=document.querySelectorAll(`.tf-btn[onclick*="'${qId}'"]`);
+      btns.forEach(b=>{b.disabled=true;b.classList.remove('selected-true','selected-false');const t=b.textContent.trim();if(t===chosen)b.classList.add(ok?'correct':'wrong');if(!ok&&t===corr)b.classList.add('correct')});
+      const row=btns[0]?.closest('.tf-row'),qT=row?.querySelector('.tf-text')?.textContent.trim()||qId;
+      questionLog.push({type:'tf',qId,questionText:qT,yourAnswer:chosen,correctAnswer:corr,isCorrect:ok});
     } else {
-      const val = document.getElementById('inp'+i).value.trim().toLowerCase();
-      if (val === q.correct.toLowerCase()) correct++;
+      const corr=CORRECT[qId];
+      const mB=document.querySelectorAll(`.opt-btn[onclick*="'${qId}'"]`);
+      mB.forEach(b=>{b.disabled=true;b.classList.remove('selected');const oc=b.getAttribute('onclick');if(oc&&oc.includes("'"+corr+"'"))b.classList.add('reveal-correct')});
+      const tB=document.querySelectorAll(`.tf-btn[onclick*="'${qId}'"]`);
+      tB.forEach(b=>{b.disabled=true;if(b.textContent.trim()===corr)b.classList.add('correct')});
+      let qT=qId;
+      const fbE=document.getElementById('fb_'+qId);
+      if(fbE?.closest('.q-block'))qT=getQText(fbE.closest('.q-block').querySelector('.q-text'))||qId;
+      if(qT===qId)document.querySelectorAll('.tf-row').forEach(r=>r.querySelectorAll('.tf-btn').forEach(b=>{if(b.getAttribute('onclick')?.includes("'"+qId+"'"))qT=r.querySelector('.tf-text')?.textContent.trim()||qId}));
+      questionLog.push({type:'skipped',qId,questionText:qT,yourAnswer:'—',correctAnswer:corr,isCorrect:false});
     }
   });
-  
-  document.getElementById('scoreSummary').style.display = 'block';
-  document.getElementById('scoreNum').textContent = correct + '%';
-  window.scrollTo(0, document.body.scrollHeight);
+
+  document.querySelectorAll('.fill-input').forEach(inp=>{
+    const id=inp.id,acc=fillAcceptable[id],val=fillValues[id]||'',qB=inp.closest('.q-block'),qT=qB?getQText(qB.querySelector('.q-text')):id;
+    inp.disabled=true;inp.classList.remove('saved');
+    if(acc){
+      const ok=acc.map(a=>a.toLowerCase()).includes(val.toLowerCase());
+      fillAnswered[id]=ok;inp.classList.add(ok?'correct':'wrong');
+      if(!ok){const r=document.getElementById('reveal_'+id);if(r)r.style.display='block'}
+      questionLog.push({type:'fill',qId:id,questionText:qT,yourAnswer:val||'(blank)',correctAnswer:acc[0],isCorrect:ok});
+    } else {
+      const r=document.getElementById('reveal_'+id);if(r)r.style.display='block';
+      questionLog.push({type:'skipped-fill',qId:id,questionText:qT,yourAnswer:'—',correctAnswer:'?',isCorrect:false});
+    }
+  });
+  document.querySelectorAll('.check-btn').forEach(b=>b.disabled=true);
+  showScore();
 }
 
-render();
+function saveShort(id){const el=document.getElementById('saved_'+id);if(el){el.style.display='block';setTimeout(()=>el.style.display='none',2000)}}
+
+function launchConfetti(n){
+  const cols=['#ffcc00','#ff6b9d','#4fc3f7','#69f0ae','#ffab40','#b39ddb'],c=document.getElementById('confettiContainer');
+  for(let i=0;i<n*8;i++){const p=document.createElement('div');p.className='confetti-piece';p.style.left=Math.random()*100+'vw';p.style.background=cols[Math.floor(Math.random()*cols.length)];p.style.width=(6+Math.random()*8)+'px';p.style.height=(6+Math.random()*8)+'px';p.style.borderRadius=Math.random()>.5?'50%':'2px';const d=1.5+Math.random()*1.5;p.style.animationDuration=d+'s';p.style.animationDelay=Math.random()*.5+'s';c.appendChild(p);setTimeout(()=>p.remove(),(d+.5)*1000)}
+}
+
+function showScore(){
+  const total=Object.keys(CORRECT).length+Object.keys(fillAcceptable).length;
+  const corC=Object.values(answered).filter(v=>v).length+Object.values(fillAnswered).filter(v=>v).length;
+  const allG=Object.keys(answered).length+Object.keys(fillAnswered).length;
+  const wC=allG-corC,sk=total-allG,pct=total>0?Math.round(corC/total*100):0;
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('progressCount').textContent=corC+' / '+total+' correct';
+  const st=Math.round(corC/Math.max(total,1)*5);
+  document.getElementById('starsDisplay').textContent='⭐'.repeat(st)+'🌑'.repeat(5-st);
+  document.getElementById('scoreCircle').style.setProperty('--pct',pct);
+  document.getElementById('scoreNum').textContent=pct+'%';
+  document.getElementById('scoreTrophy').textContent=pct>=90?'🏆':pct>=75?'🥇':pct>=60?'🥈':'🎯';
+  document.getElementById('scoreHeading').textContent=pct>=90?'Outstanding!':pct>=75?'Great Job!':pct>=60?'Good Effort!':'Keep Practicing!';
+  document.getElementById('scoreMsg').textContent=pct>=90?'🌟 You\'re a superstar — nearly perfect!':pct>=75?'🎉 Fantastic work! A few more to master.':pct>=60?'👍 Solid effort! Review the ones you missed.':'💪 Don\'t give up — every attempt makes you better!';
+  document.getElementById('scoreStats').innerHTML=`<div class="stat-pill correct"><span class="stat-val">${corC}</span><span class="stat-lbl">Correct ✅</span></div><div class="stat-pill wrong"><span class="stat-val">${wC}</span><span class="stat-lbl">Wrong ❌</span></div><div class="stat-pill skipped"><span class="stat-val">${sk}</span><span class="stat-lbl">Skipped ⏭️</span></div><div class="stat-pill total"><span class="stat-val">${total}</span><span class="stat-lbl">Total 📋</span></div>`;
+  const html=questionLog.map((q,i)=>{
+    const isSk=q.type==='skipped'||q.type==='skipped-fill';
+    const cls=isSk?'ri-skipped':q.isCorrect?'ri-correct':'ri-wrong';
+    const icon=isSk?'⏭️':q.isCorrect?'✅':'❌';
+    const badge=isSk?'<span class="ri-badge skipped">Skipped</span>':q.isCorrect?'<span class="ri-badge correct">Correct</span>':'<span class="ri-badge wrong">Incorrect</span>';
+    const yVC=isSk?'skipped-val':q.isCorrect?'your-correct':'your-wrong';
+    const cRow=(!q.isCorrect||isSk)?`<div class="ri-row"><span class="ri-label">✅ Correct:</span><span class="ri-val correct-ans">${escHtml(q.correctAnswer)}</span></div>`:'';
+    return`<div class="result-item ${cls}" style="animation-delay:${i*.03}s"><div class="ri-icon">${icon}</div><div class="ri-body"><div class="ri-qtext">${escHtml(q.questionText)}</div><div class="ri-row"><span class="ri-label">Your answer:</span><span class="ri-val ${yVC}">${escHtml(q.yourAnswer)}</span></div>${cRow}</div><div>${badge}</div></div>`;
+  }).join('');
+  document.getElementById('resultsBody').innerHTML=html||'<p style="color:var(--muted);text-align:center;padding:20px">No questions were answered.</p>';
+  const s=document.getElementById('scoreSummary');s.style.display='block';s.scrollIntoView({behavior:'smooth'});
+  launchConfetti(8);
+}
+
+function printScore(){window.print()}
+function restartAll(){location.reload()}
+updateProgress();
 </script>
 </body>
 </html>
