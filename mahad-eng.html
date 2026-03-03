@@ -1,0 +1,1427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<!-- PAGE TITLE: Update this -->
+<title>Page Title Here</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e1a;
+    --card: #1c1b2e;
+    --card2: #201f35;
+    --accent: #ffcc00;
+    --pink: #ff6b9d;
+    --blue: #4fc3f7;
+    --green: #69f0ae;
+    --purple: #b39ddb;
+    --orange: #ffab40;
+    --red: #ff5252;
+    --text: #f0eeff;
+    --muted: #8885aa;
+    --r: 18px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Starfield background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 10%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 70%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 55%, rgba(255,255,255,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 70% 75%, rgba(255,204,0,0.5) 0%, transparent 100%),
+      radial-gradient(2px 2px at 30% 15%, rgba(79,195,247,0.5) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #2d1b69, #1a0a3d);
+    border: 2px solid rgba(255,204,0,0.3);
+    border-radius: 24px;
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(179,157,219,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(255,204,0,0.05) 60deg, transparent 120deg);
+    animation: spin 12s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .header-emoji { font-size: 48px; display: block; margin-bottom: 8px; animation: bounce 2s ease-in-out infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  header h1 { font-family: 'Fredoka One', cursive; font-size: 28px; color: var(--accent); text-shadow: 0 0 20px rgba(255,204,0,0.5); }
+  header p { color: var(--purple); font-size: 14px; margin-top: 6px; }
+
+  /* ── NEW: STUDENT INSTRUCTIONS ── */
+  .instructions {
+    background: linear-gradient(135deg, rgba(79,195,247,0.12), rgba(179,157,219,0.12));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 16px 18px;
+    margin: 0 0 20px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  }
+  .instructions-title {
+    font-family: 'Fredoka One', cursive;
+    color: var(--accent);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .instructions p {
+    color: var(--text);
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .instructions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  @media (min-width: 720px){
+    .instructions-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .inst-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 12px 12px;
+  }
+  .inst-card h4 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    color: var(--blue);
+    margin-bottom: 6px;
+    font-weight: 400;
+  }
+  .inst-card ul { padding-left: 18px; }
+  .inst-card li {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 4px 0;
+    font-weight: 600;
+  }
+  .inst-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .inst-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--text);
+  }
+  .inst-pill strong { color: var(--accent); }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .progress-label { font-family: 'Fredoka One', cursive; font-size: 15px; color: var(--accent); white-space: nowrap; }
+  .progress-bar-outer {
+    flex: 1;
+    height: 18px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--green));
+    border-radius: 100px;
+    transition: width 0.5s cubic-bezier(.34,1.56,.64,1);
+    width: 0%;
+  }
+  .progress-count { font-weight: 800; color: var(--green); font-size: 14px; white-space: nowrap; }
+  .stars-display { display: flex; gap: 4px; align-items: center; font-size: 20px; }
+
+  /* ── SECTION ── */
+  .ws-section { margin-bottom: 28px; }
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 16px rgba(79,195,247,0.25);
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border-radius: var(--r);
+    padding: 20px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .card-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ── MCQ QUESTION BLOCK ── */
+  .q-block {
+    margin-bottom: 20px;
+    animation: fadeIn 0.4s ease both;
+  }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+  .q-text {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .q-num {
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(255,107,157,0.4);
+  }
+
+  /* ── MCQ OPTIONS ── */
+  .opts { display: flex; flex-direction: column; gap: 8px; padding-left: 40px; }
+  .opt-btn {
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .opt-btn:hover:not(:disabled):not(.selected) { background: rgba(79,195,247,0.07); border-color: rgba(79,195,247,0.3); transform: translateX(4px); }
+  /* Selected (pre-submit) — neutral purple highlight, no hint of right/wrong */
+  .opt-btn.selected { background: rgba(179,157,219,0.18); border-color: var(--purple); color: var(--purple); transform: translateX(4px); }
+  /* Post-submit states */
+  .opt-btn.correct        { background: rgba(105,240,174,0.15); border-color: var(--green); color: var(--green); animation: pop 0.3s ease; }
+  .opt-btn.wrong          { background: rgba(255,82,82,0.12);   border-color: var(--red);   color: var(--red);   animation: shake 0.4s ease; }
+  .opt-btn.reveal-correct { background: rgba(105,240,174,0.08); border-color: rgba(105,240,174,0.4); color: rgba(105,240,174,0.7); }
+  .opt-btn:disabled { cursor: default; }
+
+  @keyframes pop   { 0%{transform:scale(1)} 40%{transform:scale(1.04)} 100%{transform:scale(1)} }
+  @keyframes shake { 0%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} 100%{transform:translateX(0)} }
+
+  .feedback-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-top: 8px;
+    margin-left: 40px;
+  }
+  .feedback-badge.correct { background: rgba(105,240,174,0.15); color: var(--green); }
+  .feedback-badge.wrong   { background: rgba(255,82,82,0.12);   color: var(--red);   }
+
+  /* ── FILL IN THE BLANK ── */
+  .fill-input {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 7px 12px;
+    min-width: 120px;
+    transition: all 0.2s;
+    outline: none;
+  }
+  .fill-input:focus   { border-color: var(--blue);  background: rgba(79,195,247,0.08); }
+  .fill-input.saved   { border-color: var(--purple); background: rgba(179,157,219,0.1); color: var(--purple); } /* pre-submit saved, no verdict */
+  .fill-input.correct { border-color: var(--green); background: rgba(105,240,174,0.1); color: var(--green); }
+  .fill-input.wrong   { border-color: var(--red);   background: rgba(255,82,82,0.08);  color: var(--red);   }
+
+  .check-btn {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border: none;
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    padding: 7px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 3px 12px rgba(179,157,219,0.3);
+  }
+  .check-btn:hover { transform: scale(1.05); box-shadow: 0 5px 16px rgba(179,157,219,0.4); }
+  .check-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+
+  /* ── SUBMIT CONFIRM OVERLAY ── */
+  .confirm-overlay {
+    position: fixed; inset: 0;
+    background: rgba(10,8,26,0.82);
+    backdrop-filter: blur(6px);
+    z-index: 500;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .confirm-overlay.visible { display: flex; }
+  .confirm-box {
+    background: linear-gradient(135deg, #2d1b69, #1a0a3d);
+    border: 2px solid rgba(255,204,0,0.4);
+    border-radius: 24px;
+    padding: 36px 32px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 0 60px rgba(255,204,0,0.15);
+    animation: fadeIn 0.25s ease;
+  }
+  .confirm-box .cb-icon { font-size: 48px; display: block; margin-bottom: 12px; }
+  .confirm-box h3 { font-family: 'Fredoka One', cursive; font-size: 22px; color: var(--accent); margin-bottom: 8px; }
+  .confirm-box p  { color: var(--purple); font-size: 14px; margin-bottom: 24px; line-height: 1.5; }
+  .confirm-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .cb-cancel {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.15);
+    color: var(--text);
+    font-family: 'Fredoka One', cursive;
+    font-size: 15px;
+    padding: 11px 24px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .cb-cancel:hover { background: rgba(255,255,255,0.14); }
+  .cb-confirm {
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    border: none;
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 15px;
+    padding: 11px 24px;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(255,107,157,0.4);
+    transition: all 0.2s;
+  }
+  .cb-confirm:hover { transform: scale(1.04); box-shadow: 0 6px 22px rgba(255,107,157,0.5); }
+
+  /* Unanswered warning badge shown in confirm dialog */
+  .unanswered-note {
+    background: rgba(255,171,64,0.12);
+    border: 1px solid rgba(255,171,64,0.25);
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: var(--orange);
+    margin-bottom: 20px;
+    display: none;
+  }
+
+  .answer-reveal {
+    font-size: 12px;
+    color: var(--orange);
+    margin-left: 40px;
+    margin-top: 4px;
+    display: none;
+    font-weight: 700;
+  }
+
+  /* ── TRUE / FALSE ── */
+  .tf-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .tf-text { flex: 1; font-size: 14px; font-weight: 600; min-width: 200px; }
+  .tf-btns { display: flex; gap: 6px; }
+  .tf-btn {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 6px 14px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text);
+  }
+  .tf-btn:hover:not(:disabled):not(.selected-true):not(.selected-false) { transform: scale(1.08); }
+  /* Selected (pre-submit) — neutral, no right/wrong hint */
+  .tf-btn.selected-true  { background: rgba(179,157,219,0.2); border-color: var(--purple); color: var(--purple); }
+  .tf-btn.selected-false { background: rgba(179,157,219,0.2); border-color: var(--purple); color: var(--purple); }
+  /* Post-submit states */
+  .tf-btn.correct  { background: rgba(105,240,174,0.2); border-color: var(--green); color: var(--green); }
+  .tf-btn.wrong    { background: rgba(255,82,82,0.15);  border-color: var(--red);   color: var(--red);   }
+  .tf-btn:disabled { cursor: default; }
+
+  /* ── SHORT ANSWER ── */
+  .short-textarea {
+    width: calc(100% - 40px);
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    padding: 10px 14px;
+    resize: vertical;
+    min-height: 70px;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-top: 6px;
+    margin-left: 40px;
+  }
+  .short-textarea:focus { border-color: var(--purple); background: rgba(179,157,219,0.06); }
+
+  .submit-short-btn {
+    margin-left: 40px;
+    margin-top: 6px;
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    border: none;
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    padding: 7px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 3px 12px rgba(255,107,157,0.3);
+  }
+  .submit-short-btn:hover { transform: scale(1.05); }
+  .short-saved { margin-left: 40px; margin-top: 4px; font-size: 12px; color: var(--green); display: none; }
+
+  /* ── DATABASE TABLE ── */
+  .db-table-wrap { overflow-x: auto; margin-bottom: 14px; }
+  table.db-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .db-table th {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: #fff;
+    padding: 8px 12px;
+    text-align: left;
+    font-family: 'Fredoka One', cursive;
+    font-weight: 400;
+  }
+  .db-table th:first-child { border-radius: 10px 0 0 0; }
+  .db-table th:last-child  { border-radius: 0 10px 0 0; }
+  .db-table td { padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); font-weight: 600; }
+  .db-table tr:nth-child(odd) td  { background: rgba(255,255,255,0.03); }
+  .db-table tr:hover td           { background: rgba(79,195,247,0.07); }
+
+  /* ── CONFETTI ── */
+  .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 1000; overflow: hidden; }
+  .confetti-piece {
+    position: absolute;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    animation: confettiFall linear forwards;
+    top: -20px;
+  }
+  @keyframes confettiFall {
+    0%   { transform: translateY(0) rotate(0deg);   opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* ── SCORE SUMMARY ── */
+  #scoreSummary {
+    background: linear-gradient(135deg, #1a0a3d, #2d1b69);
+    border: 2px solid rgba(255,204,0,0.4);
+    border-radius: 24px;
+    padding: 0;
+    margin-top: 28px;
+    display: none;
+    box-shadow: 0 0 50px rgba(255,204,0,0.15);
+    overflow: hidden;
+  }
+  .score-hero {
+    padding: 36px 28px 28px;
+    text-align: center;
+    border-bottom: 2px solid rgba(255,255,255,0.07);
+  }
+  .score-trophy { font-size: 52px; animation: bounce 1s ease-in-out infinite; display: block; margin-bottom: 8px; }
+  #scoreSummary h2 { font-family: 'Fredoka One', cursive; font-size: 30px; color: var(--accent); margin-bottom: 8px; }
+  .score-circle {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: conic-gradient(var(--green) calc(var(--pct) * 1%), rgba(255,255,255,0.08) 0%);
+    display: grid;
+    place-items: center;
+    margin: 16px auto;
+    box-shadow: 0 0 30px rgba(105,240,174,0.3);
+    position: relative;
+  }
+  .score-circle::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    background: #1a0a3d;
+  }
+  .score-num { font-family: 'Fredoka One', cursive; font-size: 26px; color: var(--text); position: relative; z-index: 1; }
+  .score-msg { font-size: 17px; margin-top: 10px; }
+
+  /* Stats row */
+  .score-stats {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .stat-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 12px 20px;
+    min-width: 90px;
+  }
+  .stat-pill .stat-val { font-family: 'Fredoka One', cursive; font-size: 24px; }
+  .stat-pill .stat-lbl { font-size: 11px; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat-pill.correct .stat-val { color: var(--green); }
+  .stat-pill.wrong   .stat-val { color: var(--red); }
+  .stat-pill.total   .stat-val { color: var(--blue); }
+  .stat-pill.skipped .stat-val { color: var(--orange); }
+
+  /* Results breakdown */
+  .results-breakdown {
+    padding: 24px 28px;
+    border-bottom: 2px solid rgba(255,255,255,0.07);
+  }
+  .results-heading {
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  /* Result item */
+  .result-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 10px;
+    align-items: start;
+    animation: fadeIn 0.3s ease both;
+  }
+  .result-item.ri-correct { border-left: 3px solid var(--green); }
+  .result-item.ri-wrong   { border-left: 3px solid var(--red); }
+  .result-item.ri-skipped { border-left: 3px solid var(--orange); opacity: 0.7; }
+
+  .ri-icon { font-size: 18px; margin-top: 1px; }
+  .ri-body { font-size: 13px; }
+  .ri-qtext { font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .ri-row { display: flex; align-items: center; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+  .ri-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; min-width: 80px; }
+  .ri-val {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 100px;
+  }
+  .ri-val.your-correct { background: rgba(105,240,174,0.15); color: var(--green); }
+  .ri-val.your-wrong   { background: rgba(255,82,82,0.15);   color: var(--red); }
+  .ri-val.correct-ans  { background: rgba(105,240,174,0.1);  color: var(--green); border: 1px solid rgba(105,240,174,0.3); }
+  .ri-val.skipped-val  { background: rgba(255,171,64,0.12);  color: var(--orange); }
+  .ri-badge { font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 100px; }
+  .ri-badge.correct  { background: rgba(105,240,174,0.2); color: var(--green); }
+  .ri-badge.wrong    { background: rgba(255,82,82,0.15);  color: var(--red); }
+  .ri-badge.skipped  { background: rgba(255,171,64,0.15); color: var(--orange); }
+
+  /* Action buttons */
+  .score-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    padding: 24px 28px;
+    flex-wrap: wrap;
+  }
+  .restart-btn {
+    background: linear-gradient(135deg, var(--accent), var(--orange));
+    border: none; color: #111;
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    padding: 13px 28px;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255,204,0,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .restart-btn:hover { transform: scale(1.05); box-shadow: 0 8px 28px rgba(255,204,0,0.5); }
+  .print-btn {
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    border: none; color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    padding: 13px 28px;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(79,195,247,0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .print-btn:hover { transform: scale(1.05); box-shadow: 0 8px 28px rgba(79,195,247,0.4); }
+
+  /* ── PRINT STYLES ── */
+  @media print {
+    body { background: #fff !important; color: #111 !important; }
+    body::before { display: none !important; }
+    .page { max-width: 100% !important; padding: 0 !important; }
+
+    /* Hide everything except the score summary */
+    header, .instructions, .progress-wrap, .ws-section, .float-submit,
+    .confetti-container, .score-actions { display: none !important; }
+
+    #scoreSummary {
+      display: block !important;
+      box-shadow: none !important;
+      border: none !important;
+      background: #fff !important;
+      padding: 0 !important;
+    }
+    .score-hero {
+      background: linear-gradient(135deg, #f0eeff, #e8e0ff) !important;
+      border-radius: 12px !important;
+      padding: 20px !important;
+      border: 2px solid #b39ddb !important;
+      margin-bottom: 16px;
+    }
+    .score-trophy { color: #ffcc00; }
+    #scoreSummary h2 { color: #2d1b69 !important; }
+    .score-circle {
+      background: conic-gradient(#2ecc71 calc(var(--pct) * 1%), #ddd 0%) !important;
+      box-shadow: none !important;
+    }
+    .score-circle::after { background: #f0eeff !important; }
+    .score-num  { color: #111 !important; }
+    .score-msg  { color: #333 !important; }
+    .stat-pill  { background: #f4f4f4 !important; border: 1px solid #ddd !important; }
+    .stat-pill .stat-lbl { color: #666 !important; }
+    .stat-pill.correct .stat-val { color: #1a9e5a !important; }
+    .stat-pill.wrong   .stat-val { color: #cc3333 !important; }
+    .stat-pill.total   .stat-val { color: #1565c0 !important; }
+    .stat-pill.skipped .stat-val { color: #e65100 !important; }
+
+    .results-breakdown { padding: 0 !important; }
+    .results-heading   { color: #2d1b69 !important; }
+
+    .result-item { background: #fafafa !important; border: 1px solid #ddd !important; break-inside: avoid; }
+    .result-item.ri-correct { border-left: 3px solid #2ecc71 !important; }
+    .result-item.ri-wrong   { border-left: 3px solid #e74c3c !important; }
+    .result-item.ri-skipped { border-left: 3px solid #e67e22 !important; }
+
+    .ri-qtext { color: #111 !important; }
+    .ri-label { color: #666 !important; }
+    .ri-val.your-correct { background: #d4f8e8 !important; color: #1a9e5a !important; }
+    .ri-val.your-wrong   { background: #fde8e8 !important; color: #cc3333 !important; }
+    .ri-val.correct-ans  { background: #d4f8e8 !important; color: #1a9e5a !important; }
+    .ri-val.skipped-val  { background: #fef0e0 !important; color: #e65100 !important; }
+    .ri-badge.correct    { background: #d4f8e8 !important; color: #1a9e5a !important; }
+    .ri-badge.wrong      { background: #fde8e8 !important; color: #cc3333 !important; }
+    .ri-badge.skipped    { background: #fef0e0 !important; color: #e65100 !important; }
+  }
+
+  /* ── FLOATING SUBMIT ── */
+  .float-submit {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    border: none; color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    padding: 14px 24px;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(255,107,157,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .float-submit:hover { transform: scale(1.06) translateY(-2px); box-shadow: 0 10px 32px rgba(255,107,157,0.6); }
+
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    margin: 8px 0 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="confetti-container" id="confettiContainer"></div>
+
+<!-- ── SUBMIT CONFIRM OVERLAY ── -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <span class="cb-icon">📝</span>
+    <h3>Submit Your Test?</h3>
+    <p>Once you submit, you cannot change your answers.<br>Your results will be revealed immediately.</p>
+    <div class="unanswered-note" id="unansweredNote"></div>
+    <div class="confirm-btns">
+      <button class="cb-cancel"  onclick="closeConfirm()">← Keep Answering</button>
+      <button class="cb-confirm" onclick="confirmSubmit()">Submit Now 🚀</button>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ═══════════════════════════════════════════════
+       HEADER — Update emoji, title, and subtitle
+  ═══════════════════════════════════════════════ -->
+  <header>
+    <span class="header-emoji">🚀</span>
+    <h1>Your Worksheet Title Here!</h1>
+    <p>A short motivating subtitle goes here.</p>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       NEW: STUDENT INSTRUCTIONS (Top of Page)
+       You can edit the wording freely.
+  ═══════════════════════════════════════════════ -->
+  <div class="instructions" aria-label="Student Instructions">
+    <div class="instructions-title">📌 How to do this worksheet</div>
+    <p>
+      Answer each part below. You can change your answers anytime <strong>before</strong> you submit.
+      The progress bar shows how many questions you have attempted (not your score).
+    </p>
+
+    <div class="instructions-grid">
+      <div class="inst-card">
+        <h4>🎯 Part A — Multiple Choice (MCQ)</h4>
+        <ul>
+          <li>Click one option (a/b/c/d) to select it.</li>
+          <li>You can click a different option to change your choice.</li>
+          <li>Do <strong>not</strong> press “Submit Test” until you are done.</li>
+        </ul>
+      </div>
+
+      <div class="inst-card">
+        <h4>✏️ Part B — Fill in the Blanks</h4>
+        <ul>
+          <li>Type your answer in the blank.</li>
+          <li>Click <strong>Save Answer 💾</strong> for each blank (important!).</li>
+          <li>You can edit your answer and save again before submitting.</li>
+        </ul>
+      </div>
+
+      <div class="inst-card">
+        <h4>✅ Part C — True / False</h4>
+        <ul>
+          <li>Choose <strong>True</strong> or <strong>False</strong> for each statement.</li>
+          <li>You can change your choice before submitting.</li>
+        </ul>
+      </div>
+
+      <div class="inst-card">
+        <h4>📖 Part D — Short Answers</h4>
+        <ul>
+          <li>Write a short answer in the box.</li>
+          <li>Click <strong>Save ✓</strong> to store it on your device.</li>
+          <li>Short answers are not auto-graded (your teacher checks them).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="inst-pill-row">
+      <div class="inst-pill">🟣 <strong>Saved</strong> = stored, not graded yet</div>
+      <div class="inst-pill">🎯 Submit = shows score + correct answers</div>
+      <div class="inst-pill">⏭️ Unanswered = marked as skipped</div>
+      <div class="inst-pill">🖨️ Print = prints results page</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       PROGRESS BAR — No changes needed; auto-updates
+  ═══════════════════════════════════════════════ -->
+  <div class="progress-wrap">
+    <div class="progress-label">🌟 Progress</div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar"></div>
+    </div>
+    <div class="progress-count" id="progressCount">0 / 0</div>
+    <div class="stars-display" id="starsDisplay">⭐⭐⭐⭐⭐</div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION — Duplicate this entire block for each
+       worksheet / topic section.
+  ═══════════════════════════════════════════════ -->
+  <div class="ws-section">
+
+    <!-- Section badge: update emoji and label -->
+    <div class="section-badge">📘 Section Label — Topic Name</div>
+
+
+    <!-- ─────────────────────────────────────────
+         PART A — MULTIPLE CHOICE QUESTIONS (MCQ)
+         • Add one .q-block per question.
+         • qId must be unique across the whole page (e.g. s1q1, s1q2 …).
+         • The last argument of checkMCQ() is the correct option letter.
+         • Add the matching entry to the CORRECT object in the JS below.
+    ───────────────────────────────────────────── -->
+    <div class="card">
+      <div class="card-title">🎯 Part A — Pick the Best Answer!</div>
+
+      <!-- MCQ Question (copy & paste this block for each question) -->
+      <div class="q-block">
+        <div class="q-text">
+          <span class="q-num">1</span>
+          <span>Question text goes here?</span>
+        </div>
+        <div class="opts">
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','a')">🔵 a) Option A</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','b')">🟢 b) Option B</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','c')">🟡 c) Option C</button>
+          <button class="opt-btn" onclick="selectMCQ(this,'s1q1','d')">🔴 d) Option D</button>
+        </div>
+        <!-- feedback-badge is hidden until submit -->
+        <div class="feedback-badge" id="fb_s1q1" style="display:none"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Repeat the q-block above for more MCQ questions -->
+      <!-- <div class="q-block"> ... </div> -->
+
+    </div><!-- /Part A card -->
+
+
+    <!-- ─────────────────────────────────────────
+         PART B — FILL IN THE BLANKS
+         • Each input needs a unique id (e.g. s1b1, s1b2 …).
+         • checkFill() accepts an array of acceptable answers (lowercase).
+         • The reveal text after "💡 Answer:" is shown on a wrong attempt.
+    ───────────────────────────────────────────── -->
+    <div class="card">
+      <div class="card-title">✏️ Part B — Fill in the Blanks!</div>
+
+      <!-- Fill-in-the-blank item (copy & paste for each blank) -->
+      <div class="q-block">
+        <div class="q-text">
+          <span class="q-num">B1</span>
+          <span>Sentence before the blank: <input type="text" class="fill-input" id="s1b1" placeholder="???"> and the rest of the sentence.</span>
+        </div>
+        <!-- saveFill stores the answer for grading on submit — no verdict shown yet -->
+        <button class="check-btn" onclick="saveFill('s1b1',['answer','alternate answer'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_s1b1">💡 Answer: answer</div>
+      </div>
+
+      <!-- Repeat the q-block above for more blanks -->
+
+    </div><!-- /Part B card -->
+
+
+    <!-- ─────────────────────────────────────────
+         PART C — TRUE OR FALSE
+         • Each tf-row needs a unique qId (e.g. s1c1, s1c2 …).
+         • Second argument of checkTF() is 'True' or 'False'.
+         • Add the matching entry to the CORRECT object in the JS below.
+    ───────────────────────────────────────────── -->
+    <div class="card">
+      <div class="card-title">✅ Part C — True or False?</div>
+
+      <!-- True/False row (copy & paste for each statement) -->
+      <div class="tf-row">
+        <div class="tf-text">1. Statement that is either true or false.</div>
+        <div class="tf-btns">
+          <button class="tf-btn" onclick="selectTF(this,'s1c1','True')">True</button>
+          <button class="tf-btn" onclick="selectTF(this,'s1c1','False')">False</button>
+        </div>
+      </div>
+
+      <!-- Repeat the tf-row above for more statements -->
+
+    </div><!-- /Part C card -->
+
+
+    <!-- ─────────────────────────────────────────
+         PART D — SHORT ANSWER (open-ended, saved locally)
+         • Each textarea needs a unique id (e.g. sa_s1d1 …).
+         • saveShort() just confirms saving — no auto-grading.
+    ───────────────────────────────────────────── -->
+    <div class="card">
+      <div class="card-title">📖 Part D — Short Answers</div>
+
+      <!-- Short answer item (copy & paste for each question) -->
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">D1</span><span>Short answer question goes here?</span></div>
+        <textarea class="short-textarea" id="sa_s1d1" placeholder="Write your answer here..."></textarea>
+        <button class="submit-short-btn" onclick="saveShort('s1d1')">Save ✓</button>
+        <div class="short-saved" id="saved_s1d1">✅ Saved!</div>
+      </div>
+
+      <!-- Repeat the q-block above for more short answers -->
+
+    </div><!-- /Part D card -->
+
+
+    <!-- ─────────────────────────────────────────
+         OPTIONAL — DATA TABLE + QUESTIONS
+         Remove this card if not needed.
+    ───────────────────────────────────────────── -->
+    <div class="card">
+      <div class="card-title">🔍 Use this table to answer the questions below!</div>
+      <div class="db-table-wrap">
+        <table class="db-table">
+          <!-- Add or remove <th> columns as needed -->
+          <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+          </tr>
+          <!-- Add data rows -->
+          <tr><td>Row 1, Cell 1</td><td>Row 1, Cell 2</td><td>Row 1, Cell 3</td></tr>
+          <tr><td>Row 2, Cell 1</td><td>Row 2, Cell 2</td><td>Row 2, Cell 3</td></tr>
+          <tr><td>Row 3, Cell 1</td><td>Row 3, Cell 2</td><td>Row 3, Cell 3</td></tr>
+        </table>
+      </div>
+
+      <!-- Table question (reuse fill-in style) -->
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">T1</span><span>Question based on the table above?</span></div>
+        <input type="text" class="fill-input" id="tbl_q1" placeholder="Enter answer">
+        <button class="check-btn" onclick="saveFill('tbl_q1',['answer'])">Save Answer 💾</button>
+        <div class="answer-reveal" id="reveal_tbl_q1">💡 Answer: answer</div>
+      </div>
+
+    </div><!-- /Table card -->
+
+  </div><!-- /ws-section -->
+
+
+  <!-- ═══════════════════════════════════════════════
+       ADD MORE SECTIONS HERE
+       Copy the entire ws-section block above and
+       update all IDs and content for each new section.
+  ═══════════════════════════════════════════════ -->
+
+
+  <!-- ═══════════════════════════════════════════════
+       SCORE SUMMARY — No changes needed
+  ═══════════════════════════════════════════════ -->
+  <div id="scoreSummary">
+
+    <!-- Top hero area -->
+    <div class="score-hero">
+      <div class="score-trophy" id="scoreTrophy">🏆</div>
+      <h2 id="scoreHeading">Amazing Work!</h2>
+      <div class="score-circle" id="scoreCircle">
+        <span class="score-num" id="scoreNum">0%</span>
+      </div>
+      <div class="score-msg" id="scoreMsg"></div>
+
+      <!-- Stats row -->
+      <div class="score-stats" id="scoreStats">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+    <!-- Full question breakdown -->
+    <div class="results-breakdown">
+      <div class="results-heading">📋 Full Results Breakdown</div>
+      <div id="resultsBody">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="score-actions">
+      <button class="print-btn" onclick="printScore()">🖨️ Print Results</button>
+      <button class="restart-btn" onclick="restartAll()">🔄 Try Again</button>
+    </div>
+
+  </div>
+
+</div><!-- /page -->
+
+<!-- Floating submit button -->
+<button class="float-submit" onclick="openConfirm()">🎯 Submit Test</button>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   CORRECT ANSWERS
+   ─────────────────────────────────────────────────────────────
+   Add one entry per auto-graded question using its unique qId.
+
+   MCQ  →  value is the correct option letter:  's1q1': 'b'
+   T/F  →  value is 'True' or 'False':           's1c1': 'True'
+
+   Fill-in-the-blank acceptable answers are passed directly to
+   saveFill() in the HTML above — no entry needed here.
+
+   Short answers are not auto-graded — no entry needed.
+════════════════════════════════════════════════════════════ */
+const CORRECT = {
+  // ── Section 1 MCQs ──
+  s1q1: 'b',          // ← replace 'b' with the correct letter
+  // s1q2: 'c',
+
+  // ── Section 1 True/False ──
+  s1c1: 'True',       // ← 'True' or 'False'
+  // s1c2: 'False',
+
+  // ── Add more sections below ──
+};
+
+/* ════════════════════════════════════════════════════════════
+   CORE ENGINE — Do not edit below unless customising messages.
+════════════════════════════════════════════════════════════ */
+
+/* Pre-submit selection stores */
+const mcqSelections  = {};  // qId → chosen letter
+const mcqBtnMap      = {};  // qId → currently selected button element
+const tfSelections   = {};  // qId → 'True' | 'False'
+const tfBtnMap       = {};  // qId → currently selected button element
+const fillValues     = {};  // id  → current value string
+const fillAcceptable = {};  // id  → array of acceptable answers
+
+/* Post-submit result stores */
+const answered     = {};   // qId → true/false (graded on submit)
+const fillAnswered = {};   // id  → true/false (graded on submit)
+const questionLog  = [];   // full per-question record for results card
+
+let submitted = false;     // locks everything after submit
+
+/* ── Helpers ── */
+function escHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function getQText(el) {
+  if (!el) return '';
+  const clone = el.cloneNode(true);
+  clone.querySelectorAll('input').forEach(i => i.replaceWith('[___]'));
+  return (clone.querySelector('span:last-child')?.textContent || clone.textContent).trim();
+}
+
+/* ── Progress: tracks selections, not correctness ── */
+function updateProgress() {
+  const autoTotal     = Object.keys(CORRECT).length;
+  const fillTotal     = Object.keys(fillAcceptable).length;
+  const grandTotal    = autoTotal + fillTotal;
+
+  const mcqDone  = Object.keys(mcqSelections).length;
+  const tfDone   = Object.keys(tfSelections).length;
+  const fillDone = Object.keys(fillValues).filter(id => fillValues[id].trim() !== '').length;
+  const totalDone = mcqDone + tfDone + fillDone;
+
+  const pct = grandTotal > 0 ? Math.round(totalDone / grandTotal * 100) : 0;
+  document.getElementById('progressBar').style.width   = pct + '%';
+  document.getElementById('progressCount').textContent = totalDone + ' / ' + grandTotal;
+
+  // Stars reflect completion, not score (score unknown until submit)
+  const starCount = Math.round(pct / 20);
+  document.getElementById('starsDisplay').textContent =
+    '⭐'.repeat(starCount) + '🌑'.repeat(5 - starCount);
+}
+
+/* ── MCQ: record selection only, allow re-selection ── */
+function selectMCQ(btn, qId, chosen) {
+  if (submitted) return;
+  const btns = btn.parentElement.querySelectorAll('.opt-btn');
+  // Deselect previous
+  btns.forEach(b => b.classList.remove('selected'));
+  // Select current
+  btn.classList.add('selected');
+  mcqSelections[qId] = chosen;
+  mcqBtnMap[qId]     = btn;
+  updateProgress();
+}
+
+/* ── True/False: record selection only, allow re-selection ── */
+function selectTF(btn, qId, chosen) {
+  if (submitted) return;
+  const btns = btn.closest('.tf-btns').querySelectorAll('.tf-btn');
+  // Deselect previous
+  btns.forEach(b => { b.classList.remove('selected-true','selected-false'); });
+  // Select current
+  btn.classList.add(chosen === 'True' ? 'selected-true' : 'selected-false');
+  tfSelections[qId] = chosen;
+  tfBtnMap[qId]     = btn;
+  updateProgress();
+}
+
+/* ── Fill: save answer silently (no verdict), allow editing until submit ── */
+function saveFill(id, acceptableAnswers) {
+  if (submitted) return;
+  const inp = document.getElementById(id);
+  const val = inp.value.trim();
+  if (!val) return;   // ignore empty saves
+  fillValues[id]     = val;
+  fillAcceptable[id] = acceptableAnswers;
+  // Neutral "saved" style — no green/red
+  inp.classList.remove('correct','wrong');
+  inp.classList.add('saved');
+  // Brief confirmation
+  const reveal = document.getElementById('reveal_' + id);
+  const savedMsg = document.createElement('span');
+  savedMsg.style.cssText = 'margin-left:8px;font-size:12px;color:var(--purple);font-weight:700';
+  savedMsg.textContent   = '💾 Saved!';
+  inp.parentElement.appendChild(savedMsg);
+  setTimeout(() => savedMsg.remove(), 1800);
+  updateProgress();
+}
+
+/* ── Confirm dialog ── */
+function openConfirm() {
+  if (submitted) return;
+  const autoTotal  = Object.keys(CORRECT).length;
+  const fillTotal  = Object.keys(fillAcceptable).length;
+  const grandTotal = autoTotal + fillTotal;
+
+  const mcqDone  = Object.keys(mcqSelections).length;
+  const tfDone   = Object.keys(tfSelections).length;
+  const fillDone = Object.keys(fillValues).filter(id => fillValues[id].trim() !== '').length;
+  const unanswered = grandTotal - (mcqDone + tfDone + fillDone);
+
+  const note = document.getElementById('unansweredNote');
+  if (unanswered > 0) {
+    note.style.display = 'block';
+    note.textContent   = `⚠️ You have ${unanswered} unanswered question${unanswered > 1 ? 's' : ''}. They will be marked as skipped.`;
+  } else {
+    note.style.display = 'none';
+  }
+  document.getElementById('confirmOverlay').classList.add('visible');
+}
+
+function closeConfirm() {
+  document.getElementById('confirmOverlay').classList.remove('visible');
+}
+
+/* ── Submit & grade ── */
+function confirmSubmit() {
+  closeConfirm();
+  submitted = true;
+
+  // ── Grade MCQ / TF ──
+  Object.keys(CORRECT).forEach(qId => {
+    if (mcqSelections[qId] !== undefined) {
+      // It's an MCQ
+      const chosen     = mcqSelections[qId];
+      const correctAns = CORRECT[qId];
+      const isCorrect  = chosen === correctAns;
+      answered[qId]    = isCorrect;
+
+      // Update DOM
+      const btns = document.querySelectorAll(`.opt-btn[onclick*="'${qId}'"]`);
+      btns.forEach(b => {
+        b.disabled = true;
+        b.classList.remove('selected');
+        const oc = b.getAttribute('onclick');
+        if (oc && oc.includes("'" + chosen + "'"))    b.classList.add(isCorrect ? 'correct' : 'wrong');
+        if (!isCorrect && oc && oc.includes("'" + correctAns + "'")) b.classList.add('reveal-correct');
+      });
+
+      // Feedback badge
+      const fb = document.getElementById('fb_' + qId);
+      if (fb) {
+        fb.className = 'feedback-badge ' + (isCorrect ? 'correct' : 'wrong');
+        fb.innerHTML = isCorrect ? '🎉 Correct!' : '😅 Incorrect — correct answer highlighted.';
+        fb.style.display = 'inline-flex';
+      }
+
+      // Get label texts for log
+      let chosenText = '', correctText = '';
+      btns.forEach(b => {
+        const oc = b.getAttribute('onclick');
+        if (oc && oc.includes("'" + chosen + "'"))    chosenText  = b.textContent.trim();
+        if (oc && oc.includes("'" + correctAns + "'")) correctText = b.textContent.trim();
+      });
+
+      // Get question text
+      const fb2         = document.getElementById('fb_' + qId);
+      const qBlock      = fb2?.closest('.q-block');
+      const questionTxt = qBlock ? getQText(qBlock.querySelector('.q-text')) : qId;
+
+      questionLog.push({ type:'mcq', qId, questionText:questionTxt, yourAnswer:chosenText, correctAnswer:correctText, isCorrect });
+
+    } else if (tfSelections[qId] !== undefined) {
+      // It's a T/F
+      const chosen     = tfSelections[qId];
+      const correctAns = CORRECT[qId];
+      const isCorrect  = chosen === correctAns;
+      answered[qId]    = isCorrect;
+
+      const btns = document.querySelectorAll(`.tf-btn[onclick*="'${qId}'"]`);
+      btns.forEach(b => {
+        b.disabled = true;
+        b.classList.remove('selected-true','selected-false');
+        const txt = b.textContent.trim();
+        if (txt === chosen)    b.classList.add(isCorrect ? 'correct' : 'wrong');
+        if (!isCorrect && txt === correctAns) b.classList.add('correct');
+      });
+
+      const tfRow = btns[0]?.closest('.tf-row');
+      const questionTxt = tfRow?.querySelector('.tf-text')?.textContent.trim() || qId;
+      questionLog.push({ type:'tf', qId, questionText:questionTxt, yourAnswer:chosen, correctAnswer:correctAns, isCorrect });
+
+    } else {
+      // Skipped MCQ or T/F — still lock buttons if any
+      const mcqBtns = document.querySelectorAll(`.opt-btn[onclick*="'${qId}'"]`);
+      mcqBtns.forEach(b => { b.disabled = true; b.classList.remove('selected'); });
+      const correctAns = CORRECT[qId];
+      if (mcqBtns.length) {
+        mcqBtns.forEach(b => {
+          const oc = b.getAttribute('onclick');
+          if (oc && oc.includes("'" + correctAns + "'")) b.classList.add('reveal-correct');
+        });
+      }
+      const tfBtns = document.querySelectorAll(`.tf-btn[onclick*="'${qId}'"]`);
+      tfBtns.forEach(b => {
+        b.disabled = true;
+        if (b.textContent.trim() === correctAns) b.classList.add('correct');
+      });
+
+      // Get question text
+      let questionTxt = qId;
+      const fbEl = document.getElementById('fb_' + qId);
+      if (fbEl?.closest('.q-block')) questionTxt = getQText(fbEl.closest('.q-block').querySelector('.q-text')) || qId;
+      if (questionTxt === qId) {
+        document.querySelectorAll('.tf-row').forEach(row => {
+          row.querySelectorAll('.tf-btn').forEach(b => {
+            if (b.getAttribute('onclick')?.includes("'" + qId + "'"))
+              questionTxt = row.querySelector('.tf-text')?.textContent.trim() || qId;
+          });
+        });
+      }
+      questionLog.push({ type:'skipped', qId, questionText:questionTxt, yourAnswer:'—', correctAnswer:correctAns, isCorrect:false });
+    }
+  });
+
+  // ── Grade Fill-in-the-blank ──
+  document.querySelectorAll('.fill-input').forEach(inp => {
+    const id           = inp.id;
+    const acceptable   = fillAcceptable[id];
+    const val          = fillValues[id] || '';
+    const qBlock       = inp.closest('.q-block');
+    const questionTxt  = qBlock ? getQText(qBlock.querySelector('.q-text')) : id;
+
+    inp.disabled = true;
+    inp.classList.remove('saved');
+
+    if (acceptable) {
+      const isCorrect = acceptable.map(a => a.toLowerCase()).includes(val.toLowerCase());
+      fillAnswered[id] = isCorrect;
+      inp.classList.add(isCorrect ? 'correct' : 'wrong');
+      if (!isCorrect) {
+        const reveal = document.getElementById('reveal_' + id);
+        if (reveal) reveal.style.display = 'block';
+      }
+      const canonicalAns = acceptable[0];
+      questionLog.push({ type:'fill', qId:id, questionText:questionTxt, yourAnswer:val||'(blank)', correctAnswer:canonicalAns, isCorrect });
+    } else if (val) {
+      // Has a value but wasn't formally saved with saveFill — treat as unanswered
+      inp.classList.add('wrong');
+      const reveal = document.getElementById('reveal_' + id);
+      if (reveal) reveal.style.display = 'block';
+      questionLog.push({ type:'skipped-fill', qId:id, questionText:questionTxt, yourAnswer:'—', correctAnswer:'?', isCorrect:false });
+    } else {
+      // Truly blank
+      const reveal = document.getElementById('reveal_' + id);
+      if (reveal) reveal.style.display = 'block';
+      questionLog.push({ type:'skipped-fill', qId:id, questionText:questionTxt, yourAnswer:'—', correctAnswer:'?', isCorrect:false });
+    }
+  });
+
+  // Lock all check buttons
+  document.querySelectorAll('.check-btn').forEach(b => { b.disabled = true; });
+
+  // Show the score card
+  showScore();
+}
+
+/* ── Short answer save ── */
+function saveShort(id) {
+  const el = document.getElementById('saved_' + id);
+  if (el) { el.style.display = 'block'; setTimeout(() => el.style.display = 'none', 2000); }
+}
+
+/* ── Confetti ── */
+function launchConfetti(count) {
+  const colors    = ['#ffcc00','#ff6b9d','#4fc3f7','#69f0ae','#ffab40','#b39ddb'];
+  const container = document.getElementById('confettiContainer');
+  for (let i = 0; i < count * 8; i++) {
+    const piece = document.createElement('div');
+    piece.className            = 'confetti-piece';
+    piece.style.left           = Math.random() * 100 + 'vw';
+    piece.style.background     = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.width          = (6 + Math.random() * 8) + 'px';
+    piece.style.height         = (6 + Math.random() * 8) + 'px';
+    piece.style.borderRadius   = Math.random() > 0.5 ? '50%' : '2px';
+    const dur = 1.5 + Math.random() * 1.5;
+    piece.style.animationDuration = dur + 's';
+    piece.style.animationDelay    = Math.random() * 0.5 + 's';
+    container.appendChild(piece);
+    setTimeout(() => piece.remove(), (dur + 0.5) * 1000);
+  }
+}
+
+/* ── Build score card ── */
+function showScore() {
+  const total        = Object.keys(CORRECT).length + Object.keys(fillAcceptable).length;
+  const correctCount = Object.values(answered).filter(v => v).length
+                     + Object.values(fillAnswered).filter(v => v).length;
+  const allGraded    = Object.keys(answered).length + Object.keys(fillAnswered).length;
+  const wrongCount   = allGraded - correctCount;
+  const skipped      = total - allGraded;
+  const pct          = total > 0 ? Math.round(correctCount / total * 100) : 0;
+
+  // Update progress bar to reflect real score
+  document.getElementById('progressBar').style.width   = pct + '%';
+  document.getElementById('progressCount').textContent = correctCount + ' / ' + total + ' correct';
+  const stars = Math.round(correctCount / Math.max(total, 1) * 5);
+  document.getElementById('starsDisplay').textContent  = '⭐'.repeat(stars) + '🌑'.repeat(5 - stars);
+
+  // Hero area
+  document.getElementById('scoreCircle').style.setProperty('--pct', pct);
+  document.getElementById('scoreNum').textContent = pct + '%';
+  document.getElementById('scoreTrophy').textContent =
+    pct >= 90 ? '🏆' : pct >= 75 ? '🥇' : pct >= 60 ? '🥈' : '🎯';
+  document.getElementById('scoreHeading').textContent =
+    pct >= 90 ? 'Outstanding!' : pct >= 75 ? 'Great Job!' : pct >= 60 ? 'Good Effort!' : 'Keep Practicing!';
+  document.getElementById('scoreMsg').textContent =
+    pct >= 90 ? '🌟 You\'re a superstar — nearly perfect!'     :
+    pct >= 75 ? '🎉 Fantastic work! A few more to master.'      :
+    pct >= 60 ? '👍 Solid effort! Review the ones you missed.'  :
+                '💪 Don\'t give up — every attempt makes you better!';
+
+  // Stats pills
+  document.getElementById('scoreStats').innerHTML = `
+    <div class="stat-pill correct"><span class="stat-val">${correctCount}</span><span class="stat-lbl">Correct ✅</span></div>
+    <div class="stat-pill wrong">  <span class="stat-val">${wrongCount}</span><span class="stat-lbl">Wrong ❌</span></div>
+    <div class="stat-pill skipped"><span class="stat-val">${skipped}</span><span class="stat-lbl">Skipped ⏭️</span></div>
+    <div class="stat-pill total">  <span class="stat-val">${total}</span><span class="stat-lbl">Total 📋</span></div>
+  `;
+
+  // Results breakdown
+  const html = questionLog.map((q, i) => {
+    const isSkipped  = q.type === 'skipped' || q.type === 'skipped-fill';
+    const cls        = isSkipped ? 'ri-skipped' : q.isCorrect ? 'ri-correct' : 'ri-wrong';
+    const icon       = isSkipped ? '⏭️' : q.isCorrect ? '✅' : '❌';
+    const badge      = isSkipped ? '<span class="ri-badge skipped">Skipped</span>'
+                     : q.isCorrect ? '<span class="ri-badge correct">Correct</span>'
+                     : '<span class="ri-badge wrong">Incorrect</span>';
+    const yourValCls = isSkipped ? 'skipped-val' : q.isCorrect ? 'your-correct' : 'your-wrong';
+    const correctRow = (!q.isCorrect || isSkipped)
+      ? `<div class="ri-row"><span class="ri-label">✅ Correct:</span><span class="ri-val correct-ans">${escHtml(q.correctAnswer)}</span></div>`
+      : '';
+    return `
+      <div class="result-item ${cls}" style="animation-delay:${i*0.04}s">
+        <div class="ri-icon">${icon}</div>
+        <div class="ri-body">
+          <div class="ri-qtext">${escHtml(q.questionText)}</div>
+          <div class="ri-row"><span class="ri-label">Your answer:</span><span class="ri-val ${yourValCls}">${escHtml(q.yourAnswer)}</span></div>
+          ${correctRow}
+        </div>
+        <div>${badge}</div>
+      </div>`;
+  }).join('');
+
+  document.getElementById('resultsBody').innerHTML =
+    html || '<p style="color:var(--muted);text-align:center;padding:20px">No questions were answered.</p>';
+
+  const summary = document.getElementById('scoreSummary');
+  summary.style.display = 'block';
+  summary.scrollIntoView({ behavior:'smooth' });
+  launchConfetti(8);
+}
+
+/* ── Print ── */
+function printScore() { window.print(); }
+
+/* ── Restart ── */
+function restartAll() { location.reload(); }
+
+updateProgress();
+</script>
+</body>
+</html>
