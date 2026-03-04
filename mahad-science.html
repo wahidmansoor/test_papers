@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>🔬 Science exam prep · Living things, matter & light</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e1a;
+    --card: #1c1b2e;
+    --card2: #201f35;
+    --accent: #ffcc00;
+    --pink: #ff6b9d;
+    --blue: #4fc3f7;
+    --green: #69f0ae;
+    --purple: #b39ddb;
+    --orange: #ffab40;
+    --red: #ff5252;
+    --text: #f0eeff;
+    --muted: #8885aa;
+    --r: 18px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 10%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 70%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 55%, rgba(255,255,255,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(2px 2px at 70% 75%, rgba(255,204,0,0.5) 0%, transparent 100%),
+      radial-gradient(2px 2px at 30% 15%, rgba(79,195,247,0.5) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
+
+  /* header */
+  header {
+    background: linear-gradient(135deg, #2d1b69, #1a0a3d);
+    border: 2px solid rgba(255,204,0,0.3);
+    border-radius: 24px;
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(179,157,219,0.2);
+  }
+  .header-emoji { font-size: 48px; display: block; margin-bottom: 8px; animation: bounce 2s ease-in-out infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  header h1 { font-family: 'Fredoka One', cursive; font-size: 28px; color: var(--accent); text-shadow: 0 0 20px rgba(255,204,0,0.5); }
+  header p { color: var(--purple); font-size: 14px; margin-top: 6px; }
+
+  /* instructions */
+  .instructions {
+    background: linear-gradient(135deg, rgba(79,195,247,0.12), rgba(179,157,219,0.12));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 16px 18px;
+    margin: 0 0 20px;
+  }
+  .instructions-title {
+    font-family: 'Fredoka One', cursive;
+    color: var(--accent);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .instructions p { font-size: 13.5px; line-height: 1.55; margin-bottom: 10px; font-weight: 600; }
+  .instructions-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  @media (min-width: 720px){ .instructions-grid { grid-template-columns: 1fr 1fr; } }
+  .inst-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 12px;
+  }
+  .inst-card h4 { font-family: 'Fredoka One', cursive; font-size: 13px; color: var(--blue); margin-bottom: 6px; }
+  .inst-card ul { padding-left: 18px; }
+  .inst-card li { font-size: 13px; line-height: 1.5; font-weight: 600; }
+  .inst-pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .inst-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .inst-pill strong { color: var(--accent); }
+
+  .progress-wrap {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .progress-label { font-family: 'Fredoka One', cursive; font-size: 15px; color: var(--accent); white-space: nowrap; }
+  .progress-bar-outer { flex: 1; height: 18px; background: rgba(255,255,255,0.07); border-radius: 100px; overflow: hidden; }
+  .progress-bar-inner { height: 100%; background: linear-gradient(90deg, var(--blue), var(--green)); border-radius: 100px; transition: width 0.5s; width: 0%; }
+  .progress-count { font-weight: 800; color: var(--green); font-size: 14px; white-space: nowrap; }
+  .stars-display { display: flex; gap: 4px; font-size: 20px; }
+
+  .ws-section { margin-bottom: 28px; }
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 16px rgba(79,195,247,0.25);
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: var(--r);
+    padding: 20px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .card-title { font-family: 'Fredoka One', cursive; font-size: 16px; color: var(--accent); margin-bottom: 14px; display: flex; gap: 8px; }
+
+  .q-block { margin-bottom: 20px; animation: fadeIn 0.4s ease both; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;} }
+
+  .q-text { font-weight: 700; font-size: 15px; margin-bottom: 10px; display: flex; gap: 10px; align-items: flex-start; }
+  .q-num {
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    min-width: 30px; height: 30px;
+    border-radius: 10px;
+    display: grid; place-items: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .opts { display: flex; flex-direction: column; gap: 8px; padding-left: 40px; }
+  .opt-btn {
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .opt-btn:hover:not(:disabled):not(.selected) { background: rgba(79,195,247,0.07); border-color: rgba(79,195,247,0.3); transform: translateX(4px); }
+  .opt-btn.selected { background: rgba(179,157,219,0.18); border-color: var(--purple); color: var(--purple); transform: translateX(4px); }
+  .opt-btn.correct        { background: rgba(105,240,174,0.15); border-color: var(--green); color: var(--green); animation: pop 0.3s ease; }
+  .opt-btn.wrong          { background: rgba(255,82,82,0.12);   border-color: var(--red);   color: var(--red);   animation: shake 0.4s ease; }
+  .opt-btn.reveal-correct { background: rgba(105,240,174,0.08); border-color: rgba(105,240,174,0.4); color: rgba(105,240,174,0.7); }
+  .opt-btn:disabled { cursor: default; }
+
+  .feedback-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 100px; margin-top: 8px; margin-left: 40px; }
+  .feedback-badge.correct { background: rgba(105,240,174,0.15); color: var(--green); }
+  .feedback-badge.wrong   { background: rgba(255,82,82,0.12);   color: var(--red);   }
+
+  .fill-input {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 7px 12px;
+    min-width: 120px;
+    transition: all 0.2s;
+    outline: none;
+  }
+  .fill-input:focus { border-color: var(--blue); background: rgba(79,195,247,0.08); }
+  .fill-input.saved { border-color: var(--purple); background: rgba(179,157,219,0.1); color: var(--purple); }
+  .fill-input.correct { border-color: var(--green); background: rgba(105,240,174,0.1); color: var(--green); }
+  .fill-input.wrong { border-color: var(--red); background: rgba(255,82,82,0.08); color: var(--red); }
+
+  .check-btn {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border: none; color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    padding: 7px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-left: 40px; margin-top: 6px;
+  }
+  .check-btn:hover { transform: scale(1.05); }
+  .check-btn:disabled { opacity: 0.5; cursor: default; }
+
+  .answer-reveal { font-size: 12px; color: var(--orange); margin-left: 40px; margin-top: 4px; display: none; font-weight: 700; }
+
+  .tf-row { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+  .tf-text { flex: 1; font-size: 14px; font-weight: 600; min-width: 200px; }
+  .tf-btns { display: flex; gap: 6px; }
+  .tf-btn {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 6px 14px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text);
+  }
+  .tf-btn.selected-true, .tf-btn.selected-false { background: rgba(179,157,219,0.2); border-color: var(--purple); color: var(--purple); }
+  .tf-btn.correct  { background: rgba(105,240,174,0.2); border-color: var(--green); color: var(--green); }
+  .tf-btn.wrong    { background: rgba(255,82,82,0.15);  border-color: var(--red);   color: var(--red);   }
+  .tf-btn:disabled { cursor: default; }
+
+  .short-textarea {
+    width: calc(100% - 40px);
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: var(--text);
+    font-size: 14px;
+    padding: 10px 14px;
+    resize: vertical;
+    min-height: 70px;
+    margin-left: 40px;
+  }
+  .submit-short-btn {
+    margin-left: 40px;
+    margin-top: 6px;
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    border: none; color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    padding: 7px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .short-saved { margin-left: 40px; margin-top: 4px; font-size: 12px; color: var(--green); display: none; }
+
+  .divider { height: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); margin: 8px 0 16px; }
+
+  /* confirm overlay */
+  .confirm-overlay {
+    position: fixed; inset: 0;
+    background: rgba(10,8,26,0.82);
+    backdrop-filter: blur(6px);
+    z-index: 500;
+    display: none;
+    align-items: center; justify-content: center;
+  }
+  .confirm-overlay.visible { display: flex; }
+  .confirm-box {
+    background: linear-gradient(135deg, #2d1b69, #1a0a3d);
+    border: 2px solid rgba(255,204,0,0.4);
+    border-radius: 24px;
+    padding: 36px 32px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+  }
+  .cb-icon { font-size: 48px; }
+  .confirm-box h3 { font-family: 'Fredoka One', cursive; font-size: 22px; color: var(--accent); }
+  .unanswered-note { background: rgba(255,171,64,0.12); border-radius: 10px; padding: 8px; font-size: 13px; color: var(--orange); margin-bottom: 20px; display: none; }
+  .confirm-btns { display: flex; gap: 12px; justify-content: center; }
+  .cb-cancel, .cb-confirm {
+    font-family: 'Fredoka One', cursive;
+    font-size: 15px;
+    padding: 11px 24px;
+    border-radius: 14px;
+    cursor: pointer;
+    border: none;
+  }
+  .cb-cancel { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.15); color: var(--text); }
+  .cb-confirm { background: linear-gradient(135deg, var(--pink), var(--orange)); color: #fff; }
+
+  .float-submit {
+    position: fixed; bottom: 24px; right: 24px;
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    border: none; color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 16px;
+    padding: 14px 24px;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: 0 6px 24px rgba(255,107,157,0.5);
+    z-index: 100;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  /* score summary */
+  #scoreSummary {
+    background: linear-gradient(135deg, #1a0a3d, #2d1b69);
+    border: 2px solid rgba(255,204,0,0.4);
+    border-radius: 24px;
+    padding: 0;
+    margin-top: 28px;
+    display: none;
+    overflow: hidden;
+  }
+  .score-hero { padding: 36px 28px 28px; text-align: center; border-bottom: 2px solid rgba(255,255,255,0.07); }
+  .score-trophy { font-size: 52px; animation: bounce 1s infinite; }
+  .score-circle {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: conic-gradient(var(--green) calc(var(--pct) * 1%), rgba(255,255,255,0.08) 0%);
+    display: grid; place-items: center;
+    margin: 16px auto;
+    position: relative;
+  }
+  .score-circle::after {
+    content: ''; position: absolute; inset: 8px; border-radius: 50%; background: #1a0a3d;
+  }
+  .score-num { font-family: 'Fredoka One', cursive; font-size: 26px; position: relative; z-index: 1; }
+  .score-stats { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
+  .stat-pill {
+    display: flex; flex-direction: column; align-items: center;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 12px 20px;
+  }
+  .stat-pill .stat-val { font-family: 'Fredoka One', cursive; font-size: 24px; }
+  .results-breakdown { padding: 24px 28px; }
+  .results-heading { font-family: 'Fredoka One', cursive; font-size: 18px; color: var(--accent); margin-bottom: 16px; }
+  .result-item {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px; padding: 14px 16px; margin-bottom: 10px;
+    display: grid; grid-template-columns: 28px 1fr auto; gap: 10px;
+  }
+  .ri-icon { font-size: 18px; }
+  .ri-qtext { font-weight: 700; margin-bottom: 6px; }
+  .ri-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .ri-label { font-size: 11px; color: var(--muted); min-width: 80px; }
+  .ri-val { font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 100px; }
+  .ri-val.your-correct { background: rgba(105,240,174,0.15); color: var(--green); }
+  .ri-val.your-wrong   { background: rgba(255,82,82,0.15);   color: var(--red); }
+  .ri-val.correct-ans  { background: rgba(105,240,174,0.1);  color: var(--green); border: 1px solid rgba(105,240,174,0.3); }
+  .ri-badge { font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 100px; }
+  .ri-badge.correct  { background: rgba(105,240,174,0.2); color: var(--green); }
+  .ri-badge.wrong    { background: rgba(255,82,82,0.15);  color: var(--red); }
+  .score-actions { display: flex; justify-content: center; gap: 14px; padding: 24px 28px; flex-wrap: wrap; }
+  .restart-btn, .print-btn {
+    font-family: 'Fredoka One', cursive; font-size: 16px; padding: 13px 28px; border-radius: 16px; border: none; cursor: pointer;
+  }
+  .restart-btn { background: linear-gradient(135deg, var(--accent), var(--orange)); color: #111; }
+  .print-btn   { background: linear-gradient(135deg, var(--blue), var(--purple)); color: #fff; }
+
+  /* print */
+  @media print {
+    body, body::before { background: #fff !important; color: #111; }
+    header, .instructions, .progress-wrap, .ws-section, .float-submit, .confirm-overlay { display: none !important; }
+    #scoreSummary { display: block !important; background: #fff; border: 2px solid #b39ddb; }
+    .score-circle { background: conic-gradient(#2ecc71 calc(var(--pct) * 1%), #ddd 0%); }
+    .score-circle::after { background: #f0eeff; }
+  }
+
+  .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 1000; overflow: hidden; }
+  .confetti-piece { position: absolute; width: 10px; height: 10px; border-radius: 2px; animation: confettiFall linear forwards; top: -20px; }
+  @keyframes confettiFall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+</style>
+</head>
+<body>
+<div class="confetti-container" id="confettiContainer"></div>
+
+<!-- confirm overlay -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <span class="cb-icon">📝</span><h3>Submit your test?</h3>
+    <p>You won't be able to change answers afterwards.</p>
+    <div class="unanswered-note" id="unansweredNote"></div>
+    <div class="confirm-btns"><button class="cb-cancel" onclick="closeConfirm()">← Keep answering</button><button class="cb-confirm" onclick="confirmSubmit()">Submit now 🚀</button></div>
+  </div>
+</div>
+
+<div class="page">
+  <header><span class="header-emoji">🔬🧪</span><h1>Science exam prep</h1><p>Living things · Particle model · Light</p></header>
+
+  <div class="instructions">
+    <div class="instructions-title">📌 How this works</div>
+    <p>Answer all questions. Click options / save fills. Progress bar counts attempts. Submit at the end to see your score + correct answers.</p>
+    <div class="instructions-grid">
+      <div class="inst-card"><h4>🎯 MCQ</h4><ul><li>Click one answer – it turns purple.</li></ul></div>
+      <div class="inst-card"><h4>✏️ Fill in blank</h4><ul><li>Type answer, click <strong>Save Answer 💾</strong> (turns purple).</li></ul></div>
+      <div class="inst-card"><h4>✅ True/False</h4><ul><li>Select True or False – button highlights.</li></ul></div>
+      <div class="inst-card"><h4>📖 Short answer</h4><ul><li>Write freely, click Save ✓ (not auto‑graded).</li></ul></div>
+    </div>
+    <div class="inst-pill-row"><div class="inst-pill">🟣 <strong>Saved</strong> (not yet graded)</div><div class="inst-pill">🎯 Submit = score + corrections</div><div class="inst-pill">🖨️ Print results</div></div>
+  </div>
+
+  <div class="progress-wrap"><div class="progress-label">🌟 Progress</div><div class="progress-bar-outer"><div class="progress-bar-inner" id="progressBar"></div></div><div class="progress-count" id="progressCount">0 / 0</div><div class="stars-display" id="starsDisplay">⭐⭐⭐⭐⭐</div></div>
+
+  <!-- ========== SECTION 1 – LIVING THINGS & FOOD CHAINS ========= -->
+  <div class="ws-section">
+    <div class="section-badge">🌿 Living things & Food chains</div>
+
+    <!-- MCQ card -->
+    <div class="card"><div class="card-title">🎯 Part A – Multiple choice</div>
+      <div class="q-block"><div class="q-text"><span class="q-num">1</span><span>What do living things get from food?</span></div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq1','a')">🔵 a) Energy</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq1','b')">🟢 b) Water</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq1','c')">🟡 c) Air</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq1','d')">🔴 d) Nutrients</button></div><div class="feedback-badge" id="fb_liv_mcq1" style="display:none"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">2</span><span>Which substance traps light for photosynthesis?</span></div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq2','a')">🔵 a) Chlorophyll</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq2','b')">🟢 b) Oxygen</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq2','c')">🟡 c) CO₂</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq2','d')">🔴 d) Water</button></div><div class="feedback-badge" id="fb_liv_mcq2"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">3</span><span>Making plant food in sunlight is known as?</span></div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq3','a')">🔵 a) Photosynthesis</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq3','b')">🟢 b) Respiration</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq3','c')">🟡 c) Digestion</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq3','d')">🔴 d) Germination</button></div><div class="feedback-badge" id="fb_liv_mcq3"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">4</span><span>All food chains start with?</span></div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq4','a')">🔵 a) Producers</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq4','b')">🟢 b) Consumers</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq4','c')">🟡 c) Decomposers</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq4','d')">🔴 d) Predators</button></div><div class="feedback-badge" id="fb_liv_mcq4"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">5</span><span>Animals eating both plants and animals are called?</span></div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq5','a')">🔵 a) Herbivores</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq5','b')">🟢 b) Carnivores</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq5','c')">🟡 c) Omnivores</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq5','d')">🔴 d) Insectivores</button></div><div class="feedback-badge" id="fb_liv_mcq5"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">6</span><span>How do plants get their energy?</span></div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq6','a')">🔵 a) roots absorb from soil</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq6','b')">🟢 b) they eat other organisms</button><button class="opt-btn" onclick="selectMCQ(this,'liv_mcq6','c')">🟡 c) they make their own food in light</button></div><div class="feedback-badge" id="fb_liv_mcq6"></div></div>
+    </div>
+
+    <!-- True/False card -->
+    <div class="card"><div class="card-title">✅ Part B – True or false?</div>
+      <div class="tf-row"><div class="tf-text">1. Animals can make their own food.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'liv_tf1','True')">True</button><button class="tf-btn" onclick="selectTF(this,'liv_tf1','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">2. A food chain shows the transfer of energy.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'liv_tf2','True')">True</button><button class="tf-btn" onclick="selectTF(this,'liv_tf2','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">3. Herbivores eat meat.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'liv_tf3','True')">True</button><button class="tf-btn" onclick="selectTF(this,'liv_tf3','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">4. Predators are animals that are hunted.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'liv_tf4','True')">True</button><button class="tf-btn" onclick="selectTF(this,'liv_tf4','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">5. Plants need light to survive and be healthy.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'liv_tf5','True')">True</button><button class="tf-btn" onclick="selectTF(this,'liv_tf5','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">6. Animals are consumers because they make their own food.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'liv_tf6','True')">True</button><button class="tf-btn" onclick="selectTF(this,'liv_tf6','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">7. A food chain may start with a producer or a consumer.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'liv_tf7','True')">True</button><button class="tf-btn" onclick="selectTF(this,'liv_tf7','False')">False</button></div></div>
+    </div>
+
+    <!-- Fill in blanks -->
+    <div class="card"><div class="card-title">✏️ Part C – Fill in the blanks</div>
+      <div class="q-block"><div class="q-text"><span class="q-num">1</span>Basic components of living: <input type="text" class="fill-input" id="liv_fill1" placeholder="first"> , <input type="text" class="fill-input" id="liv_fill2" placeholder="second"> , <input type="text" class="fill-input" id="liv_fill3" placeholder="third"></div>
+        <button class="check-btn" onclick="saveFill('liv_fill1',['air'])">Save 1 💾</button><button class="check-btn" onclick="saveFill('liv_fill2',['water'])">Save 2 💾</button><button class="check-btn" onclick="saveFill('liv_fill3',['food'])">Save 3 💾</button>
+        <div class="answer-reveal" id="reveal_liv_fill1">💡 air</div><div class="answer-reveal" id="reveal_liv_fill2">💡 water</div><div class="answer-reveal" id="reveal_liv_fill3">💡 food</div>
+      </div>
+      <div class="q-block"><div class="q-text"><span class="q-num">2</span>In a food chain, plants are <input type="text" class="fill-input" id="liv_fill4" placeholder="?"></div><button class="check-btn" onclick="saveFill('liv_fill4',['producers','producer'])">Save 💾</button><div class="answer-reveal" id="reveal_liv_fill4">💡 producers</div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">3</span>Process by which plants make food: <input type="text" class="fill-input" id="liv_fill5" placeholder="?"></div><button class="check-btn" onclick="saveFill('liv_fill5',['photosynthesis'])">Save 💾</button><div class="answer-reveal" id="reveal_liv_fill5">💡 photosynthesis</div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">4</span>A <input type="text" class="fill-input" id="liv_fill6" placeholder="?"> shows energy transfer between living things.</div><button class="check-btn" onclick="saveFill('liv_fill6',['food chain','foodchain'])">Save 💾</button><div class="answer-reveal" id="reveal_liv_fill6">💡 food chain</div></div>
+    </div>
+
+    <!-- Short answer -->
+    <div class="card"><div class="card-title">📖 Part D – Short answers (not auto‑graded)</div>
+      <div class="q-block"><div class="q-text"><span class="q-num">D1</span>Define food chain.</div><textarea class="short-textarea" id="liv_short1" placeholder="Your answer..."></textarea><button class="submit-short-btn" onclick="saveShort('liv_short1')">Save ✓</button><div class="short-saved" id="saved_liv_short1">✅ Saved</div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">D2</span>Differentiate between predator and prey.</div><textarea class="short-textarea" id="liv_short2" placeholder="Your answer..."></textarea><button class="submit-short-btn" onclick="saveShort('liv_short2')">Save ✓</button><div class="short-saved" id="saved_liv_short2">✅ Saved</div></div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 2 – PARTICLE MODEL & CHANGES ========= -->
+  <div class="ws-section">
+    <div class="section-badge">⚛️ Particle model & Changes</div>
+    <div class="card"><div class="card-title">🎯 Part A – MCQ</div>
+      <div class="q-block"><div class="q-text"><span class="q-num">1</span>Why can liquids be poured?</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'part_mcq1','a')">🔵 a) particles slide past each other</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq1','b')">🟢 b) particles fixed</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq1','c')">🟡 c) particles far apart</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq1','d')">🔴 d) particles move fast</button></div><div class="feedback-badge" id="fb_part_mcq1"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">2</span>Why do solids keep their shape?</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'part_mcq2','a')">🔵 a) particles tightly packed & fixed</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq2','b')">🟢 b) particles slide</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq2','c')">🟡 c) particles far apart</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq2','d')">🔴 d) particles move fast</button></div><div class="feedback-badge" id="fb_part_mcq2"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">3</span>What happens when a solid is heated?</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'part_mcq3','a')">🔵 a) particles move faster, spread slightly</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq3','b')">🟢 b) particles stop</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq3','c')">🟡 c) particles break</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq3','d')">🔴 d) particles disappear</button></div><div class="feedback-badge" id="fb_part_mcq3"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">4</span>Why are gases easy to compress?</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'part_mcq4','a')">🔵 a) particles far apart</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq4','b')">🟢 b) particles slide</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq4','c')">🟡 c) particles fixed</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq4','d')">🔴 d) particles large</button></div><div class="feedback-badge" id="fb_part_mcq4"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">5</span>Liquid → solid is called?</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'part_mcq5','a')">🔵 a) melting</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq5','b')">🟢 b) freezing</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq5','c')">🟡 c) evaporation</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq5','d')">🔴 d) condensation</button></div><div class="feedback-badge" id="fb_part_mcq5"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">6</span>Burning wood is a ...</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'part_mcq6','a')">🔵 a) physical change</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq6','b')">🟢 b) chemical change</button></div><div class="feedback-badge" id="fb_part_mcq6"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">7</span>Butter melting is ...</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'part_mcq7','a')">🔵 a) physical</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq7','b')">🟢 b) chemical</button></div><div class="feedback-badge" id="fb_part_mcq7"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">8</span>Chen: mixing oil+water physical, ice melting chemical. Ravi: both physical. Who correct?</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'part_mcq8','a')">🔵 a) Chen</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq8','b')">🟢 b) Ravi</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq8','c')">🟡 c) Both</button><button class="opt-btn" onclick="selectMCQ(this,'part_mcq8','d')">🔴 d) Neither</button></div><div class="feedback-badge" id="fb_part_mcq8"></div></div>
+    </div>
+
+    <div class="card"><div class="card-title">✅ Part B – True/False</div>
+      <div class="tf-row"><div class="tf-text">1. Substances are made of particles.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'part_tf1','True')">True</button><button class="tf-btn" onclick="selectTF(this,'part_tf1','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">2. Particles in a solid are constantly moving.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'part_tf2','True')">True</button><button class="tf-btn" onclick="selectTF(this,'part_tf2','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">3. Flour can be poured because particles are not closely packed.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'part_tf3','True')">True</button><button class="tf-btn" onclick="selectTF(this,'part_tf3','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">4. New substances are formed during melting.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'part_tf4','True')">True</button><button class="tf-btn" onclick="selectTF(this,'part_tf4','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">5. Burning a matchstick is physical change.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'part_tf5','True')">True</button><button class="tf-btn" onclick="selectTF(this,'part_tf5','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">6. Baking bread is chemical change.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'part_tf6','True')">True</button><button class="tf-btn" onclick="selectTF(this,'part_tf6','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">7. Mixing salt and water is physical change.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'part_tf7','True')">True</button><button class="tf-btn" onclick="selectTF(this,'part_tf7','False')">False</button></div></div>
+    </div>
+
+    <div class="card"><div class="card-title">✏️ Part C – Fill in</div>
+      <div class="q-block"><div class="q-text"><span class="q-num">1</span>When liquid cooled, particles _______ and settle. <input type="text" class="fill-input" id="part_fill1"></div><button class="check-btn" onclick="saveFill('part_fill1',['lose heat','move slower','slow down','come closer'])">Save 💾</button><div class="answer-reveal" id="reveal_part_fill1">💡 lose heat / move slower</div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">2</span>Liquid → solid is called <input type="text" class="fill-input" id="part_fill2"></div><button class="check-btn" onclick="saveFill('part_fill2',['freezing','solidification'])">Save 💾</button><div class="answer-reveal" id="reveal_part_fill2">💡 freezing</div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">3</span>Solid → liquid is called <input type="text" class="fill-input" id="part_fill3"></div><button class="check-btn" onclick="saveFill('part_fill3',['melting'])">Save 💾</button><div class="answer-reveal" id="reveal_part_fill3">💡 melting</div></div>
+    </div>
+
+    <div class="card"><div class="card-title">📖 Part D – Short answer</div>
+      <div class="q-block"><div class="q-text"><span class="q-num">D1</span>What happens to particles when a liquid is cooled? (describe)</div><textarea class="short-textarea" id="part_short1"></textarea><button class="submit-short-btn" onclick="saveShort('part_short1')">Save ✓</button><div class="short-saved" id="saved_part_short1"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 3 – LIGHT ========= -->
+  <div class="ws-section">
+    <div class="section-badge">💡 Light & Reflection</div>
+    <div class="card"><div class="card-title">🎯 Part A – MCQ</div>
+      <div class="q-block"><div class="q-text"><span class="q-num">1</span>Energy in a candle?</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'light_mcq1','a')">🔵 a) Light</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq1','b')">🟢 b) Sound</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq1','c')">🟡 c) Heat</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq1','d')">🔴 d) Chemical</button></div><div class="feedback-badge" id="fb_light_mcq1"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">2</span>Arrows in ray diagram show?</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'light_mcq2','a')">🔵 a) Direction</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq2','b')">🟢 b) Speed</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq2','c')">🟡 c) Brightness</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq2','d')">🔴 d) Colour</button></div><div class="feedback-badge" id="fb_light_mcq2"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">3</span>How does light travel?</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'light_mcq3','a')">🔵 a) straight lines</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq3','b')">🟢 b) curved</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq3','c')">🟡 c) waves only</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq3','d')">🔴 d) randomly</button></div><div class="feedback-badge" id="fb_light_mcq3"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">4</span>Light hits mirror → ?</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'light_mcq4','a')">🔵 a) reflection</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq4','b')">🟢 b) refraction</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq4','c')">🟡 c) absorption</button></div><div class="feedback-badge" id="fb_light_mcq4"></div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">5</span>Best reflecting surface?</div><div class="opts"><button class="opt-btn" onclick="selectMCQ(this,'light_mcq5','a')">🔵 a) smooth</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq5','b')">🟢 b) rough</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq5','c')">🟡 c) dark</button><button class="opt-btn" onclick="selectMCQ(this,'light_mcq5','d')">🔴 d) transparent</button></div><div class="feedback-badge" id="fb_light_mcq5"></div></div>
+    </div>
+
+    <div class="card"><div class="card-title">✅ Part B – True/False</div>
+      <div class="tf-row"><div class="tf-text">1. Light travels in straight lines.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'light_tf1','True')">True</button><button class="tf-btn" onclick="selectTF(this,'light_tf1','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">2. We can see objects that are not light sources.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'light_tf2','True')">True</button><button class="tf-btn" onclick="selectTF(this,'light_tf2','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">3. We can see objects if light is not present.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'light_tf3','True')">True</button><button class="tf-btn" onclick="selectTF(this,'light_tf3','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">4. Ray diagram shows light from eyes to object.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'light_tf4','True')">True</button><button class="tf-btn" onclick="selectTF(this,'light_tf4','False')">False</button></div></div>
+      <div class="tf-row"><div class="tf-text">5. When light hits a surface, it disappears.</div><div class="tf-btns"><button class="tf-btn" onclick="selectTF(this,'light_tf5','True')">True</button><button class="tf-btn" onclick="selectTF(this,'light_tf5','False')">False</button></div></div>
+    </div>
+
+    <div class="card"><div class="card-title">✏️ Part C – Fill in</div>
+      <div class="q-block"><div class="q-text"><span class="q-num">1</span>Reflection is when light _______ after hitting a surface. <input type="text" class="fill-input" id="light_fill1"></div><button class="check-btn" onclick="saveFill('light_fill1',['bounces back','reflects','bounces off'])">Save 💾</button><div class="answer-reveal" id="reveal_light_fill1">💡 bounces back</div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">2</span>Light scatters on a _______ surface. <input type="text" class="fill-input" id="light_fill2"></div><button class="check-btn" onclick="saveFill('light_fill2',['rough'])">Save 💾</button><div class="answer-reveal" id="reveal_light_fill2">💡 rough</div></div>
+      <div class="q-block"><div class="q-text"><span class="q-num">3</span>We see objects because light is _______ into our eyes. <input type="text" class="fill-input" id="light_fill3"></div><button class="check-btn" onclick="saveFill('light_fill3',['reflected'])">Save 💾</button><div class="answer-reveal" id="reveal_light_fill3">💡 reflected</div></div>
+    </div>
+
+    <div class="card"><div class="card-title">📖 Part D – Short answer</div>
+      <div class="q-block"><div class="q-text"><span class="q-num">D1</span>Explain how reflection helps us see objects.</div><textarea class="short-textarea" id="light_short1"></textarea><button class="submit-short-btn" onclick="saveShort('light_short1')">Save ✓</button><div class="short-saved" id="saved_light_short1"></div></div>
+    </div>
+  </div>
+
+  <!-- SCORE SUMMARY -->
+  <div id="scoreSummary">
+    <div class="score-hero"><div class="score-trophy" id="scoreTrophy">🏆</div><h2 id="scoreHeading">Great work!</h2><div class="score-circle" id="scoreCircle"><span class="score-num" id="scoreNum">0%</span></div><div class="score-msg" id="scoreMsg"></div><div class="score-stats" id="scoreStats"></div></div>
+    <div class="results-breakdown"><div class="results-heading">📋 Breakdown</div><div id="resultsBody"></div></div>
+    <div class="score-actions"><button class="print-btn" onclick="printScore()">🖨️ Print</button><button class="restart-btn" onclick="restartAll()">🔄 Try again</button></div>
+  </div>
+</div>
+
+<button class="float-submit" onclick="openConfirm()">🎯 Submit test</button>
+
+<script>
+const CORRECT = {
+  liv_mcq1:'a', liv_mcq2:'a', liv_mcq3:'a', liv_mcq4:'a', liv_mcq5:'c', liv_mcq6:'c',
+  liv_tf1:'False', liv_tf2:'True', liv_tf3:'False', liv_tf4:'False', liv_tf5:'True', liv_tf6:'False', liv_tf7:'False',
+  part_mcq1:'a', part_mcq2:'a', part_mcq3:'a', part_mcq4:'a', part_mcq5:'b', part_mcq6:'b', part_mcq7:'a', part_mcq8:'b',
+  part_tf1:'True', part_tf2:'True', part_tf3:'True', part_tf4:'False', part_tf5:'False', part_tf6:'True', part_tf7:'True',
+  light_mcq1:'a', light_mcq2:'a', light_mcq3:'a', light_mcq4:'a', light_mcq5:'a',
+  light_tf1:'True', light_tf2:'True', light_tf3:'False', light_tf4:'False', light_tf5:'False'
+};
+
+const mcqSelections = {}, mcqBtnMap = {}, tfSelections = {}, tfBtnMap = {};
+const fillValues = {}, fillAcceptable = {};
+const answered = {}, fillAnswered = {};
+let submitted = false;
+const questionLog = [];
+
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function getQText(el){ if(!el) return ''; let clone=el.cloneNode(true); clone.querySelectorAll('input').forEach(i=>i.replaceWith('[___]')); return (clone.querySelector('span:last-child')?.textContent||clone.textContent).trim(); }
+
+function updateProgress(){
+  const autoTotal = Object.keys(CORRECT).length;
+  const fillTotal = Object.keys(fillAcceptable).length;
+  const grand = autoTotal+fillTotal;
+  const mcqDone = Object.keys(mcqSelections).length;
+  const tfDone = Object.keys(tfSelections).length;
+  const fillDone = Object.keys(fillValues).filter(id=>fillValues[id].trim()!=='').length;
+  const done = mcqDone+tfDone+fillDone;
+  const pct = grand>0 ? Math.round(done/grand*100) : 0;
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('progressCount').textContent = done+' / '+grand;
+  const star = Math.round(pct/20);
+  document.getElementById('starsDisplay').textContent = '⭐'.repeat(star)+'🌑'.repeat(5-star);
+}
+
+function selectMCQ(btn,qId,chosen){ if(submitted) return; btn.parentElement.querySelectorAll('.opt-btn').forEach(b=>b.classList.remove('selected')); btn.classList.add('selected'); mcqSelections[qId]=chosen; mcqBtnMap[qId]=btn; updateProgress(); }
+function selectTF(btn,qId,chosen){ if(submitted) return; let btns=btn.closest('.tf-btns').querySelectorAll('.tf-btn'); btns.forEach(b=>b.classList.remove('selected-true','selected-false')); btn.classList.add(chosen==='True'?'selected-true':'selected-false'); tfSelections[qId]=chosen; tfBtnMap[qId]=btn; updateProgress(); }
+function saveFill(id,accept){ if(submitted) return; let inp=document.getElementById(id); let val=inp.value.trim(); if(!val) return; fillValues[id]=val; fillAcceptable[id]=accept; inp.classList.remove('correct','wrong'); inp.classList.add('saved'); let rev=document.getElementById('reveal_'+id); if(rev) rev.style.display='none'; let msg=document.createElement('span'); msg.innerText='💾 Saved!'; msg.style.cssText='margin-left:8px;font-size:12px;color:var(--purple);font-weight:700'; inp.parentElement.appendChild(msg); setTimeout(()=>msg.remove(),1500); updateProgress(); }
+function saveShort(id){ let el=document.getElementById('saved_'+id); if(el){ el.style.display='block'; setTimeout(()=>el.style.display='none',2000); } }
+
+function openConfirm(){ if(submitted) return; let auto=Object.keys(CORRECT).length; let fill=Object.keys(fillAcceptable).length; let grand=auto+fill; let done=Object.keys(mcqSelections).length+Object.keys(tfSelections).length+Object.keys(fillValues).filter(id=>fillValues[id].trim()!=='').length; let un=grand-done; let note=document.getElementById('unansweredNote'); note.style.display=un?'block':'none'; note.textContent=un?`⚠️ ${un} unanswered → will be skipped.`:''; document.getElementById('confirmOverlay').classList.add('visible'); }
+function closeConfirm(){ document.getElementById('confirmOverlay').classList.remove('visible'); }
+
+function confirmSubmit(){
+  closeConfirm(); submitted=true;
+  // grade MCQ/TF
+  Object.keys(CORRECT).forEach(qId=>{
+    if(mcqSelections[qId]!==undefined){
+      let chosen=mcqSelections[qId]; let correct=CORRECT[qId]; let is=chosen===correct; answered[qId]=is;
+      let btns=document.querySelectorAll(`.opt-btn[onclick*="'${qId}'"]`);
+      btns.forEach(b=>{ b.disabled=true; b.classList.remove('selected'); let oc=b.getAttribute('onclick'); if(oc&&oc.includes("'"+chosen+"'")) b.classList.add(is?'correct':'wrong'); if(!is&&oc&&oc.includes("'"+correct+"'")) b.classList.add('reveal-correct'); });
+      let fb=document.getElementById('fb_'+qId); if(fb){ fb.className='feedback-badge '+(is?'correct':'wrong'); fb.innerHTML=is?'🎉 Correct!':'😅 Incorrect'; fb.style.display='inline-flex'; }
+      let chosenText='',correctText=''; btns.forEach(b=>{ let oc=b.getAttribute('onclick'); if(oc&&oc.includes("'"+chosen+"'")) chosenText=b.textContent.trim(); if(oc&&oc.includes("'"+correct+"'")) correctText=b.textContent.trim(); });
+      let qBlock=document.getElementById('fb_'+qId)?.closest('.q-block'); let qTxt=qBlock?getQText(qBlock.querySelector('.q-text')):qId;
+      questionLog.push({type:'mcq',qId,questionText:qTxt,yourAnswer:chosenText,correctAnswer:correctText,isCorrect:is});
+    } else if(tfSelections[qId]!==undefined){
+      let chosen=tfSelections[qId]; let correct=CORRECT[qId]; let is=chosen===correct; answered[qId]=is;
+      let btns=document.querySelectorAll(`.tf-btn[onclick*="'${qId}'"]`);
+      btns.forEach(b=>{ b.disabled=true; b.classList.remove('selected-true','selected-false'); if(b.textContent.trim()===chosen) b.classList.add(is?'correct':'wrong'); if(!is && b.textContent.trim()===correct) b.classList.add('correct'); });
+      let row=btns[0]?.closest('.tf-row'); let qTxt=row?.querySelector('.tf-text')?.textContent.trim()||qId;
+      questionLog.push({type:'tf',qId,questionText:qTxt,yourAnswer:chosen,correctAnswer:correct,isCorrect:is});
+    } else {
+      // skipped
+      let btns=document.querySelectorAll(`.opt-btn[onclick*="'${qId}'"]`);
+      btns.forEach(b=>{ b.disabled=true; b.classList.remove('selected'); let oc=b.getAttribute('onclick'); if(oc&&oc.includes("'"+CORRECT[qId]+"'")) b.classList.add('reveal-correct'); });
+      let tfbs=document.querySelectorAll(`.tf-btn[onclick*="'${qId}'"]`);
+      tfbs.forEach(b=>{ b.disabled=true; if(b.textContent.trim()===CORRECT[qId]) b.classList.add('correct'); });
+      let qTxt=qId; let fb=document.getElementById('fb_'+qId); if(fb?.closest('.q-block')) qTxt=getQText(fb.closest('.q-block').querySelector('.q-text'))||qId;
+      if(qTxt===qId) document.querySelectorAll('.tf-row').forEach(row=>{ row.querySelectorAll('.tf-btn').forEach(b=>{ if(b.getAttribute('onclick')?.includes("'"+qId+"'")) qTxt=row.querySelector('.tf-text')?.textContent.trim()||qId; }); });
+      questionLog.push({type:'skipped',qId,questionText:qTxt,yourAnswer:'—',correctAnswer:CORRECT[qId],isCorrect:false});
+    }
+  });
+  // grade fill
+  document.querySelectorAll('.fill-input').forEach(inp=>{
+    let id=inp.id; let acc=fillAcceptable[id]; let val=fillValues[id]||''; let qBlock=inp.closest('.q-block'); let qTxt=qBlock?getQText(qBlock.querySelector('.q-text')):id;
+    inp.disabled=true; inp.classList.remove('saved');
+    if(acc){
+      let is=acc.map(a=>a.toLowerCase()).includes(val.toLowerCase()); fillAnswered[id]=is; inp.classList.add(is?'correct':'wrong');
+      if(!is){ let rev=document.getElementById('reveal_'+id); if(rev) rev.style.display='block'; }
+      questionLog.push({type:'fill',qId:id,questionText:qTxt,yourAnswer:val||'(blank)',correctAnswer:acc[0],isCorrect:is});
+    } else if(val){
+      inp.classList.add('wrong'); let rev=document.getElementById('reveal_'+id); if(rev) rev.style.display='block';
+      questionLog.push({type:'skipped-fill',qId:id,questionText:qTxt,yourAnswer:'—',correctAnswer:'?',isCorrect:false});
+    } else {
+      let rev=document.getElementById('reveal_'+id); if(rev) rev.style.display='block';
+      questionLog.push({type:'skipped-fill',qId:id,questionText:qTxt,yourAnswer:'—',correctAnswer:'?',isCorrect:false});
+    }
+  });
+  document.querySelectorAll('.check-btn').forEach(b=>b.disabled=true);
+  showScore();
+}
+
+function launchConfetti(n){
+  let cols=['#ffcc00','#ff6b9d','#4fc3f7','#69f0ae','#ffab40','#b39ddb'];
+  let c=document.getElementById('confettiContainer');
+  for(let i=0;i<n*8;i++){ let p=document.createElement('div'); p.className='confetti-piece'; p.style.left=Math.random()*100+'vw'; p.style.background=cols[Math.floor(Math.random()*cols.length)]; p.style.width=(6+Math.random()*8)+'px'; p.style.height=(6+Math.random()*8)+'px'; p.style.animationDuration=(1.5+Math.random()*1.5)+'s'; c.appendChild(p); setTimeout(()=>p.remove(),3000); }
+}
+
+function showScore(){
+  let total=Object.keys(CORRECT).length+Object.keys(fillAcceptable).length;
+  let correct=Object.values(answered).filter(v=>v).length+Object.values(fillAnswered).filter(v=>v).length;
+  let wrong=(Object.keys(answered).length+Object.keys(fillAnswered).length)-correct;
+  let skipped=total-(Object.keys(answered).length+Object.keys(fillAnswered).length);
+  let pct=total>0?Math.round(correct/total*100):0;
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('progressCount').textContent=correct+' / '+total+' correct';
+  let stars=Math.round(correct/total*5); document.getElementById('starsDisplay').textContent='⭐'.repeat(stars)+'🌑'.repeat(5-stars);
+  document.getElementById('scoreCircle').style.setProperty('--pct',pct);
+  document.getElementById('scoreNum').textContent=pct+'%';
+  document.getElementById('scoreTrophy').textContent=pct>=90?'🏆':pct>=75?'🥇':pct>=60?'🥈':'🎯';
+  document.getElementById('scoreHeading').textContent=pct>=90?'Outstanding!':pct>=75?'Great job!':pct>=60?'Good effort!':'Keep practising!';
+  document.getElementById('scoreMsg').textContent=pct>=90?'🌟 Superstar!':pct>=75?'🎉 Fantastic':pct>=60?'👍 Solid':'💪 Keep trying';
+  document.getElementById('scoreStats').innerHTML=`
+    <div class="stat-pill correct"><span class="stat-val">${correct}</span><span class="stat-lbl">Correct ✅</span></div>
+    <div class="stat-pill wrong"><span class="stat-val">${wrong}</span><span class="stat-lbl">Wrong ❌</span></div>
+    <div class="stat-pill skipped"><span class="stat-val">${skipped}</span><span class="stat-lbl">Skipped ⏭️</span></div>
+    <div class="stat-pill total"><span class="stat-val">${total}</span><span class="stat-lbl">Total 📋</span></div>`;
+  let html=questionLog.map((q,i)=>`<div class="result-item ${q.isCorrect?'ri-correct':q.type.includes('skip')?'ri-skipped':'ri-wrong'}" style="animation-delay:${i*0.04}s"><div class="ri-icon">${q.isCorrect?'✅':q.type.includes('skip')?'⏭️':'❌'}</div><div class="ri-body"><div class="ri-qtext">${escHtml(q.questionText)}</div><div class="ri-row"><span class="ri-label">Your answer:</span><span class="ri-val ${q.isCorrect?'your-correct':q.yourAnswer==='—'?'skipped-val':'your-wrong'}">${escHtml(q.yourAnswer)}</span></div>${!q.isCorrect?`<div class="ri-row"><span class="ri-label">✅ Correct:</span><span class="ri-val correct-ans">${escHtml(q.correctAnswer)}</span></div>`:''}</div><div><span class="ri-badge ${q.isCorrect?'correct':q.type.includes('skip')?'skipped':'wrong'}">${q.isCorrect?'Correct':q.type.includes('skip')?'Skipped':'Incorrect'}</span></div></div>`).join('');
+  document.getElementById('resultsBody').innerHTML=html||'<p style="padding:20px;color:var(--muted)">No graded answers.</p>';
+  document.getElementById('scoreSummary').style.display='block'; document.getElementById('scoreSummary').scrollIntoView({behavior:'smooth'});
+  launchConfetti(8);
+}
+function printScore(){ window.print(); }
+function restartAll(){ location.reload(); }
+updateProgress();
+</script>
+</body>
+</html>
